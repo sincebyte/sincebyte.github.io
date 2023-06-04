@@ -15,11 +15,7 @@
       <pubDate>Thu, 31 Mar 2022 13:11:22 +0800</pubDate>
       
       <guid>/posts/orgmodecss/</guid>
-      <description>&lt;p&gt;使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;样式引用：&lt;a href=&#34;https://docs.doomemacs.org/latest/#/modules&#34;&gt;https://docs.doomemacs.org/latest/#/modules&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;一个类 &lt;strong&gt;doom doc&lt;/strong&gt; 的 &lt;strong&gt;org html&lt;/strong&gt; 样式模版 &lt;a href=&#34;http://1.117.167.195/doc/doomorgstyle.html&#34;&gt;点此预览🪄&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style&lt;/p&gt;</description>
     </item>
     
   </channel>
