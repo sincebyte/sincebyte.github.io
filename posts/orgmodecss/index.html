@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>推荐一款 org mode 导出 html 的样式 | Vaniuniuer</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.3fba50282b27968ec10a2d25927936348fd254a690104f6417424415acb4bb5db26dfa4ce5453b532550c8e1da9eaed9.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"推荐一款 org mode 导出 html 的样式",
+      "item":"/posts/orgmodecss/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/orgmodecss/"
+    },
+    "headline": "推荐一款 org mode 导出 html 的样式 | Vaniuniuer","datePublished": "2022-03-31T13:11:22+08:00",
+    "dateModified": "2021-03-31T13:11:22+08:00",
+    "wordCount":  769 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003e使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="推荐一款 org mode 导出 html 的样式 | Vaniuniuer" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/orgmodecss/" />
+
+
+
+
+<meta property="og:description" content="使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Vaniuniuer" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-03-31T13:11:22&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-03-31T13:11:22&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Vaniuniuer</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">推荐一款 org mode 导出 html 的样式</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-03-31</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style</p>
+<blockquote>
+<p>样式引用：<a href="https://docs.doomemacs.org/latest/#/modules">https://docs.doomemacs.org/latest/#/modules</a></p>
+</blockquote>
+<p>一个类 <strong>doom doc</strong> 的 <strong>org html</strong> 样式模版 <a href="http://1.117.167.195/doc/doomorgstyle.html">点此预览🪄</a></p>
+<p><a id="orga2fd454"></a></p>
+<h1 id="使用">使用</h1>
+<p>配置 <strong>snippet</strong> 模版，然后在 <strong>org mode</strong> 文件中使用 <code>tt</code> <code>tab</code> 就可展开此模版。</p>
+<pre><code> 1      # -*- mode: snippet -*-
+ 2      # name: title
+ 3      # key: tt
+ 4      # --
+ 5      #+title: `(file-name-sans-extension (buffer-name))`
+ 6      #+SUBTITLE: this is subtitle
+ 7      #+AUTHOR: autor
+ 8      #+HTML_HEAD: &lt;script src=&quot;scroll.js&quot;&gt;&lt;/script&gt;
+ 9      #+HTML_HEAD: &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;org_css.css&quot;/&gt;
+10      #+HTML_HEAD: &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+11      #+OPTIONS: prop:nil timestamp:t \n:t ^:nil f:t toc:t author:t num:t H:2
+12      #+LATEX_COMPILER: xelatex
+13      #+LATEX_CLASS: elegantpaper
+14      #+MACRO: htmlred @@html:&lt;font color=&quot;red&quot;&gt;&lt;/font&gt;@@
+15      #+MACRO: latexred @@latex:{\color{red}@@@@latex:}@@
+16      #+latex:\newpage
+</code></pre>
+<div class="notice-info" id="orgdce76b1">
+<p>
+想使用在线版的静态文件，可以使用下面的配置进行替换<br />
+</p>
+</div>
+<pre><code>1      #+HTML_HEAD: &lt;link href=&quot;https://emacs-1308440781.cos.ap-chengdu.myqcloud.com/org_css.css&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+2      #+HTML_HEAD: &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+3      #+HTML_HEAD: &lt;script src=&quot;https://emacs-1308440781.cos.ap-chengdu.myqcloud.com/scroll.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><a id="org247c9e3"></a></p>
+<h1 id="字体样式">字体样式</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 1:</span> 字体样式说明</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">粗体</td>
+<td class="org-left"><b>bold</b></td>
+</tr>
+<tr>
+<td class="org-left">斜体</td>
+<td class="org-left"><i>italic</i></td>
+</tr>
+<tr>
+<td class="org-left">下划线</td>
+<td class="org-left"><span class="underline">underlined</span></td>
+</tr>
+<tr>
+<td class="org-left">中横线</td>
+<td class="org-left"><del>strike-through</del></td>
+</tr>
+<tr>
+<td class="org-left">代码，按键</td>
+<td class="org-left"><code>code</code></td>
+</tr>
+</tbody>
+</table>
+<p><a id="org3cfca41"></a></p>
+<h1 id="特殊说明">特殊说明</h1>
+<p><a id="org47a25d6"></a></p>
+<h2 id="quote-摘要引用">quote 摘要、引用</h2>
+<p>可使用`quote`来进行代码块补全，表示摘要，引用</p>
+<blockquote>
+<p>TECO - Tape [later text] Editor/COrrector<br>
+A combination text editor/really horrible ProgrammingLanguage. To quote the paper “RealProgrammers don’t use Pascal” (1983):</p>
+</blockquote>
+<p><a id="orgab1b5ec"></a></p>
+<h2 id="notice-注意事项提醒">notice 注意事项、提醒</h2>
+<div class="notice-info" id="org2279dcd">
+<p>
+你有许多已标记的项目并且你可能错过一个重要的项目时，提醒可以提供帮助<br />
+</p>
+</div>
+<div class="notice-warning" id="org2e206ce">
+<p>
+Please do not file or answer Doom Emacs issues on Reddit, Twitter, or StackOverflow. Kindly refer them to this section.<br />
+</p>
+</div>
+<div class="notice-example" id="org609f928">
+<p>
+这是1个例子<br />
+</p>
+</div>
+<p><a id="org0565da7"></a></p>
+<h1 id="段落及高亮">段落及高亮</h1>
+<p>Example of an  comment.</p>
+<p>原文：<a href="https://iuap.yonyoucloud.com/doc/yonbuilder.html#/md-build/yonbuilder/articles/yonbuilder/1-/notes.md?key=%E5%8F%91%E7%89%88%E8%AF%B4%E6%98%8E">用友bip产品功能说明</a> ，在说明文档</p>
+<p>大数据中 <strong>最宝贵</strong> 、最难以代替的就是数据，一切都围绕数据。</p>
+<p>HDFS是最早的大数据存储系统，存储着宝贵的数据资产，各种新算法、框架要想得到广泛使用，必须支持HDFS，才能获取已存储在里面的数据。所以大数据技术越发展，新技术越多，HDFS得到的支持越多，越离不开HDFS。HDFS也许不是最好的大数据存储技术，但依然是最重要的大数据存储技术。</p>
+<p>HDFS是如何实现大数据高速、可靠的存储和访问的呢？</p>
+<ul>
+<li>Hadoop分布式文件系统HDFS的设计目标是管理数以千计的服务器、数以万计的磁盘，将大规模的服务器计算资源当作一个单一存储系统进行管理，对应用程序提供数以PB计的存储容量，让应用程序像使用普通文件系统一样存储大规模的文件数据。</li>
+</ul>
+<p><a id="org5f4a74c"></a></p>
+<h1 id="表格">表格</h1>
+<p><code>C-c ~</code> to convert to tabel.el table<br>
+<code>C-c ~</code> to convert to org table<br>
+org table <code>M-h</code> <code>M-l</code> for move Columns left and right<br>
+org table <code>M-k</code> <code>M-j</code> for move Rows up and down</p>
+<pre><code># table.el for merge Columns or Rows
+</code></pre>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 2:</span> square</caption>
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+<colgroup>
+<col  class="org-right" />
+<col  class="org-right" />
+<col  class="org-right" />
+</colgroup>
+<colgroup>
+<col  class="org-right" />
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">N</th>
+<th scope="col" class="org-right">N^2</th>
+<th scope="col" class="org-right">N^3</th>
+<th scope="col" class="org-right">N^4</th>
+<th scope="col" class="org-right">sqrt(n)</th>
+<th scope="col" class="org-right">sqrt[4](N)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+<td class="org-right">8</td>
+<td class="org-right">16</td>
+<td class="org-right">1.4142136</td>
+<td class="org-right">1.1892071</td>
+</tr>
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">9</td>
+<td class="org-right">27</td>
+<td class="org-right">81</td>
+<td class="org-right">1.7320508</td>
+<td class="org-right">1.3160740</td>
+</tr>
+</tbody>
+</table>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 3:</span> student</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-right" />
+<col  class="org-right" />
+<col  class="org-right" />
+<col  class="org-right" />
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Student</th>
+<th scope="col" class="org-right">Prob 1</th>
+<th scope="col" class="org-right">Prob 2</th>
+<th scope="col" class="org-right">Prob 3</th>
+<th scope="col" class="org-right">Total</th>
+<th scope="col" class="org-right">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Maximum</td>
+<td class="org-right">10</td>
+<td class="org-right">15</td>
+<td class="org-right">25</td>
+<td class="org-right">50</td>
+<td class="org-right">10.0</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Peter</td>
+<td class="org-right">10</td>
+<td class="org-right">8</td>
+<td class="org-right">23</td>
+<td class="org-right">41</td>
+<td class="org-right">8.2</td>
+</tr>
+<tr>
+<td class="org-left">Sam</td>
+<td class="org-right">2</td>
+<td class="org-right">4</td>
+<td class="org-right">3</td>
+<td class="org-right">9</td>
+<td class="org-right">1.8</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Average</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">25.0</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 4:</span> long table</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-right" />
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Format</th>
+<th scope="col" class="org-left">Fine-grained-control</th>
+<th scope="col" class="org-left">Initial Effort</th>
+<th scope="col" class="org-left">Syntax simplicity</th>
+<th scope="col" class="org-left">Editor Support</th>
+<th scope="col" class="org-left">Integrations</th>
+<th scope="col" class="org-right">Ease-of-referencing</th>
+<th scope="col" class="org-right">Versatility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Word</td>
+<td class="org-left">Word^2</td>
+<td class="org-left">Word^3</td>
+<td class="org-left">Word^4</td>
+<td class="org-left">sqrt(Word)</td>
+<td class="org-left">sqrt(sqrt(Word))</td>
+<td class="org-right">2</td>
+<td class="org-right">2</td>
+</tr>
+<tr>
+<td class="org-left">LaTeX</td>
+<td class="org-left">LaTeX^2</td>
+<td class="org-left">LaTeX^3</td>
+<td class="org-left">LaTeX^4</td>
+<td class="org-left">sqrt(LaTeX)</td>
+<td class="org-left">sqrt(sqrt(LaTeX))</td>
+<td class="org-right">4</td>
+<td class="org-right">3</td>
+</tr>
+<tr>
+<td class="org-left">Org Mode</td>
+<td class="org-left">Org^2 Mode^2</td>
+<td class="org-left">Org^3 Mode^3</td>
+<td class="org-left">Org^4 Mode^4</td>
+<td class="org-left">sqrt(Org Mode)</td>
+<td class="org-left">sqrt(sqrt(Org Mode))</td>
+<td class="org-right">4</td>
+<td class="org-right">4</td>
+</tr>
+<tr>
+<td class="org-left">Markdown</td>
+<td class="org-left">Markdown^2</td>
+<td class="org-left">Markdown^3</td>
+<td class="org-left">Markdown^4</td>
+<td class="org-left">sqrt(Markdown)</td>
+<td class="org-left">sqrt(sqrt(Markdown))</td>
+<td class="org-right">3</td>
+<td class="org-right">1</td>
+</tr>
+<tr>
+<td class="org-left">Markdown + Pandoc</td>
+<td class="org-left">(Markdown + Pandoc)^2</td>
+<td class="org-left">(Markdown + Pandoc)^3</td>
+<td class="org-left">(Markdown + Pandoc)^4</td>
+<td class="org-left">sqrt(Markdown + Pandoc)</td>
+<td class="org-left">sqrt(sqrt(Markdown + Pandoc))</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+</table>
+<p><a id="org607dee9"></a></p>
+<h2 id="awk-表格">awk 表格</h2>
+<table id="org39ecdad" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-right" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">aardvark</td>
+<td class="org-right">555-5553</td>
+<td class="org-left">1200/300</td>
+<td class="org-left">B</td>
+</tr>
+<tr>
+<td class="org-left">alpo-net</td>
+<td class="org-right">555-3412</td>
+<td class="org-left">2400/1200/300</td>
+<td class="org-left">A</td>
+</tr>
+<tr>
+<td class="org-left">barfly</td>
+<td class="org-right">555-7685</td>
+<td class="org-left">1200/300</td>
+<td class="org-left">A</td>
+</tr>
+<tr>
+<td class="org-left">bites</td>
+<td class="org-right">555-1675</td>
+<td class="org-left">2400/1200/300</td>
+<td class="org-left">A</td>
+</tr>
+<tr>
+<td class="org-left">camelot</td>
+<td class="org-right">555-0542</td>
+<td class="org-left">300</td>
+<td class="org-left">C</td>
+</tr>
+<tr>
+<td class="org-left">core</td>
+<td class="org-right">555-2912</td>
+<td class="org-left">1200/300</td>
+<td class="org-left">C</td>
+</tr>
+<tr>
+<td class="org-left">fooey</td>
+<td class="org-right">555-1234</td>
+<td class="org-left">2400/1200/300</td>
+<td class="org-left">B</td>
+</tr>
+<tr>
+<td class="org-left">foot</td>
+<td class="org-right">555-6699</td>
+<td class="org-left">1200/300</td>
+<td class="org-left">B</td>
+</tr>
+<tr>
+<td class="org-left">macfoo</td>
+<td class="org-right">555-6480</td>
+<td class="org-left">1200/300</td>
+<td class="org-left">A</td>
+</tr>
+<tr>
+<td class="org-left">sdace</td>
+<td class="org-right">555-3430</td>
+<td class="org-left">2400/1200/300</td>
+<td class="org-left">A</td>
+</tr>
+<tr>
+<td class="org-left">sabafoo</td>
+<td class="org-right">555-2127</td>
+<td class="org-left">1200/300</td>
+<td class="org-left">C</td>
+</tr>
+</tbody>
+</table>
+<pre><code>/foo/ { print $0 }
+</code></pre>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 5:</span> 筛选出foo匹配的行</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-right" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">fooey</td>
+<td class="org-right">555-1234</td>
+<td class="org-left">2400/1200/300</td>
+<td class="org-left">B</td>
+</tr>
+<tr>
+<td class="org-left">foot</td>
+<td class="org-right">555-6699</td>
+<td class="org-left">1200/300</td>
+<td class="org-left">B</td>
+</tr>
+<tr>
+<td class="org-left">macfoo</td>
+<td class="org-right">555-6480</td>
+<td class="org-left">1200/300</td>
+<td class="org-left">A</td>
+</tr>
+<tr>
+<td class="org-left">sabafoo</td>
+<td class="org-right">555-2127</td>
+<td class="org-left">1200/300</td>
+<td class="org-left">C</td>
+</tr>
+</tbody>
+</table>
+<p><a id="orgfcc3f17"></a></p>
+<h2 id="表格自增id">表格自增id</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-right" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">字段名</td>
+<td class="org-left">名称</td>
+</tr>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">age</td>
+<td class="org-left">年龄</td>
+</tr>
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">bir</td>
+<td class="org-left">出生年月日</td>
+</tr>
+</tbody>
+</table>
+<pre><code>#+tblfm: $1=@#-1
+</code></pre>
+<p><code>C-c</code> <code>C-c</code> to execute it</p>
+<p><a id="org23c7911"></a></p>
+<h1 id="latex-公式">LaTex 公式</h1>
+<pre><code>1  $\mbox{需求的价格弹性系数} = \frac{\mbox{需求的变动率}}{\mbox{价格的变动率}}$
+</code></pre>
+<p>$$\mbox{需求的价格弹性系数} = \frac{\mbox{需求的变动率}}{\mbox{价格的变动率}}$$</p>
+<p>$$\begin{aligned}
+\cos 3\theta &amp; = \cos (2 \theta + \theta) \
+&amp; = \cos 2 \theta \cos \theta - \sin 2 \theta \sin \theta \
+&amp; = (2 \cos ^2 \theta -1) \cos \theta - (2 \sin \theta\cos \theta ) \sin \theta \
+&amp; = 2 \cos ^3 \theta - \cos \theta - 2 \sin ^2 \theta \cos \theta \
+&amp; = 2 \cos ^3 \theta - \cos \theta - 2 (1 - \cos ^2 \theta )\cos \theta \
+&amp; = 4 \cos ^3 \theta -3 \cos \theta
+\end{aligned} $$</p>
+<p><a id="orgcb841e2"></a></p>
+<h1 id="代码">代码</h1>
+<p>代码片段开启行号，修改 `~/.emacs.d/.local/straight/repos/org/lisp/ox-html.el`</p>
+<pre><code>1    (let* ((code-lines (split-string code &quot;\n&quot;))
+2  	 (code-length (length code-lines))
+3  	 (num-fmt
+4  	  (and num-start
+5  	       (format &quot;%%%ds &quot;
+6  	       (format &quot;%%%ds: &quot;
+</code></pre>
+<p><a id="org390f60e"></a></p>
+<h2 id="java代码">Java代码</h2>
+<pre><code>10      /**
+11       * @param request 调用的请求参数
+12       * @param needLog true 需要记录日志  false 不记录日志
+13       * @return
+14       */
+15      protected NcApiResponse runApply(NcApiRequest request, Boolean needLog) {
+16          NcApiResponse ncApiResponse = null;
+17          try {
+18              final NcApiRequest ncApiRequest = executeBefore(request);
+19              ncApiResponse = executeGetRequest(ncApiRequest);
+20          } catch (Exception e) {
+21              afterExecute(needLog, e, request, ncApiResponse);
+22              if (e instanceof BizException) {
+23                  throw new BizException(&quot;NC提示&quot;, ((BizException) e).getErrorMsg(), e);
+24              } else {
+25                  throw new BizException(&quot;NC异常&quot;, e.getMessage());
+26              }
+27          }
+28  
+29          return ncApiResponse;
+30      }
+</code></pre>
+<p><a id="org3324f59"></a></p>
+<h2 id="babel-java">babel java</h2>
+<pre><code>List&lt;Integer&gt; a = Arrays.asList(1, 2);
+List&lt;Integer&gt; a = Arrays.asList(1, 2);
+List&lt;Integer&gt; a = Arrays.asList(1, 2);
+List&lt;Integer&gt; a = Arrays.asList(1, 2);
+List&lt;Integer&gt; a = Arrays.asList(1, 2);
+return a;
+</code></pre>
+<p><code>C-c</code> <code>C-c</code> to execute it, but export to html will fail when the babel java result generated.</p>
+<p><a id="org30a9b18"></a></p>
+<h1 id="图片">图片</h1>
+<p><a id="orga80f44f"></a></p>
+<h2 id="引用本地图片">引用本地图片</h2>
+<p><img src="./image/excalidraw-demo.svg" alt="img" title="create by &lt;https://excalidraw.com/&gt;"></p>
+<p><a id="org86d7677"></a></p>
+<h2 id="引用网络图片">引用网络图片</h2>
+<p><a id="org5fa4170"></a></p>
+<h2 id="dot-graphviz">dot graphviz</h2>
+<ol>
+<li>
+<p>dot</p>
+<p><img src="image/dot-graphviz-demo.svg" alt="img" title="XX系统v1.2.3架构图"></p>
+</li>
+<li>
+<p>dot sk</p>
+<p><img src="image/dot-sk-graphviz-demo.svg" alt="img" title="手绘风格的dot graphviz"></p>
+</li>
+</ol>
+<p><a id="org5791ef6"></a></p>
+<h2 id="plantuml">plantuml</h2>
+<ol>
+<li>
+<p>plantuml with style css</p>
+<p>plantuml 替换原生样式<br>
+DARKORANGE/LIGHTORANGE/DARKBLUE/LIGHTBLUE/DARKRED/LIGHTRED/DARKGREEN/LIGHTGREEN</p>
+<pre><code>!define DARKORANGE
+!includeurl /Users/van/org/org-roam/C4-PlantUML/juststyle.puml
+</code></pre>
+<p><img src="image/plant-uml-order.svg" alt="img" title="有样式的plantuml时序图"></p>
+</li>
+<li>
+<p>plant uml 系统Contex架构图</p>
+<p>plantuml 替换原生样式<br>
+DARKORANGE/LIGHTORANGE/DARKBLUE/LIGHTBLUE/DARKRED/LIGHTRED/DARKGREEN/LIGHTGREEN</p>
+<pre><code>!define DARKBLUE
+!includeurl /Users/van/org/org-roam/C4-PlantUML/juststyle.puml
+</code></pre>
+<p><img src="image/plantuml-c4.svg" alt="img" title="系统Contex架构图"></p>
+</li>
+<li>
+<p>泳道图</p>
+<p><img src="./image/plantuml-swiming.svg" alt="img"></p>
+</li>
+</ol>
+<p><a id="org84f878f"></a></p>
+<h1 id="org转word">org转Word</h1>
+<pre><code>1  pandoc -o ~/Desktop/out.docx ~/.doom.d/README.org
+</code></pre>
+<p><a id="org9c63a9f"></a></p>
+<h1 id="插入时间">插入时间</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c .</code></td>
+<td class="org-left">插入当前时间 <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-02-25 Sat&gt;</span></span></td>
+</tr>
+<tr>
+<td class="org-left"><code>K</code></td>
+<td class="org-left">lask week</td>
+</tr>
+<tr>
+<td class="org-left"><code>J</code></td>
+<td class="org-left">next week</td>
+</tr>
+<tr>
+<td class="org-left"><code>L</code></td>
+<td class="org-left">next day</td>
+</tr>
+</tbody>
+</table>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#quote-摘要引用">quote 摘要、引用</a></li>
+    <li><a href="#notice-注意事项提醒">notice 注意事项、提醒</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#awk-表格">awk 表格</a></li>
+    <li><a href="#表格自增id">表格自增id</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#java代码">Java代码</a></li>
+    <li><a href="#babel-java">babel java</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#引用本地图片">引用本地图片</a></li>
+    <li><a href="#引用网络图片">引用网络图片</a></li>
+    <li><a href="#dot-graphviz">dot graphviz</a></li>
+    <li><a href="#plantuml">plantuml</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2023 Vaniuniuer
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
