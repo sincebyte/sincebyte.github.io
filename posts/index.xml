@@ -15,11 +15,11 @@
       <pubDate>Thu, 31 Mar 2022 13:11:22 +0800</pubDate>
       
       <guid>/posts/orgmodecss/</guid>
-      <description>使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style
-样式引用：https://docs.doomemacs.org/latest/#/modules
-一个类 doom doc 的 org html 样式模版 点此预览🪄
-使用 配置 snippet 模版，然后在 org mode 文件中使用 tt tab 就可展开此模版。
-# -*- mode: snippet -*- # name: title # key: tt # -- #+title: `(file-name-sans-extension (buffer-name))` #+SUBTITLE: this is subtitle #+AUTHOR: autor #+HTML_HEAD: &amp;lt;script src=&amp;quot;scroll.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; #+HTML_HEAD: &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;org_css.css&amp;quot;/&amp;gt; #+HTML_HEAD: &amp;lt;script src=&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; #+OPTIONS: prop:nil timestamp:t \n:t ^:nil f:t toc:t author:t num:t H:2 #+LATEX_COMPILER: xelatex #+LATEX_CLASS: elegantpaper #+MACRO: htmlred @@html:&amp;lt;font color=&amp;quot;red&amp;quot;&amp;gt;&amp;lt;/font&amp;gt;@@ #+MACRO: latexred @@latex:{\color{red}@@@@latex:}@@ #+latex:\newpage 想使用在线版的静态文件，可以使用下面的配置进行替换</description>
+      <description>&lt;p&gt;使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;样式引用：&lt;a href=&#34;https://docs.doomemacs.org/latest/#/modules&#34;&gt;https://docs.doomemacs.org/latest/#/modules&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一个类 &lt;strong&gt;doom doc&lt;/strong&gt; 的 &lt;strong&gt;org html&lt;/strong&gt; 样式模版 &lt;a href=&#34;http://1.117.167.195/doc/doomorgstyle.html&#34;&gt;点此预览🪄&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
