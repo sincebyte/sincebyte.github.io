@@ -77,7 +77,10 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style">
+  content="样式引用：https://docs.doomemacs.org/latest/#/modules
+一个类 doom doc 的 org html 样式模版 点此预览🪄
+使用 配置 snippet 模版，然后在 org mode 文件中使用 tt tab 就可展开此模版。
+# -*- mode: snippet -*- # name: title # key: tt # -- #&#43;title: `(file-name-sans-extension (buffer-name))` #&#43;SUBTITLE: this is subtitle #&#43;AUTHOR: autor #&#43;HTML_HEAD: &lt;script src=&quot;scroll.js&quot;&gt;&lt;/script&gt; #&#43;HTML_HEAD: &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;org_css.css&quot;/&gt; #&#43;HTML_HEAD: &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt; #&#43;OPTIONS: prop:nil timestamp:t \n:t ^:nil f:t toc:t author:t num:t H:2 #&#43;LATEX_COMPILER: xelatex #&#43;LATEX_CLASS: elegantpaper #&#43;MACRO: htmlred @@html:&lt;font color=&quot;red&quot;&gt;&lt;/font&gt;@@ #&#43;MACRO: latexred @@latex:{\color{red}@@@@latex:}@@ #&#43;latex:\newpage 想使用在线版的静态文件，可以使用下面的配置进行替换">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -106,7 +109,7 @@
     },
     "headline": "推荐一款 org mode 导出 html 的样式 | Vaniuniuer","datePublished": "2022-03-31T13:11:22+08:00",
     "dateModified": "2021-03-31T13:11:22+08:00",
-    "wordCount":  769 ,
+    "wordCount":  739 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,7 +118,7 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003e使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style\u003c\/p\u003e"
+    "description": "样式引用：https:\/\/docs.doomemacs.org\/latest\/#\/modules\n一个类 doom doc 的 org html 样式模版 点此预览🪄\n使用 配置 snippet 模版，然后在 org mode 文件中使用 tt tab 就可展开此模版。\n# -*- mode: snippet -*- # name: title # key: tt # -- #\u002btitle: `(file-name-sans-extension (buffer-name))` #\u002bSUBTITLE: this is subtitle #\u002bAUTHOR: autor #\u002bHTML_HEAD: \u0026lt;script src=\u0026quot;scroll.js\u0026quot;\u0026gt;\u0026lt;\/script\u0026gt; #\u002bHTML_HEAD: \u0026lt;link rel=\u0026quot;stylesheet\u0026quot; type=\u0026quot;text\/css\u0026quot; href=\u0026quot;org_css.css\u0026quot;\/\u0026gt; #\u002bHTML_HEAD: \u0026lt;script src=\u0026quot;https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/jquery\/3.3.1\/jquery.min.js\u0026quot;\u0026gt;\u0026lt;\/script\u0026gt; #\u002bOPTIONS: prop:nil timestamp:t \\n:t ^:nil f:t toc:t author:t num:t H:2 #\u002bLATEX_COMPILER: xelatex #\u002bLATEX_CLASS: elegantpaper #\u002bMACRO: htmlred @@html:\u0026lt;font color=\u0026quot;red\u0026quot;\u0026gt;\u0026lt;\/font\u0026gt;@@ #\u002bMACRO: latexred @@latex:{\\color{red}@@@@latex:}@@ #\u002blatex:\\newpage 想使用在线版的静态文件，可以使用下面的配置进行替换"
 }
 </script><meta property="og:title" content="推荐一款 org mode 导出 html 的样式 | Vaniuniuer" />
 <meta property="og:type" content="article" />
@@ -129,7 +132,10 @@
 
 
 
-<meta property="og:description" content="使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style" />
+<meta property="og:description" content="样式引用：https://docs.doomemacs.org/latest/#/modules
+一个类 doom doc 的 org html 样式模版 点此预览🪄
+使用 配置 snippet 模版，然后在 org mode 文件中使用 tt tab 就可展开此模版。
+# -*- mode: snippet -*- # name: title # key: tt # -- #&#43;title: `(file-name-sans-extension (buffer-name))` #&#43;SUBTITLE: this is subtitle #&#43;AUTHOR: autor #&#43;HTML_HEAD: &lt;script src=&quot;scroll.js&quot;&gt;&lt;/script&gt; #&#43;HTML_HEAD: &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;org_css.css&quot;/&gt; #&#43;HTML_HEAD: &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt; #&#43;OPTIONS: prop:nil timestamp:t \n:t ^:nil f:t toc:t author:t num:t H:2 #&#43;LATEX_COMPILER: xelatex #&#43;LATEX_CLASS: elegantpaper #&#43;MACRO: htmlred @@html:&lt;font color=&quot;red&quot;&gt;&lt;/font&gt;@@ #&#43;MACRO: latexred @@latex:{\color{red}@@@@latex:}@@ #&#43;latex:\newpage 想使用在线版的静态文件，可以使用下面的配置进行替换" />
 
 
 
@@ -262,41 +268,40 @@
   
   
 
-  <p>使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style</p>
-<blockquote>
+  <blockquote>
 <p>样式引用：<a href="https://docs.doomemacs.org/latest/#/modules">https://docs.doomemacs.org/latest/#/modules</a></p>
 </blockquote>
 <p>一个类 <strong>doom doc</strong> 的 <strong>org html</strong> 样式模版 <a href="http://1.117.167.195/doc/doomorgstyle.html">点此预览🪄</a></p>
-<p><a id="orga2fd454"></a></p>
+<p><a id="orgd1eb9fa"></a></p>
 <h1 id="使用">使用</h1>
 <p>配置 <strong>snippet</strong> 模版，然后在 <strong>org mode</strong> 文件中使用 <code>tt</code> <code>tab</code> 就可展开此模版。</p>
-<pre><code> 1      # -*- mode: snippet -*-
- 2      # name: title
- 3      # key: tt
- 4      # --
- 5      #+title: `(file-name-sans-extension (buffer-name))`
- 6      #+SUBTITLE: this is subtitle
- 7      #+AUTHOR: autor
- 8      #+HTML_HEAD: &lt;script src=&quot;scroll.js&quot;&gt;&lt;/script&gt;
- 9      #+HTML_HEAD: &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;org_css.css&quot;/&gt;
-10      #+HTML_HEAD: &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-11      #+OPTIONS: prop:nil timestamp:t \n:t ^:nil f:t toc:t author:t num:t H:2
-12      #+LATEX_COMPILER: xelatex
-13      #+LATEX_CLASS: elegantpaper
-14      #+MACRO: htmlred @@html:&lt;font color=&quot;red&quot;&gt;&lt;/font&gt;@@
-15      #+MACRO: latexred @@latex:{\color{red}@@@@latex:}@@
-16      #+latex:\newpage
+<pre><code># -*- mode: snippet -*-
+# name: title
+# key: tt
+# --
+#+title: `(file-name-sans-extension (buffer-name))`
+#+SUBTITLE: this is subtitle
+#+AUTHOR: autor
+#+HTML_HEAD: &lt;script src=&quot;scroll.js&quot;&gt;&lt;/script&gt;
+#+HTML_HEAD: &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;org_css.css&quot;/&gt;
+#+HTML_HEAD: &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+#+OPTIONS: prop:nil timestamp:t \n:t ^:nil f:t toc:t author:t num:t H:2
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASS: elegantpaper
+#+MACRO: htmlred @@html:&lt;font color=&quot;red&quot;&gt;&lt;/font&gt;@@
+#+MACRO: latexred @@latex:{\color{red}@@@@latex:}@@
+#+latex:\newpage
 </code></pre>
-<div class="notice-info" id="orgdce76b1">
+<div class="notice-info" id="org71c862f">
 <p>
 想使用在线版的静态文件，可以使用下面的配置进行替换<br />
 </p>
 </div>
-<pre><code>1      #+HTML_HEAD: &lt;link href=&quot;https://emacs-1308440781.cos.ap-chengdu.myqcloud.com/org_css.css&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
-2      #+HTML_HEAD: &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-3      #+HTML_HEAD: &lt;script src=&quot;https://emacs-1308440781.cos.ap-chengdu.myqcloud.com/scroll.js&quot;&gt;&lt;/script&gt;
+<pre><code>#+HTML_HEAD: &lt;link href=&quot;https://emacs-1308440781.cos.ap-chengdu.myqcloud.com/org_css.css&quot; rel=&quot;stylesheet&quot;&gt;&lt;/link&gt;
+#+HTML_HEAD: &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+#+HTML_HEAD: &lt;script src=&quot;https://emacs-1308440781.cos.ap-chengdu.myqcloud.com/scroll.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p><a id="org247c9e3"></a></p>
+<p><a id="org25da322"></a></p>
 <h1 id="字体样式">字体样式</h1>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-bottom"><span class="table-number">Table 1:</span> 字体样式说明</caption>
@@ -327,43 +332,43 @@
 </tr>
 </tbody>
 </table>
-<p><a id="org3cfca41"></a></p>
+<p><a id="orgb9f1660"></a></p>
 <h1 id="特殊说明">特殊说明</h1>
-<p><a id="org47a25d6"></a></p>
+<p><a id="org362d825"></a></p>
 <h2 id="quote-摘要引用">quote 摘要、引用</h2>
 <p>可使用`quote`来进行代码块补全，表示摘要，引用</p>
 <blockquote>
 <p>TECO - Tape [later text] Editor/COrrector<br>
 A combination text editor/really horrible ProgrammingLanguage. To quote the paper “RealProgrammers don’t use Pascal” (1983):</p>
 </blockquote>
-<p><a id="orgab1b5ec"></a></p>
+<p><a id="org7fe2bbd"></a></p>
 <h2 id="notice-注意事项提醒">notice 注意事项、提醒</h2>
-<div class="notice-info" id="org2279dcd">
+<div class="notice-info" id="orga656aca">
 <p>
 你有许多已标记的项目并且你可能错过一个重要的项目时，提醒可以提供帮助<br />
 </p>
 </div>
-<div class="notice-warning" id="org2e206ce">
+<div class="notice-warning" id="org47f2232">
 <p>
 Please do not file or answer Doom Emacs issues on Reddit, Twitter, or StackOverflow. Kindly refer them to this section.<br />
 </p>
 </div>
-<div class="notice-example" id="org609f928">
+<div class="notice-example" id="org33a9bc1">
 <p>
-这是1个例子<br />
+这是 1 个例子<br />
 </p>
 </div>
-<p><a id="org0565da7"></a></p>
+<p><a id="org090ab77"></a></p>
 <h1 id="段落及高亮">段落及高亮</h1>
 <p>Example of an  comment.</p>
-<p>原文：<a href="https://iuap.yonyoucloud.com/doc/yonbuilder.html#/md-build/yonbuilder/articles/yonbuilder/1-/notes.md?key=%E5%8F%91%E7%89%88%E8%AF%B4%E6%98%8E">用友bip产品功能说明</a> ，在说明文档</p>
+<p>原文：<a href="https://iuap.yonyoucloud.com/doc/yonbuilder.html#/md-build/yonbuilder/articles/yonbuilder/1-/notes.md?key=%E5%8F%91%E7%89%88%E8%AF%B4%E6%98%8E">用友 bip 产品功能说明</a> ，在说明文档</p>
 <p>大数据中 <strong>最宝贵</strong> 、最难以代替的就是数据，一切都围绕数据。</p>
-<p>HDFS是最早的大数据存储系统，存储着宝贵的数据资产，各种新算法、框架要想得到广泛使用，必须支持HDFS，才能获取已存储在里面的数据。所以大数据技术越发展，新技术越多，HDFS得到的支持越多，越离不开HDFS。HDFS也许不是最好的大数据存储技术，但依然是最重要的大数据存储技术。</p>
-<p>HDFS是如何实现大数据高速、可靠的存储和访问的呢？</p>
+<p>HDFS 是最早的大数据存储系统，存储着宝贵的数据资产，各种新算法、框架要想得到广泛使用，必须支持 HDFS，才能获取已存储在里面的数据。所以大数据技术越发展，新技术越多，HDFS 得到的支持越多，越离不开 HDFS。HDFS 也许不是最好的大数据存储技术，但依然是最重要的大数据存储技术。</p>
+<p>HDFS 是如何实现大数据高速、可靠的存储和访问的呢？</p>
 <ul>
-<li>Hadoop分布式文件系统HDFS的设计目标是管理数以千计的服务器、数以万计的磁盘，将大规模的服务器计算资源当作一个单一存储系统进行管理，对应用程序提供数以PB计的存储容量，让应用程序像使用普通文件系统一样存储大规模的文件数据。</li>
+<li>Hadoop 分布式文件系统 HDFS 的设计目标是管理数以千计的服务器、数以万计的磁盘，将大规模的服务器计算资源当作一个单一存储系统进行管理，对应用程序提供数以 PB 计的存储容量，让应用程序像使用普通文件系统一样存储大规模的文件数据。</li>
 </ul>
-<p><a id="org5f4a74c"></a></p>
+<p><a id="org6005efc"></a></p>
 <h1 id="表格">表格</h1>
 <p><code>C-c ~</code> to convert to tabel.el table<br>
 <code>C-c ~</code> to convert to org table<br>
@@ -558,9 +563,9 @@ org table <code>M-k</code> <code>M-j</code> for move Rows up and down</p>
 </tr>
 </tbody>
 </table>
-<p><a id="org607dee9"></a></p>
+<p><a id="org5822c8e"></a></p>
 <h2 id="awk-表格">awk 表格</h2>
-<table id="org39ecdad" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org1762ce2" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <colgroup>
 <col  class="org-left" />
 <col  class="org-right" />
@@ -639,7 +644,7 @@ org table <code>M-k</code> <code>M-j</code> for move Rows up and down</p>
 <pre><code>/foo/ { print $0 }
 </code></pre>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-bottom"><span class="table-number">Table 5:</span> 筛选出foo匹配的行</caption>
+<caption class="t-bottom"><span class="table-number">Table 5:</span> 筛选出 foo 匹配的行</caption>
 <colgroup>
 <col  class="org-left" />
 <col  class="org-right" />
@@ -673,8 +678,8 @@ org table <code>M-k</code> <code>M-j</code> for move Rows up and down</p>
 </tr>
 </tbody>
 </table>
-<p><a id="orgfcc3f17"></a></p>
-<h2 id="表格自增id">表格自增id</h2>
+<p><a id="orgc5648e9"></a></p>
+<h2 id="表格自增-id">表格自增 id</h2>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <colgroup>
 <col  class="org-right" />
@@ -702,9 +707,9 @@ org table <code>M-k</code> <code>M-j</code> for move Rows up and down</p>
 <pre><code>#+tblfm: $1=@#-1
 </code></pre>
 <p><code>C-c</code> <code>C-c</code> to execute it</p>
-<p><a id="org23c7911"></a></p>
+<p><a id="orgc0b0c4b"></a></p>
 <h1 id="latex-公式">LaTex 公式</h1>
-<pre><code>1  $\mbox{需求的价格弹性系数} = \frac{\mbox{需求的变动率}}{\mbox{价格的变动率}}$
+<pre><code>$\mbox{需求的价格弹性系数} = \frac{\mbox{需求的变动率}}{\mbox{价格的变动率}}$
 </code></pre>
 <p>$$\mbox{需求的价格弹性系数} = \frac{\mbox{需求的变动率}}{\mbox{价格的变动率}}$$</p>
 <p>$$\begin{aligned}
@@ -715,41 +720,41 @@ org table <code>M-k</code> <code>M-j</code> for move Rows up and down</p>
 &amp; = 2 \cos ^3 \theta - \cos \theta - 2 (1 - \cos ^2 \theta )\cos \theta \
 &amp; = 4 \cos ^3 \theta -3 \cos \theta
 \end{aligned} $$</p>
-<p><a id="orgcb841e2"></a></p>
-<h1 id="代码">代码</h1>
+<p><a id="org3da9290"></a></p>
+<h1 id="org-代码">Org 代码</h1>
 <p>代码片段开启行号，修改 `~/.emacs.d/.local/straight/repos/org/lisp/ox-html.el`</p>
-<pre><code>1    (let* ((code-lines (split-string code &quot;\n&quot;))
-2  	 (code-length (length code-lines))
-3  	 (num-fmt
-4  	  (and num-start
-5  	       (format &quot;%%%ds &quot;
-6  	       (format &quot;%%%ds: &quot;
+<pre><code>(let* ((code-lines (split-string code &quot;\n&quot;))
+   (code-length (length code-lines))
+   (num-fmt
+	(and num-start
+	     (format &quot;%%%ds &quot;
+	     (format &quot;%%%ds: &quot;
 </code></pre>
-<p><a id="org390f60e"></a></p>
-<h2 id="java代码">Java代码</h2>
-<pre><code>10      /**
-11       * @param request 调用的请求参数
-12       * @param needLog true 需要记录日志  false 不记录日志
-13       * @return
-14       */
-15      protected NcApiResponse runApply(NcApiRequest request, Boolean needLog) {
-16          NcApiResponse ncApiResponse = null;
-17          try {
-18              final NcApiRequest ncApiRequest = executeBefore(request);
-19              ncApiResponse = executeGetRequest(ncApiRequest);
-20          } catch (Exception e) {
-21              afterExecute(needLog, e, request, ncApiResponse);
-22              if (e instanceof BizException) {
-23                  throw new BizException(&quot;NC提示&quot;, ((BizException) e).getErrorMsg(), e);
-24              } else {
-25                  throw new BizException(&quot;NC异常&quot;, e.getMessage());
-26              }
-27          }
-28  
-29          return ncApiResponse;
-30      }
+<p><a id="org63662d6"></a></p>
+<h2 id="java-代码">Java 代码</h2>
+<pre><code>/**
+ * @param request 调用的请求参数
+ * @param needLog true 需要记录日志  false 不记录日志
+ * @return
+ */
+protected NcApiResponse runApply(NcApiRequest request, Boolean needLog) {
+    NcApiResponse ncApiResponse = null;
+    try {
+        final NcApiRequest ncApiRequest = executeBefore(request);
+        ncApiResponse = executeGetRequest(ncApiRequest);
+    } catch (Exception e) {
+        afterExecute(needLog, e, request, ncApiResponse);
+        if (e instanceof BizException) {
+            throw new BizException(&quot;NC 提示&quot;, ((BizException) e).getErrorMsg(), e);
+        } else {
+            throw new BizException(&quot;NC 异常&quot;, e.getMessage());
+        }
+    }
+
+    return ncApiResponse;
+}
 </code></pre>
-<p><a id="org3324f59"></a></p>
+<p><a id="orgf804b08"></a></p>
 <h2 id="babel-java">babel java</h2>
 <pre><code>List&lt;Integer&gt; a = Arrays.asList(1, 2);
 List&lt;Integer&gt; a = Arrays.asList(1, 2);
@@ -759,56 +764,60 @@ List&lt;Integer&gt; a = Arrays.asList(1, 2);
 return a;
 </code></pre>
 <p><code>C-c</code> <code>C-c</code> to execute it, but export to html will fail when the babel java result generated.</p>
-<p><a id="org30a9b18"></a></p>
+<p><a id="org9660fc6"></a></p>
 <h1 id="图片">图片</h1>
-<p><a id="orga80f44f"></a></p>
+<p><a id="orgc13dd53"></a></p>
 <h2 id="引用本地图片">引用本地图片</h2>
 <p><img src="./image/excalidraw-demo.svg" alt="img" title="create by &lt;https://excalidraw.com/&gt;"></p>
-<p><a id="org86d7677"></a></p>
+<p><a id="org4bbb795"></a></p>
 <h2 id="引用网络图片">引用网络图片</h2>
-<p><a id="org5fa4170"></a></p>
+<p><a id="org455590e"></a></p>
 <h2 id="dot-graphviz">dot graphviz</h2>
 <ol>
 <li>
 <p>dot</p>
-<p><img src="image/dot-graphviz-demo.svg" alt="img" title="XX系统v1.2.3架构图"></p>
+<p><img src="image/dot-graphviz-demo.svg" alt="img" title="XX 系统 v1.2.3 架构图"></p>
 </li>
 <li>
 <p>dot sk</p>
-<p><img src="image/dot-sk-graphviz-demo.svg" alt="img" title="手绘风格的dot graphviz"></p>
+<p><img src="image/dot-sk-graphviz-demo.svg" alt="img" title="手绘风格的 dot graphviz"></p>
 </li>
 </ol>
-<p><a id="org5791ef6"></a></p>
+<p><a id="orgad6ba1e"></a></p>
 <h2 id="plantuml">plantuml</h2>
 <ol>
 <li>
 <p>plantuml with style css</p>
 <p>plantuml 替换原生样式<br>
-DARKORANGE/LIGHTORANGE/DARKBLUE/LIGHTBLUE/DARKRED/LIGHTRED/DARKGREEN/LIGHTGREEN</p>
-<pre><code>!define DARKORANGE
-!includeurl /Users/van/org/org-roam/C4-PlantUML/juststyle.puml
+DARKO   RANGE/LIGHTORANGE/DARKBLUE/LIGHTBLUE/DARKRED/LIGHTRED/DARKGREEN/LIGHTGREEN</p>
+<pre><code>!define LIGHTORANGE
+!includeurl C4-PlantUML/juststyle.puml
 </code></pre>
-<p><img src="image/plant-uml-order.svg" alt="img" title="有样式的plantuml时序图"></p>
+<p><img src="image/plant-uml-order.svg" alt="img" title="有样式的 plantuml 时序图"></p>
 </li>
 <li>
-<p>plant uml 系统Contex架构图</p>
+<p>plant uml 系统 Contex 架构图</p>
 <p>plantuml 替换原生样式<br>
 DARKORANGE/LIGHTORANGE/DARKBLUE/LIGHTBLUE/DARKRED/LIGHTRED/DARKGREEN/LIGHTGREEN</p>
-<pre><code>!define DARKBLUE
-!includeurl /Users/van/org/org-roam/C4-PlantUML/juststyle.puml
+<pre><code>!define LIGHTBLUE
+!includeurl C4-PlantUML/juststyle.puml
 </code></pre>
-<p><img src="image/plantuml-c4.svg" alt="img" title="系统Contex架构图"></p>
+<p><img src="image/plantuml-c4.svg" alt="img" title="系统 Contex 架构图"></p>
 </li>
 <li>
 <p>泳道图</p>
 <p><img src="./image/plantuml-swiming.svg" alt="img"></p>
 </li>
+<li>
+<p>plantuml htmlstyle</p>
+<p><img src="image/oa-center.svg" alt="img"></p>
+</li>
 </ol>
-<p><a id="org84f878f"></a></p>
-<h1 id="org转word">org转Word</h1>
-<pre><code>1  pandoc -o ~/Desktop/out.docx ~/.doom.d/README.org
+<p><a id="org0239e23"></a></p>
+<h1 id="org-转-word">org 转 Word</h1>
+<pre><code>pandoc -o ~/Desktop/out.docx ~/.doom.d/README.org
 </code></pre>
-<p><a id="org9c63a9f"></a></p>
+<p><a id="org9618bbf"></a></p>
 <h1 id="插入时间">插入时间</h1>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <colgroup>
@@ -834,6 +843,7 @@ DARKORANGE/LIGHTORANGE/DARKBLUE/LIGHTBLUE/DARKRED/LIGHTRED/DARKGREEN/LIGHTGREEN<
 </tr>
 </tbody>
 </table>
+
 </article>
 
 
@@ -874,11 +884,11 @@ DARKORANGE/LIGHTORANGE/DARKBLUE/LIGHTBLUE/DARKRED/LIGHTRED/DARKGREEN/LIGHTGREEN<
 
   <ul>
     <li><a href="#awk-表格">awk 表格</a></li>
-    <li><a href="#表格自增id">表格自增id</a></li>
+    <li><a href="#表格自增-id">表格自增 id</a></li>
   </ul>
 
   <ul>
-    <li><a href="#java代码">Java代码</a></li>
+    <li><a href="#java-代码">Java 代码</a></li>
     <li><a href="#babel-java">babel java</a></li>
   </ul>
 
