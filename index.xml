@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 Vaniuniuer
 </copyright>
-    <lastBuildDate>Thu, 31 Mar 2022 13:11:22 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Mar 2023 13:11:22 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RocketMQ 必须知道的理论知识</title>
+      <link>/posts/rocketmqintroduction/</link>
+      <pubDate>Fri, 31 Mar 2023 13:11:22 +0800</pubDate>
+      
+      <guid>/posts/rocketmqintroduction/</guid>
+      <description>&lt;p&gt;RocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>推荐一款 org mode 导出 html 的样式</title>
       <link>/posts/orgmodecss/</link>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>RocketMQ 必须知道的理论知识 | Vaniuniuer</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.3fba50282b27968ec10a2d25927936348fd254a690104f6417424415acb4bb5db26dfa4ce5453b532550c8e1da9eaed9.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="RocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"RocketMQ 必须知道的理论知识",
+      "item":"/posts/rocketmqintroduction/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/rocketmqintroduction/"
+    },
+    "headline": "RocketMQ 必须知道的理论知识 | Vaniuniuer","datePublished": "2023-03-31T13:11:22+08:00",
+    "dateModified": "2023-03-31T13:11:22+08:00",
+    "wordCount":  186 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eRocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="RocketMQ 必须知道的理论知识 | Vaniuniuer" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/rocketmqintroduction/" />
+
+
+
+
+<meta property="og:description" content="RocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Vaniuniuer" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2023-03-31T13:11:22&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2023-03-31T13:11:22&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Vaniuniuer</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">RocketMQ 必须知道的理论知识</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2023-03-31</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>RocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。</p>
+<h1 id="简介">简介</h1>
+<p>项目地址：<a href="https://github.com/apache/rocketmq/tree/master">https://github.com/apache/rocketmq/tree/master</a></p>
+<p>RocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。Broker 在实际部署过程中对应一台服务器，每个 Broker 可以存储多个Topic的消息，每个Topic的消息也可以分片存储于不同的 Broker。Message Queue 用于存储消息的物理地址，每个Topic中的消息地址存储于多个 Message Queue 中。ConsumerGroup 由多个Consumer 实例构成。<br>
+<img src="%E5%9B%BE%E7%89%87%E9%99%84%E4%BB%B6/rocketmq_arch.png" alt="img"></p>
+<p>消息的发布是指某个生产者向某个topic发送消息；消息的订阅是指某个消费者关注了某个topic中带有某些tag的消息，进而从该topic消费数据。</p>
+<p><a id="orgbc1d817"></a></p>
+<h1 id="架构">架构</h1>
+<ul>
+<li>
+<p>NameServer是一个几乎无状态节点，可集群部署，节点之间无任何信息同步。</p>
+</li>
+<li>
+<p>Broker部署相对复杂，Broker分为Master与Slave，一个Master可以对应多个Slave，但是一个Slave只能对应一个Master，Master与Slave 的对应关系通过指定相同的BrokerName，不同的BrokerId 来定义，BrokerId为0表示Master，非0表示Slave。Master也可以部署多个。每个Broker与NameServer集群中的所有节点建立长连接，定时注册Topic信息到所有NameServer。 注意：当前RocketMQ版本在部署架构上支持一Master多Slave，但只有BrokerId=1的从服务器才会参与消息的读负载。</p>
+</li>
+<li>
+<p>Producer与NameServer集群中的其中一个节点（随机选择）建立长连接，定期从NameServer获取Topic路由信息，并向提供Topic 服务的Master建立长连接，且定时向Master发送心跳。Producer完全无状态，可集群部署。</p>
+</li>
+<li>
+<p>Consumer与NameServer集群中的其中一个节点（随机选择）建立长连接，定期从NameServer获取Topic路由信息，并向提供Topic服务的Master、Slave建立长连接，且定时向Master、Slave发送心跳。Consumer既可以从Master订阅消息，也可以从Slave订阅消息，消费者在向Master拉取消息时，Master服务器会根据拉取偏移量与最大偏移量的距离（判断是否读老消息，产生读I/O），以及从服务器是否可读等因素建议下一次是从Master还是Slave拉取。</p>
+</li>
+</ul>
+<p>RocketMQ架构上主要分为四部分，如上图所示:</p>
+<ul>
+<li>
+<p>Producer：消息发布的角色，支持分布式集群方式部署。Producer通过MQ的负载均衡模块选择相应的Broker集群队列进行消息投递，投递的过程支持快速失败并且低延迟。</p>
+</li>
+<li>
+<p>Consumer：消息消费的角色，支持分布式集群方式部署。支持以push推，pull拉两种模式对消息进行消费。同时也支持集群方式和广播方式的消费，它提供实时消息订阅机制，可以满足大多数用户的需求。</p>
+</li>
+<li>
+<p>NameServer：NameServer是一个非常简单的Topic路由注册中心，其角色类似Dubbo中的zookeeper，支持Broker的动态注册与发现。主要包括两个功能：Broker管理，NameServer接受Broker集群的注册信息并且保存下来作为路由信息的基本数据。然后提供心跳检测机制，检查Broker是否还存活；路由信息管理，每个NameServer将保存关于Broker集群的整个路由信息和用于客户端查询的队列信息。然后Producer和Conumser通过NameServer就可以知道整个Broker集群的路由信息，从而进行消息的投递和消费。NameServer通常也是集群的方式部署，各实例间相互不进行信息通讯。Broker是向每一台NameServer注册自己的路由信息，所以每一个NameServer实例上面都保存一份完整的路由信息。当某个NameServer因某种原因下线了，Broker仍然可以向其它NameServer同步其路由信息，Producer和Consumer仍然可以动态感知Broker的路由的信息。</p>
+</li>
+<li>
+<p>BrokerServer：Broker主要负责消息的存储、投递和查询以及服务高可用保证，为了实现这些功能，Broker包含了以下几个重要子模块。</p>
+<ul>
+<li>Remoting Module：整个Broker的实体，负责处理来自Client端的请求。</li>
+<li>Client Manager：负责管理客户端(Producer/Consumer)和维护Consumer的Topic订阅信息。</li>
+<li>Store Service：提供方便简单的API接口处理消息存储到物理硬盘和查询功能。</li>
+<li>HA Service：高可用服务，提供Master Broker 和 Slave Broker之间的数据同步功能。</li>
+<li>Index Service：根据特定的Message key对投递到Broker的消息进行索引服务，以提供消息的快速查询。</li>
+</ul>
+</li>
+</ul>
+<p><a id="org181babf"></a></p>
+<h1 id="部署">部署</h1>
+<p>结合部署架构图，描述集群工作流程：</p>
+<ul>
+<li>启动NameServer，NameServer起来后监听端口，等待Broker、Producer、Consumer连上来，相当于一个路由控制中心。</li>
+<li>Broker启动，跟所有的NameServer保持长连接，定时发送心跳包。心跳包中包含当前Broker信息(IP+端口等)以及存储所有Topic信息。注册成功后，NameServer集群中就有Topic跟Broker的映射关系。</li>
+<li>收发消息前，先创建Topic，创建Topic时需要指定该Topic要存储在哪些Broker上，也可以在发送消息时自动创建Topic。</li>
+<li>Producer发送消息，启动时先跟NameServer集群中的其中一台建立长连接，并从NameServer中获取当前发送的Topic存在哪些Broker上，轮询从队列列表中选择一个队列，然后与队列所在的Broker建立长连接从而向Broker发消息。</li>
+<li>Consumer跟Producer类似，跟其中一台NameServer建立长连接，获取当前订阅Topic存在哪些Broker上，然后直接跟Broker建立连接通道，开始消费消息。</li>
+</ul>
+<p><a id="org84774df"></a></p>
+<h1 id="单节点部署">单节点部署</h1>
+<p><a id="org3e94497"></a></p>
+<h2 id="设置环境变量">设置环境变量</h2>
+<pre><code>1  set -x ROCKETMQ_HOME        /Users/van/soft/rocketMQ
+</code></pre>
+<p>下载项目至ROCKETMQ_HOME文件目录，<br>
+<a href="https://github.com/apache/rocketmq/tree/master">https://github.com/apache/rocketmq/tree/master</a><br>
+下载项目至ROCKETMQ_HOME文件目录，<br>
+<a href="https://github.com/apache/rocketmq-dashboard">https://github.com/apache/rocketmq-dashboard</a></p>
+<p><a id="orga6ce787"></a></p>
+<h2 id="启动nameserver">启动NameServer</h2>
+<pre><code>1  nohup sh $ROCKETMQ_HOME/rocketmq-4.9.3/bin/mqnamesrv &amp;
+2  tail -f ~/logs/rocketmqlogs/namesrv.log
+3  jps
+</code></pre>
+<p><a id="org0136945"></a></p>
+<h2 id="启动borkerserver">启动borkerServer</h2>
+<pre><code>1  nohup sh $ROCKETMQ_HOME/rocketmq-4.9.3/bin/mqbroker -n localhost:9876 &amp;
+2  tail -f ~/logs/rocketmqlogs/broker.log
+3  jps
+</code></pre>
+<p><a id="org3fff561"></a></p>
+<h2 id="启动管理端">启动管理端</h2>
+<p>项目地址：<a href="https://github.com/apache/rocketmq-dashboard">https://github.com/apache/rocketmq-dashboard</a></p>
+<p>修改nameserver地址，application.yml</p>
+<pre><code>1      ...
+2      namesrvAddrs:
+3        - 127.0.0.1:9876
+4      ...
+</code></pre>
+<p>启动命令</p>
+<pre><code>mvn springboot:run
+</code></pre>
+<p>访问地址：<a href="http://localhost:8080/#/topic">http://localhost:8080/#/topic</a></p>
+<p><a id="org71d50e3"></a></p>
+<h2 id="消息发送和消费测试">消息发送和消费测试</h2>
+<pre><code>1  #bash
+2  export NAMESRV_ADDR=localhost:9876
+3  #fish
+4  set -x NAMESRV_ADDR localhost:9876
+5  sh $ROCKETMQ_HOME/rocketmq-4.9.3/bin/tools.sh org.apache.rocketmq.example.quickstart.Producer
+6  sh $ROCKETMQ_HOME/rocketmq-4.9.3/bin/tools.sh org.apache.rocketmq.example.quickstart.Consumer
+</code></pre>
+<p><a id="orgb514671"></a></p>
+<h1 id="复制和刷盘策略">复制和刷盘策略</h1>
+<p>复制策略：同步复制、异步复制，broker master与 slaver 之间数据同步策略<br>
+刷盘策略：同步刷盘、异步刷盘，异步刷盘一般是将数据存储至pageCache,达到一定数量时自动进行落盘</p>
+<p><a id="org41f51b4"></a></p>
+<h1 id="blocker-集群模式">blocker 集群模式</h1>
+<p><a id="org9c4ec42"></a></p>
+<h2 id="单master">单Master</h2>
+<p>只有一个blocker，只能在测试时使用，有单点故障</p>
+<p><a id="org948d42b"></a></p>
+<h2 id="多master">多Master</h2>
+<p>broker仅由多个master构成，不存在slaver。同一个topic的各个queue会平均分布至多个master节点。<br>
+优点：配置简单、单个master宕机对集群没影响。前提是需要配置磁盘阵列。raid磁盘阵列的效率要高于master-slaver集群，raid是硬件支持，成本较高。<br>
+缺点：未恢复之前，该机器上的消息不能被消费，消息时时性会受到影响。</p>
+<p><a id="org42daa28"></a></p>
+<h2 id="多master多slaver-异步复制">多Master多Slaver-异步复制</h2>
+<p>master与slaver之间是主备关系，即master负责消息的读写请求，而slaver仅负责消息的备份，mater宕机后的角色自动切换。<br>
+由于是异步负责，在切换过程中可能会涉及少量消息丢失。取决于master向slaver同步数据的时机。</p>
+<p><a id="org5199689"></a></p>
+<h2 id="多master多slaver-同步双写">多Master多Slaver-同步双写</h2>
+<p>消息写入master后，等待master将信息同步至slaver成功后，返回成功。<br>
+优点：不存在丢失<br>
+缺点：单个消息的RT高，导致性能要略低（约10%），master宕机后不会自动切换至slaver。</p>
+<p><a id="org2e3bd5f"></a></p>
+<h1 id="rocketmq工作原理">RocketMq工作原理</h1>
+<p><a id="org513f4d6"></a></p>
+<h2 id="消息的生产过程">消息的生产过程</h2>
+<ul>
+<li>Producer发送消息之前，会先向nameserver请求消息topic的路由信息</li>
+<li>nameserver返回该topic的路由表和broker列表<br>
+路由表：map，key为topic名称、value是一个queueData实例列表，即只要涉及到该topic的broker，一个broker对应一个queue,Queuedata中包含brokerName。简单来说，路由表的value为所有涉及该topic的brokerName<br>
+routerMap&lt;topicName,List<queueData>&gt;,queueData: brokerName<br>
+Borker列表：Map&lt;brokerName、brokerDataMap&gt;, brokerDataMap&lt;brokerId,brokerIp&gt;</li>
+<li>Producer根据消息的选择策略，从queue列表中选出一个队列，用于后续存储消息</li>
+<li>Producer对消息做一些特殊出理，例如消息超过4M，对消息进行压缩</li>
+<li>producer向选择出的queue所在的broker发出rpc请求，将消息发送到选择出的queue</li>
+</ul>
+<p><a id="org49dea93"></a></p>
+<h2 id="queue选择算法">queue选择算法</h2>
+<ul>
+<li>轮询算法，每个queue可均匀收到消息，由于需要等到投递成功后才能进行下个节点的轮询，因此该算法存在在生产者端消息积压问题，影响消息的投递性能。</li>
+<li>最小投递延迟算法，将消息投递至延迟最小的queue,可有效提升消息的投递性能。问题是可能出现单机过热，消息分配不均。</li>
+</ul>
+<p><a id="org98a04ad"></a></p>
+<h2 id="消息存储">消息存储</h2>
+<ul>
+<li>数据存储在home/store目录下，该目录在启动时创建，正常关闭broker该消息会自动消失，如果启动前发现此文件存在，则说明之前是非正常关闭。</li>
+<li>其中存储着commitlog文件，而消息是写在commitlog文件中的</li>
+<li>config目录，存放着broker运行期间的一些配置数据</li>
+<li>consumequeue, 存储着消费队列</li>
+<li>index存储着消息索引文件</li>
+<li>lock:运行期间使用到的全局资源锁</li>
+</ul>
+<p><a id="org8906b1e"></a></p>
+<h2 id="commitlog文件">commitlog文件</h2>
+<ul>
+<li>偏移量</li>
+<li>索引文件</li>
+</ul>
+<p><a id="orgac70d6b"></a></p>
+<h1 id="reblance">Reblance</h1>
+<p>没次新增或者删除消费者的时候都会触发reblance，reblance会导致消息积压和消息重复消费的问题。</p>
+<p>另外如果消费者数量大于queue时，消息只会负载至有限的消费者，这个叫reblance的限制</p>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/orgmodecss/" class="block">推荐一款 org mode 导出 html 的样式</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#设置环境变量">设置环境变量</a></li>
+    <li><a href="#启动nameserver">启动NameServer</a></li>
+    <li><a href="#启动borkerserver">启动borkerServer</a></li>
+    <li><a href="#启动管理端">启动管理端</a></li>
+    <li><a href="#消息发送和消费测试">消息发送和消费测试</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#单master">单Master</a></li>
+    <li><a href="#多master">多Master</a></li>
+    <li><a href="#多master多slaver-异步复制">多Master多Slaver-异步复制</a></li>
+    <li><a href="#多master多slaver-同步双写">多Master多Slaver-同步双写</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#消息的生产过程">消息的生产过程</a></li>
+    <li><a href="#queue选择算法">queue选择算法</a></li>
+    <li><a href="#消息存储">消息存储</a></li>
+    <li><a href="#commitlog文件">commitlog文件</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2023 Vaniuniuer
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
