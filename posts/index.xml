@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 Vaniuniuer
 </copyright>
-    <lastBuildDate>Fri, 31 Mar 2023 13:11:22 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jun 2023 00:07:05 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>springcloud 整合 shardingsphere 及 seata</title>
+      <link>/posts/seata-shardingsphere1/</link>
+      <pubDate>Tue, 06 Jun 2023 00:07:05 +0800</pubDate>
+      
+      <guid>/posts/seata-shardingsphere1/</guid>
+      <description>&lt;p&gt;springcloud 整合 shardingsphere 及 seata, 为分布式事务的场景提供了十分优雅的解决方案&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>java 栈溢出问题排查</title>
       <link>/posts/java-oom/</link>

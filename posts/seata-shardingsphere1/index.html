@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>springcloud 整合 shardingsphere 及 seata | Vaniuniuer</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.3fba50282b27968ec10a2d25927936348fd254a690104f6417424415acb4bb5db26dfa4ce5453b532550c8e1da9eaed9.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="springcloud 整合 shardingsphere 及 seata, 为分布式事务的场景提供了十分优雅的解决方案">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"springcloud 整合 shardingsphere 及 seata",
+      "item":"/posts/seata-shardingsphere1/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/seata-shardingsphere1/"
+    },
+    "headline": "springcloud 整合 shardingsphere 及 seata | Vaniuniuer","datePublished": "2023-06-06T00:07:05+08:00",
+    "dateModified": "2023-06-06T00:07:05+08:00",
+    "wordCount":  772 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003espringcloud 整合 shardingsphere 及 seata, 为分布式事务的场景提供了十分优雅的解决方案\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="springcloud 整合 shardingsphere 及 seata | Vaniuniuer" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/seata-shardingsphere1/" />
+
+
+
+
+<meta property="og:description" content="springcloud 整合 shardingsphere 及 seata, 为分布式事务的场景提供了十分优雅的解决方案" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Vaniuniuer" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2023-06-06T00:07:05&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2023-06-06T00:07:05&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Vaniuniuer</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">springcloud 整合 shardingsphere 及 seata</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2023-06-06</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>springcloud 整合 shardingsphere 及 seata, 为分布式事务的场景提供了十分优雅的解决方案</p>
+<h1 id="垂直-vs-水平-拆分">垂直 vs 水平 拆分</h1>
+<p>垂直分库，把单一数据库按业务进行划分，做到专库专表<br>
+垂直分表，把表中的一部分数据列存储到一张表，再将另外一部分数据列存储到另外一张或多张表，这种方式叫垂直分表<br>
+垂直分，都是切分表头，更多考虑微服务划分和数据库设计。</p>
+<p>水平分库，表的数据一部分存储在一个数据库，另一部分数据存储在另外一个数据库中<br>
+水平分表，表的数据一部分存储在一个表，另一部分数据存储在另外一个表中<br>
+水平分，都是切表体</p>
+<p>分库分表带来的问题：</p>
+<ol>
+<li>跨节点连接查询问题，分页、排序</li>
+<li>多数据源管理问题，</li>
+</ol>
+<p><a id="org5aa4ffa"></a></p>
+<h1 id="springcloud-整合-shardingsphere-及-seata">springcloud 整合 shardingsphere 及 seata</h1>
+<p><a id="orga268956"></a></p>
+<h2 id="依赖">依赖</h2>
+<p>依赖我们选择引入、spring-cloud-starter-alibaba-seata 作为 seata 的起步依赖、sharding-jdbc-spring-boot-starter 作为 shardingshpere 分库分表的核心依赖、sharding-transaction-base-seata-at 作为 shardingsphere 支持 seata-at 模式的依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-seata&lt;/artifactId&gt;
+    &lt;version&gt;${depend on you springcloud version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.shardingsphere&lt;/groupId&gt;
+    &lt;artifactId&gt;sharding-jdbc-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;4.1.1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.shardingsphere&lt;/groupId&gt;
+    &lt;artifactId&gt;sharding-transaction-base-seata-at&lt;/artifactId&gt;
+    &lt;version&gt;4.1.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p><a id="org3bbd057"></a></p>
+<h2 id="数据库环境">数据库环境</h2>
+<p>模拟分库（最常见的方案），模拟将数据分库存储至 2 个不同的库，首先创建好 2 个数据库 cube_ld_archetype_dev_1、cube_ld_archetype_dev_1，并且创建相同的表 t_ld_daily_user_d。</p>
+<pre><code>delimiter ;
+CREATE TABLE cube_ld_archetype_dev_1.t_ld_daily_user_d (
+     `id` bigint NOT NULL,
+     `name` varchar(16) NOT NULL COMMENT '姓名',
+     `dd_union_id` varchar(32) DEFAULT NULL COMMENT '钉钉 id',
+     `gender` tinyint NOT NULL COMMENT '性别，1 男 2 女',
+     `mobile` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+     `phone` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+     `create_time`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+     `update_time`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+     `modifier`     bigint   NOT NULL DEFAULT '-1' COMMENT '修改人',
+     `creator`      bigint   NOT NULL DEFAULT '-1' COMMENT '创建人',
+     `tenant_id`    bigint   NOT NULL DEFAULT '-1' COMMENT '租户',
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='用户表';
+
+CREATE TABLE cube_ld_archetype_dev_2.t_ld_daily_user_d (
+     `id` bigint NOT NULL,
+     `name` varchar(16) NOT NULL COMMENT '姓名',
+     `dd_union_id` varchar(32) DEFAULT NULL COMMENT '钉 钉 id',
+     `gender` tinyint NOT NULL COMMENT '性别，1 男 2 女',
+     `mobile` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+     `phone` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+     `create_time`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+     `update_time`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+     `modifier`     bigint   NOT NULL DEFAULT '-1' COMMENT '修改人',
+     `creator`      bigint   NOT NULL DEFAULT '-1' COMMENT '创建人',
+     `tenant_id`    bigint   NOT NULL DEFAULT '-1' COMMENT '租户',
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='用户表';
+</code></pre>
+<p>由于使用了 seata 的 at 模式，因此需要在每个库创建 undo_log 表</p>
+<pre><code>delimiter ;
+CREATE TABLE IF NOT EXISTS cube_ld_archetype_dev_1.`undo_log`
+(
+    `branch_id`     BIGINT       NOT NULL COMMENT 'branch transaction id',
+    `xid`           VARCHAR(128) NOT NULL COMMENT 'global transaction id',
+    `context`       VARCHAR(128) NOT NULL COMMENT 'undo_log context,such as serialization',
+    `rollback_info` LONGBLOB     NOT NULL COMMENT 'rollback info',
+    `log_status`    INT(11)      NOT NULL COMMENT '0:normal status,1:defense status',
+    `log_created`   DATETIME(6)  NOT NULL COMMENT 'create datetime',
+    `log_modified`  DATETIME(6)  NOT NULL COMMENT 'modify datetime',
+    UNIQUE KEY `ux_undo_log` (`xid`, `branch_id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT ='AT transaction mode undo table';
+ALTER TABLE cube_ld_archetype_dev_1.`undo_log` ADD INDEX `ix_log_created` (`log_created`);
+
+CREATE TABLE IF NOT EXISTS cube_ld_archetype_dev_2.`undo_log`
+(
+    `branch_id`     BIGINT       NOT NULL COMMENT 'branch transaction id',
+    `xid`           VARCHAR(128) NOT NULL COMMENT 'global transaction id',
+    `context`       VARCHAR(128) NOT NULL COMMENT 'undo_log context,such as serialization',
+    `rollback_info` LONGBLOB     NOT NULL COMMENT 'rollback info',
+    `log_status`    INT(11)      NOT NULL COMMENT '0:normal status,1:defense status',
+    `log_created`   DATETIME(6)  NOT NULL COMMENT 'create datetime',
+    `log_modified`  DATETIME(6)  NOT NULL COMMENT 'modify datetime',
+    UNIQUE KEY `ux_undo_log` (`xid`, `branch_id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT ='AT transaction mode undo table';
+ALTER TABLE cube_ld_archetype_dev_2.`undo_log` ADD INDEX `ix_log_created` (`log_created`);
+</code></pre>
+<p><a id="org60d517d"></a></p>
+<h2 id="编写配置">编写配置</h2>
+<p>由于使用了 springcloud-seata 和 springcloud-shardingsphere 的依赖，因此可以直接在注册中心上进行配置;<br>
+可以使用 2 个配置文件来进行 seata 和 shardingsphere 分开配置；<br>
+sharingsphere 配置使用 tenant_id 来进行分库；</p>
+<p>seata 配置, 此配置可在 nacos 配置中心完成</p>
+<pre><code>seata:
+  config:
+    type: nacos
+    nacos:
+      server-addr: ${spring.cloud.nacos.config.server-addr}
+      group: SEATA_GROUP
+      namespace: ${spring.cloud.nacos.config.namespace}
+      username: ${nacos.username}
+      password: ${nacos.password}
+      cluster: default
+      data-id: seataServer.properties
+  registry:
+    type: nacos
+    nacos:
+      server-addr: ${spring.cloud.nacos.discovery.server-addr}
+      group: SEATA_GROUP
+      namespace: ${spring.cloud.nacos.discovery.namespace}
+      username: ${nacos.username}
+      password: ${nacos.password}
+      application: seata-server
+      cluster: default
+  tx-service-group: default_tx_group
+  service:
+    vgroup-mapping:
+      default_tx_group: default
+    enable-auto-data-source-proxy: true
+  data-source-proxy-mode: AT
+</code></pre>
+<p>shardingsphere 配置，此配置可在 nacos 配置中心完成</p>
+<pre><code>spring:
+  jackson:
+    time-zone: Asia/Shanghai
+  cache:
+    type: none
+  shardingsphere:
+    dataSource:
+      names: ds1,ds2
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://dsip1:3306/cube_ld_archetype_dev_1?useUnicode=true&amp;characterEncoding=UTF-8&amp;
+          serverTimezone=Asia/Shanghai&amp;zeroDateTimeBehavior=convertToNull&amp;
+          autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=2&amp;useSSL=false
+        username: root
+        password: xxx
+      ds2:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://dsip2:3306/cube_ld_archetype_dev_2?useUnicode=true&amp;characterEncoding=UTF-8&amp;
+          serverTimezone=Asia/Shanghai&amp;zeroDateTimeBehavior=convertToNull&amp;
+          autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=2&amp;useSSL=false
+        username: root
+        password: xxx
+    sharding:
+      tables:
+        t_ld_daily_user_d:
+          database-strategy:
+            inline:
+              sharding-column: tenant_id
+              algorithm-expression: ds$-&gt;{tenant_id % 2 + 1}
+</code></pre>
+<p>seata.conf 这一步是 shardingsphere 与 seata 整合的配置，此配置需要在项目的 resource 目录下，目前不是很优雅，但是要实现在 nacos 上配置也不难。</p>
+<pre><code>sharding.transaction.seata.at.enable=true
+client.application.id=archetype
+client.transaction.service.group=default_tx_group
+</code></pre>
+<p><a id="org423d6c0"></a></p>
+<h2 id="编写代码">编写代码</h2>
+<p>注意：@Transactional 和 @ShardingTransactionType 注解必须同时添加才能使分布式事务生效 TransactionType.BASE 其实就是 shardingsphere 对于弱一致性事务的定义，在这里可理解 TransactionType.BASE 是 seata at 事务的映射。 当然除了弱一致性以外，还有强一致性 XA 事务，seata 默认也是支持的，只是 XA 事务依赖数据库支持，在使用 XA 事务时你需要提前确认数据库是否支持 XA 事务。<br>
+在下面的代码中，程序有一个除零错误，故意设计一个错误，我们期望分布式事务生效的情况下，能回滚 userMapper.insert(user1) 这行代码对数据库的操作。</p>
+<pre><code>/**
+ * save mutiple record
+ * testing distributed transaction
+ */
+@PostMapping(&quot;/saveTestShardingSphere&quot;)
+@Transactional(rollbackFor = Exception.class)
+@ShardingTransactionType(TransactionType.BASE)
+public Result&lt;Long&gt; saveTestShardingSphere() {
+    User user1 = new User();
+    user1.setId(1L);
+    user1.setTenantId(1L);
+    user1.setName(&quot;van1&quot;);
+    user1.setGender(true);
+    user1.setPhone(&quot;7789&quot;);
+    user1.setDdUnionId(&quot;7789&quot;);
+    userMapper.insert(user1);
+
+    int errorInt = 1 / 0;
+
+    User user2 = new User();
+    user2.setId(2L);
+    user2.setTenantId(2L);
+    user2.setName(&quot;van2&quot;);
+    user2.setGender(true);
+    user2.setPhone(&quot;7789&quot;);
+    user2.setDdUnionId(&quot;7789&quot;);
+    userMapper.insert(user2);
+
+    return Result.success();
+}
+</code></pre>
+<p><a id="org6b2571f"></a></p>
+<h2 id="启动-seata-server">启动 seata-server</h2>
+<p>seata 的 AT 事务要求 TC 与 RM 能双向通讯，因此在做测试的时候，常常需要在本地启动一个 seata-server（TC）以确保事务生效。</p>
+<pre><code>cd $seata-server-home/bin
+sh seata-server.sh -p 8091 -h 172.20.10.2 -m file
+tail -f ../logs/start.out
+</code></pre>
+<p><a id="orgc3d550e"></a></p>
+<h2 id="启动-springcloud-项目">启动 springcloud 项目</h2>
+<pre><code>mvn clean -T 1C install -f ../pom.xml -Dmaven.test.skrp=true -U
+java \
+-Xms1024m -Xmx1024m \
+-Dspring.application.name=archetype \
+-Dspring.cloud.nacos.config.file-extension=yml \
+-Duser.timezone=GMT+08 \
+-Dserver.port=8080 \
+-Dspring.cloud.nacos.discovery.server-addr=nacos:8848 \
+-Dspring.cloud.nacos.discovery.namespace=e29572d7-7ccc-4a18-81da-dbe891677336 \
+-Dspring.cloud.nacos.config.server-addr=nacos:8848 \
+-Dspring.cloud.nacos.config.namespace=e29572d7-7ccc-4a18-81da-dbe891677336 \
+-Dspring.config.import[0]=nacos:seata-at \
+-Dspring.config.import[1]=nacos:archetype-shardingjdbcDb \
+-Dspring.cloud.nacos.discovery.register-enabled=true \
+-Dlogging.level.com.baomidou.mybatisplus=DEBUG \
+-Dmybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl \
+-jar ./target/archetype.jar
+</code></pre>
+<p><a id="org9dd5131"></a></p>
+<h2 id="接口测试">接口测试</h2>
+<p>发起请求测试</p>
+<pre><code>POST http://localhost:8080/user/saveTestShardingSphere
+</code></pre>
+<p>数据库查看</p>
+<pre><code>delimiter ;
+-- delete from cube_ld_archetype_dev_1.t_ld_daily_user_d;
+-- delete from cube_ld_archetype_dev_2.t_ld_daily_user_d;
+SELECT * FROM cube_ld_archetype_dev_1.t_ld_daily_user_d;
+SELECT * FROM cube_ld_archetype_dev_2.t_ld_daily_user_d;
+</code></pre>
+<p>日志</p>
+<pre><code>Branch Rollbacked result: PhaseTwo_Rollbacked
+</code></pre>
+<p><a id="org1433b33"></a></p>
+<h1 id="总结">总结</h1>
+<p>shardingsphere 与 seata 的整合的确做到了配置清晰，使用简单；<br>
+强强联合，为分布式事务的场景提供了十分优雅的解决方案；</p>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/java-oom/" class="block">java 栈溢出问题排查</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#依赖">依赖</a></li>
+    <li><a href="#数据库环境">数据库环境</a></li>
+    <li><a href="#编写配置">编写配置</a></li>
+    <li><a href="#编写代码">编写代码</a></li>
+    <li><a href="#启动-seata-server">启动 seata-server</a></li>
+    <li><a href="#启动-springcloud-项目">启动 springcloud 项目</a></li>
+    <li><a href="#接口测试">接口测试</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2023 Vaniuniuer
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
