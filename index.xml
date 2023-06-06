@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 Vaniuniuer
 </copyright>
-    <lastBuildDate>Tue, 06 Jun 2023 00:07:05 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jun 2023 20:45:01 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mybatis Config 雪花算法id，用 redis 管理 workerId</title>
+      <link>/posts/mybatis-config/</link>
+      <pubDate>Tue, 06 Jun 2023 20:45:01 +0800</pubDate>
+      
+      <guid>/posts/mybatis-config/</guid>
+      <description>&lt;p&gt;Mybatis Config 雪花算法id，用 redis 自动管理 workerId。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>springcloud 整合 shardingsphere 及 seata</title>
       <link>/posts/seata-shardingsphere1/</link>
