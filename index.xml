@@ -8,14 +8,14 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 Vaniuniuer
 </copyright>
-    <lastBuildDate>Mon, 12 Jun 2023 22:47:26 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jun 2023 23:10:41 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Oracle 日历</title>
-      <link>/posts/oracle-%E6%97%A5%E5%8E%86/</link>
-      <pubDate>Mon, 12 Jun 2023 22:47:26 +0800</pubDate>
+      <title>泛微OA 计算员工每月应出勤天数</title>
+      <link>/posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/</link>
+      <pubDate>Mon, 12 Jun 2023 23:10:41 +0800</pubDate>
       
-      <guid>/posts/oracle-%E6%97%A5%E5%8E%86/</guid>
-      <description>&lt;p&gt;oracle 日期常见处理 Sql&lt;/p&gt;</description>
+      <guid>/posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/</guid>
+      <description>&lt;p&gt;泛微OA，计算员工每月应出勤天数， oracle 数据库&lt;/p&gt;</description>
     </item>
     
     <item>
