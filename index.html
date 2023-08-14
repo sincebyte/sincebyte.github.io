@@ -9,6 +9,36 @@
 
 <title>Vaniuniuer</title>
 
+<script type="text/javascript">
+
+   console.log("on")
+const multiple = 10;
+const mouseOverContainer = document.getElementsByTagName("body")[0];
+const element = document.getElementById("imageele");
+
+function transformElement(x, y) {
+  let box = element.getBoundingClientRect();
+  let calcX = -(y - box.y - (box.height / 2)) / multiple;
+  let calcY = (x - box.x - (box.width / 2)) / multiple;
+
+  element.style.transform  = "rotateX("+ calcX +"deg) "
+                        + "rotateY("+ calcY +"deg)";
+}
+
+mouseOverContainer.addEventListener('mousemove', (e) => {
+   console.log("123")
+  window.requestAnimationFrame(function(){
+    transformElement(e.clientX, e.clientY);
+  });
+});
+
+mouseOverContainer.addEventListener('mouseleave', (e) => {
+  window.requestAnimationFrame(function(){
+    element.style.transform = "rotateX(0) rotateY(0)";
+  });
+});
+</script>
+
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
 <script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
@@ -322,7 +352,27 @@
 <p>在 GitHub 上，我维护了一个开源项目——Neo-emacs。它是基于 Doom Emacs 的衍生版本，专注于为Java Web开发提供无与伦比的集成环境。Neo-emacs的设计理念体现了极简主义，它的编程界面将代码置于突出位置，同时弱化其他元素，旨在让我在编程时能够更加专注和集中注意力。这种设计思路的目标是为了创造一个真正专注于编程的环境。</p>
 <p>我坚持在编程过程中尽可能多地使用shell，这样可以深入了解项目的细节。通过充分利用shell，我能够获得更多的项目信息，从而更好地掌握开发过程。</p>
 <p>此外，Neo-emacs还集成了SQL、Redis和HTTP的客户端，使得在Emacs内部能够完成整个项目开发的各个环节。这个功能丰富的集成环境提供了便捷而高效的开发体验。</p>
-<p><img src="image/neo-emacs.png" alt="avatar"></p>
+<style type="text/css">
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    cursor: pointer;
+}
+
+#imageele {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    background: #000;
+    transform-style: preserve-3d;
+    transition: all .1s;
+}
+</style>
+<p><img id="imageele" src="image/neo-emacs.png" alt="avatar"></p>
+
 
 </div>
 
@@ -395,7 +445,7 @@
       
       
 <div style="text-align:center">
-  <p>"The only way to do great work is to love what you do." - Steve Jobs</p>
+  <p>"The only way to do great work is to love what you do." - Steve Jobs 1234</p>
 </div>
 
       
