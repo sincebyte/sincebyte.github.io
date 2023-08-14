@@ -17,10 +17,10 @@ const mouseOverContainer = document.getElementsByTagName("body")[0];
 const element = document.getElementById("bg2");
 const bg1 = document.getElementById("bg1");
 
-function transformElement(x, y, multiple, element) {
+function transformElement(x, y, multiple, element,offset) {
   let box = element.getBoundingClientRect();
-  let calcX = -(y - box.y - (box.height / 2)) / multiple;
-  let calcY = (x - box.x - (box.width / 2)) / multiple;
+  let calcX = -(y - offset - box.y - (box.height / 2)) / multiple;
+  let calcY = (x - offset - box.x - (box.width / 2)) / multiple;
 
   element.style.transform  = "rotateX("+ calcX +"deg) "
                         + "rotateY("+ calcY +"deg)";
@@ -28,10 +28,10 @@ function transformElement(x, y, multiple, element) {
 
 mouseOverContainer.addEventListener('mousemove', (e) => {
   window.requestAnimationFrame(function(){
-    transformElement(e.clientX, e.clientY, multiple,element);
+    transformElement(e.clientX, e.clientY, multiple,element , 0);
   });
   window.requestAnimationFrame(function(){
-    transformElement(e.clientX, e.clientY, multiple1,bg1);
+    transformElement(e.clientX, e.clientY, multiple1,bg1, 30);
   });
 });
 
@@ -334,14 +334,14 @@ mouseOverContainer.addEventListener('mouseleave', (e) => {
   opacity: 0.5;
   z-index: -1;
 }
-/* body {
+body {
     width: 100vw;
     height: 100vh;
     display: flex;
     transform-style: preserve-3d;
     perspective: 500px;
     cursor: pointer;
-} */
+}
 img {
   max-width: 120%;
   margin-left: -5em;
