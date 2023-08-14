@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 Vaniuniuer
 </copyright>
-    <lastBuildDate>Mon, 12 Jun 2023 23:10:41 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Aug 2023 13:46:17 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用d2绘图</title>
+      <link>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</link>
+      <pubDate>Mon, 14 Aug 2023 13:46:17 +0800</pubDate>
+      
+      <guid>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</guid>
+      <description>&lt;p&gt;是一款脚本绘图语言程序, 提供丰富的特性, 其中我最喜欢的功能包括可生成箭头流动效果&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>泛微OA 计算员工每月应出勤天数</title>
       <link>/posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/</link>
