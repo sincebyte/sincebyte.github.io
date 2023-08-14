@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
 window.onload = function(e){
-const multiple = 60;
+const multiple = 20;
 const mouseOverContainer = document.getElementsByTagName("body")[0];
 const element = document.getElementById("imageele");
  console.info(mouseOverContainer)
@@ -27,7 +27,6 @@ function transformElement(x, y) {
 }
 
 mouseOverContainer.addEventListener('mousemove', (e) => {
-   console.log("123")
   window.requestAnimationFrame(function(){
     transformElement(e.clientX, e.clientY);
   });
