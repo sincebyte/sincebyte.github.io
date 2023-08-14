@@ -9,35 +9,6 @@
 
 <title>Vaniuniuer</title>
 
-<script type="text/javascript">
-
-   console.log("on")
-const multiple = 10;
-const mouseOverContainer = document.getElementsByTagName("body")[0];
-const element = document.getElementById("imageele");
-
-function transformElement(x, y) {
-  let box = element.getBoundingClientRect();
-  let calcX = -(y - box.y - (box.height / 2)) / multiple;
-  let calcY = (x - box.x - (box.width / 2)) / multiple;
-
-  element.style.transform  = "rotateX("+ calcX +"deg) "
-                        + "rotateY("+ calcY +"deg)";
-}
-
-mouseOverContainer.addEventListener('mousemove', (e) => {
-   console.log("123")
-  window.requestAnimationFrame(function(){
-    transformElement(e.clientX, e.clientY);
-  });
-});
-
-mouseOverContainer.addEventListener('mouseleave', (e) => {
-  window.requestAnimationFrame(function(){
-    element.style.transform = "rotateX(0) rotateY(0)";
-  });
-});
-</script>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
@@ -373,6 +344,36 @@ body {
 </style>
 <p><img id="imageele" src="image/neo-emacs.png" alt="avatar"></p>
 
+<script type="text/javascript">
+
+console.log("on")
+const multiple = 10;
+const mouseOverContainer = document.getElementsByTagName("body")[0];
+const element = document.getElementById("imageele");
+
+function transformElement(x, y) {
+  let box = element.getBoundingClientRect();
+  let calcX = -(y - box.y - (box.height / 2)) / multiple;
+  let calcY = (x - box.x - (box.width / 2)) / multiple;
+
+  element.style.transform  = "rotateX("+ calcX +"deg) "
+                        + "rotateY("+ calcY +"deg)";
+}
+
+mouseOverContainer.addEventListener('mousemove', (e) => {
+   console.log("123")
+  window.requestAnimationFrame(function(){
+    transformElement(e.clientX, e.clientY);
+  });
+});
+
+mouseOverContainer.addEventListener('mouseleave', (e) => {
+  window.requestAnimationFrame(function(){
+    element.style.transform = "rotateX(0) rotateY(0)";
+  });
+});
+</script>
+
 
 </div>
 
@@ -445,7 +446,7 @@ body {
       
       
 <div style="text-align:center">
-  <p>"The only way to do great work is to love what you do." - Steve Jobs 1234</p>
+  <p>"The only way to do great work is to love what you do." - Steve Jobs</p>
 </div>
 
       
