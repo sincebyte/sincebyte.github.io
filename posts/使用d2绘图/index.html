@@ -233,7 +233,7 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
   <h1 class="mb-4">使用d2绘图</h1>
@@ -270,7 +270,7 @@
 <li><a href="#org1bc302f">TALA License</a></li>
 </ol>
 <p><a id="orgde79b65"></a></p>
-<h1 id="introduction">Introduction</h1>
+<h2 id="introduction">Introduction</h2>
 <p><a href="https://d2lang.com/tour/intro">D2</a> 是一款脚本绘图语言程序, 提供丰富的特性 , 其中我最喜欢的功能包括可生成箭头流动效果,简洁的语法, 避免使用 quote (引号) 对空格的支持, 多类型的布局等等, 我们首先说下 <a href="https://d2lang.com/tour/intro">D2</a> 的布局, 一共分为3种布局</p>
 <ul>
 <li>dagre ,一种有向图, 基于 Graphviz’s DOT 算法不布局, 如果你很熟悉dot 不妨试试这种布局</li>
@@ -279,7 +279,7 @@
 </ul>
 <p>综合来说, 其实官方也没说的很明白,不过由于 <a href="https://terrastruct.com/tala/">TALA</a> 是付费的布局,有专门的网站和演示案例. 确实让人心动.幸运的是虽说 <a href="https://terrastruct.com/tala/">TALA</a> 是付费的,但他却提供软件的源代码,我们仍然可以使用 TALA 布局只不过在生成出来的图片中含有 <strong>LICENSE COPY</strong> 的水印（后面讲怎么去除）.</p>
 <p><a id="orge7b50ba"></a></p>
-<h1 id="usage">Usage</h1>
+<h2 id="usage">Usage</h2>
 <p>你的第一个D2架构图,代码如下.</p>
 <ul>
 <li><strong>direction</strong> 代表了布局的方向,</li>
@@ -328,7 +328,7 @@ A -&gt; B -&gt; C -&gt; D{ class : 2de }
 </code></pre>
 <p><img src="image/1thd2.svg" alt="img" title="d2demo"></p>
 <p><a id="orgdf93bc0"></a></p>
-<h1 id="org-mode">Org mode</h1>
+<h2 id="org-mode">Org mode</h2>
 <p>最后分享如何在 org mode 中使用d2.</p>
 <p>在 org mode 中引入新的 src block 执行代码块,你可以使用如下代码作为参考.我在这里增加了d2的手绘风格的代码,其原因是d2的部分设置需要在命令行上进行设置.类似于图片间宽、布局引擎、动画速率等参数均是通过命令行参数来设置的,无法在src block内进行设定.因此我在fish内增加了软连接带入默认参数,以此来实现在org mode中进行不同风格的d2设置切换.</p>
 <pre><code>alias ds2 &quot;~/soft/d2-v0.6.0/bin/d2 --sketch --animate-interval=1400 -l elk -c --pad 0&quot;
@@ -408,7 +408,7 @@ A -&gt; B -&gt; C -&gt; D{ class : 2de }
 (provide 'ds2)
 </code></pre>
 <p><a id="org1bc302f"></a></p>
-<h1 id="tala-license">TALA License</h1>
+<h2 id="tala-license">TALA License</h2>
 <p>经常性的在 <strong>org mode</strong> 中导出 <code>html</code> ,遇到最多的问题是,当我们把 <code>html</code> 发送给其他人时,里面的图片就不能打开了.这是因为我们发送出去的仅是 <code>html</code> 代码, 只包括了图片地址,不包括图片的内容. 为了解决这个问题,我们可以在生成 <code>html</code> 的同时将图片以base64的形式直接嵌入至html文件内.<br>
 d2 的 TALA 布局是一个收费的布局引擎,但幸运的是尽管他收费,但是却开源.我们仍然可以下载TALA引擎的二进制执行文件,只不过在未授权的时候会在图片中生成 <strong>UNLICENSED COPY</strong> 的水印.svg的水印很好去除,用text-mode打开文件,找到水印字样删除即可.利用上面的在将图片转换成BASE64的时候我们仅需要将 <strong>UNLICENSED COPY</strong> 替换成空就完成了水印去除了.</p>
 <pre><code>;; html image base64
@@ -479,6 +479,37 @@ d2 的 TALA 布局是一个收费的布局引擎,但幸运的是尽管他收费,
 
 
     </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#org-mode">Org mode</a></li>
+    <li><a href="#tala-license">TALA License</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
     
 
     

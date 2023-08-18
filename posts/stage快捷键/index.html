@@ -106,7 +106,7 @@
     },
     "headline": "Stage快捷键 | Vaniuniuer","datePublished": "2023-08-18T23:49:32+08:00",
     "dateModified": "2023-08-18T23:49:32+08:00",
-    "wordCount":  128 ,
+    "wordCount":  130 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -233,7 +233,7 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
   <h1 class="mb-4">Stage快捷键</h1>
@@ -263,7 +263,9 @@
 
   <p>mac stage manager 提供了一个真正无打扰的工作环境.</p>
 <h1 id="table-of-contents">Table of Contents</h1>
+<h2 id="introduction">Introduction</h2>
 <p>最近使用 macos 的 stage manager, 感觉十分清爽. stage manager 提供了一个真正无打扰的环境, 在此模式下可以屏蔽其他的窗口, 只显示当前窗口. 甚至可以屏蔽桌面的文件, 因此好看的壁纸可以 “无污染” 的展示了. 不过非常可惜的是, stage manager 未提供切换不同 application 的快捷键设置. 倘若使用 <strong>Alfred</strong> 等软件又无法一键切换应用, 幸运的是我们可以使用 mac 提供的 Automator 来实现一键切换应用.</p>
+<h2 id="usage">Usage</h2>
 <p>首先, 打开 Automator.app &gt; File new (command N) &gt; Quick Action &gt; Run AppleScript<br>
 输入如下代码, 并使用播放按键, 进行简单测试. 如果能成功切换至 Emacs 说明程序生效了.<br>
 接下来将此 Automator 程序保存并命名 OpenEmacs</p>
@@ -316,6 +318,35 @@
 
 
     </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#usage">Usage</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
     
 
     
