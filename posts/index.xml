@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 Vaniuniuer
 </copyright>
-    <lastBuildDate>Mon, 14 Aug 2023 13:46:17 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Aug 2023 23:49:32 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stage快捷键</title>
+      <link>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Fri, 18 Aug 2023 23:49:32 +0800</pubDate>
+      
+      <guid>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>&lt;p&gt;mac stage manager 提供了一个真正无打扰的工作环境.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>使用d2绘图</title>
       <link>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</link>
