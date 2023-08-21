@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Stage快捷键 | Vaniuniuer</title>
+<title>Macos Stage 快捷键 | Vaniuniuer</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
@@ -89,7 +89,7 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Stage快捷键",
+      "name":"Macos Stage 快捷键",
       "item":"/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/"}]
 }
 </script>
@@ -104,9 +104,9 @@
         "@type": "WebPage",
         "@id": "/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/"
     },
-    "headline": "Stage快捷键 | Vaniuniuer","datePublished": "2023-08-18T23:49:32+08:00",
+    "headline": "Macos Stage 快捷键 | Vaniuniuer","datePublished": "2023-08-18T23:49:32+08:00",
     "dateModified": "2023-08-18T23:49:32+08:00",
-    "wordCount":  130 ,
+    "wordCount":  192 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -117,7 +117,7 @@
         },
     "description": "\u003cp\u003emac stage manager 提供了一个真正无打扰的工作环境.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="Stage快捷键 | Vaniuniuer" />
+</script><meta property="og:title" content="Macos Stage 快捷键 | Vaniuniuer" />
 <meta property="og:type" content="article" />
 
 
@@ -238,7 +238,7 @@
       class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">Stage快捷键</h1>
+  <h1 class="mb-4">Macos Stage 快捷键</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -264,10 +264,9 @@
   
 
   <p>mac stage manager 提供了一个真正无打扰的工作环境.</p>
-<h1 id="table-of-contents">Table of Contents</h1>
-<h2 id="introduction">Introduction</h2>
 <p>最近使用 macos 的 stage manager, 感觉十分清爽. stage manager 提供了一个真正无打扰的环境, 在此模式下可以屏蔽其他的窗口, 只显示当前窗口. 甚至可以屏蔽桌面的文件, 因此好看的壁纸可以 “无污染” 的展示了. 不过非常可惜的是, stage manager 未提供切换不同 application 的快捷键设置. 倘若使用 <strong>Alfred</strong> 等软件又无法一键切换应用, 幸运的是我们可以使用 mac 提供的 Automator 来实现一键切换应用.</p>
-<h2 id="usage">Usage</h2>
+<p><a id="org29116e2"></a></p>
+<h2 id="尝试一">尝试一</h2>
 <p>首先, 打开 Automator.app &gt; File new (command N) &gt; Quick Action &gt; Run AppleScript<br>
 输入如下代码, 并使用播放按键, 进行简单测试. 如果能成功切换至 Emacs 说明程序生效了.<br>
 接下来将此 Automator 程序保存并命名 OpenEmacs</p>
@@ -288,6 +287,19 @@
 经测试发现 Keyboard 的快捷键有先级比较低, 如过冲突则按键事件无法抵达 Automator.<br>
 因此需要根据大家的应用情况设置合理的快捷键</p>
 </blockquote>
+<p><a id="org82415d5"></a></p>
+<h2 id="尝试二">尝试二</h2>
+<p>终级使用场景 . 其灵感来源于某个APP, 可以使用一个组合键来对某个应用进行 Toggle Visual. Toggle 这个单词大家应该不陌生, 就是切换的意思.<br>
+使用同一个按键当应用此时正打开的时则将其隐藏, 当此时应用正隐藏时将其放在桌面最上层.<br>
+在我的 laptop 上, 我将 <em>Emacs</em> 绑定至 <code>command + k</code> 和 <em>Chrome</em> 绑定至 <code>command + h</code>, 键位冲突较少可供大家参考.</p>
+<pre><code>1  tell application &quot;System Events&quot;
+2  	if visible of application process &quot;Emacs&quot; is true then
+3  		set visible of application process &quot;Emacs&quot; to false
+4  	else
+5  		tell application &quot;Emacs&quot; to activate
+6  	end if
+7  end tell
+</code></pre>
 </article>
 
 
@@ -341,8 +353,8 @@
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#尝试一">尝试一</a></li>
+    <li><a href="#尝试二">尝试二</a></li>
   </ul>
 </nav>
 </div>
