@@ -1,0 +1,6 @@
+tbody, th, tbody td {
+    border: 1px solid #666;
+}
+tbody tr:nth-child(odd) {
+    background-color: var(--color-primary-bg)
+}
