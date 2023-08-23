@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emacs on sincebyte</title>
+    <link>/tags/emacs/</link>
+    <description>Recent content in emacs on sincebyte</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2023 sincebyte
+</copyright>
+    <lastBuildDate>Fri, 18 Aug 2023 23:49:32 +0800</lastBuildDate><atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Macos Stage 快捷键</title>
+      <link>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Fri, 18 Aug 2023 23:49:32 +0800</pubDate>
+      
+      <guid>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>&lt;p&gt;mac stage manager 提供了一个真正无打扰的工作环境.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用d2绘图</title>
+      <link>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</link>
+      <pubDate>Mon, 14 Aug 2023 13:46:17 +0800</pubDate>
+      
+      <guid>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</guid>
+      <description>&lt;p&gt;是一款脚本绘图语言程序, 提供丰富的特性, 其中我最喜欢的功能包括可生成箭头流动效果&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>推荐一款 org mode 导出 html 的样式</title>
+      <link>/posts/orgmodecss/</link>
+      <pubDate>Thu, 31 Mar 2022 13:11:22 +0800</pubDate>
+      
+      <guid>/posts/orgmodecss/</guid>
+      <description>&lt;p&gt;使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

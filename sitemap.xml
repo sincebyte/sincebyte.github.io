@@ -2,7 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2023-08-21T15:01:18+08:00</lastmod>
+  </url><url>
     <loc>/posts/hugo-usage/</loc>
+    <lastmod>2023-08-21T15:01:18+08:00</lastmod>
+  </url><url>
+    <loc>/tags/org/</loc>
     <lastmod>2023-08-21T15:01:18+08:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
@@ -11,14 +17,29 @@
     <loc>/</loc>
     <lastmod>2023-08-21T15:01:18+08:00</lastmod>
   </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-08-21T15:01:18+08:00</lastmod>
+  </url><url>
+    <loc>/tags/a7c/</loc>
+    <lastmod>2023-08-21T08:46:42+08:00</lastmod>
+  </url><url>
     <loc>/posts/sony-a7c-%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2023-08-21T08:46:42+08:00</lastmod>
+  </url><url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2023-08-18T23:49:32+08:00</lastmod>
+  </url><url>
+    <loc>/tags/mac/</loc>
+    <lastmod>2023-08-18T23:49:32+08:00</lastmod>
   </url><url>
     <loc>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
     <lastmod>2023-08-18T23:49:32+08:00</lastmod>
   </url><url>
     <loc>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</loc>
     <lastmod>2023-08-14T13:46:17+08:00</lastmod>
+  </url><url>
+    <loc>/tags/java/</loc>
+    <lastmod>2023-06-06T20:45:01+08:00</lastmod>
   </url><url>
     <loc>/posts/mybatis-config/</loc>
     <lastmod>2023-06-06T20:45:01+08:00</lastmod>
@@ -47,7 +68,5 @@
     <loc>/series/</loc>
   </url><url>
     <loc>/authors/hugo-authors/</loc>
-  </url><url>
-    <loc>/tags/</loc>
   </url>
 </urlset>
