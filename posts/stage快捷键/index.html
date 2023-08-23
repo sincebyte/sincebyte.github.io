@@ -106,7 +106,7 @@
     },
     "headline": "Macos Stage 快捷键 | Vaniuniuer","datePublished": "2023-08-18T23:49:32+08:00",
     "dateModified": "2023-08-18T23:49:32+08:00",
-    "wordCount":  192 ,
+    "wordCount":  258 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -251,7 +251,7 @@
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
+    <span>2 min read</span>
   </div>
 
   
@@ -265,7 +265,9 @@
 
   <p>mac stage manager 提供了一个真正无打扰的工作环境.</p>
 <p>最近使用 macos 的 stage manager, 感觉十分清爽. stage manager 提供了一个真正无打扰的环境, 在此模式下可以屏蔽其他的窗口, 只显示当前窗口. 甚至可以屏蔽桌面的文件, 因此好看的壁纸可以 “无污染” 的展示了. 不过非常可惜的是, stage manager 未提供切换不同 application 的快捷键设置. 倘若使用 <strong>Alfred</strong> 等软件又无法一键切换应用, 幸运的是我们可以使用 mac 提供的 Automator 来实现一键切换应用.</p>
-<p><a id="org29116e2"></a></p>
+<p><a id="orgc03daf8"></a></p>
+<h1 id="content">content</h1>
+<p><a id="org9619f23"></a></p>
 <h2 id="尝试一">尝试一</h2>
 <p>首先, 打开 Automator.app &gt; File new (command N) &gt; Quick Action &gt; Run AppleScript<br>
 输入如下代码, 并使用播放按键, 进行简单测试. 如果能成功切换至 Emacs 说明程序生效了.<br>
@@ -287,9 +289,9 @@
 经测试发现 Keyboard 的快捷键有先级比较低, 如过冲突则按键事件无法抵达 Automator.<br>
 因此需要根据大家的应用情况设置合理的快捷键</p>
 </blockquote>
-<p><a id="org82415d5"></a></p>
+<p><a id="org59596e4"></a></p>
 <h2 id="尝试二">尝试二</h2>
-<p>终级使用场景 . 其灵感来源于某个APP, 可以使用一个组合键来对某个应用进行 Toggle Visual. Toggle 这个单词大家应该不陌生, 就是切换的意思.<br>
+<p>其灵感来源于某个APP, 可以使用一个组合键来对某个应用进行 Toggle Visual. Toggle 这个单词大家应该不陌生, 就是切换的意思.<br>
 使用同一个按键当应用此时正打开的时则将其隐藏, 当此时应用正隐藏时将其放在桌面最上层.<br>
 在我的 laptop 上, 我将 <em>Emacs</em> 绑定至 <code>command + k</code> 和 <em>Chrome</em> 绑定至 <code>command + h</code>, 键位冲突较少可供大家参考.</p>
 <pre><code>1  tell application &quot;System Events&quot;
@@ -299,6 +301,40 @@
 5  		tell application &quot;Emacs&quot; to activate
 6  	end if
 7  end tell
+</code></pre>
+<p><a id="org16ce9a7"></a></p>
+<h2 id="尝试三">尝试三</h2>
+<p>尝试二的优化, 尝试二使用了 <strong>applescript</strong> 带来的问题是, 切换应用的速度明显能感觉到有延迟.网上搜索到了使用 hammerspoon 的方案, 亲自测试了下速度非常快, 可以说是终级解决方案了.</p>
+<pre><code>toggleApp = function(appName, launch)
+  launch = launch or false
+  local app = hs.application.get(appName)
+  if app then
+      if app:isFrontmost() then
+          app:hide()
+      else
+          app:activate()
+      end
+  else
+      if launch then
+          hs.application.launchOrFocus(appName)
+      else
+          hs.alert.show(&quot;App '&quot; .. appName .. &quot;' is not loaded!&quot;)
+      end
+  end
+end
+
+hs.hotkey.bind({&quot;cmd&quot;}, &quot;K&quot;, function()
+    toggleApp(&quot;Emacs&quot;)
+end)
+
+
+hs.hotkey.bind({&quot;cmd&quot;}, &quot;F&quot;, function()
+    toggleApp(&quot;Finder&quot;)
+end)
+
+hs.hotkey.bind({&quot;cmd&quot;}, &quot;R&quot;, function()
+    toggleApp(&quot;Google Chrome&quot;)
+end)
 </code></pre>
 </article>
 
@@ -355,6 +391,7 @@
   <ul>
     <li><a href="#尝试一">尝试一</a></li>
     <li><a href="#尝试二">尝试二</a></li>
+    <li><a href="#尝试三">尝试三</a></li>
   </ul>
 </nav>
 </div>
