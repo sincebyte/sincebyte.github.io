@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
-    <lastBuildDate>Fri, 18 Aug 2023 23:49:32 +0800</lastBuildDate><atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Aug 2023 15:46:59 +0800</lastBuildDate><atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs Workspace</title>
+      <link>/posts/emacs-workspace/</link>
+      <pubDate>Tue, 29 Aug 2023 15:46:59 +0800</pubDate>
+      
+      <guid>/posts/emacs-workspace/</guid>
+      <description>&lt;p&gt;在使用 doom emacs 的时候 &lt;code&gt;workspace&lt;/code&gt; 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Macos Stage 快捷键</title>
       <link>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>

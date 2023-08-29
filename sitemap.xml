@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/doom/</loc>
+    <lastmod>2023-08-29T15:46:59+08:00</lastmod>
+  </url><url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2023-08-29T15:46:59+08:00</lastmod>
+  </url><url>
+    <loc>/posts/emacs-workspace/</loc>
+    <lastmod>2023-08-29T15:46:59+08:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2023-08-29T15:46:59+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-08-29T15:46:59+08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-08-29T15:46:59+08:00</lastmod>
+  </url><url>
     <loc>/tags/hugo/</loc>
     <lastmod>2023-08-21T15:01:18+08:00</lastmod>
   </url><url>
@@ -11,23 +29,11 @@
     <loc>/tags/org/</loc>
     <lastmod>2023-08-21T15:01:18+08:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2023-08-21T15:01:18+08:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2023-08-21T15:01:18+08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2023-08-21T15:01:18+08:00</lastmod>
-  </url><url>
     <loc>/tags/a7c/</loc>
     <lastmod>2023-08-21T08:46:42+08:00</lastmod>
   </url><url>
     <loc>/posts/sony-a7c-%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2023-08-21T08:46:42+08:00</lastmod>
-  </url><url>
-    <loc>/tags/emacs/</loc>
-    <lastmod>2023-08-18T23:49:32+08:00</lastmod>
   </url><url>
     <loc>/tags/mac/</loc>
     <lastmod>2023-08-18T23:49:32+08:00</lastmod>
