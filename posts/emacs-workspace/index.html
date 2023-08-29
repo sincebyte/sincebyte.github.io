@@ -250,7 +250,7 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
   <h1 class="mb-4">Emacs Workspace</h1>
@@ -280,7 +280,7 @@
 
   <p>在使用 doom emacs 的时候 <code>workspace</code> 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？</p>
 <p><a id="org0ac3d25"></a></p>
-<h1 id="痛点">痛点</h1>
+<h2 id="痛点">痛点</h2>
 <p>在使用 doom emacs 的时候 <code>workspace</code> 是我们经常使用到的功能. 但是默认的workspace在设置workspace的名称的时候使用了编号(#No.)进行命名,没有实际的上下文含义.<br>
 我经常开多个workspace, 频繁的在多个workspace中切换. 一般在做后端java开发的时候,我习惯至少要开四个workspace, 工作中往往需要再给空间另外命名. 但每次关闭又需要重新命名操作, 非常的麻烦.</p>
 <ul>
@@ -291,7 +291,7 @@
 </ul>
 <p>那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？</p>
 <p><a id="org27492d1"></a></p>
-<h1 id="解决">解决</h1>
+<h2 id="解决">解决</h2>
 <p>其实最终期望的效果是释放手动设置workspace的名称这个动作, 尝试用elisp来帮我们实现利用当前buffer的名称作为workspace的名称.<br>
 可以利用 pre-command-hook 钩子在每次执行命令的时候对 workspace 的名称进行一次设置. 为了提升效率, 当判定出buffer-name与workspace-name相同时, 则不需要再次设置workspace的名称. 此外在进行recentf、fzf等操作的时候 workspace 名称无需跟随改变. 则有了下面的代码.<br>
 需要注意的是workspace要求名称唯一,因此如果我们在2个buffer中打开了同一个文件此时又将workspace的名称设置成了buffer的名称则workspace会提示异常（名称未发生改变）.<br>
@@ -302,10 +302,10 @@
           nil (+workspace:rename (buffer-name)))))
 </code></pre>
 <p><a id="org94c2661"></a></p>
-<h1 id="eslip代码学习">eslip代码学习</h1>
+<h2 id="eslip代码学习">eslip代码学习</h2>
 <p>需要注意的是, string-match 这个函数当不匹配的时候就返回nil,匹配的时候返回数字. 其实它的结果可直接被if语句用于判断条件的.无需再进行转换了.另外pre-command-hook和post-command-hook这两个hook都可以实现本次的功能, 但post-command-hook时而会出现一些异常的情况.这个与两个hook的执行时间有关系, pre-command-hook 是在comman执行之前就先执行hook, post-command-hook是在command执行之后才执行的hook.实践证明hook应该要放在执行前还是执行后并无实际的影响.</p>
 <p><a id="orgbe6a56b"></a></p>
-<h1 id="铵键配置">铵键配置</h1>
+<h2 id="铵键配置">铵键配置</h2>
 <p>同时也分享下neo-emacs中对于workspace快捷键的设置. 最常用的就是左右切换workspace了, 因此设置了K、J来进行切换.<br>
 还有对workspace进行位置的移动,这其实是一个低频的功能.因此设置在了 <code>command+k</code> 、 <code>command+j</code> 来分别左移和右移.</p>
 <pre><code>(map! :n &quot;K&quot;                  '+workspace/switch-right               )
@@ -314,7 +314,7 @@
 (map! :n &quot;s-j&quot;                '+workspace/swap-left                  )
 </code></pre>
 <p><a id="org41e55ea"></a></p>
-<h1 id="其他问题">其他问题</h1>
+<h2 id="其他问题">其他问题</h2>
 <ul>
 <li>如果buffer的名称过长了会占用底部太多的空间. 这个还比较好优化</li>
 <li>每次 workspace-rename 以后,该 workspace 的排序被移动到了最右边. workspace 位置产生移动会打乱我们对空间顺序的固有思维. 暂时无解答</li>
@@ -361,11 +361,43 @@
 
     </div>
     
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#痛点">痛点</a></li>
+    <li><a href="#解决">解决</a></li>
+    <li><a href="#eslip代码学习">eslip代码学习</a></li>
+    <li><a href="#铵键配置">铵键配置</a></li>
+    <li><a href="#其他问题">其他问题</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
 
     
     
       <div
-        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
       >
         <h3>See Also</h3>
         
