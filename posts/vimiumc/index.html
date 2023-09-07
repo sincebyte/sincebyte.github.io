@@ -271,10 +271,10 @@
   
 
   <p>Vimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.</p>
-<h1 id="缘起">缘起</h1>
+<h2 id="缘起">缘起</h2>
 <p>由于常年使用 Emacs, 对于一切全键盘的操作都特别兴奋, 浏览器是日常工作学习中必不可少的工具. 最早我使用Vimium. 最近开始使用Vimium C, Vimium C 解决了在chrome中使用Vimium多年来的小部分困扰, 让全键盘流变得更加丝滑👍.</p>
-<p><a id="org5c66bfe"></a></p>
-<h1 id="vimium">Vimium</h1>
+<p><a id="org02cbf8c"></a></p>
+<h2 id="vimium">Vimium</h2>
 <p>Vimium 提供了在浏览器中使用键盘操作的最通用、常见的功能. 这里列出一些我用到的最多的特性.</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-bottom"><span class="table-number">Table 1:</span> Vimium 常见操作快捷键速览</caption>
@@ -333,27 +333,34 @@
 </tr>
 </tbody>
 </table>
-<p><a id="org24bbc5b"></a></p>
-<h2 id="设置">设置</h2>
+<ol>
+<li>
+<p>设置</p>
 <ul>
 <li>让本地文件也能使用vimium的快捷键, 需要在插件管理内设置: Allow access to file URLs</li>
 <li>在vimium的option设置页设置new tab: any website. 这样在new tab打开时就也能使用vimium的快捷键.</li>
 <li>其他的.. 好像没了</li>
 </ul>
-<p><a id="org9ccc951"></a></p>
-<h2 id="问题">问题</h2>
+</li>
+<li>
+<p>问题</p>
 <p>vimium 使用的越多, 其中一个问题凸显的越明显. 那就是vimium在 chrome 的某些自定义页面不可使用, 比如 chrome的插件设置页, 或者chrome的默认new tab页, 每当碰到这些页面的时候,要么我们使用 `command + l` 跳转至一个新的网页, 要么就只能去碰鼠标了. 然而在vimium中这个问题几乎无解.</p>
-<p><a id="org5b8a6d4"></a></p>
-<h1 id="vimium-c">Vimium C</h1>
+</li>
+</ol>
+<p><a id="orgd3dd49e"></a></p>
+<h2 id="vimium-c">Vimium C</h2>
 <p>Vimium C 号称是Vimium 的加强版. 其中就解决了Vimium的部分页面失效的问题, 而且其搜索比Vimium要更好用.Vimium C 的快捷键和Vimium在我上面提到的范围内是一模一样的, 这几乎是可以无感平替.其次在Vimium C 内可以配置在chrome的所有页面都有效, 包括chrome的setting页. 大家设置好就纵情体验吧!</p>
-<p><a id="org5e4972f"></a></p>
-<h2 id="设置-1">设置</h2>
+<ol>
+<li>
+<p>设置</p>
 <ul>
 <li>在Vimium C 内设置在chrome的插件页生效: option&gt;Advanced Options&gt; Run on chrome://*/* pages (need #extensions-on-chrome-urls)</li>
 <li>在Vimium C 内设置在chrome的新tab页生效: option&gt;Run on Chrome’s native New Tab Page (need #extensions-on-chrome-urls)</li>
 <li>设置上面两项的前提, 先设置 chrome://flags/&gt;Extensions on chrome:// URLs&gt;enable, 并重启就可以了.</li>
 <li>在Vimium C 内禁用b按键: option&gt;Custom key mappings&gt;unmap b, 保存生效</li>
 </ul>
+</li>
+</ol>
 </article>
 
 
@@ -410,12 +417,9 @@
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#设置">设置</a></li>
-    <li><a href="#问题">问题</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#设置-1">设置</a></li>
+    <li><a href="#缘起">缘起</a></li>
+    <li><a href="#vimium">Vimium</a></li>
+    <li><a href="#vimium-c">Vimium C</a></li>
   </ul>
 </nav>
 </div>
