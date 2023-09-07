@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Emacs Workspace | sincebyte</title>
+<title>VimiumC | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="在使用 doom emacs 的时候 workspace 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？">
+  content="Vimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,8 +89,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Emacs Workspace",
-      "item":"/posts/emacs-workspace/"}]
+      "name":"VimiumC",
+      "item":"/posts/vimiumc/"}]
 }
 </script>
 
@@ -102,11 +102,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/emacs-workspace/"
+        "@id": "/posts/vimiumc/"
     },
-    "headline": "Emacs Workspace | sincebyte","datePublished": "2023-08-29T15:46:59+08:00",
-    "dateModified": "2023-08-29T15:46:59+08:00",
-    "wordCount":  122 ,
+    "headline": "VimiumC | sincebyte","datePublished": "2023-09-07T21:26:36+08:00",
+    "dateModified": "2023-09-07T21:26:36+08:00",
+    "wordCount":  153 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,21 +115,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003e在使用 doom emacs 的时候 \u003ccode\u003eworkspace\u003c\/code\u003e 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？\u003c\/p\u003e"
+    "description": "\u003cp\u003eVimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="Emacs Workspace | sincebyte" />
+</script><meta property="og:title" content="VimiumC | sincebyte" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/emacs-workspace/" />
+<meta property="og:url" content="/posts/vimiumc/" />
 
 
 
 
-<meta property="og:description" content="在使用 doom emacs 的时候 workspace 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？" />
+<meta property="og:description" content="Vimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑." />
 
 
 
@@ -146,29 +146,21 @@
 
 
 
-<meta property="article:published_time" content="2023-08-29T15:46:59&#43;08:00" />
+<meta property="article:published_time" content="2023-09-07T21:26:36&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2023-08-29T15:46:59&#43;08:00" />
+<meta property="article:modified_time" content="2023-09-07T21:26:36&#43;08:00" />
 
 
 
 <meta property="article:section" content="posts" />
 
 
-<meta property="article:tag" content="emacs" />
+<meta property="article:tag" content="Emacs" />
 
-<meta property="article:tag" content="doom" />
-
-
+<meta property="article:tag" content="chrome" />
 
 
-
-<meta property="og:see_also" content="/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
-
-<meta property="og:see_also" content="/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/" />
-
-<meta property="og:see_also" content="/posts/orgmodecss/" />
 
 
 
@@ -253,7 +245,7 @@
       class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">Emacs Workspace</h1>
+  <h1 class="mb-4">VimiumC</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -261,7 +253,7 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2023-08-29</span
+      >2023-09-07</span
     >
   </div>
   <div class="me-6 my-2">
@@ -278,47 +270,89 @@
   
   
 
-  <p>在使用 doom emacs 的时候 <code>workspace</code> 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？</p>
-<p><a id="org0ac3d25"></a></p>
-<h2 id="痛点">痛点</h2>
-<p>在使用 doom emacs 的时候 <code>workspace</code> 是我们经常使用到的功能. 但是默认的workspace在设置workspace的名称的时候使用了编号(#No.)进行命名,没有实际的上下文含义.<br>
-我经常开多个workspace, 频繁的在多个workspace中切换. 一般在做后端java开发的时候,我习惯至少要开四个workspace, 工作中往往需要再给空间另外命名. 但每次关闭又需要重新命名操作, 非常的麻烦.</p>
+  <p>Vimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.</p>
+<h1 id="缘起">缘起</h1>
+<p>由于常年使用 Emacs, 对于一切全键盘的操作都特别兴奋, 浏览器是日常工作学习中必不可少的工具. 最早我使用Vimium. 最近开始使用Vimium C, Vimium C 解决了在chrome中使用Vimium多年来的小部分困扰, 让全键盘流变得更加丝滑👍.</p>
+<p><a id="org5c66bfe"></a></p>
+<h1 id="vimium">Vimium</h1>
+<p>Vimium 提供了在浏览器中使用键盘操作的最通用、常见的功能. 这里列出一些我用到的最多的特性.</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 1:</span> Vimium 常见操作快捷键速览</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">features</td>
+<td class="org-left">shortkey</td>
+</tr>
+<tr>
+<td class="org-left">next tab</td>
+<td class="org-left">K</td>
+</tr>
+<tr>
+<td class="org-left">previous tab</td>
+<td class="org-left">J</td>
+</tr>
+<tr>
+<td class="org-left">close Tab</td>
+<td class="org-left">x</td>
+</tr>
+<tr>
+<td class="org-left">new tab</td>
+<td class="org-left">t</td>
+</tr>
+<tr>
+<td class="org-left">jump to link</td>
+<td class="org-left">f</td>
+</tr>
+<tr>
+<td class="org-left">scroll up</td>
+<td class="org-left">u</td>
+</tr>
+<tr>
+<td class="org-left">scroll down</td>
+<td class="org-left">d</td>
+</tr>
+<tr>
+<td class="org-left">copy current url</td>
+<td class="org-left">yy</td>
+</tr>
+<tr>
+<td class="org-left">search char</td>
+<td class="org-left">/</td>
+</tr>
+<tr>
+<td class="org-left">next search</td>
+<td class="org-left">n</td>
+</tr>
+<tr>
+<td class="org-left">previous search</td>
+<td class="org-left">N</td>
+</tr>
+</tbody>
+</table>
+<p><a id="org24bbc5b"></a></p>
+<h2 id="设置">设置</h2>
 <ul>
-<li>lsp-java 代码工程空间</li>
-<li>ejcsql 数据库空间</li>
-<li>rest-client 作为测试接口的空间</li>
-<li>org-mode 文档空间</li>
+<li>让本地文件也能使用vimium的快捷键, 需要在插件管理内设置: Allow access to file URLs</li>
+<li>在vimium的option设置页设置new tab: any website. 这样在new tab打开时就也能使用vimium的快捷键.</li>
+<li>其他的.. 好像没了</li>
 </ul>
-<p>那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？</p>
-<p><a id="org27492d1"></a></p>
-<h2 id="解决">解决</h2>
-<p>其实最终期望的效果是释放手动设置workspace的名称这个动作, 尝试用elisp来帮我们实现利用当前buffer的名称作为workspace的名称.<br>
-可以利用 pre-command-hook 钩子在每次执行命令的时候对 workspace 的名称进行一次设置. 为了提升效率, 当判定出buffer-name与workspace-name相同时, 则不需要再次设置workspace的名称. 此外在进行recentf、fzf等操作的时候 workspace 名称无需跟随改变. 则有了下面的代码.<br>
-需要注意的是workspace要求名称唯一,因此如果我们在2个buffer中打开了同一个文件此时又将workspace的名称设置成了buffer的名称则workspace会提示异常（名称未发生改变）.<br>
-到这里猛然发现想要的不就是 tab 标签栏的效果吗？Anyway 就是习惯了看 workspace ~ happy.</p>
-<pre><code>(add-hook 'pre-command-hook (lambda ()
-          (if (or (eq (buffer-name) (+workspace-current-name))
-                  (string-match &quot;*Minibuf&quot; (buffer-name)) )
-          nil (+workspace:rename (buffer-name)))))
-</code></pre>
-<p><a id="org94c2661"></a></p>
-<h2 id="eslip代码学习">eslip代码学习</h2>
-<p>需要注意的是, string-match 这个函数当不匹配的时候就返回nil,匹配的时候返回数字. 其实它的结果可直接被if语句用于判断条件的.无需再进行转换了.另外pre-command-hook和post-command-hook这两个hook都可以实现本次的功能, 但post-command-hook时而会出现一些异常的情况.这个与两个hook的执行时间有关系, pre-command-hook 是在comman执行之前就先执行hook, post-command-hook是在command执行之后才执行的hook.实践证明hook应该要放在执行前还是执行后并无实际的影响.</p>
-<p><a id="orgbe6a56b"></a></p>
-<h2 id="铵键配置">铵键配置</h2>
-<p>同时也分享下neo-emacs中对于workspace快捷键的设置. 最常用的就是左右切换workspace了, 因此设置了K、J来进行切换.<br>
-还有对workspace进行位置的移动,这其实是一个低频的功能.因此设置在了 <code>command+k</code> 、 <code>command+j</code> 来分别左移和右移.</p>
-<pre><code>(map! :n &quot;K&quot;                  '+workspace/switch-right               )
-(map! :n &quot;J&quot;                  '+workspace/switch-left                )
-(map! :n &quot;s-k&quot;                '+workspace/swap-right                 )
-(map! :n &quot;s-j&quot;                '+workspace/swap-left                  )
-</code></pre>
-<p><a id="org41e55ea"></a></p>
-<h2 id="其他问题">其他问题</h2>
+<p><a id="org9ccc951"></a></p>
+<h2 id="问题">问题</h2>
+<p>vimium 使用的越多, 其中一个问题凸显的越明显. 那就是vimium在 chrome 的某些自定义页面不可使用, 比如 chrome的插件设置页, 或者chrome的默认new tab页, 每当碰到这些页面的时候,要么我们使用 `command + l` 跳转至一个新的网页, 要么就只能去碰鼠标了. 然而在vimium中这个问题几乎无解.</p>
+<p><a id="org5b8a6d4"></a></p>
+<h1 id="vimium-c">Vimium C</h1>
+<p>Vimium C 号称是Vimium 的加强版. 其中就解决了Vimium的部分页面失效的问题, 而且其搜索比Vimium要更好用.Vimium C 的快捷键和Vimium在我上面提到的范围内是一模一样的, 这几乎是可以无感平替.其次在Vimium C 内可以配置在chrome的所有页面都有效, 包括chrome的setting页. 大家设置好就纵情体验吧!</p>
+<p><a id="org5e4972f"></a></p>
+<h2 id="设置-1">设置</h2>
 <ul>
-<li>如果buffer的名称过长了会占用底部太多的空间. 这个还比较好优化</li>
-<li>每次 workspace-rename 以后,该 workspace 的排序被移动到了最右边. workspace 位置产生移动会打乱我们对空间顺序的固有思维. 暂时无解答</li>
-<li>如果在2个不同的workspace中打开相同的文件, 程序会自动设置workspacename为文件名, 但是workspace不允许设置为相同,因此会出现buffer切换了但是workspacename没更改的情况,也算是一种错乱.</li>
+<li>在Vimium C 内设置在chrome的插件页生效: option&gt;Advanced Options&gt; Run on chrome://*/* pages (need #extensions-on-chrome-urls)</li>
+<li>在Vimium C 内设置在chrome的新tab页生效: option&gt;Run on Chrome’s native New Tab Page (need #extensions-on-chrome-urls)</li>
+<li>设置上面两项的前提, 先设置 chrome://flags/&gt;Extensions on chrome:// URLs&gt;enable, 并重启就可以了.</li>
+<li>在Vimium C 内禁用b按键: option&gt;Custom key mappings&gt;unmap b, 保存生效</li>
 </ul>
 </article>
 
@@ -328,7 +362,7 @@
     
     <a href="/tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#emacs</a>
     
-    <a href="/tags/doom/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#doom</a>
+    <a href="/tags/chrome/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#chrome</a>
     
 </div>
       
@@ -345,16 +379,11 @@
   >
     <div>
       
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="/posts/vimiumc/" class="block">VimiumC</a>
-      
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="/posts/hugo-usage/" class="block">Hugo Usage</a>
+        <a href="/posts/emacs-workspace/" class="block">Emacs Workspace</a>
       
     </div>
   </div>
@@ -381,11 +410,12 @@
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#痛点">痛点</a></li>
-    <li><a href="#解决">解决</a></li>
-    <li><a href="#eslip代码学习">eslip代码学习</a></li>
-    <li><a href="#铵键配置">铵键配置</a></li>
-    <li><a href="#其他问题">其他问题</a></li>
+    <li><a href="#设置">设置</a></li>
+    <li><a href="#问题">问题</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#设置-1">设置</a></li>
   </ul>
 </nav>
 </div>
@@ -400,22 +430,6 @@
     
 
     
-    
-      <div
-        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
-      >
-        <h3>See Also</h3>
-        
-          <a href="/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="no-underline">Macos Stage 快捷键</a>
-          <br />
-        
-          <a href="/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/" class="no-underline">使用d2绘图</a>
-          <br />
-        
-          <a href="/posts/orgmodecss/" class="no-underline">推荐一款 org mode 导出 html 的样式</a>
-          <br />
-        
-      </div>
     
   </div>
 
