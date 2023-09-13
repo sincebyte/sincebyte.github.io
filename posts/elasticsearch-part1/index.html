@@ -77,7 +77,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.">
+  content="最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名.
+But, 我认为这证明了他们对人才市场挖掘的雄心.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -106,7 +107,7 @@
     },
     "headline": "ElasticSearch Part1 | sincebyte","datePublished": "2023-09-13T19:50:09+08:00",
     "dateModified": "2023-09-13T19:50:09+08:00",
-    "wordCount":  956 ,
+    "wordCount":  918 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,7 +116,7 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003e最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.\u003c\/p\u003e"
+    "description": "\u003cp\u003e最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名.\nBut, 我认为这证明了他们对人才市场挖掘的雄心.\u003c\/p\u003e"
 }
 </script><meta property="og:title" content="ElasticSearch Part1 | sincebyte" />
 <meta property="og:type" content="article" />
@@ -129,7 +130,8 @@
 
 
 
-<meta property="og:description" content="最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心." />
+<meta property="og:description" content="最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名.
+But, 我认为这证明了他们对人才市场挖掘的雄心." />
 
 
 
@@ -280,12 +282,13 @@
   
   
 
-  <p>最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.</p>
-<p><a id="org97946d5"></a></p>
+  <p>最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名.
+But, 我认为这证明了他们对人才市场挖掘的雄心.</p>
+<p><a id="orgb325a2a"></a></p>
 <h2 id="introduction">Introduction</h2>
 <p>记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.<br>
 Elastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.</p>
-<p><a id="org967ee2f"></a></p>
+<p><a id="org41ad7e3"></a></p>
 <h2 id="install--config">Install &amp; config</h2>
 <ol>
 <li>
@@ -310,21 +313,14 @@ Elastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档�
 <li>
 <p>启动服务</p>
 <p>wget <a href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb">https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb</a>
-sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install
+sudo dpkg -i elasticsearch-8.8.2-amd64.deb
 sudo systemctl enable elasticsearch.service
-sudo vim /etc/elasticsearch/elasticsearch.yml</p>
-<h1 id="setting-blew">setting blew</h1>
-<h1 id="nodename-node-1">node.name: &ldquo;node-1&rdquo;</h1>
-<h1 id="networkhost-0000">network.host: 0.0.0.0</h1>
-<h1 id="httpport-9200">http.port: 9200</h1>
-<h1 id="clusterinitial_master_nodes-node-1">cluster.initial_master_nodes: [&ldquo;node-1&rdquo;]</h1>
-<h1 id="xpacksecurityenabled">xpack.security.enabled</h1>
-<h1 id="set-ulimit">set ulimit</h1>
-<p>sudo su
+sudo vim /etc/elasticsearch/elasticsearch.yml # setting your config
+sudo su
 ulimit -n 65535
 su elasticsearch
 sudo systemctl restart elasticsearch
-sudo journalctl &ndash;unit elasticsearch # locate the error message</p>
+sudo journalctl &ndash;unit elasticsearch</p>
 </li>
 </ul>
 </li>
@@ -341,14 +337,14 @@ tar -xvf elasticsearch-8.8.2-linux-x86_64.tar.gz
 bin /usr/share/elasticsearch/bin</p>
 </li>
 </ol>
-<p><a id="org0437afc"></a></p>
+<p><a id="orga46f3a6"></a></p>
 <h2 id="uninstall">UnInstall</h2>
 <pre><code>sudo dpkg -P elasticsearch                 # uninsatll
 sudo apt-get --purge autoremove elasticsearch
 sudo rm -rf /var/lib/elasticsearch/
 sudo rm -rf /etc/elasticsearch
 </code></pre>
-<p><a id="org9964d0d"></a></p>
+<p><a id="orgb023bf6"></a></p>
 <h2 id="architecture">Architecture</h2>
 <p>Elastic search 在存放数据的时候, 需要有先将数据存储至主分片, 再根据复制规则将数据存储至不同的子节点.<br>
 路由只有到了elasticsearch的协调节点以后才知道具体应该到哪个节点写或者具体应该从哪些节点读. 在发送请求时这些信息都是不明确的.</p>
@@ -360,7 +356,7 @@ sudo rm -rf /etc/elasticsearch
 <li>一致性: one, 只有当主节点存储成功则客户端就可以查询、all, 只有所有的子节点都成功同步好数据以后客户端才能查询这个数据</li>
 </ul>
 <p><img src="elastic-search-arch.svg" alt="img"></p>
-<p><a id="org1844db6"></a></p>
+<p><a id="org86d2dbc"></a></p>
 <h2 id="restful-api">Restful Api</h2>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-bottom"><span class="table-number">Table 1:</span> the difference between restful methodes</caption>
@@ -625,7 +621,7 @@ Content-Type: application/json
   }
 }
 </code></pre>
-<p><a id="org4bcf231"></a></p>
+<p><a id="org9685254"></a></p>
 <h2 id="java-sdk">Java SDK</h2>
 <ol>
 <li>
@@ -849,61 +845,9 @@ public Result&lt;Void&gt; testSql() {
 }
 </code></pre>
 </li>
-<li>
-<p>Performance</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<colgroup>
-<col  class="org-left" />
-<col  class="org-right" />
-<col  class="org-right" />
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Database Engin</th>
-<th scope="col" class="org-right">Initial Cost</th>
-<th scope="col" class="org-right">Cached Cost</th>
-<th scope="col" class="org-left">ES_TABLE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">ES1shard</td>
-<td class="org-right">20.5</td>
-<td class="org-right">0.1</td>
-<td class="org-left">tmp_20230905</td>
-</tr>
-<tr>
-<td class="org-left">ES3shard</td>
-<td class="org-right">9.5</td>
-<td class="org-right">0.1</td>
-<td class="org-left">tmp_test</td>
-</tr>
-<tr>
-<td class="org-left">ES6shard</td>
-<td class="org-right">4.585401</td>
-<td class="org-right">0.1</td>
-<td class="org-left">tmp_20230907</td>
-</tr>
-<tr>
-<td class="org-left">ES9shard</td>
-<td class="org-right">3.468439</td>
-<td class="org-right">0.1</td>
-<td class="org-left">tmp_test_9</td>
-</tr>
-<tr>
-<td class="org-left">ES15shard</td>
-<td class="org-right">4.218455s</td>
-<td class="org-right">0.1</td>
-<td class="org-left">tmp_test_15</td>
-</tr>
-</tbody>
-</table>
-<p><img src="./vvt.svg" alt="img" title="1600万数据测试查询性能对比"></p>
-</li>
 </ol>
-<p><a id="orga3a1d9f"></a></p>
-<h2 id="testing-report">Testing Report</h2>
+<p><a id="org0ef19da"></a></p>
+<h2 id="performance">Performance</h2>
 <p>经过测试, elasticsearch的性能表现良好; 但仍然没达到秒级以内</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-bottom"><span class="table-number">Table 3:</span> elasticsearch集群配置及sql情况</caption>
@@ -952,43 +896,50 @@ public Result&lt;Void&gt; testSql() {
 <col  class="org-left" />
 <col  class="org-right" />
 <col  class="org-right" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
 <th scope="col" class="org-left">Database Engin</th>
 <th scope="col" class="org-right">Initial Cost</th>
-<th scope="col" class="org-right">Normal Cost</th>
+<th scope="col" class="org-right">Cached Cost</th>
+<th scope="col" class="org-left">ES_TABLE</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">Sqlserver</td>
-<td class="org-right">300</td>
-<td class="org-right">300</td>
-</tr>
-<tr>
 <td class="org-left">ES1shard</td>
-<td class="org-right">18.5</td>
-<td class="org-right">1</td>
+<td class="org-right">20.5</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_20230905</td>
 </tr>
 <tr>
 <td class="org-left">ES3shard</td>
 <td class="org-right">9.5</td>
-<td class="org-right">1</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_test</td>
 </tr>
 <tr>
 <td class="org-left">ES6shard</td>
-<td class="org-right">5</td>
-<td class="org-right">1</td>
+<td class="org-right">4.585401</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_20230907</td>
 </tr>
 <tr>
 <td class="org-left">ES9shard</td>
-<td class="org-right">4</td>
-<td class="org-right">1</td>
+<td class="org-right">3.468439</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_test_9</td>
+</tr>
+<tr>
+<td class="org-left">ES15shard</td>
+<td class="org-right">4.218455s</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_test_15</td>
 </tr>
 </tbody>
 </table>
-<p><img src="./vvt.svg" alt="img" title="performance about the query of 16 million document"></p>
+<p><img src="./vvt.svg" alt="img" title="1600万数据测试查询性能对比"></p>
 </article>
 
 
@@ -1047,14 +998,11 @@ public Result&lt;Void&gt; testSql() {
   <ul>
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#install--config">Install &amp; config</a></li>
-  </ul>
-
-  <ul>
     <li><a href="#uninstall">UnInstall</a></li>
     <li><a href="#architecture">Architecture</a></li>
     <li><a href="#restful-api">Restful Api</a></li>
     <li><a href="#java-sdk">Java SDK</a></li>
-    <li><a href="#testing-report">Testing Report</a></li>
+    <li><a href="#performance">Performance</a></li>
   </ul>
 </nav>
 </div>
