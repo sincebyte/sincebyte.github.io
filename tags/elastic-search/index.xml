@@ -15,19 +15,7 @@
       <pubDate>Wed, 13 Sep 2023 19:50:09 +0800</pubDate>
       
       <guid>/posts/elasticsearch-part1/</guid>
-      <description>最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
-Introduction 记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
-Elastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.
-Install &amp;amp; config use package manager
-安装步骤:
-下载deb安装包
-执行安装
-修改配置, 最简单的设置所有ip可访问, 不添加安全权限
-设置操作系统ulimit
-启用elasticsearch服务
-启动服务
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install sudo systemctl enable elasticsearch.service sudo vim /etc/elasticsearch/elasticsearch.yml
-setting blew node.name: &amp;ldquo;node-1&amp;rdquo; network.host: 0.0.0.0 http.port: 9200 cluster.</description>
+      <description>&lt;p&gt;最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.&lt;/p&gt;</description>
     </item>
     
   </channel>
