@@ -89,66 +89,72 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "ElasticSearch Part1",
+            "description": "最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.\nIntroduction 记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.\nElastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.\nInstall \u0026amp; config use package manager\n安装步骤:\n下载deb安装包\n执行安装\n修改配置, 最简单的设置所有ip可访问, 不添加安全权限\n设置操作系统ulimit\n启用elasticsearch服务\n启动服务\nwget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install sudo systemctl enable elasticsearch.service sudo vim /etc/elasticsearch/elasticsearch.yml\nsetting blew node.name: \u0026ldquo;node-1\u0026rdquo; network.host: 0.0.0.0 http.port: 9200 cluster.",
+            "url": "/posts/elasticsearch-part1/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "VimiumC",
             "description": "\u003cp\u003eVimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.\u003c/p\u003e",
             "url": "/posts/vimiumc/"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "Emacs Workspace",
             "description": "\u003cp\u003e在使用 doom emacs 的时候 \u003ccode\u003eworkspace\u003c/code\u003e 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？\u003c/p\u003e",
             "url": "/posts/emacs-workspace/"
         },{
             "@type":"ListItem",
-            "position":  3 ,
+            "position":  4 ,
             "name": "Hugo Usage",
             "description": "\u003cp\u003eHugo can build a personal blog conveniently and quickly, providing comments, categories, searches, skins, subscriptions and other functions. Its open source code allows users to customize its default behavior at will.\u003c/p\u003e",
             "url": "/posts/hugo-usage/"
         },{
             "@type":"ListItem",
-            "position":  4 ,
+            "position":  5 ,
             "name": "Sony A7c 入门",
             "description": "\u003cp\u003eSony a7c 相机入门基础知识整理\u003c/p\u003e",
             "url": "/posts/sony-a7c-%E5%85%A5%E9%97%A8/"
         },{
             "@type":"ListItem",
-            "position":  5 ,
+            "position":  6 ,
             "name": "Macos Stage 快捷键",
             "description": "\u003cp\u003emac stage manager 提供了一个真正无打扰的工作环境.\u003c/p\u003e",
             "url": "/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/"
         },{
             "@type":"ListItem",
-            "position":  6 ,
+            "position":  7 ,
             "name": "使用d2绘图",
             "description": "\u003cp\u003e是一款脚本绘图语言程序, 提供丰富的特性, 其中我最喜欢的功能包括可生成箭头流动效果\u003c/p\u003e",
             "url": "/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/"
         },{
             "@type":"ListItem",
-            "position":  7 ,
+            "position":  8 ,
             "name": "Mybatis Config 雪花算法id，用 redis 管理 workerId",
             "description": "\u003cp\u003eMybatis Config 雪花算法id，用 redis 自动管理 workerId。\u003c/p\u003e",
             "url": "/posts/mybatis-config/"
         },{
             "@type":"ListItem",
-            "position":  8 ,
+            "position":  9 ,
             "name": "springcloud 整合 shardingsphere 及 seata",
             "description": "\u003cp\u003espringcloud 整合 shardingsphere 及 seata, 为分布式事务的场景提供了十分优雅的解决方案\u003c/p\u003e",
             "url": "/posts/seata-shardingsphere1/"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "java 栈溢出问题排查",
             "description": "\u003cp\u003e如何排查：java.lang.OutOfMemoryError: unable to create native thread\u003c/p\u003e",
             "url": "/posts/java-oom/"
         },{
             "@type":"ListItem",
-            "position":  10 ,
+            "position":  11 ,
             "name": "RocketMQ 必须知道的理论知识",
             "description": "\u003cp\u003eRocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。\u003c/p\u003e",
             "url": "/posts/rocketmqintroduction/"
         },{
             "@type":"ListItem",
-            "position":  11 ,
+            "position":  12 ,
             "name": "推荐一款 org mode 导出 html 的样式",
             "description": "\u003cp\u003e使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style\u003c/p\u003e",
             "url": "/posts/orgmodecss/"
@@ -186,7 +192,7 @@
 
 
 
-<meta property="og:updated_time" content="2023-09-07T21:26:36&#43;08:00" />
+<meta property="og:updated_time" content="2023-09-13T19:50:09&#43;08:00" />
 
 
 
@@ -276,6 +282,59 @@
 
   <div class="bg-secondary-bg rounded px-6">
     <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="/posts/elasticsearch-part1/" class="no-underline">
+    <h3 class="mt-0">ElasticSearch Part1</h3>
+  </a>
+  
+    最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
+Introduction 记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
+Elastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.
+Install &amp; config use package manager
+安装步骤:
+下载deb安装包
+执行安装
+修改配置, 最简单的设置所有ip可访问, 不添加安全权限
+设置操作系统ulimit
+启用elasticsearch服务
+启动服务
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install sudo systemctl enable elasticsearch.service sudo vim /etc/elasticsearch/elasticsearch.yml
+setting blew node.name: “node-1” network.host: 0.0.0.0 http.port: 9200 cluster.
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2023-09-13</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
   
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">

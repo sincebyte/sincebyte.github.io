@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>VimiumC | sincebyte</title>
+<title>elastic-search | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="Vimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.">
+  content="Eureka is a elegant and powerful theme for Hugo.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -85,51 +85,46 @@
   "itemListElement": [{
       "@type": "ListItem",
       "position": 1 ,
-      "name":"Posts",
-      "item":"/posts/"},{
+      "name":"Tags",
+      "item":"/tags/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"VimiumC",
-      "item":"/posts/vimiumc/"}]
+      "name":"elastic-search",
+      "item":"/tags/elastic-search/"}]
 }
 </script>
 
 
 
+
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "/posts/vimiumc/"
-    },
-    "headline": "VimiumC | sincebyte","datePublished": "2023-09-07T21:26:36+08:00",
-    "dateModified": "2023-09-07T21:26:36+08:00",
-    "wordCount":  153 ,
-    "publisher": {
-        "@type": "Person",
-        "name": "WANG Chucheng",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "/images/icon.png"
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[{
+            "@type":"ListItem",
+            "position":  1 ,
+            "name": "ElasticSearch Part1",
+            "description": "最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.\nIntroduction 记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.\nElastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.\nInstall \u0026amp; config use package manager\n安装步骤:\n下载deb安装包\n执行安装\n修改配置, 最简单的设置所有ip可访问, 不添加安全权限\n设置操作系统ulimit\n启用elasticsearch服务\n启动服务\nwget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install sudo systemctl enable elasticsearch.service sudo vim /etc/elasticsearch/elasticsearch.yml\nsetting blew node.name: \u0026ldquo;node-1\u0026rdquo; network.host: 0.0.0.0 http.port: 9200 cluster.",
+            "url": "/posts/elasticsearch-part1/"
         }
-        },
-    "description": "\u003cp\u003eVimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.\u003c\/p\u003e"
+    ]
 }
-</script><meta property="og:title" content="VimiumC | sincebyte" />
-<meta property="og:type" content="article" />
+</script><meta property="og:title" content="elastic-search | sincebyte" />
+<meta property="og:type" content="website" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/vimiumc/" />
+<meta property="og:url" content="/tags/elastic-search/" />
 
 
 
 
-<meta property="og:description" content="Vimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑." />
+
+<meta property="og:description" content="Eureka is a elegant and powerful theme for Hugo." />
+
 
 
 
@@ -146,23 +141,14 @@
 
 
 
-<meta property="article:published_time" content="2023-09-07T21:26:36&#43;08:00" />
-
-
-<meta property="article:modified_time" content="2023-09-07T21:26:36&#43;08:00" />
+<meta property="og:updated_time" content="2023-09-13T19:50:09&#43;08:00" />
 
 
 
-<meta property="article:section" content="posts" />
+<meta property="article:section" content="tags" />
 
 
-<meta property="article:tag" content="Emacs" />
-
-<meta property="article:tag" content="Chrome" />
-
-
-
-
+<link rel="alternate" type="application/rss+xml" href="/tags/elastic-search/index.xml" title="sincebyte" />
 
 
   <body class="flex min-h-screen flex-col">
@@ -184,8 +170,8 @@
     <div id="target"
         class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
         <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
-            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
-            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Posts</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Tags</a>
         </div>
 
         <div class="flex">
@@ -238,27 +224,51 @@
     <main class="grow pt-16">
         <div class="pl-scrollbar">
           <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  <article class="prose mx-6 my-8">
+  <h1>elastic-search</h1>
   
-  
-  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
-    <div
-      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
-    >
-      <article class="prose">
-  <h1 class="mb-4">VimiumC</h1>
+</article>
 
-  <div
+  <div class="bg-secondary-bg rounded px-6">
+    <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="/posts/elasticsearch-part1/" class="no-underline">
+    <h3 class="mt-0">ElasticSearch Part1</h3>
+  </a>
+  
+    最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
+Introduction 记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
+Elastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.
+Install &amp; config use package manager
+安装步骤:
+下载deb安装包
+执行安装
+修改配置, 最简单的设置所有ip可访问, 不添加安全权限
+设置操作系统ulimit
+启用elasticsearch服务
+启动服务
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install sudo systemctl enable elasticsearch.service sudo vim /etc/elasticsearch/elasticsearch.yml
+setting blew node.name: “node-1” network.host: 0.0.0.0 http.port: 9200 cluster.
+  
+
+  
+    <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
 >
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2023-09-07</span
+      >2023-09-13</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
+    <span>5 min read</span>
   </div>
 
   
@@ -266,188 +276,20 @@
   
 </div>
 
-
   
-  
-
-  <p>Vimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.</p>
-<h2 id="缘起">缘起</h2>
-<p>由于常年使用 Emacs, 对于一切全键盘的操作都特别兴奋, 浏览器是日常工作学习中必不可少的工具. 最早我使用Vimium. 最近开始使用Vimium C, Vimium C 解决了在chrome中使用Vimium多年来的小部分困扰, 让全键盘流变得更加丝滑👍.</p>
-<p><a id="org02cbf8c"></a></p>
-<h2 id="vimium">Vimium</h2>
-<p>Vimium 提供了在浏览器中使用键盘操作的最通用、常见的功能. 这里列出一些我用到的最多的特性.</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-bottom"><span class="table-number">Table 1:</span> Vimium 常见操作快捷键速览</caption>
-<colgroup>
-<col  class="org-left" />
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">features</td>
-<td class="org-left">shortkey</td>
-</tr>
-<tr>
-<td class="org-left">next tab</td>
-<td class="org-left">K</td>
-</tr>
-<tr>
-<td class="org-left">previous tab</td>
-<td class="org-left">J</td>
-</tr>
-<tr>
-<td class="org-left">close Tab</td>
-<td class="org-left">x</td>
-</tr>
-<tr>
-<td class="org-left">new tab</td>
-<td class="org-left">t</td>
-</tr>
-<tr>
-<td class="org-left">jump to link</td>
-<td class="org-left">f</td>
-</tr>
-<tr>
-<td class="org-left">scroll up</td>
-<td class="org-left">u</td>
-</tr>
-<tr>
-<td class="org-left">scroll down</td>
-<td class="org-left">d</td>
-</tr>
-<tr>
-<td class="org-left">copy current url</td>
-<td class="org-left">yy</td>
-</tr>
-<tr>
-<td class="org-left">search char</td>
-<td class="org-left">/</td>
-</tr>
-<tr>
-<td class="org-left">next search</td>
-<td class="org-left">n</td>
-</tr>
-<tr>
-<td class="org-left">previous search</td>
-<td class="org-left">N</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>
-<p>设置</p>
-<ul>
-<li>让本地文件也能使用vimium的快捷键, 需要在插件管理内设置: Allow access to file URLs</li>
-<li>在vimium的option设置页设置new tab: any website. 这样在new tab打开时就也能使用vimium的快捷键.</li>
-<li>其他的.. 好像没了</li>
-</ul>
-</li>
-<li>
-<p>问题</p>
-<p>vimium 使用的越多, 其中一个问题凸显的越明显. 那就是vimium在 chrome 的某些自定义页面不可使用, 比如 chrome的插件设置页, 或者chrome的默认new tab页, 每当碰到这些页面的时候,要么我们使用 `command + l` 跳转至一个新的网页, 要么就只能去碰鼠标了. 然而在vimium中这个问题几乎无解.</p>
-</li>
-</ol>
-<p><a id="orgd3dd49e"></a></p>
-<h2 id="vimium-c">Vimium C</h2>
-<p>Vimium C 号称是Vimium 的加强版. 其中就解决了Vimium的部分页面失效的问题, 而且其搜索比Vimium要更好用.Vimium C 的快捷键和Vimium在我上面提到的范围内是一模一样的, 这几乎是可以无感平替.其次在Vimium C 内可以配置在chrome的所有页面都有效, 包括chrome的setting页. 大家设置好就纵情体验吧!</p>
-<ol>
-<li>
-<p>设置</p>
-<ul>
-<li>在Vimium C 内设置在chrome的插件页生效: option&gt;Advanced Options&gt; Run on chrome://*/* pages (need #extensions-on-chrome-urls)</li>
-<li>在Vimium C 内设置在chrome的新tab页生效: option&gt;Run on Chrome’s native New Tab Page (need #extensions-on-chrome-urls)</li>
-<li>设置上面两项的前提, 先设置 chrome://flags/&gt;Extensions on chrome:// URLs&gt;enable, 并重启就可以了.</li>
-<li>在Vimium C 内禁用b按键: option&gt;Custom key mappings&gt;unmap b, 保存生效</li>
-</ul>
-</li>
-</ol>
-</article>
-
-
-      
-        <div class="my-4">
-    
-    <a href="/tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#emacs</a>
-    
-    <a href="/tags/chrome/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Chrome</a>
-    
 </div>
-      
 
-      
-
-
-
-      
-
-      
-  <div
-    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
-  >
-    <div>
-      
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="/posts/elasticsearch-part1/" class="block">ElasticSearch Part1</a>
-      
-    </div>
-    <div class="mt-4 md:mt-0 md:text-right">
-      
-        <span class="text-primary-text block font-bold">Next</span>
-        <a href="/posts/emacs-workspace/" class="block">Emacs Workspace</a>
-      
-    </div>
-  </div>
-
-
-      
-
-
-
-    </div>
-    
-      <div class="col-span-2">
-        
-        
-          <div
-  class="
-    bg-primary-bg
-   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
->
-  <h3>On This Page</h3>
-</div>
-<div
-  class="sticky-toc  hidden px-6 pb-6 lg:block"
->
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#缘起">缘起</a></li>
-    <li><a href="#vimium">Vimium</a></li>
-    <li><a href="#vimium-c">Vimium C</a></li>
-  </ul>
-</nav>
-</div>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    enableStickyToc();
-  });
-</script>
-
-        
-      </div>
-    
-
-    
-    
   </div>
 
   
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        hljs.highlightAll();
-      });
-    </script>
+</div>
+  </div>
+  
+</div>
+
+
+  </div>
+  
 
           </div>
         </div>

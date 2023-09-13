@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>ElasticSearch Part1 | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
+<script defer src="/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="/js/fontawesome.min.3fba50282b27968ec10a2d25927936348fd254a690104f6417424415acb4bb5db26dfa4ce5453b532550c8e1da9eaed9.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
+Introduction 记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
+Elastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.
+Install &amp; config use package manager
+安装步骤:
+下载deb安装包
+执行安装
+修改配置, 最简单的设置所有ip可访问, 不添加安全权限
+设置操作系统ulimit
+启用elasticsearch服务
+启动服务
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install sudo systemctl enable elasticsearch.service sudo vim /etc/elasticsearch/elasticsearch.yml
+setting blew node.name: &ldquo;node-1&rdquo; network.host: 0.0.0.0 http.port: 9200 cluster.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"ElasticSearch Part1",
+      "item":"/posts/elasticsearch-part1/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/elasticsearch-part1/"
+    },
+    "headline": "ElasticSearch Part1 | sincebyte","datePublished": "2023-09-13T19:50:09+08:00",
+    "dateModified": "2023-09-13T19:50:09+08:00",
+    "wordCount":  956 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.\nIntroduction 记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.\nElastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.\nInstall \u0026amp; config use package manager\n安装步骤:\n下载deb安装包\n执行安装\n修改配置, 最简单的设置所有ip可访问, 不添加安全权限\n设置操作系统ulimit\n启用elasticsearch服务\n启动服务\nwget https:\/\/artifacts.elastic.co\/downloads\/elasticsearch\/elasticsearch-8.9.1-amd64.deb sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install sudo systemctl enable elasticsearch.service sudo vim \/etc\/elasticsearch\/elasticsearch.yml\nsetting blew node.name: \u0026ldquo;node-1\u0026rdquo; network.host: 0.0.0.0 http.port: 9200 cluster."
+}
+</script><meta property="og:title" content="ElasticSearch Part1 | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/elasticsearch-part1/" />
+
+
+
+
+<meta property="og:description" content="最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
+Introduction 记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.
+Elastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.
+Install &amp; config use package manager
+安装步骤:
+下载deb安装包
+执行安装
+修改配置, 最简单的设置所有ip可访问, 不添加安全权限
+设置操作系统ulimit
+启用elasticsearch服务
+启动服务
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install sudo systemctl enable elasticsearch.service sudo vim /etc/elasticsearch/elasticsearch.yml
+setting blew node.name: &ldquo;node-1&rdquo; network.host: 0.0.0.0 http.port: 9200 cluster." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2023-09-13T19:50:09&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2023-09-13T19:50:09&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+<meta property="article:tag" content="elastic-search" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/mybatis-config/" />
+
+<meta property="og:see_also" content="/posts/seata-shardingsphere1/" />
+
+<meta property="og:see_also" content="/posts/rocketmqintroduction/" />
+
+<meta property="og:see_also" content="/posts/java-oom/" />
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="/css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">ElasticSearch Part1</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2023-09-13</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.</p>
+<!-- more -->
+<p><a id="org97946d5"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>记得多年以前看过 Elastic 官方的概述, 其中讲到了 Elastic 公司的发展. Elastic 是一家典型的以开源软件为模型的盈利性的公司. Elastic 早年在发展期间进行了很多免费的公开培训, 实际上培训的过程首先是推广了 Elastic 的知名度, 其次 Elastic 举办方也在这期间发掘优秀的人才收为己用, 是一种非常卓越的招聘手段. 最近几年 Elastic 又推出了Elastic Lisence, Elastic 认证以对 Elastic 的实操性考察难度而闻名. 我认为这证明了他们对人才市场挖掘的雄心.<br>
+Elastic是一家快速发展的公司, 唯一想吐槽的点我认为其文档过于庞杂. 当然些事情丝毫不会影响到Elastic在搜索领域中的领先的市场份额和排名.</p>
+<p><a id="org967ee2f"></a></p>
+<h2 id="install--config">Install &amp; config</h2>
+<ol>
+<li>
+<p>use package manager</p>
+<p>安装步骤:</p>
+<ul>
+<li>
+<p>下载deb安装包</p>
+</li>
+<li>
+<p>执行安装</p>
+</li>
+<li>
+<p>修改配置, 最简单的设置所有ip可访问, 不添加安全权限</p>
+</li>
+<li>
+<p>设置操作系统ulimit</p>
+</li>
+<li>
+<p>启用elasticsearch服务</p>
+</li>
+<li>
+<p>启动服务</p>
+<p>wget <a href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb">https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.9.1-amd64.deb</a>
+sudo dpkg -i elasticsearch-8.8.2-amd64.deb # install
+sudo systemctl enable elasticsearch.service
+sudo vim /etc/elasticsearch/elasticsearch.yml</p>
+<h1 id="setting-blew">setting blew</h1>
+<h1 id="nodename-node-1">node.name: &ldquo;node-1&rdquo;</h1>
+<h1 id="networkhost-0000">network.host: 0.0.0.0</h1>
+<h1 id="httpport-9200">http.port: 9200</h1>
+<h1 id="clusterinitial_master_nodes-node-1">cluster.initial_master_nodes: [&ldquo;node-1&rdquo;]</h1>
+<h1 id="xpacksecurityenabled">xpack.security.enabled</h1>
+<h1 id="set-ulimit">set ulimit</h1>
+<p>sudo su
+ulimit -n 65535
+su elasticsearch
+sudo systemctl restart elasticsearch
+sudo journalctl &ndash;unit elasticsearch # locate the error message</p>
+</li>
+</ul>
+</li>
+<li>
+<p>use uninsatll package</p>
+<p><a href="https://www.elastic.co/downloads/past-releases/elasticsearch-8-8-2">https://www.elastic.co/downloads/past-releases/elasticsearch-8-8-2</a></p>
+<pre><code>wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.8.2-linux-x86_64.tar.gz
+tar -xvf elasticsearch-8.8.2-linux-x86_64.tar.gz
+</code></pre>
+</li>
+<li>
+<p>Directory layout of Debian package</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/8.9/deb.html#deb-layout">https://www.elastic.co/guide/en/elasticsearch/reference/8.9/deb.html#deb-layout</a><br>
+bin /usr/share/elasticsearch/bin</p>
+</li>
+</ol>
+<p><a id="org0437afc"></a></p>
+<h2 id="uninstall">UnInstall</h2>
+<pre><code>sudo dpkg -P elasticsearch                 # uninsatll
+sudo apt-get --purge autoremove elasticsearch
+sudo rm -rf /var/lib/elasticsearch/
+sudo rm -rf /etc/elasticsearch
+</code></pre>
+<p><a id="org9964d0d"></a></p>
+<h2 id="architecture">Architecture</h2>
+<p>Elastic search 在存放数据的时候, 需要有先将数据存储至主分片, 再根据复制规则将数据存储至不同的子节点.<br>
+路由只有到了elasticsearch的协调节点以后才知道具体应该到哪个节点写或者具体应该从哪些节点读. 在发送请求时这些信息都是不明确的.</p>
+<ul>
+<li>协调节点: 用户可以访问任意一个节点来获取elastic的集群的数据</li>
+<li>分片数量: 写数据的时候有路由规则决定如何路由至某个特定的分片来写入</li>
+<li>副本数量: 读数据的时候根据数据副本存放的节点来进轮询路由访问</li>
+<li>分词器: IK分词器, 分词粗细粒度的设置, 可设置扩展词汇（IK提供的功能, ikplugin/config/custom.dic）</li>
+<li>一致性: one, 只有当主节点存储成功则客户端就可以查询、all, 只有所有的子节点都成功同步好数据以后客户端才能查询这个数据</li>
+</ul>
+<p><img src="elastic-search-arch.svg" alt="img"></p>
+<p><a id="org1844db6"></a></p>
+<h2 id="restful-api">Restful Api</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 1:</span> the difference between restful methodes</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">post</td>
+<td class="org-left">非冥等</td>
+</tr>
+<tr>
+<td class="org-left">put</td>
+<td class="org-left">冥等</td>
+</tr>
+</tbody>
+</table>
+<pre><code>#创建索引, 并设置分片数量 , 分片数量是影响查询性能的主要因素之一
+PUT http://cloudtencent.com:9200/shopping
+{
+  &quot;settings&quot;: {
+    &quot;number_of_shards&quot;: 15
+  }
+}
+#将一个索引的数据同步至另外一个索引, 设置一次性按多少条记录来提交
+POST http://cloudtencent.com:9200/_reindex?slices=9&amp;refresh&amp;wait_for_completion=false
+{
+
+    &quot;source&quot;: {
+        &quot;index&quot;: &quot;shopping&quot;,
+        &quot;size&quot;: 10000
+    },
+    &quot;dest&quot;: {
+        &quot;index&quot;: &quot;shopping_test_15&quot;
+    }
+}
+#设置doc的副本
+PUT http://cloudtencent.com:9200/shopping/_settings
+{
+  &quot;number_of_replicas&quot;: 1
+}
+#查看索引
+GET http://cloudtencent.com:9200/shopping
+#查看所有索引
+GET http://cloudtencent.com:9200/_cat/indices?v
+#删除索引
+DELETE http://cloudtencent.com:9200/shopping
+#创建数据
+# POST http://cloudtencent.com:9200/shopping/_create
+POST http://cloudtencent.com:9200/shopping/_doc
+Content-Type: application/json
+{
+  &quot;title&quot;:&quot;小米手机&quot;,
+  &quot;category&quot;:&quot;小米&quot;,
+  &quot;image&quot;:&quot;http://www.baidu.com&quot;,
+  &quot;price&quot;:39999.00
+}
+#创建数据带id
+POST http://cloudtencent.com:9200/shopping/_doc/1002
+Content-Type: application/json
+{
+  &quot;title&quot;:&quot;荣耀手机&quot;,
+  &quot;category&quot;:&quot;华为&quot;,
+  &quot;image&quot;:&quot;http://www.baidu.com&quot;,
+  &quot;price&quot;:19999.00
+}
+#查询文档,指定id
+GET http://cloudtencent.com:9200/shopping/_doc/1001
+#查询所有的数据
+GET http://cloudtencent.com:9200/shopping/_search
+#修改数据
+PUT http://cloudtencent.com:9200/shopping/_doc/1001
+Content-Type: application/json
+{
+  &quot;title&quot;:&quot;小米手机v3&quot;,
+  &quot;category&quot;:&quot;小米&quot;,
+  &quot;image&quot;:&quot;http://www.baidu.com&quot;,
+  &quot;price&quot;:29999.00
+}
+# 部分更新
+POST http://cloudtencent.com:9200/shopping/_update/1001
+Content-Type: application/json
+{
+  &quot;doc&quot;: {
+    &quot;title&quot;: &quot;小米手机v4&quot;
+  }
+}
+# 删除数据
+DELETE http://cloudtencent.com:9200/shopping/_doc/1001
+
+# 条件查询
+GET http://cloudtencent.com:9200/shopping/_search
+Content-Type: application/json
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;category&quot;: &quot;小米&quot;
+    }
+  }
+}
+
+# 全查询
+GET http://cloudtencent.com:9200/shopping/_search
+Content-Type: application/json
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {
+    }
+  }
+}
+
+
+# 分页查询
+GET http://cloudtencent.com:9200/shopping/_search
+Content-Type: application/json
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {}
+  },
+  &quot;from&quot;: 0,
+  &quot;size&quot;: 2
+}
+
+# 选择列及排序
+GET http://cloudtencent.com:9200/shopping/_search
+Content-Type: application/json
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {}
+  },
+  &quot;from&quot;: 0,
+  &quot;size&quot;: 3,
+  &quot;_source&quot;: [
+    &quot;title&quot;
+  ],
+  &quot;sort&quot;: {
+    &quot;price&quot;: {
+      &quot;order&quot;: &quot;asc&quot;
+    }
+  }
+}
+
+
+# 多条件查询及过滤
+GET http://cloudtencent.com:9200/shopping/_search
+Content-Type: application/json
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;should&quot;: [
+        {
+          &quot;match&quot;: {
+            &quot;category&quot;: &quot;小米&quot;
+          }
+        },
+        {
+          &quot;match&quot;: {
+            &quot;category&quot;: &quot;华为&quot;
+          }
+        }
+      ],
+      &quot;filter&quot;: {
+        &quot;range&quot;: {
+          &quot;price&quot;: {
+            &quot;gt&quot;:30000
+          }
+        }
+      }
+    }
+  }
+}
+
+# 全文查询,小华拆成小、华然后再做全文匹配
+# 高亮显示
+GET http://cloudtencent.com:9200/shopping/_search
+Content-Type: application/json
+{
+  &quot;query&quot;: {
+    &quot;match_phrase&quot;: {
+      &quot;category&quot;: &quot;华为&quot;
+    }
+  },
+  &quot;highlight&quot;: {
+    &quot;fields&quot;: {
+      &quot;category&quot;: {}
+    }
+  }
+}
+
+# 聚合操作
+GET http://cloudtencent.com:9200/shopping/_search
+Content-Type: application/json
+{
+  &quot;aggs&quot;: {
+    &quot;price_group&quot;: {
+      &quot;terms&quot;: {
+        &quot;field&quot;: &quot;price&quot;
+      }
+    }
+  },
+  &quot;size&quot; : 0
+}
+
+
+# 平均操作
+# GET http://cloudtencent.com:9200/shopping/_search
+GET http://cloudtencent.com:9200/shopping/_search
+Content-Type: application/json
+{
+  &quot;aggs&quot;: {
+    &quot;price_avg&quot;: {
+      &quot;avg&quot;: {
+        &quot;field&quot;: &quot;price&quot;
+      }
+    }
+  },
+  &quot;size&quot; : 0
+}
+
+
+
+#创建索引
+PUT http://cloudtencent.com:9200/user
+#elastic 映射
+PUT http://cloudtencent.com:9200/user/_mapping
+Content-Type: application/json
+{
+  &quot;properties&quot;: {
+    &quot;name&quot;: {
+      &quot;type&quot;: &quot;text&quot;,
+      &quot;index&quot;: true
+    },
+    &quot;sex&quot;: {
+      &quot;type&quot;: &quot;keyword&quot;,
+      &quot;index&quot;: true
+    },
+    &quot;tel&quot;: {
+      &quot;type&quot;: &quot;keyword&quot;,
+      &quot;index&quot;: false
+    }
+  }
+}
+# 查询映射
+GET http://cloudtencent.com:9200/user/_mapping
+# 增加数据
+POST http://cloudtencent.com:9200/user/_doc/1001
+Content-Type: application/json
+{
+  &quot;name&quot;:&quot;小米&quot;,
+  &quot;set&quot;:&quot;男&quot;,
+  &quot;tel&quot;:&quot;18729038467&quot;
+}
+#查询
+GET http://cloudtencent.com:9200/user/_search
+Content-Type: application/json
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;tel&quot;: &quot;18729038467&quot;
+    }
+  }
+}
+</code></pre>
+<p><a id="org4bcf231"></a></p>
+<h2 id="java-sdk">Java SDK</h2>
+<ol>
+<li>
+<p>Dependency</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.elasticsearch.client&lt;/groupId&gt;
+    &lt;artifactId&gt;elasticsearch-rest-high-level-client&lt;/artifactId&gt;
+    &lt;version&gt;7.17.12&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!--springboot的elasticsearch服务--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-elasticsearch&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;jakarta.json&lt;/groupId&gt;
+    &lt;artifactId&gt;jakarta.json-api&lt;/artifactId&gt;
+    &lt;version&gt;2.0.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;jakarta.json&lt;/groupId&gt;
+    &lt;artifactId&gt;jakarta.json-api&lt;/artifactId&gt;
+    &lt;version&gt;2.0.1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+    &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
+    &lt;version&gt;4.5.13&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</li>
+<li>
+<p>Configure</p>
+<p>Here we provide a bean named ElasticsearchClient.</p>
+<pre><code>package pkg.service;
+
+import org.apache.http.HttpHost;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.elasticsearch.client.RestClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.json.jackson.JacksonJsonpMapper;
+import co.elastic.clients.transport.ElasticsearchTransport;
+import co.elastic.clients.transport.rest_client.RestClientTransport;
+
+/**
+ * @time 2023-09-04 15:02:32
+ **/
+@Configuration
+public class ElasticSearchConf {
+
+    @Bean
+    public ElasticsearchClient restClient() {
+        final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+        credentialsProvider.setCredentials(AuthScope.ANY,
+                new UsernamePasswordCredentials(&quot;elastic&quot;, &quot;*****&quot;));
+        HttpHost nodeNodotOne   = new HttpHost(&quot;172.10.0.1&quot;, 9200);
+        HttpHost nodeNodotTwo   = new HttpHost(&quot;172.10.0.2&quot;, 9200);
+        HttpHost nodeNodotThree = new HttpHost(&quot;172.10.0.3&quot;, 9200);
+        HttpHost[] elasticSearchNodes = new HttpHost[] { nodeNodotOne, nodeNodotTwo, nodeNodotThree };
+
+        // support multiple node
+        RestClient httpClient = RestClient.builder(elasticSearchNodes)
+                .setHttpClientConfigCallback(httpClientBuilder -&gt; {
+                    httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
+                    return httpClientBuilder;
+                }).build();
+        ElasticsearchTransport transport = new RestClientTransport(
+                httpClient,
+                new JacksonJsonpMapper());
+
+        ElasticsearchClient esClient = new ElasticsearchClient(transport);
+        return esClient;
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>Usage</p>
+<pre><code>package pkg.controller;
+
+import java.io.IOException;
+
+import javax.validation.Valid;
+
+import com.longda.fegion.dto.Result;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.ElasticsearchException;
+import co.elastic.clients.elasticsearch.core.GetResponse;
+import io.swagger.annotations.Api;
+import lombok.extern.slf4j.Slf4j;
+import pkg.po.Shopping;
+
+/**
+ * @since 2023-09-04 16:04:58
+ **/
+@Slf4j
+@Api(&quot;ElasticSearchController&quot;)
+@RestController
+@RequestMapping(&quot;ElasticSearchController&quot;)
+public class ElasticSearchController {
+
+    @Autowired
+    ElasticsearchClient restClient;
+
+    /**
+     * ElasticSearchController get
+     */
+    @GetMapping(&quot;/get&quot;)
+    public Result&lt;Integer&gt; get(@Valid String id) {
+            try {
+                GetResponse&lt;Shopping&gt; getResponse = restClient.get(getRequest -&gt;
+                            getRequest.index(&quot;shopping&quot;).id(id), Shopping.class);
+                Shopping source = getResponse.source();
+                log.info(&quot;== document source: {}, response: {}&quot;, source, getResponse);
+            } catch (Exception e) {
+                log.error(&quot;==== [error]: {}&quot;, e);
+            }
+        return Result.success();
+    }
+
+}
+</code></pre>
+</li>
+<li>
+<p>Sqlquery</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 2:</span> sql语法支持情况</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">GRAMMER</td>
+<td class="org-left">DESC</td>
+<td class="org-left">SUPPORT</td>
+</tr>
+<tr>
+<td class="org-left">select *</td>
+<td class="org-left">wildcard</td>
+<td class="org-left">✓</td>
+</tr>
+<tr>
+<td class="org-left">select money more_money</td>
+<td class="org-left">rename</td>
+<td class="org-left">✓</td>
+</tr>
+<tr>
+<td class="org-left">select * from (select &#x2026;)</td>
+<td class="org-left">subquery</td>
+<td class="org-left">✓</td>
+</tr>
+<tr>
+<td class="org-left">count</td>
+<td class="org-left">count</td>
+<td class="org-left">✓</td>
+</tr>
+<tr>
+<td class="org-left">join</td>
+<td class="org-left">index relation</td>
+<td class="org-left">྾</td>
+</tr>
+<tr>
+<td class="org-left">case when</td>
+<td class="org-left">condition</td>
+<td class="org-left">✓</td>
+</tr>
+<tr>
+<td class="org-left">in</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">✓</td>
+</tr>
+<tr>
+<td class="org-left">time &gt; &rsquo;2023-09-03T23:59:59&rsquo;</td>
+<td class="org-left">time range</td>
+<td class="org-left">✓</td>
+</tr>
+<tr>
+<td class="org-left">group by a,b,c</td>
+<td class="org-left">multiple group</td>
+<td class="org-left">✓</td>
+</tr>
+<tr>
+<td class="org-left">max、min、sum、avg..</td>
+<td class="org-left">aggregation</td>
+<td class="org-left">✓</td>
+</tr>
+</tbody>
+</table>
+<pre><code>/**
+ * ElasticSearchController by sql
+ */
+@GetMapping(&quot;/testsql&quot;)
+public Result&lt;Void&gt; testSql() {
+    String sql = &quot;select count(*) from tmp_20230906&quot;;
+    try {
+        QueryResponse queryResp = restClient.sql()
+                .query(query -&gt; query
+                        .format(&quot;json&quot;)
+                        .query(sql));
+        log.info(&quot;==== [log]: {}&quot;, queryResp.rows());
+        return Result.success();
+    } catch (Exception e) {
+        log.error(&quot;==== [error]: {}&quot;, e);
+        return Result.error(ResultEnum.COM_ERROR);
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>Performance</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-right" />
+<col  class="org-right" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Database Engin</th>
+<th scope="col" class="org-right">Initial Cost</th>
+<th scope="col" class="org-right">Cached Cost</th>
+<th scope="col" class="org-left">ES_TABLE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ES1shard</td>
+<td class="org-right">20.5</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_20230905</td>
+</tr>
+<tr>
+<td class="org-left">ES3shard</td>
+<td class="org-right">9.5</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_test</td>
+</tr>
+<tr>
+<td class="org-left">ES6shard</td>
+<td class="org-right">4.585401</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_20230907</td>
+</tr>
+<tr>
+<td class="org-left">ES9shard</td>
+<td class="org-right">3.468439</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_test_9</td>
+</tr>
+<tr>
+<td class="org-left">ES15shard</td>
+<td class="org-right">4.218455s</td>
+<td class="org-right">0.1</td>
+<td class="org-left">tmp_test_15</td>
+</tr>
+</tbody>
+</table>
+<p><img src="./vvt.svg" alt="img" title="1600万数据测试查询性能对比"></p>
+</li>
+</ol>
+<p><a id="orga3a1d9f"></a></p>
+<h2 id="testing-report">Testing Report</h2>
+<p>经过测试, elasticsearch的性能表现良好; 但仍然没达到秒级以内</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 3:</span> elasticsearch集群配置及sql情况</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">因素</td>
+<td class="org-left">值</td>
+</tr>
+<tr>
+<td class="org-left">Elastic集群数</td>
+<td class="org-left">3</td>
+</tr>
+<tr>
+<td class="org-left">主机内存</td>
+<td class="org-left">32G</td>
+</tr>
+<tr>
+<td class="org-left">主机CPU</td>
+<td class="org-left">奔腾？</td>
+</tr>
+<tr>
+<td class="org-left">测试数据量</td>
+<td class="org-left">1600万</td>
+</tr>
+<tr>
+<td class="org-left">测试字段</td>
+<td class="org-left">共60个</td>
+</tr>
+<tr>
+<td class="org-left">分组字段 group by</td>
+<td class="org-left">共15个</td>
+</tr>
+<tr>
+<td class="org-left">聚合分析字段</td>
+<td class="org-left">40个, 各种case when 加减剩除</td>
+</tr>
+</tbody>
+</table>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 4:</span> 测试结果</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-right" />
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Database Engin</th>
+<th scope="col" class="org-right">Initial Cost</th>
+<th scope="col" class="org-right">Normal Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Sqlserver</td>
+<td class="org-right">300</td>
+<td class="org-right">300</td>
+</tr>
+<tr>
+<td class="org-left">ES1shard</td>
+<td class="org-right">18.5</td>
+<td class="org-right">1</td>
+</tr>
+<tr>
+<td class="org-left">ES3shard</td>
+<td class="org-right">9.5</td>
+<td class="org-right">1</td>
+</tr>
+<tr>
+<td class="org-left">ES6shard</td>
+<td class="org-right">5</td>
+<td class="org-right">1</td>
+</tr>
+<tr>
+<td class="org-left">ES9shard</td>
+<td class="org-right">4</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+<p><img src="./vvt.svg" alt="img" title="performance about the query of 16 million document"></p>
+
+</article>
+
+
+      
+        <div class="my-4">
+    
+    <a href="/tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#java</a>
+    
+    <a href="/tags/elastic-search/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#elastic-search</a>
+    
+</div>
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="/posts/vimiumc/" class="block">VimiumC</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#install--config">Install &amp; config</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#uninstall">UnInstall</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#restful-api">Restful Api</a></li>
+    <li><a href="#java-sdk">Java SDK</a></li>
+    <li><a href="#testing-report">Testing Report</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="/posts/mybatis-config/" class="no-underline">Mybatis Config 雪花算法id，用 redis 管理 workerId</a>
+          <br />
+        
+          <a href="/posts/seata-shardingsphere1/" class="no-underline">springcloud 整合 shardingsphere 及 seata</a>
+          <br />
+        
+          <a href="/posts/rocketmqintroduction/" class="no-underline">RocketMQ 必须知道的理论知识</a>
+          <br />
+        
+          <a href="/posts/java-oom/" class="no-underline">java 栈溢出问题排查</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2023 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
