@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
-    <lastBuildDate>Wed, 13 Sep 2023 19:50:09 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Oct 2023 20:22:20 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clickhouse Tutorial</title>
+      <link>/posts/clickhouse-tutorial/</link>
+      <pubDate>Wed, 18 Oct 2023 20:22:20 +0800</pubDate>
+      
+      <guid>/posts/clickhouse-tutorial/</guid>
+      <description>&lt;p&gt;clickhouse 可用于联机分析OLAP的列式数据库管理系统. 定位与OLAP离线数据处理,相比于OLTP在线事务处理,clickhouse更关注于海量数据的计算分析, 关注的是数据的吞吐、查询速度、计算性能等指标.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>ElasticSearch Part1</title>
       <link>/posts/elasticsearch-part1/</link>
