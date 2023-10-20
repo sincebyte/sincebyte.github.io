@@ -106,7 +106,7 @@
     },
     "headline": "Clickhouse Tutorial | sincebyte","datePublished": "2023-10-18T20:22:20+08:00",
     "dateModified": "2023-10-18T20:22:20+08:00",
-    "wordCount":  406 ,
+    "wordCount":  473 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -270,7 +270,7 @@
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
+    <span>3 min read</span>
   </div>
 
   
@@ -352,6 +352,22 @@ show tables; # a attempt for clickhouse
 <li>增量数据使用kettle或者logstash定时抽取至clickhouse</li>
 </ul>
 <p><img src="image/prodreporttable.svg" alt="img"></p>
+<ol>
+<li>
+<p>实现</p>
+<p>jdbc(datasource, schema, table) - returns table that is connected via JDBC driver.<br>
+This table function requires separate <a href="https://github.com/ClickHouse/clickhouse-jdbc-bridge">clickhouse-jdbc-bridge</a> program to be running. It supports Nullable types (based on DDL of remote table that is queried).</p>
+<p>clickhouse sql statment</p>
+<pre><code>insert into report.target_table
+select  * from jdbc('jdbc:mysql://localhost:3306/?user=root&amp;password=root',
+`select * from origin_table where update_time&gt;@1`)
+</code></pre>
+<p>clickhouse execution</p>
+<pre><code>clickhouse-client --user ${ck_user} --password ${ck_pass} --port ${ck_port} \
+-d report  --multiquery &lt; ../sql/${sql_name}
+</code></pre>
+</li>
+</ol>
 <p><a id="org61dec15"></a></p>
 <h2 id="代码集成">代码集成</h2>
 <p>clickhouse支持JDBC驱动, 因此集成click就如同集成一个数据源一样简单</p>
