@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>java 栈溢出问题排查 | sincebyte</title>
+<title>Maven 项目骨架 | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="如何排查：java.lang.OutOfMemoryError: unable to create native thread">
+  content="项目初期如何快速搭建符合规范、便于定制的项目结构, 相信这是大家一直在追求的. 所幸 Maven 提供了 archetypes 插件可满足这一诉求.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,8 +89,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"java 栈溢出问题排查",
-      "item":"/posts/java-oom/"}]
+      "name":"Maven 项目骨架",
+      "item":"/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/"}]
 }
 </script>
 
@@ -102,11 +102,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/java-oom/"
+        "@id": "/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/"
     },
-    "headline": "java 栈溢出问题排查 | sincebyte","datePublished": "2023-03-31T13:11:22+08:00",
-    "dateModified": "2023-03-31T13:11:22+08:00",
-    "wordCount":  154 ,
+    "headline": "Maven 项目骨架 | sincebyte","datePublished": "2023-10-22T19:53:33+08:00",
+    "dateModified": "2023-10-22T19:53:33+08:00",
+    "wordCount":  200 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,21 +115,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003e如何排查：java.lang.OutOfMemoryError: unable to create native thread\u003c\/p\u003e"
+    "description": "\u003cp\u003e项目初期如何快速搭建符合规范、便于定制的项目结构, 相信这是大家一直在追求的. 所幸 Maven 提供了 archetypes 插件可满足这一诉求.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="java 栈溢出问题排查 | sincebyte" />
+</script><meta property="og:title" content="Maven 项目骨架 | sincebyte" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/java-oom/" />
+<meta property="og:url" content="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" />
 
 
 
 
-<meta property="og:description" content="如何排查：java.lang.OutOfMemoryError: unable to create native thread" />
+<meta property="og:description" content="项目初期如何快速搭建符合规范、便于定制的项目结构, 相信这是大家一直在追求的. 所幸 Maven 提供了 archetypes 插件可满足这一诉求." />
 
 
 
@@ -146,23 +146,23 @@
 
 
 
-<meta property="article:published_time" content="2023-03-31T13:11:22&#43;08:00" />
+<meta property="article:published_time" content="2023-10-22T19:53:33&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2023-03-31T13:11:22&#43;08:00" />
+<meta property="article:modified_time" content="2023-10-22T19:53:33&#43;08:00" />
 
 
 
 <meta property="article:section" content="posts" />
 
 
+<meta property="article:tag" content="maven" />
+
 <meta property="article:tag" content="java" />
 
 
 
 
-
-<meta property="og:see_also" content="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" />
 
 <meta property="og:see_also" content="/posts/clickhouse-tutorial/" />
 
@@ -173,6 +173,8 @@
 <meta property="og:see_also" content="/posts/seata-shardingsphere1/" />
 
 <meta property="og:see_also" content="/posts/rocketmqintroduction/" />
+
+<meta property="og:see_also" content="/posts/java-oom/" />
 
 
 
@@ -254,10 +256,10 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">java 栈溢出问题排查</h1>
+  <h1 class="mb-4">Maven 项目骨架</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -265,7 +267,7 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2023-03-31</span
+      >2023-10-22</span
     >
   </div>
   <div class="me-6 my-2">
@@ -282,67 +284,121 @@
   
   
 
-  <p>如何排查：java.lang.OutOfMemoryError: unable to create native thread</p>
-<p><a id="orgea4945b"></a></p>
-<h1 id="javalangoutofmemoryerror-unable-to-create-native-thread">java.lang.OutOfMemoryError: unable to create native thread</h1>
-<p><a id="org7324b5c"></a></p>
-<h2 id="测试代码">测试代码</h2>
-<pre><code>for (int i = 0; i &lt; 3500; i++) {
-    new Thread(() -&gt; {
-        try {
-            try {Thread.sleep(5000L);}
-            catch (InterruptedException e) {e.printStackTrace();}
-            TimeUnit.HOURS.sleep(1);
-            log.info(&quot;\n==== [log]: {} {}&quot;, &quot;sleep over&quot;,Thread.currentThread().getName());
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }).start();
-}
+  <p>项目初期如何快速搭建符合规范、便于定制的项目结构, 相信这是大家一直在追求的. 所幸 Maven 提供了 archetypes 插件可满足这一诉求.</p>
+<p><a id="org3478a0b"></a></p>
+<h1 id="principle">principle</h1>
+<p>通过下图我们可以知道, 要制作一个项目骨架大致需要以下几个步骤</p>
+<ol>
+<li>创建一个example工程, 此 example 工程 包含了架构师对框架的设计, 如 module 划分、依赖关系、包结构设计等等</li>
+<li>使用 Archetypes 插件对 example 工程进行配置并打包, 完成后骨架工程的代码被放在 example/target 目录之下</li>
+<li>在编译完成的骨架工程目录下执行 mvn install/mvn deploy 对骨架工程进行发布</li>
+<li>在另外一个目录使用 archetype:generate 命令从骨架工程生成项目</li>
+</ol>
+<p><img src="image/archetype-overview.png" alt="img" title="mvn archetype:generate 原理示意图"></p>
+<p><a id="org70a1f5b"></a></p>
+<h1 id="create-from-project">create from project</h1>
+<p>对 example 工程的创建. 需要注意的是 maven 各模块内的包名需要定义一个通用的开头, 例如 com.pkg.</p>
+<p>在最外层 pom 目录下增加 archetype 的配置文件 archetype.properties. excludePatterns 表示打包至 target 目录下的文件.</p>
+<pre><code>1  excludePatterns=.idea/,.settings/,.classpath,.project
+2  gitignore=.gitignore
 </code></pre>
-<p><a id="org26dca71"></a></p>
-<h2 id="相关指令">相关指令</h2>
-<ul>
-<li>
-<p>查看进程的线程数量</p>
-<pre><code>jstack -l PID | grep 'java.lang.Thread.State' | wc -l
-jstack -l PID | grep 'java.lang.Thread.State: RUNNABLE' | wc -l
-jstack -l PID | grep 'java.lang.Thread.State: TIMED_WAITING'  | wc -l
-jstack -l PID | grep 'java.lang.Thread.State: WAITING' | wc -l
-jstack -l PID | grep 'java.lang.Thread.State:BLOCKED'  | wc -l
-jstack -l PID | grep 'Java-level deadlock'  | wc -l
+<p>使用 archetype:create-from-project 创建 archetype 项目, 并指定配置文件及通用包名<br>
+然后使用 mvn clean deploy 对 target 目录下的 archetype 项目进行发布</p>
+<pre><code>1  #!/bin/bash
+2  set -e
+3  echo &quot;====longda-archetype build successfully&quot;
+4  mvn clean archetype:create-from-project -Darchetype.properties=archetype.properties \
+5  -Darchetype.filteredExtentions=* -DpackageName=com.pkg
+6  echo &quot;====longda.archetype build successfully&quot;
+7  mvn clean deploy javadoc:jar source:jar -f target/generated-sources/archetype/pom.xml
+8  echo &quot;====longda.archetype install successfully&quot;
 </code></pre>
-</li>
-<li>
-<p>查看进程的线程状态</p>
-<pre><code>jstack -l PID | grep 'java.lang.Thread.State'
+<p><a id="orgb94110b"></a></p>
+<h1 id="generate-project">generate project</h1>
+<p>运行下面的命令来生成项目骨架</p>
+<pre><code>1  mvn archetype:generate \
+2  -DarchetypeGroupId=com.archetype \
+3  -DarchetypeArtifactId=archetype-archetype \
+4  -DarchetypeVersion=0.1.0-SNAPSHOT \
+5  -DinteractiveMode=false \
+6  -DgroupId=com.center.crm \
+7  -DartifactId=center-crm \
+8  -Dversion=3.10.0-CD-LD-SNAPSHOT \
+9  -Dpackage=com.center.crm
 </code></pre>
-</li>
-<li>
-<p>查看进程的线程信息</p>
-<pre><code>jstack -l PID
-</code></pre>
-<p>返回信息，可以看到阻塞的代码信息</p>
-<pre><code>&quot;Thread-4050&quot; #4136 prio=5 os_prio=31 cpu=1.00ms elapsed=546.19s tid=0x0000000130247000
-       nid=0x354103 waiting on condition  [0x00000004b9a2e000]
-  java.lang.Thread.State: TIMED_WAITING (sleeping)
-  at java.lang.Thread.sleep(java.base@11.0.13/Native Method)
-  at java.lang.Thread.sleep(java.base@11.0.13/Thread.java:334)
-  at java.util.concurrent.TimeUnit.sleep(java.base@11.0.13/TimeUnit.java:446)
-  at com....controller.CommentsController$$M$_jr_0E50A6F6C7FE22B0_1
-       .lambda$0(CommentsController.java:129)
-  at com....controller.CommentsController$$Lambda$964$$M$_jr_0E50A6F6C7FE22B0_1
-       /0x0000000800e11c40.run(Unknown Source)
-  at java.lang.Thread.run(java.base@11.0.13/Thread.java:829)
-</code></pre>
-</li>
-</ul>
+<blockquote>
+<p>这个命令所构建的项目是 <strong>parent</strong> 的一个子模块。<br>
+<code>artifactId</code> 这也是目标项目的文件夹名称</p>
+</blockquote>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-bottom"><span class="table-number">Table 1:</span> 命令参数注释说明</caption>
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">参数名</td>
+<td class="org-left">含义说明</td>
+<td class="org-left">值说明</td>
+</tr>
+<tr>
+<td class="org-left">archetypeGroupId</td>
+<td class="org-left">骨架项目的GroupId</td>
+<td class="org-left"><b>固定值</b> com.archetype</td>
+</tr>
+<tr>
+<td class="org-left">archetypeArtifactId</td>
+<td class="org-left">骨架项目的ArtifactId</td>
+<td class="org-left"><b>固定值</b> archetype-archetype</td>
+</tr>
+<tr>
+<td class="org-left">archetypeVersion</td>
+<td class="org-left">骨架项目的Version</td>
+<td class="org-left">最新版本参考 <b>Update</b></td>
+</tr>
+<tr>
+<td class="org-left">interactiveMode</td>
+<td class="org-left">命令行交互模式</td>
+<td class="org-left"><b>固定值</b> false</td>
+</tr>
+<tr>
+<td class="org-left">groupId</td>
+<td class="org-left">目标项目的 GroupId</td>
+<td class="org-left">格式 com.center.%appName%</td>
+</tr>
+<tr>
+<td class="org-left">artifactId</td>
+<td class="org-left">目标项目的 ArtifactId</td>
+<td class="org-left">格式 center-%appName%</td>
+</tr>
+<tr>
+<td class="org-left">version</td>
+<td class="org-left">目标项目的 Version</td>
+<td class="org-left"><b>固定值</b> 3.10.0-CD-LD-SNAPSHOT</td>
+</tr>
+<tr>
+<td class="org-left">package</td>
+<td class="org-left">目标项目的包路径</td>
+<td class="org-left">格式 com.center.%appName%</td>
+</tr>
+</tbody>
+</table>
+<div class="notice-info" id="orga2e7c9c">
+<p>
+项目创建好，并且成功上传至 <b>gitlab</b> 代码仓库以后<br />
+需要将项目作为一个 <b>submodule</b> 添加至 <b>parent</b> 的根目录下<br />
+并且需要在 parent/pom.xml 的 <b>modules</b> 节点处增加此项目，以做归档<br />
+</p>
+</div>
 </article>
 
 
       
         <div class="my-4">
+    
+    <a href="/tags/maven/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#maven</a>
     
     <a href="/tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#java</a>
     
@@ -361,16 +417,11 @@ jstack -l PID | grep 'Java-level deadlock'  | wc -l
   >
     <div>
       
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="/posts/seata-shardingsphere1/" class="block">springcloud 整合 shardingsphere 及 seata</a>
-      
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="/posts/rocketmqintroduction/" class="block">RocketMQ 必须知道的理论知识</a>
+        <a href="/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" class="block">在neo Emacs中制作表格和绘图</a>
       
     </div>
   </div>
@@ -382,45 +433,13 @@ jstack -l PID | grep 'Java-level deadlock'  | wc -l
 
     </div>
     
-      <div class="col-span-2">
-        
-        
-          <div
-  class="
-    bg-primary-bg
-   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
->
-  <h3>On This Page</h3>
-</div>
-<div
-  class="sticky-toc  hidden px-6 pb-6 lg:block"
->
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#测试代码">测试代码</a></li>
-    <li><a href="#相关指令">相关指令</a></li>
-  </ul>
-</nav>
-</div>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    enableStickyToc();
-  });
-</script>
-
-        
-      </div>
-    
 
     
     
       <div
-        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
       >
         <h3>See Also</h3>
-        
-          <a href="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">Maven 项目骨架</a>
-          <br />
         
           <a href="/posts/clickhouse-tutorial/" class="no-underline">Clickhouse Tutorial</a>
           <br />
@@ -435,6 +454,9 @@ jstack -l PID | grep 'Java-level deadlock'  | wc -l
           <br />
         
           <a href="/posts/rocketmqintroduction/" class="no-underline">RocketMQ 必须知道的理论知识</a>
+          <br />
+        
+          <a href="/posts/java-oom/" class="no-underline">java 栈溢出问题排查</a>
           <br />
         
       </div>
