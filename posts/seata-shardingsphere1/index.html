@@ -463,8 +463,6 @@ public Result&lt;Long&gt; saveTestShardingSphere() {
     user1.setDdUnionId(&quot;7789&quot;);
     userMapper.insert(user1);
 
-    int errorInt = 1 / 0;
-
     User user2 = new User();
     user2.setId(2L);
     user2.setTenantId(2L);
@@ -473,6 +471,8 @@ public Result&lt;Long&gt; saveTestShardingSphere() {
     user2.setPhone(&quot;7789&quot;);
     user2.setDdUnionId(&quot;7789&quot;);
     userMapper.insert(user2);
+
+    int errorInt = 1 / 0;
 
     return Result.success();
 }
