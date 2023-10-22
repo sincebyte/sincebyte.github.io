@@ -107,7 +107,7 @@ But, 我认为这证明了他们对人才市场挖掘的雄心.">
     },
     "headline": "ElasticSearch Part1 | sincebyte","datePublished": "2023-09-13T19:50:09+08:00",
     "dateModified": "2023-09-13T19:50:09+08:00",
-    "wordCount":  918 ,
+    "wordCount":  923 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -848,7 +848,8 @@ public Result&lt;Void&gt; testSql() {
 </ol>
 <p><a id="org0ef19da"></a></p>
 <h2 id="performance">Performance</h2>
-<p>经过测试, elasticsearch的性能表现良好; 但仍然没达到秒级以内</p>
+<p>经过测试, elasticsearch的性能表现良好; 但仍然没达到秒级以内<br>
+原因: 使用了15个字段进行分组, 这在实际业务中属于极端情况了, 一个正常的查询比如订单、出库单, 在数据库设计良好的情况下应该不会冗余这么多的字段.</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-bottom"><span class="table-number">Table 3:</span> elasticsearch集群配置及sql情况</caption>
 <colgroup>
