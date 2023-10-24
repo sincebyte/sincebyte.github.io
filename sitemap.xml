@@ -2,107 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/java/</loc>
+    <loc>http://sincebyte.github.io/tags/java/</loc>
     <lastmod>2023-10-22T19:53:33+08:00</lastmod>
-  </url><url>
-    <loc>/tags/maven/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/maven/</loc>
     <lastmod>2023-10-22T19:53:33+08:00</lastmod>
-  </url><url>
-    <loc>/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</loc>
     <lastmod>2023-10-22T19:53:33+08:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/</loc>
     <lastmod>2023-10-22T19:53:33+08:00</lastmod>
-  </url><url>
-    <loc>/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/</loc>
     <lastmod>2023-10-22T19:53:33+08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/</loc>
     <lastmod>2023-10-22T19:53:33+08:00</lastmod>
-  </url><url>
-    <loc>/tags/emacs/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/emacs/</loc>
     <lastmod>2023-10-20T15:59:03+08:00</lastmod>
-  </url><url>
-    <loc>/tags/gnuplot/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/gnuplot/</loc>
     <lastmod>2023-10-20T15:59:03+08:00</lastmod>
-  </url><url>
-    <loc>/tags/org/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/org/</loc>
     <lastmod>2023-10-20T15:59:03+08:00</lastmod>
-  </url><url>
-    <loc>/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</loc>
     <lastmod>2023-10-20T15:59:03+08:00</lastmod>
-  </url><url>
-    <loc>/tags/clickhouse/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/clickhouse/</loc>
     <lastmod>2023-10-18T20:22:20+08:00</lastmod>
-  </url><url>
-    <loc>/posts/clickhouse-tutorial/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/clickhouse-tutorial/</loc>
     <lastmod>2023-10-18T20:22:20+08:00</lastmod>
-  </url><url>
-    <loc>/tags/elastic-search/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/elastic-search/</loc>
     <lastmod>2023-09-13T19:50:09+08:00</lastmod>
-  </url><url>
-    <loc>/posts/elasticsearch-part1/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/elasticsearch-part1/</loc>
     <lastmod>2023-09-13T19:50:09+08:00</lastmod>
-  </url><url>
-    <loc>/tags/chrome/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/chrome/</loc>
     <lastmod>2023-09-07T21:26:36+08:00</lastmod>
-  </url><url>
-    <loc>/posts/vimiumc/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/vimiumc/</loc>
     <lastmod>2023-09-07T21:26:36+08:00</lastmod>
-  </url><url>
-    <loc>/tags/doom/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/doom/</loc>
     <lastmod>2023-08-29T15:46:59+08:00</lastmod>
-  </url><url>
-    <loc>/posts/emacs-workspace/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/emacs-workspace/</loc>
     <lastmod>2023-08-29T15:46:59+08:00</lastmod>
-  </url><url>
-    <loc>/tags/hugo/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/hugo/</loc>
     <lastmod>2023-08-21T15:01:18+08:00</lastmod>
-  </url><url>
-    <loc>/posts/hugo-usage/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/hugo-usage/</loc>
     <lastmod>2023-08-21T15:01:18+08:00</lastmod>
-  </url><url>
-    <loc>/tags/a7c/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/a7c/</loc>
     <lastmod>2023-08-21T08:46:42+08:00</lastmod>
-  </url><url>
-    <loc>/posts/sony-a7c-%E5%85%A5%E9%97%A8/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/sony-a7c-%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2023-08-21T08:46:42+08:00</lastmod>
-  </url><url>
-    <loc>/tags/mac/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/tags/mac/</loc>
     <lastmod>2023-08-18T23:49:32+08:00</lastmod>
-  </url><url>
-    <loc>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
     <lastmod>2023-08-18T23:49:32+08:00</lastmod>
-  </url><url>
-    <loc>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</loc>
     <lastmod>2023-08-14T13:46:17+08:00</lastmod>
-  </url><url>
-    <loc>/posts/mybatis-config/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/mybatis-config/</loc>
     <lastmod>2023-06-06T20:45:01+08:00</lastmod>
-  </url><url>
-    <loc>/posts/seata-shardingsphere1/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/seata-shardingsphere1/</loc>
     <lastmod>2023-06-06T00:07:05+08:00</lastmod>
-  </url><url>
-    <loc>/posts/java-oom/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/java-oom/</loc>
     <lastmod>2023-03-31T13:11:22+08:00</lastmod>
-  </url><url>
-    <loc>/posts/rocketmqintroduction/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/rocketmqintroduction/</loc>
     <lastmod>2023-03-31T13:11:22+08:00</lastmod>
-  </url><url>
-    <loc>/posts/orgmodecss/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/posts/orgmodecss/</loc>
     <lastmod>2021-03-31T13:11:22+08:00</lastmod>
-  </url><url>
-    <loc>/authors/</loc>
-  </url><url>
-    <loc>/categories/</loc>
-  </url><url>
-    <loc>/docs/</loc>
-  </url><url>
-    <loc>/search/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/authors/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/categories/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/docs/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/search/</loc>
     <priority>0.1</priority>
-  </url><url>
-    <loc>/series/</loc>
-  </url><url>
-    <loc>/authors/hugo-authors/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/series/</loc>
+  </url>
+  <url>
+    <loc>http://sincebyte.github.io/authors/hugo-authors/</loc>
   </url>
 </urlset>
