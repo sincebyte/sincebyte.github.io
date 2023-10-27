@@ -8,7 +8,25 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
-    <lastBuildDate>Sun, 22 Oct 2023 19:53:33 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Oct 2023 10:56:16 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Fri, 27 Oct 2023 10:56:16 +0800</pubDate>
+      
+      <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>/tags/windows/</link>
+      <pubDate>Fri, 27 Oct 2023 10:56:16 +0800</pubDate>
+      
+      <guid>/tags/windows/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>java</title>
       <link>/tags/java/</link>
@@ -24,15 +42,6 @@
       <pubDate>Sun, 22 Oct 2023 19:53:33 +0800</pubDate>
       
       <guid>/tags/maven/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emacs</title>
-      <link>/tags/emacs/</link>
-      <pubDate>Fri, 20 Oct 2023 15:59:03 +0800</pubDate>
-      
-      <guid>/tags/emacs/</guid>
       <description></description>
     </item>
     
