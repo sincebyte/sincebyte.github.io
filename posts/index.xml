@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
-    <lastBuildDate>Fri, 27 Oct 2023 10:56:16 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Dec 2023 19:26:59 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Basic Useage Inneoemacs</title>
+      <link>/posts/python-basic-useage-inneoemacs/</link>
+      <pubDate>Fri, 01 Dec 2023 19:26:59 +0800</pubDate>
+      
+      <guid>/posts/python-basic-useage-inneoemacs/</guid>
+      <description>&lt;p&gt;I don’t use python much, but I still record the useful information.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Windows Autohotkey Setting</title>
       <link>/posts/windows-autohotkey-setting/</link>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Windows Autohotkey Setting | sincebyte</title>
+<title>Python Basic Useage Inneoemacs | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="/css/eureka.min.285ffbef699dc9f3cf8dcb0803da149f8b646794b7f78a37380928daea2d746cd084512d0a3b592c47d0c71a18a88c7d.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="autohotkey 在 windows 上改键的神器. 借此可以实现在 macos 下与 karabiner-Elements 同样的效果.">
+  content="I don’t use python much, but I still record the useful information.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,8 +89,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Windows Autohotkey Setting",
-      "item":"/posts/windows-autohotkey-setting/"}]
+      "name":"Python Basic Useage Inneoemacs",
+      "item":"/posts/python-basic-useage-inneoemacs/"}]
 }
 </script>
 
@@ -102,11 +102,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/windows-autohotkey-setting/"
+        "@id": "/posts/python-basic-useage-inneoemacs/"
     },
-    "headline": "Windows Autohotkey Setting | sincebyte","datePublished": "2023-10-27T10:56:16+08:00",
-    "dateModified": "2023-10-27T10:56:16+08:00",
-    "wordCount":  359 ,
+    "headline": "Python Basic Useage Inneoemacs | sincebyte","datePublished": "2023-12-01T19:26:59+08:00",
+    "dateModified": "2023-12-01T19:26:59+08:00",
+    "wordCount":  500 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,21 +115,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003eautohotkey 在 windows 上改键的神器. 借此可以实现在 macos 下与 karabiner-Elements 同样的效果.\u003c\/p\u003e"
+    "description": "\u003cp\u003eI don’t use python much, but I still record the useful information.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="Windows Autohotkey Setting | sincebyte" />
+</script><meta property="og:title" content="Python Basic Useage Inneoemacs | sincebyte" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/windows-autohotkey-setting/" />
+<meta property="og:url" content="/posts/python-basic-useage-inneoemacs/" />
 
 
 
 
-<meta property="og:description" content="autohotkey 在 windows 上改键的神器. 借此可以实现在 macos 下与 karabiner-Elements 同样的效果." />
+<meta property="og:description" content="I don’t use python much, but I still record the useful information." />
 
 
 
@@ -146,23 +146,25 @@
 
 
 
-<meta property="article:published_time" content="2023-10-27T10:56:16&#43;08:00" />
+<meta property="article:published_time" content="2023-12-01T19:26:59&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2023-10-27T10:56:16&#43;08:00" />
+<meta property="article:modified_time" content="2023-12-01T19:26:59&#43;08:00" />
 
 
 
 <meta property="article:section" content="posts" />
 
 
+<meta property="article:tag" content="python" />
+
 <meta property="article:tag" content="emacs" />
 
-<meta property="article:tag" content="windows" />
 
 
 
 
+<meta property="og:see_also" content="/posts/windows-autohotkey-setting/" />
 
 <meta property="og:see_also" content="/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" />
 
@@ -257,7 +259,7 @@
       class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">Windows Autohotkey Setting</h1>
+  <h1 class="mb-4">Python Basic Useage Inneoemacs</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -265,12 +267,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2023-10-27</span
+      >2023-12-01</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
+    <span>3 min read</span>
   </div>
 
   
@@ -282,211 +284,208 @@
   
   
 
-  <p>autohotkey 在 windows 上改键的神器. 借此可以实现在 macos 下与 karabiner-Elements 同样的效果.</p>
-<p><a id="orgf5795b0"></a></p>
-<h2 id="key-binding">key binding</h2>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<colgroup>
-<col  class="org-left" />
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">shorcut</td>
-<td class="org-left">effect</td>
-</tr>
-<tr>
-<td class="org-left">F7</td>
-<td class="org-left">stop autohotkey effect</td>
-</tr>
-<tr>
-<td class="org-left">win + k</td>
-<td class="org-left">popup emacs</td>
-</tr>
-<tr>
-<td class="org-left">win + r</td>
-<td class="org-left">popup edge</td>
-</tr>
-<tr>
-<td class="org-left">win + c</td>
-<td class="org-left">copy</td>
-</tr>
-<tr>
-<td class="org-left">win + v</td>
-<td class="org-left">paste</td>
-</tr>
-<tr>
-<td class="org-left">win + x</td>
-<td class="org-left">cut</td>
-</tr>
-<tr>
-<td class="org-left">win + z</td>
-<td class="org-left">undo</td>
-</tr>
-<tr>
-<td class="org-left">win + y</td>
-<td class="org-left">redo</td>
-</tr>
-<tr>
-<td class="org-left">casplock with single</td>
-<td class="org-left">escape</td>
-</tr>
-<tr>
-<td class="org-left">casplock with otherkeys</td>
-<td class="org-left">ctrl with other keys</td>
-</tr>
-</tbody>
-</table>
-<p><a id="org19cbe48"></a></p>
-<h2 id="config-code">config code</h2>
-<pre><code>#k::
-   WinTitle := &quot;ahk_exe emacs.exe&quot;
-   WinGet WinState, MinMax, %WinTitle%  ; retrieve minimized/maximized state
-      if (WinState = -1)                ; minimized
-         WinRestore, %WinTitle%
-      else                              ; not minimized
-         WinMinimize, %WinTitle%
-Return
-
-!k::
-   WinTitle := &quot;ahk_exe emacs.exe&quot;
-   WinGet WinState, MinMax, %WinTitle%  ; retrieve minimized/maximized state
-      if (WinState = -1)                ; minimized
-         WinRestore, %WinTitle%
-      else                              ; not minimized
-         WinMinimize, %WinTitle%
-Return
-
-#r::
-   WinTitle := &quot;ahk_class Chrome_WidgetWin_1&quot;
-   WinGet WinState, MinMax, %WinTitle%  ; retrieve minimized/maximized state
-      if (WinState = -1)                ; minimized
-         WinRestore, %WinTitle%
-      else                              ; not minimized
-         WinMinimize, %WinTitle%
-Return
-
-!r::
-   WinTitle := &quot;ahk_class Chrome_WidgetWin_1&quot;
-   WinGet WinState, MinMax, %WinTitle%  ; retrieve minimized/maximized state
-      if (WinState = -1)                ; minimized
-         WinRestore, %WinTitle%
-      else                              ; not minimized
-         WinMinimize, %WinTitle%
-Return
-
-
-#;::
-   WinTitle := &quot;ahk_exe WXWork.exe&quot;
-   WinGet WinState, MinMax, %WinTitle%  ; retrieve minimized/maximized state
-      if (WinState = -1)                ; minimized
-         WinRestore, %WinTitle%
-      else                              ; not minimized
-         WinMinimize, %WinTitle%
-Return
-
-
-#c::
-send ^c
-Return
-
-#v::
-send ^v
-Return
-
-#x::
-send ^x
-Return
-
-#z::
-send ^z
-Return
-
-#y::
-send ^y
-Return
-
-
-!c::
-send ^c
-Return
-
-!v::
-send ^v
-Return
-
-!x::
-send ^x
-Return
-
-!z::
-send ^z
-Return
-
-!y::
-send ^y
-Return
-
-!d::
-send #d
-Return
-
-
-F7::
-Suspend, Off
-Pause, Off, 1
-If (toggle := !toggle)
- Suspend, On
- Pause, On, 1
-Return
-
-
-
-
-g_LastCtrlKeyDownTime := 0
-g_AbortSendEsc := false
-g_ControlRepeatDetected := false
-
-*CapsLock::
-    if (g_ControlRepeatDetected)
-    {
-        return
-    }
-
-    send,{Ctrl down}
-    g_LastCtrlKeyDownTime := A_TickCount
-    g_AbortSendEsc := false
-    g_ControlRepeatDetected := true
-
-    return
-
-*CapsLock Up::
-    send,{Ctrl up}
-    g_ControlRepeatDetected := false
-    if (g_AbortSendEsc)
-    {
-        return
-    }
-    current_time := A_TickCount
-    time_elapsed := current_time - g_LastCtrlKeyDownTime
-    if (time_elapsed &lt;= 250)
-    {
-        SendInput {Esc}
-    }
-    return
+  <p>I don’t use python much, but I still record the useful information.</p>
+<p><a id="orgff26ee9"></a></p>
+<h2 id="pyenv">pyenv</h2>
+<p>Use pyenv download a python version and shift to that particular version.</p>
+<ol>
+<li>
+<p>install pyenv</p>
+<pre><code>1  brew install pyenv
 </code></pre>
-<p><a id="orga3385af"></a></p>
-<h2 id="question">question</h2>
-<p>There always have one question confuse me is I wanna binding a shorcut only on a particular application. I tried some of the solution support by the autohotkey offically, but it does not work well. I will keep looking for the solution.</p>
+</li>
+<li>
+<p>set on fish</p>
+<pre><code>1  set PYENV_ROOT $HOME/.pyenv
+2  set -x PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
+3  pyenv rehash
+</code></pre>
+<blockquote>
+<p>TODO: there lack of a settlment about bash</p>
+</blockquote>
+</li>
+<li>
+<p>pyenv usage</p>
+<p>Use pyenv global shift to a particular verison , will effect the python and pip lib version.</p>
+<pre><code>1  pyenv install 3.11
+2  pyenv global 3.11
+3  python -V
+4  pip -V
+</code></pre>
+</li>
+</ol>
+<p><a id="org66c5e72"></a></p>
+<h2 id="emacs-compile">emacs compile</h2>
+<ul>
+<li>
+<p>emacs lsp langrage<br>
+<code>M-x</code>  lsp-install-server pyright</p>
+</li>
+<li>
+<p>compile<br>
+Use compile-command binding to <code>SPC c c</code> for custom the compile command.</p>
+<pre><code># -*- compile-command: &quot;python test.py&quot;; -*-
+&quot;&quot;&quot;this is the doc.&quot;&quot;&quot;
+thisdict = {
+&quot;brand&quot;: &quot;Ford&quot;,
+&quot;model&quot;: &quot;Mustang&quot;,
+&quot;year&quot;: 1964
+}
+print(thisdict)
+</code></pre>
+</li>
+</ul>
+<p><a id="org85209a0"></a></p>
+<h2 id="manim">manim</h2>
+<p>Manim can easily draw animated videos.<br>
+To become familiar with its use you may need to study for 1 day.<br>
+I think there may be a good start <a href="https://www.youtube.com/watch?v=q34jwI4zcMY">https://www.youtube.com/watch?v=q34jwI4zcMY</a>.<br>
+Official documentation：<a href="https://docs.manim.community/en/stable/">https://docs.manim.community/en/stable/</a></p>
+<pre><code># -*- compile-command: &quot;manim /Users/van/Desktop/target/scene.py UnwriteReverseTrue -pqh&quot;; -*-
+from manim import *
+
+#  manim scene.py UnwriteReverseTrue -pqh
+#  manim scene.py UnwriteReverseTrue --format mov -qk -t
+
+
+class UnwriteReverseTrue(Scene):
+    def construct(self):
+        # emacs = ImageMobject(&quot;Blackvariant-Button-Ui-Requests-6-Emacs.1024.png&quot;)
+        emacs = SVGMobject(&quot;GNU_Emacs-Logo.wine.svg&quot;, stroke_color=&quot;#6247a1&quot;)
+
+        emacs.height = 2
+        emacs.scale(0.4)
+        color = iter([&quot;#42208c&quot;, &quot;#6247a1&quot;, &quot;white&quot;])
+        for layer in emacs:
+            temp = next(color)
+            print(temp)
+            layer.set_color(temp)
+            if temp == &quot;#6247a1&quot;:
+                print(&quot;sacle layer&quot;)
+                layer.scale(0.8)
+        self.add(emacs)
+        emacs.shift(LEFT * 4)
+
+        g = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#d956ff&quot; size=&quot;x-large&quot; style=&quot;oblique&quot;&gt;G&lt;/span&gt;&lt;/b&gt;',
+            font=&quot;Optima&quot;,
+        )
+
+        self.add(g)
+        g.shift(LEFT * 3)
+        o = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#fa9175&quot; size=&quot;x-large&quot; style=&quot;oblique&quot;&gt;O&lt;/span&gt;&lt;/b&gt;',
+            font=&quot;Optima&quot;,
+        )
+        self.add(o)
+        o.move_to(LEFT * 2.4)
+
+        left_l = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#d956ff&quot; size=&quot;x-large&quot;&gt;L&lt;/span&gt;&lt;/b&gt;',
+            font=&quot;Mshtakan&quot;,
+        )
+
+        self.add(left_l)
+        left_l.move_to(UP * 2 + LEFT * 1.8)
+
+        left_e = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#d956ff&quot; size=&quot;x-large&quot;&gt;E&lt;/span&gt;&lt;/b&gt;',
+            font=&quot;Mshtakan&quot;,
+        )
+
+        self.add(left_e)
+        left_e.move_to(UP * 2.5 + LEFT * 1.2)
+        m = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#fe86fe&quot; size=&quot;x-large&quot;&gt;M&lt;/span&gt;&lt;/b&gt;',
+            font=&quot;BM Hanna Air&quot;,
+        )
+        self.add(m)
+        m.move_to(UP * 3 + LEFT * 0.65)
+
+        g2 = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#fa9175&quot; size=&quot;x-large&quot;&gt;G&lt;/span&gt;&lt;/b&gt;', font=&quot;Mshtakan&quot;
+        )
+        self.add(g2)
+        g2.move_to(RIGHT * 3)
+
+        e1 = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#fa9175&quot; size=&quot;x-large&quot;&gt;E&lt;/span&gt;&lt;/b&gt;', font=&quot;Mshtakan&quot;
+        )
+        self.add(e1)
+        e1.move_to(RIGHT * 3.5)
+        e2 = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#fa9175&quot; size=&quot;x-large&quot;&gt;E&lt;/span&gt;&lt;/b&gt;', font=&quot;Mshtakan&quot;
+        )
+        self.add(e1)
+        e2.move_to(RIGHT * 4)
+        k = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#fe86fe&quot; size=&quot;x-large&quot;&gt;K&lt;/span&gt;&lt;/b&gt;',
+            font=&quot;Gurmukhi MN&quot;,
+        )
+        self.add(k)
+
+        k.move_to(RIGHT * 4)
+        onTincidunt = MarkupText(
+            '&lt;b&gt;&lt;span foreground=&quot;#d956ff&quot; size=&quot;large&quot;&gt;ON TINCIDUNT&lt;/span&gt;&lt;/b&gt;',
+            font=&quot;Optima&quot;,
+        )
+        self.add(onTincidunt)
+        onTincidunt.move_to(DOWN * 5, RIGHT * 4)
+
+        g2.shift(RIGHT * 1)
+        e1.shift(RIGHT * 2)
+        e2.shift(RIGHT * 3)
+        k.shift(RIGHT * 3)
+        # let font to init position
+
+        leftValueInit = 0.1
+        self.play(
+            Circumscribe(emacs, Circle, color=&quot;#0984e3&quot;, buff=-1, fade_out=True),
+            left_l.animate.move_to(LEFT * 1.8),
+            left_e.animate.move_to(LEFT * 1.2),
+            m.animate.move_to(LEFT * 0.6),
+            g2.animate.move_to(RIGHT * leftValueInit),
+            e1.animate.move_to(RIGHT * (leftValueInit + 0.6)),
+            e2.animate.move_to(RIGHT * (leftValueInit + 1.2)),
+            k.animate.move_to(RIGHT * (leftValueInit + 1.75)),
+            onTincidunt.animate.move_to(DOWN * 0.8 + RIGHT * 1.5),
+            lag_ratio=0.5,
+            run_time=3,
+        )
+
+        # right out
+        leftvalue = 1
+        self.play(
+            emacs.animate.move_to(RIGHT * 0.2),
+            g2.animate.move_to(RIGHT * leftvalue),
+            e1.animate.move_to(RIGHT * (leftvalue + 0.6)),
+            e2.animate.move_to(RIGHT * (leftvalue + 1.2)),
+            k.animate.move_to(RIGHT * (leftvalue + 1.75)),
+            lag_ratio=0.5,
+            run_time=0.4,
+        )
+
+        # right int
+        leftvalue = 0.4
+        self.play(
+            emacs.animate.move_to(DOWN * 0.2 + LEFT * 0.1).scale(0.25),
+            g2.animate.move_to(RIGHT * leftvalue),
+            e1.animate.move_to(RIGHT * (leftvalue + 0.6)),
+            e2.animate.move_to(RIGHT * (leftvalue + 1.2)),
+            k.animate.move_to(RIGHT * (leftvalue + 1.75)),
+            run_time=0.8,
+        )
+        self.wait(10)
+</code></pre>
 </article>
 
 
       
         <div class="my-4">
     
-    <a href="/tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#emacs</a>
+    <a href="/tags/python/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#python</a>
     
-    <a href="/tags/windows/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#windows</a>
+    <a href="/tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#emacs</a>
     
 </div>
       
@@ -503,16 +502,11 @@ g_ControlRepeatDetected := false
   >
     <div>
       
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="/posts/python-basic-useage-inneoemacs/" class="block">Python Basic Useage Inneoemacs</a>
-      
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="block">Maven 项目骨架</a>
+        <a href="/posts/windows-autohotkey-setting/" class="block">Windows Autohotkey Setting</a>
       
     </div>
   </div>
@@ -539,9 +533,9 @@ g_ControlRepeatDetected := false
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#key-binding">key binding</a></li>
-    <li><a href="#config-code">config code</a></li>
-    <li><a href="#question">question</a></li>
+    <li><a href="#pyenv">pyenv</a></li>
+    <li><a href="#emacs-compile">emacs compile</a></li>
+    <li><a href="#manim">manim</a></li>
   </ul>
 </nav>
 </div>
@@ -561,6 +555,9 @@ g_ControlRepeatDetected := false
         class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
       >
         <h3>See Also</h3>
+        
+          <a href="/posts/windows-autohotkey-setting/" class="no-underline">Windows Autohotkey Setting</a>
+          <br />
         
           <a href="/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" class="no-underline">在neo Emacs中制作表格和绘图</a>
           <br />
