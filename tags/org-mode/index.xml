@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>org-mode on sincebyte</title>
+    <link>/tags/org-mode/</link>
+    <description>Recent content in org-mode on sincebyte</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2023 sincebyte
+</copyright>
+    <lastBuildDate>Sat, 06 Apr 2024 19:30:20 +0800</lastBuildDate>
+    <atom:link href="/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Org Clock</title>
+      <link>/posts/org-clock/</link>
+      <pubDate>Sat, 06 Apr 2024 19:30:20 +0800</pubDate>
+      <guid>/posts/org-clock/</guid>
+      <description>&lt;p&gt;org mode 可以记录您在特定任务中花费了多长时间，最终通过统计结果来进行分析回顾，对于时间管理有需求的专业人士这是很棒的功能。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
