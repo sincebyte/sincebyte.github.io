@@ -310,12 +310,12 @@ CLOCK: [2024-04-06 Sat 12:31]--[2024-04-06 Sat 12:32] =&gt;  0:01
 <tr>
 <td class="org-left">org-clock-in</td>
 <td class="org-left">SPC m c i</td>
-<td class="org-left">开始这个的计时</td>
+<td class="org-left">开始分项的计时</td>
 </tr>
 <tr>
 <td class="org-left">org-clock-in</td>
 <td class="org-left">SPC m c o</td>
-<td class="org-left">结束这个的计时</td>
+<td class="org-left">结束分项的计时</td>
 </tr>
 <tr>
 <td class="org-left">org-clock-report</td>
@@ -382,7 +382,7 @@ CLOCK: [2024-04-06 Sat 12:31]--[2024-04-06 Sat 12:32] =&gt;  0:01
 </tr>
 </tbody>
 </table>
-<p>当统计的文件数量过多时可通过简单的elisp代码来扩展scope, 如如下代码展示了如何将统计范围指定到 ~/Desktop/ 目录下的所有org文件</p>
+<p>当统计的文件数量过多时可通过简单的elisp代码来扩展scope, 如下代码展示了如何将统计范围指定到 ~/Desktop/ 目录下的所有org文件</p>
 <pre><code>#+BEGIN: clocktable :scope (lambda () (directory-files-recursively &quot;~/Desktop/&quot; &quot;.org&quot;))
 </code></pre>
 </article>
