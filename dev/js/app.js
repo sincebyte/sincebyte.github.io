@@ -621,7 +621,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  created() {\n    // 获取路径部分\n    this.src = \"dev/\" + this.$route.path + \".html\";\n  },\n  data() {\n    return {\n      src: `/index.html`,\n      loading: true\n    };\n  },\n  methods: {\n    onIframeLoad() {\n      this.loading = false;\n    }\n  }\n});\n\n//# sourceURL=webpack://test-vue/./src/views/Pages.vue?./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use%5B0%5D!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  created() {\n    console.info(this.$route);\n    // 获取路径部分\n    this.src = \"\" + this.$route.path + \".html\";\n  },\n  data() {\n    return {\n      src: `/index.html`,\n      loading: true\n    };\n  },\n  methods: {\n    onIframeLoad() {\n      this.loading = false;\n    }\n  }\n});\n\n//# sourceURL=webpack://test-vue/./src/views/Pages.vue?./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use%5B0%5D!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options");
 
 /***/ }),
 
