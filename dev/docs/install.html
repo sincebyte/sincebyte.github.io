@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-03-10 Sun 10:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neoemacs Install</title>
+<meta name="author" content="vanniuner" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script src  = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src  = "https://emacs-1308440781.cos.ap-chengdu.myqcloud.com/scroll.js"></script>
+<link   href = "https://emacs-1308440781.cos.ap-chengdu.myqcloud.com/base.css" rel="stylesheet" type="text/css"></link>
+</head>
+<body>
+<div id="preamble" class="status">
+<p>Made ✐︎ by
+</div>
+<div id="content" class="content">
+<h1 class="title">Neoemacs Install
+<br />
+<span class="subtitle">neoemacs 初体验，零门槛、零成本</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf3ca6cf">1. 特点概述</a></li>
+<li><a href="#org35c9cc0">2. 知识星球</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf3ca6cf" class="outline-2">
+<h2 id="orgf3ca6cf"><span class="section-number-2">1.</span> 特点概述</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Emacs 是一个非常古老且强大的文本编辑器，它最初由理查德·斯托曼（Richard Stallman）开发，旨在提供一个高度可定制的编辑环境。Emacs 的特点包括内置的Lisp解释器，允许用户通过编写Lisp代码来扩展和定制编辑器的功能。然而，对于一些用户来说，Emacs 的学习曲线可能有些陡峭。<br />
+</p>
+
+<p>
+Doom Emacs 是一个构建在Emacs之上的配置框架，旨在简化Emacs的配置过程并提供现代化的用户体验。它整合了许多流行的Emacs插件和工具，并提供了一个优雅的默认配置，使得用户可以快速上手并享受Emacs的强大功能。Doom Emacs 的历史可以追溯到对Emacs社区的贡献和对现代化工具的需求。<br />
+</p>
+
+<p>
+Neo emacs 是一个 GNU Emacs 的配置框架，它基于 doom emacs，本站专注于 web 应用程序编码环境，但这仅只是 Emacs 众多能力面中的很小部分，也丝毫不影响你以此作为基础向其他专业方向扩充。另外本站提供 Neo Emacs 的安装器，您可以通过安装器来便捷式的安装 Neo Emacs，跳过远程依赖的同步下载和编译及配置步骤，开箱即用。<br />
+</p>
+
+<img src="http://1.117.167.195/images/install-1.webp" alt="image2" style="margin-left:20px;margin-right:60px;width:auto;height:350px;border-radius:15px;border:solid 1px #edeff2;float:right">
+<p>
+Neo emacs 具有以下特点：<br />
+</p>
+<div style="line-height: 2">
+<ul class="org-ul">
+<li><b>输入法</b> ：适配 rime 配置，默认支持小鹤音形、小鹤双拼、全拼、自然码双拼。<br /></li>
+<li><b>翻译插件</b> ：go-translate ，学习英语没得说了，支持国内外主流翻译 API。<br /></li>
+<li><b>Evil</b> ：这是键盘流的基础，如果你曾经用过vim，oh 除非您是另外一个流派。<br /></li>
+<li><b>Java</b> ：支持 maven 和 gradle 项目，用了3年了，请注意 eclipse 要开始超车了。<br /></li>
+<li><b>Golang</b> ：所幸 golang 官方提供语言服务，Java 什么时候也官方出个？期待一下<br /></li>
+<li><b>Python</b> ：由插件 pyright 提供，python 有那么多库太有吸引力了。遥遥领先~<br /></li>
+<li><b>Vue</b> ：由插件 web-mode 提供，语言服务由 vls 提供。本站Vue2.0写的😂😂。<br /></li>
+<li><b>Libvterm</b> ：终端模拟器, vterm 支持 fish、zsh、bash，可惜 windows 下不支持<br /></li>
+<li><b>Eredis</b> ：redis 客户端，注重性能和稳健性。我想这个插件应该需要再扩展扩展&#x2026;<br /></li>
+<li><b>Magit</b> ：Magit 的界面设计简洁直观，让 Git 的操作高效和便捷。emacs 独家享有<br /></li>
+<li><b>Ejc-sql</b> ：将 Emacs 变成一个简单的 SQL 客户端，支持各种数据库。Mysql、Oracle、clickhouse、Sqlserver&#x2026;<br /></li>
+<li><b>Org-roame</b> ：知识管理系统 借鉴了 GTD 方法的原理，为非分层笔记、双链笔记提供了解决方案。可谓 emacs 杀手级应用。<br /></li>
+<li><b>作图软件</b> ：plantUML、D2、dotgraiz、gnuplot，如果您正在出书或者需要写开发文档，代码作图应该值得您体验。<br /></li>
+<li><b>Rest-client</b> ：http客户端工具，像 Postman 一样手动探索和测试 HTTP REST Web 服务的工具。可以编程式的那种。<br /></li>
+</ul>
+<blockquote>
+<p>
+本站前端、后端、数据库、测试全部由 neoemacs 开发， 同时您现在看到的这篇文档也是由 ｢ <i>org mode</i> ｣ 编写完成的。<br />
+</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org35c9cc0" class="outline-2">
+<h2 id="org35c9cc0"><span class="section-number-2">2.</span> 知识星球</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Ⅰ. Hi, 欢迎加入我们！开始加入 neo emacs 的知识星球吧，一起互相学习! 🎉🎉🎉<br />
+</p>
+
+<p>
+本站提供 neoemacs 的使用文档手册，对于直接使用 emacs 的用户相信这里也有适用于您的配置或者文档。<br />
+</p>
+
+<p>
+我们承诺会妥善保管用户信息，不会将其泄露给第三方。我们会遵守所有适用的隐私法律和法规，并采取必要的安全措施来保护您的个人信息。<br />
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: vanniuner</p>
+<p class="date">Created: 2024-03-10 Sun 10:16</p>
+</div>
+</body>
+</html>

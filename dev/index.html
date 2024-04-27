@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="favicon.png" />
+    <title>Neo Emacs</title>
+    <style>
+      *,
+      *:after,
+      *:before {
+        box-sizing: border-box;
+        transform-style: preserve-3d;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        font-family: "Google Sans", sans-serif, system-ui;
+      }
+
+      :root {
+        --size: 120;
+        --coefficient: 1px;
+        --timeline: 2.6s;
+        --delay: 0.65s;
+        --rotation-y: -24;
+        --rotation-x: 28;
+        --color-one: #3a0ca3;
+        --color-two: #4361ee;
+        --color-three: #4cc9f0;
+      }
+
+      .scene {
+        /* background: #ecf2fd; */
+        margin-top: 150px;
+        position: relative;
+        transform: translate3d(0, 0, 100vmin)
+          rotateX(calc(var(--rotation-y, 0) * 1deg))
+          rotateY(calc(var(--rotation-x, 0) * 1deg)) rotateX(0deg);
+      }
+
+      body {
+        transform-origin: 50% 50%;
+        animation: scale var(--timeline) var(--delay) infinite linear;
+      }
+
+      .shadow {
+        width: calc(var(--size) * var(--coefficient));
+        position: absolute;
+        bottom: 0;
+        aspect-ratio: 1;
+        transform-origin: 50% 50%;
+        background: hsl(210 80% 50% / 0.2);
+        transform: rotateX(90deg)
+          translate3d(
+            0,
+            0,
+            calc((var(--size) * (var(--coefficient) * -0.5)) - 1px)
+          )
+          scale(0.96);
+        animation: squish-squosh var(--timeline) var(--delay) infinite,
+          fade var(--timeline) var(--delay) infinite;
+        background: black;
+      }
+
+      .loader {
+        --depth: var(--size);
+        --color: var(--color-one, #8338ec);
+        width: calc(var(--depth) * var(--coefficient));
+        aspect-ratio: 1;
+        transform-origin: 50% 50%;
+        animation: squish-squosh var(--timeline) var(--delay) infinite;
+      }
+
+      .spinner {
+        animation: spin var(--timeline) var(--delay) infinite;
+      }
+
+      .jumper {
+        animation: jump var(--timeline) var(--delay) infinite;
+      }
+
+      @keyframes fade {
+        0%,
+        10%,
+        40%,
+        50%,
+        60%,
+        100% {
+          opacity: 1;
+        }
+        25% {
+          opacity: 0.5;
+        }
+      }
+
+      @keyframes spin {
+        0%,
+        10% {
+          rotate: 0deg;
+        }
+        30%,
+        100% {
+          rotate: -360deg;
+        }
+      }
+      @keyframes jump {
+        0%,
+        10%,
+        35%,
+        50% {
+          translate: 0 0;
+        }
+        25% {
+          translate: 0 -150%;
+        }
+      }
+
+      /* Cuboid boilerplate code */
+      .cuboid {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .cuboid__side {
+        background: var(--color);
+        position: absolute;
+      }
+      .cuboid__side:nth-of-type(1) {
+        --b: 1.1;
+        height: calc(var(--depth, 20) * var(--coefficient));
+        width: 100%;
+        top: 0;
+        transform: translate(0, -50%) rotateX(90deg);
+      }
+      .cuboid__side:nth-of-type(2) {
+        --b: 0.9;
+        --color: var(--color-three, #ff006e);
+        height: 100%;
+        width: calc(var(--depth, 20) * var(--coefficient));
+        top: 50%;
+        right: 0;
+        transform: translate(50%, -50%) rotateY(90deg);
+      }
+      .cuboid__side:nth-of-type(3) {
+        --b: 1;
+        width: 100%;
+        height: calc(var(--depth, 20) * var(--coefficient));
+        bottom: 0;
+        transform: translate(0%, 50%) rotateX(90deg);
+      }
+      .cuboid__side:nth-of-type(4) {
+        --b: 1;
+        --color: var(--color-three, #ff006e);
+        height: 100%;
+        width: calc(var(--depth, 20) * var(--coefficient));
+        left: 0;
+        top: 50%;
+        transform: translate(-50%, -50%) rotateY(90deg);
+      }
+      .cuboid__side:nth-of-type(5) {
+        --b: 1;
+        --color: var(--color-two, #3a86ef);
+        height: 100%;
+        width: 100%;
+        transform: translate3d(
+          0,
+          0,
+          calc(var(--depth, 20) * (var(--coefficient) * 0.5))
+        );
+        top: 0;
+        left: 0;
+      }
+      .cuboid__side:nth-of-type(6) {
+        --b: 1.2;
+        height: 100%;
+        width: 100%;
+        transform: translate3d(
+            0,
+            0,
+            calc(var(--depth, 20) * (var(--coefficient) * -0.5))
+          )
+          rotateY(180deg);
+        top: 0;
+        left: 0;
+      }
+    </style>
+  <script defer src="/js/chunk-vendors.js"></script><script defer src="/js/app.js"></script></head>
+  <body>
+    <div class="scene" id="loadingdivpage">
+      <div class="shadow"></div>
+      <div class="jumper">
+        <div class="spinner">
+          <div class="scaler">
+            <div class="loader">
+              <div class="cuboid">
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="stallman"></div>
+    <div id="page-desc" style="color: #f2f2f2; min-height: 20px">
+      网页正在加载...
+    </div>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script type="text/javascript">
+      const texts = [
+        "Richard Stallman 不洗澡是因为水力发电公司运行的是专有软件",
+        "Richard Stallman 的胡子是由括号构成的",
+        "Richard Stallman 用 Emacs 写出了 Emacs 的第一版",
+        "有些人检查他们的电脑里是否有病毒, 病毒检查他们的电脑里是否有 Richard Stallman",
+        "在一间普通的客厅里有 1242 件物体可以被RMS用来写一个操作系统，包括这房间本身",
+        "Richard Stallman 可以用 telnet 进入魔多",
+        "Richard Stallman 的读法是 “ GNU slash Stallman ”",
+        "当Richard Stallman 还是个学数手指的小毛孩时，他总是从0开始数",
+        "Stallman 不去 kill一个进程，他只想看它是否胆敢继续运行",
+        "当Richard Stallman 指向（point at）一台 Windows 电脑时，它就会出现段错误",
+        "Richard Stallman 最初的话语是 syscalls（系统调用）",
+        "Stallman 之所以存在是因为他把自己编译成了生命体",
+        "Richard Stallman 是他自己在 Emacs 里用Lisp语言编写成的",
+        "Richard Stallman 能够通过 Emacs 的 ssh 客户端程序连接到任何大脑",
+        "当Richard Stallman 使用浮点数时，它们便没有舍入误差",
+        "RMS 不用维护代码，他注视着它们，直到它们带着敬仰改正自己的错误",
+        "Richard Stallman 不对开源项目作出贡献；开源项目对 Richard Stallman 作出贡献",
+        "如果 Richard Stallman 和你同时拥有一个 1GB 的内存，那么 Richard Stallman 拥有比你更多的内存",
+        "从来就没有软件开发过程这回事，只有被 Richard Stallman 允许存在的一些程序",
+        "Richard Stallman 的DNA中包含调试符号, 尽管他从不需要它们",
+        "Richard Stallman 的医生能通过 CVS 采集他的血样",
+        "对于 Richard Stallman 来说，多项式时间就是 O(1)",
+        "Richard Stallman 将会使可口可乐在 GPL 协议下公布他们的配方",
+        "Richard Stallman 不需要用鼠标或键盘来操作计算机, 他只要凝视着它，直到它完成想要的工作",
+      ];
+      texts.sort(() => Math.random() - 0.5);
+      let index = 0;
+      function rotateText() {
+        document.getElementById("stallman").innerText = texts[index];
+        index = (index + 1) % texts.length;
+      }
+      rotateText();
+      const timerId = setInterval(rotateText, 2000);
+    </script>
+  </body>
+</html>
