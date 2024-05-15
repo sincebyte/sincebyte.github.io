@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
-    <lastBuildDate>Sat, 06 Apr 2024 19:30:20 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 May 2024 14:43:56 +0800</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Compose Usage</title>
+      <link>/posts/docker-compose-usage/</link>
+      <pubDate>Wed, 15 May 2024 14:43:56 +0800</pubDate>
+      <guid>/posts/docker-compose-usage/</guid>
+      <description>&lt;p&gt;Docker Compose 是一个用于定义和运行多个 Docker 容器应用程序的工具。它通过一个简单的 YAML 文件来配置应用程序的服务、网络、卷等方面，然后使用单个命令启动、停止和管理整个应用程序的容器。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Org Clock</title>
       <link>/posts/org-clock/</link>
@@ -100,6 +107,13 @@
       <pubDate>Mon, 14 Aug 2023 13:46:17 +0800</pubDate>
       <guid>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</guid>
       <description>&lt;p&gt;是一款脚本绘图语言程序, 提供丰富的特性, 其中我最喜欢的功能包括可生成箭头流动效果&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>泛微OA 计算员工每月应出勤天数</title>
+      <link>/posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/</link>
+      <pubDate>Mon, 12 Jun 2023 23:10:41 +0800</pubDate>
+      <guid>/posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/</guid>
+      <description>&lt;p&gt;泛微OA，计算员工每月应出勤天数， oracle 数据库&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mybatis Config 雪花算法id，用 redis 管理 workerId</title>
