@@ -8,8 +8,22 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
-    <lastBuildDate>Wed, 15 May 2024 14:43:56 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 May 2024 12:59:37 +0800</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>obs</title>
+      <link>/tags/obs/</link>
+      <pubDate>Sun, 19 May 2024 12:59:37 +0800</pubDate>
+      <guid>/tags/obs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>video</title>
+      <link>/tags/video/</link>
+      <pubDate>Sun, 19 May 2024 12:59:37 +0800</pubDate>
+      <guid>/tags/video/</guid>
+      <description></description>
+    </item>
     <item>
       <title>docker</title>
       <link>/tags/docker/</link>
