@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
-    <lastBuildDate>Sat, 06 Apr 2024 19:30:20 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2024 22:02:18 +0800</lastBuildDate>
     <atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs Tramp</title>
+      <link>/posts/emacs-tramp/</link>
+      <pubDate>Thu, 13 Jun 2024 22:02:18 +0800</pubDate>
+      <guid>/posts/emacs-tramp/</guid>
+      <description>&lt;p&gt;这是使用 emacs 替代 shell 客户端的绝佳方案。在Emacs中，“tramp” 是一个系统级的文件访问工具，用于通过网络或各种连接方式导入和导出 Emacs 项目。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Org Clock</title>
       <link>/posts/org-clock/</link>

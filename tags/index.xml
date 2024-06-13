@@ -8,8 +8,29 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
-    <lastBuildDate>Sun, 19 May 2024 12:59:37 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2024 22:02:18 +0800</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Thu, 13 Jun 2024 22:02:18 +0800</pubDate>
+      <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>lsp java</title>
+      <link>/tags/lsp-java/</link>
+      <pubDate>Thu, 13 Jun 2024 22:02:18 +0800</pubDate>
+      <guid>/tags/lsp-java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>tramp</title>
+      <link>/tags/tramp/</link>
+      <pubDate>Thu, 13 Jun 2024 22:02:18 +0800</pubDate>
+      <guid>/tags/tramp/</guid>
+      <description></description>
+    </item>
     <item>
       <title>obs</title>
       <link>/tags/obs/</link>
@@ -29,13 +50,6 @@
       <link>/tags/docker/</link>
       <pubDate>Wed, 15 May 2024 14:43:56 +0800</pubDate>
       <guid>/tags/docker/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>emacs</title>
-      <link>/tags/emacs/</link>
-      <pubDate>Sat, 06 Apr 2024 19:30:20 +0800</pubDate>
-      <guid>/tags/emacs/</guid>
       <description></description>
     </item>
     <item>

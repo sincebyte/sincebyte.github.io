@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lsp java on sincebyte</title>
+    <link>/tags/lsp-java/</link>
+    <description>Recent content in lsp java on sincebyte</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2023 sincebyte
+</copyright>
+    <lastBuildDate>Thu, 13 Jun 2024 22:02:18 +0800</lastBuildDate>
+    <atom:link href="/tags/lsp-java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs Tramp</title>
+      <link>/posts/emacs-tramp/</link>
+      <pubDate>Thu, 13 Jun 2024 22:02:18 +0800</pubDate>
+      <guid>/posts/emacs-tramp/</guid>
+      <description>&lt;p&gt;这是使用 emacs 替代 shell 客户端的绝佳方案。在Emacs中，“tramp” 是一个系统级的文件访问工具，用于通过网络或各种连接方式导入和导出 Emacs 项目。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
