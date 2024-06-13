@@ -316,7 +316,7 @@
 <p><a id="org2758cb9"></a></p>
 <h2 id="文件传输">文件传输</h2>
 <p>使用 dired 进行本地和服务器之间文件的互相拷贝，这真的非常方便。在 dired mode 中使用 `C` 来 copy 文件至另外的路径。当按下快捷键 `C` 以后，弹出目录，这时选择的目录可以穿越本地和服务器之间进行文件传输，甚至将远程服务器 A 上的文件通过 tramp 拷贝至远程服务器 B 也都是可行的。不过 tramp 的性能不算好，比普通的 ssh 要稍微慢一些，因此如果拷贝的文件比较大建议还是使用 scp 进行文件拷贝以免 tramp 出现超时。 也可以在 dired 利用标记功能一次性传输多个文件。<br>
-<img src="image/pic202406001058.png" alt="img"></p>
+<img src="image/pic202406001061.png" alt="img"></p>
 <blockquote>
 <p>如果 ssh 不可用，tramp 会阻塞emacs</p>
 </blockquote>
