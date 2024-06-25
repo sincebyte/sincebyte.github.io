@@ -106,7 +106,7 @@
     },
     "headline": "Hugo Usage | sincebyte","datePublished": "2023-08-21T15:01:18+08:00",
     "dateModified": "2023-08-21T15:01:18+08:00",
-    "wordCount":  280 ,
+    "wordCount":  383 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -278,6 +278,8 @@
 
   <p>Hugo can build a personal blog conveniently and quickly, providing comments, categories, searches, skins, subscriptions and other functions. Its open source code allows users to customize its default behavior at will.</p>
 <p><a id="org0d9eedc"></a></p>
+<h2 id="principle">principle</h2>
+<p>Hugo site root directory contains the whole meta data, the posts&rsquo; origin markdown file, themes static resources, avatar iamge etc.Just use command <code>hugo</code> on site root directory hugo will generate a site publish directory named public.So usually we do not modify pulish directory directly.Use 2 git repository is necessar they are hugo site root and publich directory.Publich hugo website in a particular domain,in additional to config a <code>A record</code> with the domain name vendor,more importantly you need config that on github gitpages.After that there will add a <code>CNAME</code> file located at public director.Never remove the <code>CNAME</code> file otherwise website will occur 404.</p>
 <h2 id="new-post">new post</h2>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-bottom"><span class="table-number">Table 1:</span> create a new post steps</caption>
@@ -434,6 +436,7 @@ tbody tr:nth-child(odd) {
 >
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#principle">principle</a></li>
     <li><a href="#new-post">new post</a></li>
     <li><a href="#quote-images">quote images</a></li>
     <li><a href="#generate">generate</a></li>
