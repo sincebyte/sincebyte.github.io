@@ -106,7 +106,7 @@
     },
     "headline": "Hugo Usage | sincebyte","datePublished": "2023-08-21T15:01:18+08:00",
     "dateModified": "2023-08-21T15:01:18+08:00",
-    "wordCount":  194 ,
+    "wordCount":  280 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -264,7 +264,7 @@
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
+    <span>2 min read</span>
   </div>
 
   
@@ -330,6 +330,12 @@
 <td class="org-left">post-name.md header after</td>
 <td class="org-left">use hugo&rsquo;s toc exclusively</td>
 </tr>
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">generate html file</td>
+<td class="org-left">public's parent</td>
+<td class="org-left">generate in public dir</td>
+</tr>
 </tbody>
 </table>
 <pre><code>---
@@ -351,6 +357,10 @@ Sony a7c 相机入门基础知识整理
 <p>The image need located at %yoursite%/public/posts/postname/ .<br>
 Usually I put the image into a sub directory <em>image</em> , thus it looks like %yoursite%/public/posts/postname/image/pattern.png .</p>
 <p><a id="orgf169abf"></a></p>
+<h2 id="generate">generate</h2>
+<p>Use <code>hugo</code> to generate html content in public directory.Command hugo for incremental construction that means some of the content will not generated, like avatar image.
+If want rebuild the whole public directory, firstly use <code>hugo --cleanDestinationDir</code> to clean the public,and then use <code>hugo</code> to build from scratch.
+Do not use <code>hugo server</code>, <code>hugo server</code> will startup a localserver for review.it leads all the static resrouces&rsquo; reference to localhost.This will makes online website occur 404 error.</p>
 <h2 id="css-customize">css customize</h2>
 <p>Create your customize css file at %yoursite%/static/css/default.css .<br>
 put default css into the %yoursite%/themes/hugo-eureka/layouts/_default/baseof.html.</p>
@@ -426,6 +436,7 @@ tbody tr:nth-child(odd) {
   <ul>
     <li><a href="#new-post">new post</a></li>
     <li><a href="#quote-images">quote images</a></li>
+    <li><a href="#generate">generate</a></li>
     <li><a href="#css-customize">css customize</a></li>
   </ul>
 </nav>
