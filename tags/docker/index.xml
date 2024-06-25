@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on sincebyte</title>
-    <link>//localhost:1313/tags/docker/</link>
+    <link>/tags/docker/</link>
     <description>Recent content in Docker on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
     <lastBuildDate>Wed, 15 May 2024 14:43:56 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Compose Usage</title>
-      <link>//localhost:1313/posts/docker-compose-usage/</link>
+      <link>/posts/docker-compose-usage/</link>
       <pubDate>Wed, 15 May 2024 14:43:56 +0800</pubDate>
-      <guid>//localhost:1313/posts/docker-compose-usage/</guid>
+      <guid>/posts/docker-compose-usage/</guid>
       <description>&lt;p&gt;Docker Compose 是一个用于定义和运行多个 Docker 容器应用程序的工具。它通过一个简单的 YAML 文件来配置应用程序的服务、网络、卷等方面，然后使用单个命令启动、停止和管理整个应用程序的容器。&lt;/p&gt;</description>
     </item>
   </channel>

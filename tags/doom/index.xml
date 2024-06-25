@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Doom on sincebyte</title>
-    <link>//localhost:1313/tags/doom/</link>
+    <link>/tags/doom/</link>
     <description>Recent content in Doom on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
     <lastBuildDate>Tue, 29 Aug 2023 15:46:59 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/doom/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/doom/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs Workspace</title>
-      <link>//localhost:1313/posts/emacs-workspace/</link>
+      <link>/posts/emacs-workspace/</link>
       <pubDate>Tue, 29 Aug 2023 15:46:59 +0800</pubDate>
-      <guid>//localhost:1313/posts/emacs-workspace/</guid>
+      <guid>/posts/emacs-workspace/</guid>
       <description>&lt;p&gt;在使用 doom emacs 的时候 &lt;code&gt;workspace&lt;/code&gt; 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？&lt;/p&gt;</description>
     </item>
   </channel>

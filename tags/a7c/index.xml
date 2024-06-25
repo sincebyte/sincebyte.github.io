@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A7c on sincebyte</title>
-    <link>//localhost:1313/tags/a7c/</link>
+    <link>/tags/a7c/</link>
     <description>Recent content in A7c on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
     <lastBuildDate>Mon, 21 Aug 2023 08:46:42 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/a7c/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/a7c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sony A7c 入门</title>
-      <link>//localhost:1313/posts/sony-a7c-%E5%85%A5%E9%97%A8/</link>
+      <link>/posts/sony-a7c-%E5%85%A5%E9%97%A8/</link>
       <pubDate>Mon, 21 Aug 2023 08:46:42 +0800</pubDate>
-      <guid>//localhost:1313/posts/sony-a7c-%E5%85%A5%E9%97%A8/</guid>
+      <guid>/posts/sony-a7c-%E5%85%A5%E9%97%A8/</guid>
       <description>&lt;p&gt;Sony a7c 相机入门基础知识整理&lt;/p&gt;</description>
     </item>
   </channel>

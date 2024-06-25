@@ -2,166 +2,166 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sincebyte</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
     <lastBuildDate>Tue, 25 Jun 2024 16:28:49 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ftp Resume Transfer</title>
-      <link>//localhost:1313/posts/ftp-resume-transfer/</link>
+      <link>/posts/ftp-resume-transfer/</link>
       <pubDate>Tue, 25 Jun 2024 16:28:49 +0800</pubDate>
-      <guid>//localhost:1313/posts/ftp-resume-transfer/</guid>
+      <guid>/posts/ftp-resume-transfer/</guid>
       <description>&lt;p&gt;Resumable transfer significantly improves the efficiency of file transfers,It is very efficient and convenient.Let&amp;rsquo;s try it in java&lt;/p&gt;</description>
     </item>
     <item>
       <title>Emacs Tramp</title>
-      <link>//localhost:1313/posts/emacs-tramp/</link>
+      <link>/posts/emacs-tramp/</link>
       <pubDate>Thu, 13 Jun 2024 22:02:18 +0800</pubDate>
-      <guid>//localhost:1313/posts/emacs-tramp/</guid>
+      <guid>/posts/emacs-tramp/</guid>
       <description>&lt;p&gt;这是使用 emacs 替代 shell 客户端的绝佳方案。在Emacs中，“tramp” 是一个系统级的文件访问工具，用于通过网络或各种连接方式导入和导出 Emacs 项目。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Docker Compose Usage</title>
-      <link>//localhost:1313/posts/docker-compose-usage/</link>
+      <link>/posts/docker-compose-usage/</link>
       <pubDate>Wed, 15 May 2024 14:43:56 +0800</pubDate>
-      <guid>//localhost:1313/posts/docker-compose-usage/</guid>
+      <guid>/posts/docker-compose-usage/</guid>
       <description>&lt;p&gt;Docker Compose 是一个用于定义和运行多个 Docker 容器应用程序的工具。它通过一个简单的 YAML 文件来配置应用程序的服务、网络、卷等方面，然后使用单个命令启动、停止和管理整个应用程序的容器。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Org Clock</title>
-      <link>//localhost:1313/posts/org-clock/</link>
+      <link>/posts/org-clock/</link>
       <pubDate>Sat, 06 Apr 2024 19:30:20 +0800</pubDate>
-      <guid>//localhost:1313/posts/org-clock/</guid>
+      <guid>/posts/org-clock/</guid>
       <description>&lt;p&gt;org mode 可以记录您在特定任务中花费了多长时间，最终通过统计结果来进行分析回顾，对于时间管理有需求的专业人士这是很棒的功能。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python Basic Useage Inneoemacs</title>
-      <link>//localhost:1313/posts/python-basic-useage-inneoemacs/</link>
+      <link>/posts/python-basic-useage-inneoemacs/</link>
       <pubDate>Fri, 01 Dec 2023 19:26:59 +0800</pubDate>
-      <guid>//localhost:1313/posts/python-basic-useage-inneoemacs/</guid>
+      <guid>/posts/python-basic-useage-inneoemacs/</guid>
       <description>&lt;p&gt;I don’t use python much, but I still record the useful information.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Windows Autohotkey Setting</title>
-      <link>//localhost:1313/posts/windows-autohotkey-setting/</link>
+      <link>/posts/windows-autohotkey-setting/</link>
       <pubDate>Fri, 27 Oct 2023 10:56:16 +0800</pubDate>
-      <guid>//localhost:1313/posts/windows-autohotkey-setting/</guid>
+      <guid>/posts/windows-autohotkey-setting/</guid>
       <description>&lt;p&gt;autohotkey 在 windows 上改键的神器. 借此可以实现在 macos 下与 karabiner-Elements 同样的效果.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Maven 项目骨架</title>
-      <link>//localhost:1313/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</link>
+      <link>/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</link>
       <pubDate>Sun, 22 Oct 2023 19:53:33 +0800</pubDate>
-      <guid>//localhost:1313/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</guid>
+      <guid>/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</guid>
       <description>&lt;p&gt;项目初期如何快速搭建符合规范、便于定制的项目结构, 相信这是大家一直在追求的. 所幸 Maven 提供了 archetypes 插件可满足这一诉求.&lt;/p&gt;</description>
     </item>
     <item>
       <title>在neo Emacs中制作表格和绘图</title>
-      <link>//localhost:1313/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</link>
+      <link>/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</link>
       <pubDate>Fri, 20 Oct 2023 15:59:03 +0800</pubDate>
-      <guid>//localhost:1313/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</guid>
+      <guid>/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</guid>
       <description>&lt;p&gt;在Neo Emacs中制作表格和绘图可极大激发我们的生产力, 除了使用PlantUML、D2、dot graphviz等绘图工具外, 可以将 org table 与 gnuplot 结合形成强大的绘制统计报表的需求, 进行各类汇总报告分析.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Clickhouse Tutorial</title>
-      <link>//localhost:1313/posts/clickhouse-tutorial/</link>
+      <link>/posts/clickhouse-tutorial/</link>
       <pubDate>Wed, 18 Oct 2023 20:22:20 +0800</pubDate>
-      <guid>//localhost:1313/posts/clickhouse-tutorial/</guid>
+      <guid>/posts/clickhouse-tutorial/</guid>
       <description>&lt;p&gt;clickhouse 可用于联机分析OLAP的列式数据库管理系统. 定位与OLAP离线数据处理,相比于OLTP在线事务处理,clickhouse更关注于海量数据的计算分析, 关注的是数据的吞吐、查询速度、计算性能等指标.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ElasticSearch Part1</title>
-      <link>//localhost:1313/posts/elasticsearch-part1/</link>
+      <link>/posts/elasticsearch-part1/</link>
       <pubDate>Wed, 13 Sep 2023 19:50:09 +0800</pubDate>
-      <guid>//localhost:1313/posts/elasticsearch-part1/</guid>
+      <guid>/posts/elasticsearch-part1/</guid>
       <description>&lt;p&gt;最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名.&#xA;But, 我认为这证明了他们对人才市场挖掘的雄心.&lt;/p&gt;</description>
     </item>
     <item>
       <title>VimiumC</title>
-      <link>//localhost:1313/posts/vimiumc/</link>
+      <link>/posts/vimiumc/</link>
       <pubDate>Thu, 07 Sep 2023 21:26:36 +0800</pubDate>
-      <guid>//localhost:1313/posts/vimiumc/</guid>
+      <guid>/posts/vimiumc/</guid>
       <description>&lt;p&gt;Vimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Emacs Workspace</title>
-      <link>//localhost:1313/posts/emacs-workspace/</link>
+      <link>/posts/emacs-workspace/</link>
       <pubDate>Tue, 29 Aug 2023 15:46:59 +0800</pubDate>
-      <guid>//localhost:1313/posts/emacs-workspace/</guid>
+      <guid>/posts/emacs-workspace/</guid>
       <description>&lt;p&gt;在使用 doom emacs 的时候 &lt;code&gt;workspace&lt;/code&gt; 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hugo Usage</title>
-      <link>//localhost:1313/posts/hugo-usage/</link>
+      <link>/posts/hugo-usage/</link>
       <pubDate>Mon, 21 Aug 2023 15:01:18 +0800</pubDate>
-      <guid>//localhost:1313/posts/hugo-usage/</guid>
+      <guid>/posts/hugo-usage/</guid>
       <description>&lt;p&gt;Hugo can build a personal blog conveniently and quickly, providing comments, categories, searches, skins, subscriptions and other functions. Its open source code allows users to customize its default behavior at will.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sony A7c 入门</title>
-      <link>//localhost:1313/posts/sony-a7c-%E5%85%A5%E9%97%A8/</link>
+      <link>/posts/sony-a7c-%E5%85%A5%E9%97%A8/</link>
       <pubDate>Mon, 21 Aug 2023 08:46:42 +0800</pubDate>
-      <guid>//localhost:1313/posts/sony-a7c-%E5%85%A5%E9%97%A8/</guid>
+      <guid>/posts/sony-a7c-%E5%85%A5%E9%97%A8/</guid>
       <description>&lt;p&gt;Sony a7c 相机入门基础知识整理&lt;/p&gt;</description>
     </item>
     <item>
       <title>Macos Stage 快捷键</title>
-      <link>//localhost:1313/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <link>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
       <pubDate>Fri, 18 Aug 2023 23:49:32 +0800</pubDate>
-      <guid>//localhost:1313/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <guid>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
       <description>&lt;p&gt;mac stage manager 提供了一个真正无打扰的工作环境.&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用d2绘图</title>
-      <link>//localhost:1313/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</link>
+      <link>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</link>
       <pubDate>Mon, 14 Aug 2023 13:46:17 +0800</pubDate>
-      <guid>//localhost:1313/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</guid>
+      <guid>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</guid>
       <description>&lt;p&gt;是一款脚本绘图语言程序, 提供丰富的特性, 其中我最喜欢的功能包括可生成箭头流动效果&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mybatis Config 雪花算法id，用 redis 管理 workerId</title>
-      <link>//localhost:1313/posts/mybatis-config/</link>
+      <link>/posts/mybatis-config/</link>
       <pubDate>Tue, 06 Jun 2023 20:45:01 +0800</pubDate>
-      <guid>//localhost:1313/posts/mybatis-config/</guid>
+      <guid>/posts/mybatis-config/</guid>
       <description>&lt;p&gt;Mybatis Config 雪花算法id，用 redis 自动管理 workerId。&lt;/p&gt;</description>
     </item>
     <item>
       <title>springcloud 整合 shardingsphere 及 seata</title>
-      <link>//localhost:1313/posts/seata-shardingsphere1/</link>
+      <link>/posts/seata-shardingsphere1/</link>
       <pubDate>Tue, 06 Jun 2023 00:07:05 +0800</pubDate>
-      <guid>//localhost:1313/posts/seata-shardingsphere1/</guid>
+      <guid>/posts/seata-shardingsphere1/</guid>
       <description>&lt;p&gt;springcloud 整合 shardingsphere 及 seata, 为分布式事务的场景提供了十分优雅的解决方案&lt;/p&gt;</description>
     </item>
     <item>
       <title>java 栈溢出问题排查</title>
-      <link>//localhost:1313/posts/java-oom/</link>
+      <link>/posts/java-oom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/java-oom/</guid>
+      <guid>/posts/java-oom/</guid>
       <description>&lt;p&gt;如何排查：java.lang.OutOfMemoryError: unable to create native thread&lt;/p&gt;</description>
     </item>
     <item>
       <title>RocketMQ 必须知道的理论知识</title>
-      <link>//localhost:1313/posts/rocketmqintroduction/</link>
+      <link>/posts/rocketmqintroduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/rocketmqintroduction/</guid>
+      <guid>/posts/rocketmqintroduction/</guid>
       <description>&lt;p&gt;RocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。&lt;/p&gt;</description>
     </item>
     <item>
       <title>推荐一款 org mode 导出 html 的样式</title>
-      <link>//localhost:1313/posts/orgmodecss/</link>
+      <link>/posts/orgmodecss/</link>
       <pubDate>Thu, 31 Mar 2022 13:11:22 +0800</pubDate>
-      <guid>//localhost:1313/posts/orgmodecss/</guid>
+      <guid>/posts/orgmodecss/</guid>
       <description>&lt;p&gt;使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style&lt;/p&gt;</description>
     </item>
     <item>
       <title>Search</title>
-      <link>//localhost:1313/search/</link>
+      <link>/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/search/</guid>
+      <guid>/search/</guid>
       <description></description>
     </item>
   </channel>

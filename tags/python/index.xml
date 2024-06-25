@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on sincebyte</title>
-    <link>//localhost:1313/tags/python/</link>
+    <link>/tags/python/</link>
     <description>Recent content in Python on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
     <lastBuildDate>Fri, 01 Dec 2023 19:26:59 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python Basic Useage Inneoemacs</title>
-      <link>//localhost:1313/posts/python-basic-useage-inneoemacs/</link>
+      <link>/posts/python-basic-useage-inneoemacs/</link>
       <pubDate>Fri, 01 Dec 2023 19:26:59 +0800</pubDate>
-      <guid>//localhost:1313/posts/python-basic-useage-inneoemacs/</guid>
+      <guid>/posts/python-basic-useage-inneoemacs/</guid>
       <description>&lt;p&gt;I don’t use python much, but I still record the useful information.&lt;/p&gt;</description>
     </item>
   </channel>

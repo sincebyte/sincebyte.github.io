@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on sincebyte</title>
-    <link>//localhost:1313/tags/hugo/</link>
+    <link>/tags/hugo/</link>
     <description>Recent content in Hugo on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
     <lastBuildDate>Mon, 21 Aug 2023 15:01:18 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo Usage</title>
-      <link>//localhost:1313/posts/hugo-usage/</link>
+      <link>/posts/hugo-usage/</link>
       <pubDate>Mon, 21 Aug 2023 15:01:18 +0800</pubDate>
-      <guid>//localhost:1313/posts/hugo-usage/</guid>
+      <guid>/posts/hugo-usage/</guid>
       <description>&lt;p&gt;Hugo can build a personal blog conveniently and quickly, providing comments, categories, searches, skins, subscriptions and other functions. Its open source code allows users to customize its default behavior at will.&lt;/p&gt;</description>
     </item>
   </channel>
