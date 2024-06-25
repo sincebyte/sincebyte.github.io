@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>emacs on sincebyte</title>
-    <link>/tags/emacs/</link>
-    <description>Recent content in emacs on sincebyte</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Emacs on sincebyte</title>
+    <link>//localhost:1313/tags/emacs/</link>
+    <description>Recent content in Emacs on sincebyte</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
     <lastBuildDate>Thu, 13 Jun 2024 22:02:18 +0800</lastBuildDate>
-    <atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs Tramp</title>
-      <link>/posts/emacs-tramp/</link>
+      <link>//localhost:1313/posts/emacs-tramp/</link>
       <pubDate>Thu, 13 Jun 2024 22:02:18 +0800</pubDate>
-      <guid>/posts/emacs-tramp/</guid>
+      <guid>//localhost:1313/posts/emacs-tramp/</guid>
       <description>&lt;p&gt;这是使用 emacs 替代 shell 客户端的绝佳方案。在Emacs中，“tramp” 是一个系统级的文件访问工具，用于通过网络或各种连接方式导入和导出 Emacs 项目。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Org Clock</title>
-      <link>/posts/org-clock/</link>
+      <link>//localhost:1313/posts/org-clock/</link>
       <pubDate>Sat, 06 Apr 2024 19:30:20 +0800</pubDate>
-      <guid>/posts/org-clock/</guid>
+      <guid>//localhost:1313/posts/org-clock/</guid>
       <description>&lt;p&gt;org mode 可以记录您在特定任务中花费了多长时间，最终通过统计结果来进行分析回顾，对于时间管理有需求的专业人士这是很棒的功能。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python Basic Useage Inneoemacs</title>
-      <link>/posts/python-basic-useage-inneoemacs/</link>
+      <link>//localhost:1313/posts/python-basic-useage-inneoemacs/</link>
       <pubDate>Fri, 01 Dec 2023 19:26:59 +0800</pubDate>
-      <guid>/posts/python-basic-useage-inneoemacs/</guid>
+      <guid>//localhost:1313/posts/python-basic-useage-inneoemacs/</guid>
       <description>&lt;p&gt;I don’t use python much, but I still record the useful information.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Windows Autohotkey Setting</title>
-      <link>/posts/windows-autohotkey-setting/</link>
+      <link>//localhost:1313/posts/windows-autohotkey-setting/</link>
       <pubDate>Fri, 27 Oct 2023 10:56:16 +0800</pubDate>
-      <guid>/posts/windows-autohotkey-setting/</guid>
+      <guid>//localhost:1313/posts/windows-autohotkey-setting/</guid>
       <description>&lt;p&gt;autohotkey 在 windows 上改键的神器. 借此可以实现在 macos 下与 karabiner-Elements 同样的效果.&lt;/p&gt;</description>
     </item>
     <item>
       <title>在neo Emacs中制作表格和绘图</title>
-      <link>/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</link>
+      <link>//localhost:1313/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</link>
       <pubDate>Fri, 20 Oct 2023 15:59:03 +0800</pubDate>
-      <guid>/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</guid>
+      <guid>//localhost:1313/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/</guid>
       <description>&lt;p&gt;在Neo Emacs中制作表格和绘图可极大激发我们的生产力, 除了使用PlantUML、D2、dot graphviz等绘图工具外, 可以将 org table 与 gnuplot 结合形成强大的绘制统计报表的需求, 进行各类汇总报告分析.&lt;/p&gt;</description>
     </item>
     <item>
       <title>VimiumC</title>
-      <link>/posts/vimiumc/</link>
+      <link>//localhost:1313/posts/vimiumc/</link>
       <pubDate>Thu, 07 Sep 2023 21:26:36 +0800</pubDate>
-      <guid>/posts/vimiumc/</guid>
+      <guid>//localhost:1313/posts/vimiumc/</guid>
       <description>&lt;p&gt;Vimium C 解决了在 Chrome 中使用 Vimium 部分页面不生效的问题, 让全键盘流变得更加丝滑.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Emacs Workspace</title>
-      <link>/posts/emacs-workspace/</link>
+      <link>//localhost:1313/posts/emacs-workspace/</link>
       <pubDate>Tue, 29 Aug 2023 15:46:59 +0800</pubDate>
-      <guid>/posts/emacs-workspace/</guid>
+      <guid>//localhost:1313/posts/emacs-workspace/</guid>
       <description>&lt;p&gt;在使用 doom emacs 的时候 &lt;code&gt;workspace&lt;/code&gt; 是我们经常使用到的功能.那么如何在进行buffer切换时找到自己想要的空间呢？比如快速找vterm这个空间, 或者说http这个空间呢？&lt;/p&gt;</description>
     </item>
     <item>
       <title>Macos Stage 快捷键</title>
-      <link>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <link>//localhost:1313/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
       <pubDate>Fri, 18 Aug 2023 23:49:32 +0800</pubDate>
-      <guid>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <guid>//localhost:1313/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
       <description>&lt;p&gt;mac stage manager 提供了一个真正无打扰的工作环境.&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用d2绘图</title>
-      <link>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</link>
+      <link>//localhost:1313/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</link>
       <pubDate>Mon, 14 Aug 2023 13:46:17 +0800</pubDate>
-      <guid>/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</guid>
+      <guid>//localhost:1313/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/</guid>
       <description>&lt;p&gt;是一款脚本绘图语言程序, 提供丰富的特性, 其中我最喜欢的功能包括可生成箭头流动效果&lt;/p&gt;</description>
     </item>
     <item>
       <title>推荐一款 org mode 导出 html 的样式</title>
-      <link>/posts/orgmodecss/</link>
+      <link>//localhost:1313/posts/orgmodecss/</link>
       <pubDate>Thu, 31 Mar 2022 13:11:22 +0800</pubDate>
-      <guid>/posts/orgmodecss/</guid>
+      <guid>//localhost:1313/posts/orgmodecss/</guid>
       <description>&lt;p&gt;使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style&lt;/p&gt;</description>
     </item>
   </channel>

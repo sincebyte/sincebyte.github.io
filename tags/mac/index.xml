@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mac on sincebyte</title>
-    <link>/tags/mac/</link>
-    <description>Recent content in mac on sincebyte</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Mac on sincebyte</title>
+    <link>//localhost:1313/tags/mac/</link>
+    <description>Recent content in Mac on sincebyte</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
     <lastBuildDate>Fri, 18 Aug 2023 23:49:32 +0800</lastBuildDate>
-    <atom:link href="/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Macos Stage 快捷键</title>
-      <link>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <link>//localhost:1313/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
       <pubDate>Fri, 18 Aug 2023 23:49:32 +0800</pubDate>
-      <guid>/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <guid>//localhost:1313/posts/stage%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
       <description>&lt;p&gt;mac stage manager 提供了一个真正无打扰的工作环境.&lt;/p&gt;</description>
     </item>
   </channel>
