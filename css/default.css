@@ -4,3 +4,16 @@ tbody, th, tbody td {
 tbody tr:nth-child(odd) {
     background-color: var(--color-primary-bg)
 }
+@font-face {
+    font-family: angelinaFont;
+    src: url("./css/angelina.ttf") format("TrueType");
+}
+.me-4 ,.text-xl{
+    font-family: 'Angelina', Arial, sans-serif!important;
+    font-size: 30px;
+    color: #888!important;
+}
+.text-xl{
+    font-size: 35px!important;
+    font-weight: bold;
+}
