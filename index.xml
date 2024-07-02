@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
-    <lastBuildDate>Tue, 25 Jun 2024 16:28:49 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jul 2024 19:10:57 +0800</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>H2 Usage</title>
+      <link>/posts/h2-usage/</link>
+      <pubDate>Tue, 02 Jul 2024 19:10:57 +0800</pubDate>
+      <guid>/posts/h2-usage/</guid>
+      <description>&lt;p&gt;h2 features are Very fast, open source, JDBC API, Embedded and server modes; in-memory databases, Browser based Console application, Small footprint: around 2.5 MB jar file size.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Ftp Resume Transfer</title>
       <link>/posts/ftp-resume-transfer/</link>

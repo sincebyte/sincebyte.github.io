@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>java 栈溢出问题排查 | sincebyte</title>
+<title>H2 Usage | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="../../css/eureka.min.bf8dd3d6872fb704aafb8bcb973df1d5fc347fc34c9b7f4ed33052a953b06f8be99f29d44e29d0a4c6c01988203b5fd4.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="如何排查：java.lang.OutOfMemoryError: unable to create native thread">
+  content="h2 features are Very fast, open source, JDBC API, Embedded and server modes; in-memory databases, Browser based Console application, Small footprint: around 2.5 MB jar file size.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,8 +89,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"java 栈溢出问题排查",
-      "item":"/posts/java-oom/"}]
+      "name":"H2 Usage",
+      "item":"/posts/h2-usage/"}]
 }
 </script>
 
@@ -102,11 +102,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/java-oom/"
+        "@id": "/posts/h2-usage/"
     },
-    "headline": "java 栈溢出问题排查 | sincebyte","datePublished": "2023-03-31T13:11:22+08:00",
-    "dateModified": "2023-03-31T13:11:22+08:00",
-    "wordCount":  154 ,
+    "headline": "H2 Usage | sincebyte","datePublished": "2024-07-02T19:10:57+08:00",
+    "dateModified": "2024-07-02T19:10:57+08:00",
+    "wordCount":  218 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,21 +115,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003e如何排查：java.lang.OutOfMemoryError: unable to create native thread\u003c\/p\u003e"
+    "description": "\u003cp\u003eh2 features are Very fast, open source, JDBC API, Embedded and server modes; in-memory databases, Browser based Console application, Small footprint: around 2.5 MB jar file size.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="java 栈溢出问题排查 | sincebyte" />
+</script><meta property="og:title" content="H2 Usage | sincebyte" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/java-oom/" />
+<meta property="og:url" content="/posts/h2-usage/" />
 
 
 
 
-<meta property="og:description" content="如何排查：java.lang.OutOfMemoryError: unable to create native thread" />
+<meta property="og:description" content="h2 features are Very fast, open source, JDBC API, Embedded and server modes; in-memory databases, Browser based Console application, Small footprint: around 2.5 MB jar file size." />
 
 
 
@@ -146,10 +146,10 @@
 
 
 
-<meta property="article:published_time" content="2023-03-31T13:11:22&#43;08:00" />
+<meta property="article:published_time" content="2024-07-02T19:10:57&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2023-03-31T13:11:22&#43;08:00" />
+<meta property="article:modified_time" content="2024-07-02T19:10:57&#43;08:00" />
 
 
 
@@ -162,10 +162,6 @@
 
 
 
-<meta property="og:see_also" content="/posts/rocketmqintroduction/" />
-
-<meta property="og:see_also" content="/posts/h2-usage/" />
-
 <meta property="og:see_also" content="/posts/ftp-resume-transfer/" />
 
 <meta property="og:see_also" content="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" />
@@ -173,6 +169,10 @@
 <meta property="og:see_also" content="/posts/clickhouse-tutorial/" />
 
 <meta property="og:see_also" content="/posts/elasticsearch-part1/" />
+
+<meta property="og:see_also" content="/posts/mybatis-config/" />
+
+<meta property="og:see_also" content="/posts/seata-shardingsphere1/" />
 
 
 
@@ -257,7 +257,7 @@
       class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">java 栈溢出问题排查</h1>
+  <h1 class="mb-4">H2 Usage</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -265,12 +265,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2023-03-31</span
+      >2024-07-02</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
+    <span>2 min read</span>
   </div>
 
   
@@ -282,62 +282,62 @@
   
   
 
-  <p>如何排查：java.lang.OutOfMemoryError: unable to create native thread</p>
-<p><a id="orgea4945b"></a></p>
-<h1 id="javalangoutofmemoryerror-unable-to-create-native-thread">java.lang.OutOfMemoryError: unable to create native thread</h1>
-<p><a id="org7324b5c"></a></p>
-<h2 id="测试代码">测试代码</h2>
-<pre><code>for (int i = 0; i &lt; 3500; i++) {
-    new Thread(() -&gt; {
-        try {
-            try {Thread.sleep(5000L);}
-            catch (InterruptedException e) {e.printStackTrace();}
-            TimeUnit.HOURS.sleep(1);
-            log.info(&quot;\n==== [log]: {} {}&quot;, &quot;sleep over&quot;,Thread.currentThread().getName());
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }).start();
-}
+  <p>h2 features are Very fast, open source, JDBC API, Embedded and server modes; in-memory databases, Browser based Console application, Small footprint: around 2.5 MB jar file size.</p>
+<p><a id="org66e6dc2"></a></p>
+<h2 id="dependence">Dependence</h2>
+<p>Add d2 dependence, You need jpa because wanna <span class="underline">ddl-auto</span> feature, It make project generate and apply the create tables automatically.Need <span class="underline">mybatis</span> dependence for sure.Fortunately they do not conflict.Note that the h2’s JDBC driver have been include in the h2 dependence.</p>
+<pre><code>&lt;!-- Spring Boot Starter Data JPA --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!-- MyBatis Starter --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+	&lt;version&gt;3.0.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!-- H2 Database --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;com.h2database&lt;/groupId&gt;
+	&lt;artifactId&gt;h2&lt;/artifactId&gt;
+	&lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
 </code></pre>
-<p><a id="org26dca71"></a></p>
-<h2 id="相关指令">相关指令</h2>
-<ul>
-<li>
-<p>查看进程的线程数量</p>
-<pre><code>jstack -l PID | grep 'java.lang.Thread.State' | wc -l
-jstack -l PID | grep 'java.lang.Thread.State: RUNNABLE' | wc -l
-jstack -l PID | grep 'java.lang.Thread.State: TIMED_WAITING'  | wc -l
-jstack -l PID | grep 'java.lang.Thread.State: WAITING' | wc -l
-jstack -l PID | grep 'java.lang.Thread.State:BLOCKED'  | wc -l
-jstack -l PID | grep 'Java-level deadlock'  | wc -l
+<p><a id="org1a94085"></a></p>
+<h2 id="config">Config</h2>
+<p>In the <span class="underline">application-$env.yaml</span> the most important config is <span class="underline">spring.datasource</span>.Of course there need to restore programming data.When springboot starup,there generated <span class="underline">~/.h2/h2.mv.db</span>, <span class="underline">~/.h2/h2.trace.db</span>, <span class="underline">~/.h2/h2.lock.db</span> files which are stored the ddl logs and process lock information respectively.For mybatis just use it commonly.</p>
+<pre><code>spring:
+  datasource:
+    url: jdbc:h2:file:~/.h2/h2;AUTO_SERVER=TRUE
+    username: sa
+    password: ******
+    driverClassName: org.h2.Driver
+    platform: h2
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+mybatis:
+  type-aliases-package: com.neoemacs.tool.server.po
+  configuration:
+    map-underscore-to-camel-case: true
 </code></pre>
-</li>
-<li>
-<p>查看进程的线程状态</p>
-<pre><code>jstack -l PID | grep 'java.lang.Thread.State'
+<blockquote>
+<p>Each d2 database program only support a single client concurrently defaut.Use `AUTO_SERVER=TRUE` break it.</p>
+</blockquote>
+<p><a id="orgc2cae75"></a></p>
+<h2 id="ejc-connection">ejc Connection</h2>
+<p>Use ejc connect h2 database,thing going to be done finding a <span class="underline">h2 jdbc driver</span>,usually you could find it under maven repository director,after that just enjoy it.</p>
+<pre><code>(ejc-create-connection &quot;H2&quot;
+ :classpath (file-truename
+      &quot;~/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar&quot;)
+ :subprotocol &quot;h2&quot;
+ :subname     &quot;~/.h2/h2;AUTO_SERVER=TRUE&quot;
+ :user        &quot;sa&quot;
+ :password    &quot;*****&quot;
+ :separator   &quot;&lt;/?\.*&gt;&quot;)
 </code></pre>
-</li>
-<li>
-<p>查看进程的线程信息</p>
-<pre><code>jstack -l PID
-</code></pre>
-<p>返回信息，可以看到阻塞的代码信息</p>
-<pre><code>&quot;Thread-4050&quot; #4136 prio=5 os_prio=31 cpu=1.00ms elapsed=546.19s tid=0x0000000130247000
-       nid=0x354103 waiting on condition  [0x00000004b9a2e000]
-  java.lang.Thread.State: TIMED_WAITING (sleeping)
-  at java.lang.Thread.sleep(java.base@11.0.13/Native Method)
-  at java.lang.Thread.sleep(java.base@11.0.13/Thread.java:334)
-  at java.util.concurrent.TimeUnit.sleep(java.base@11.0.13/TimeUnit.java:446)
-  at com....controller.CommentsController$$M$_jr_0E50A6F6C7FE22B0_1
-       .lambda$0(CommentsController.java:129)
-  at com....controller.CommentsController$$Lambda$964$$M$_jr_0E50A6F6C7FE22B0_1
-       /0x0000000800e11c40.run(Unknown Source)
-  at java.lang.Thread.run(java.base@11.0.13/Thread.java:829)
-</code></pre>
-</li>
-</ul>
 </article>
 
 
@@ -361,16 +361,11 @@ jstack -l PID | grep 'Java-level deadlock'  | wc -l
   >
     <div>
       
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="../../posts/seata-shardingsphere1/" class="block">springcloud 整合 shardingsphere 及 seata</a>
-      
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="../../posts/rocketmqintroduction/" class="block">RocketMQ 必须知道的理论知识</a>
+        <a href="../../posts/ftp-resume-transfer/" class="block">Ftp Resume Transfer</a>
       
     </div>
   </div>
@@ -397,8 +392,9 @@ jstack -l PID | grep 'Java-level deadlock'  | wc -l
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#测试代码">测试代码</a></li>
-    <li><a href="#相关指令">相关指令</a></li>
+    <li><a href="#dependence">Dependence</a></li>
+    <li><a href="#config">Config</a></li>
+    <li><a href="#ejc-connection">ejc Connection</a></li>
   </ul>
 </nav>
 </div>
@@ -419,12 +415,6 @@ jstack -l PID | grep 'Java-level deadlock'  | wc -l
       >
         <h3>See Also</h3>
         
-          <a href="../../posts/rocketmqintroduction/" class="no-underline">RocketMQ 必须知道的理论知识</a>
-          <br />
-        
-          <a href="../../posts/h2-usage/" class="no-underline">H2 Usage</a>
-          <br />
-        
           <a href="../../posts/ftp-resume-transfer/" class="no-underline">Ftp Resume Transfer</a>
           <br />
         
@@ -435,6 +425,12 @@ jstack -l PID | grep 'Java-level deadlock'  | wc -l
           <br />
         
           <a href="../../posts/elasticsearch-part1/" class="no-underline">ElasticSearch Part1</a>
+          <br />
+        
+          <a href="../../posts/mybatis-config/" class="no-underline">Mybatis Config 雪花算法id，用 redis 管理 workerId</a>
+          <br />
+        
+          <a href="../../posts/seata-shardingsphere1/" class="no-underline">springcloud 整合 shardingsphere 及 seata</a>
           <br />
         
       </div>
