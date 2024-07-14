@@ -5,15 +5,38 @@ tbody tr:nth-child(odd) {
     background-color: var(--color-primary-bg)
 }
 @font-face {
-    font-family: angelinaFont;
-    src: url("./css/angelina.ttf") format("TrueType");
+font-family: angelinaFont;
+src: url("./css/angelina.ttf") format("TrueType");
 }
 .me-4 ,.text-xl{
-    font-family: 'Angelina', Arial, sans-serif!important;
-    font-size: 30px;
-    color: #888!important;
+font-family: 'Angelina', Arial, sans-serif!important;
+font-size: 30px;
+color: #888!important;
 }
 .text-xl{
-    font-size: 35px!important;
-    font-weight: bold;
+font-size: 35px!important;
+font-weight: bold;
+}
+
+@font-face {
+    font-family: jinkaiFont;
+    src: url("./jinkai.ttf") format("TrueType");
+}
+@font-face {
+    font-family: kodeMono;
+    src: url("./KodeMono-Regular.ttf") format("TrueType");
+}
+
+body ,.prose {
+    font-family: jinkaiFont, sans-serif;
+    font-size: 20px!important;
+}
+
+.prose p {
+    font-family: jinkaiFont, sans-serif;
+    font-size: 18px!important;
+}
+pre {
+    font-family: kodeMono, sans-serif;
+    font-size: 14px!important;
 }

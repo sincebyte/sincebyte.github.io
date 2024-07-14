@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>泛微OA 计算员工每月应出勤天数 | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="//localhost:1313/css/eureka.min.bf8dd3d6872fb704aafb8bcb973df1d5fc347fc34c9b7f4ed33052a953b06f8be99f29d44e29d0a4c6c01988203b5fd4.css">
+<script defer src="//localhost:1313/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="//localhost:1313/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="//localhost:1313/js/fontawesome.min.694ad3d5437136c818a485fa64de6934920b1e6e34d9282cb5c9cffda2dd475235bb59a959d91004d647e4972619f09e.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="//localhost:1313/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="泛微OA，计算员工每月应出勤天数， oracle 数据库">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"//localhost:1313/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"泛微OA 计算员工每月应出勤天数",
+      "item":"//localhost:1313/posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "//localhost:1313/posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/"
+    },
+    "headline": "泛微OA 计算员工每月应出勤天数 | sincebyte","datePublished": "2023-06-12T23:10:41+08:00",
+    "dateModified": "2023-06-12T23:10:41+08:00",
+    "wordCount":  430 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "//localhost:1313/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003e泛微OA，计算员工每月应出勤天数， oracle 数据库\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="泛微OA 计算员工每月应出勤天数 | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="//localhost:1313/images/icon.png">
+
+
+<meta property="og:url" content="//localhost:1313/posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/" />
+
+
+
+
+<meta property="og:description" content="泛微OA，计算员工每月应出勤天数， oracle 数据库" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2023-06-12T23:10:41&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2023-06-12T23:10:41&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">泛微OA 计算员工每月应出勤天数</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2023-06-12</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>3 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>泛微OA，计算员工每月应出勤天数， oracle 数据库</p>
+<h1 id="table-of-contents">Table of Contents</h1>
+<ol>
+<li><a href="../../posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/#org1b0e5d4">基本需求</a></li>
+<li><a href="../../posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/#org3eddc58">oracle 日期基本处理</a></li>
+<li><a href="../../posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/#orgbe56898">附件泛微考勤表 E-R 图</a></li>
+<li><a href="../../posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/#orgb820a71">oracle 结合泛微 OA 实现考勤统计</a>
+<ol>
+<li><a href="../../posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/#org19ef4b7">计算方法</a></li>
+<li><a href="../../posts/%E6%B3%9B%E5%BE%AEoa-%E8%AE%A1%E7%AE%97%E5%91%98%E5%B7%A5%E6%AF%8F%E6%9C%88%E5%BA%94%E5%87%BA%E5%8B%A4%E5%A4%A9%E6%95%B0/#org1ec71a6">sql 实现</a></li>
+</ol>
+</li>
+</ol>
+<p><a id="org1b0e5d4"></a></p>
+<h1 id="基本需求">基本需求</h1>
+<p>计算员工每月应出勤天数，分 A、B 2 种算法，考虑假期表；<br>
+A 地出勤, 统计每周 1-5 汇总天数 - 当月国家法定假日天数<br>
+B 地出勤, 统计每周 1-6 汇总天数 - 当月国家法定假日天数</p>
+<p><a id="org3eddc58"></a></p>
+<h1 id="oracle-日期基本处理">oracle 日期基本处理</h1>
+<pre><code>TO_CHAR(date_value, 'D') -- 转星期数 2023-06-05 -&gt; 1-7 数字
+(select TRUNC(TO_DATE('2023', 'YYYY'), 'YYYY') + LEVEL - 1 AS date_value
+FROM dual CONNECT BY LEVEL &lt;= 365) calendar -- 生成 2023 全年的日历记录
+TO_DATE(ho.holidaydate,'yyyy-mm-dd')  -- 字符串转日期
+EXTRACT(YEAR FROM date_value)  -- 获取日期年份 2023-06-05 -&gt; 2023
+EXTRACT(MONTH FROM date_value) -- 获取日期月份 2023-06-05 -&gt; 6
+LPAD(EXTRACT(MONTH FROM calendar.date_value), 2, '0') -- 获取日期月份(补零) 2023-06-05 -&gt; 06
+SUBSTR(qj.fromdate,-10, 7)     -- 从日期字符串获取月字符串 2023-06-05 -&gt; 2023-06
+</code></pre>
+<p><a id="orgbe56898"></a></p>
+<h1 id="附件泛微考勤表-e-r-图">附件泛微考勤表 E-R 图</h1>
+<p><img alt="img" src="oa-attendance.svg"></p>
+<p><a id="orgb820a71"></a></p>
+<h1 id="oracle-结合泛微-oa-实现考勤统计">oracle 结合泛微 OA 实现考勤统计</h1>
+<p><a id="org19ef4b7"></a></p>
+<h2 id="计算方法">计算方法</h2>
+<p>假期类型，1 节假日当天、3 节假日假期、2 节假日补调上班日期<br>
+根据算法的不同来确认：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-right" />
+<col  class="org-right" />
+<col  class="org-right" />
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">星期</td>
+<td class="org-right">type</td>
+<td class="org-right">D</td>
+<td class="org-right">五天制</td>
+<td class="org-right">六天制(周六)</td>
+</tr>
+<tr>
+<td class="org-left">周一</td>
+<td class="org-right">null</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+<tr>
+<td class="org-left">周二</td>
+<td class="org-right">null</td>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+<tr>
+<td class="org-left">周三</td>
+<td class="org-right">null</td>
+<td class="org-right">3</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+<tr>
+<td class="org-left">周四</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">-1</td>
+<td class="org-right">-1</td>
+</tr>
+<tr>
+<td class="org-left">周五</td>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+<td class="org-right">-1</td>
+<td class="org-right">-1</td>
+</tr>
+<tr>
+<td class="org-left">周六</td>
+<td class="org-right">1</td>
+<td class="org-right">6</td>
+<td class="org-right">0</td>
+<td class="org-right">-1</td>
+</tr>
+<tr>
+<td class="org-left">周天</td>
+<td class="org-right">2</td>
+<td class="org-right">7</td>
+<td class="org-right">+1</td>
+<td class="org-right">+1</td>
+</tr>
+<tr>
+<td class="org-left">汇总</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">5-2+1=4</td>
+<td class="org-right">6-3+1=4</td>
+</tr>
+</tbody>
+</table>
+<p>总结：使用不同的计算策略（五天班、六天班）计算公式如下<br>
+$$\mbox{应出勤天数} = \mbox{基础出勤天数} - \mbox{出勤天内假期} + \mbox{出勤天外工作日}$$</p>
+<p><a id="org1ec71a6"></a></p>
+<h2 id="sql-实现">sql 实现</h2>
+<p>实现了包括工作日+考勤组节假日的应出勤天数<br>
+大致思路，首先生成日历表，再关联假期表，分别统计出基础出勤天数、出勤天内假期、出勤天外工作日</p>
+<pre><code>select calendar.fmonth,
+       ho.groupid,
+       fmonthday5 - NVL(subday5,0) + NVL(addday5,0) as fmonthday5,
+       fmonthday6 - NVL(subday6,0) + NVL(addday6,0) as fmonthday6
+FROM
+(SELECT EXTRACT(YEAR FROM calendar.date_value) || '-'
+        || LPAD(EXTRACT(MONTH FROM calendar.date_value), 2, '0')     fmonth,
+       SUM(CASE WHEN TO_CHAR(date_value, 'D') &lt; 6 THEN 1 ELSE 0 END) fmonthday5,
+       SUM(CASE WHEN TO_CHAR(date_value, 'D') &lt; 7 THEN 1 ELSE 0 END) fmonthday6
+FROM
+(select TRUNC(TO_DATE('2023', 'YYYY'), 'YYYY') + LEVEL - 1 AS date_value
+FROM dual CONNECT BY LEVEL &lt;= 365) calendar
+GROUP BY EXTRACT(YEAR FROM date_value) , EXTRACT(MONTH FROM date_value)
+) calendar
+LEFT JOIN
+(select ho.groupid,
+       EXTRACT(YEAR  FROM TO_DATE(ho.holidaydate,'yyyy-mm-dd')) || '-'
+        || LPAD(EXTRACT(MONTH FROM TO_DATE(ho.holidaydate,'yyyy-mm-dd')), 2, '0')  fmonth,
+       SUM(CASE WHEN TO_CHAR(TO_DATE(ho.holidaydate,'yyyy-mm-dd'), 'D') &lt; 6 AND ho.changetype in(1,3) THEN 1 ELSE 0 END) subday5,
+       SUM(CASE WHEN TO_CHAR(TO_DATE(ho.holidaydate,'yyyy-mm-dd'), 'D') &gt; 5 AND ho.changetype=2       THEN 1 ELSE 0 END) addday5,
+       SUM(CASE WHEN TO_CHAR(TO_DATE(ho.holidaydate,'yyyy-mm-dd'), 'D') &lt; 7 AND ho.changetype in(1,3) THEN 1 ELSE 0 END) subday6,
+       SUM(CASE WHEN TO_CHAR(TO_DATE(ho.holidaydate,'yyyy-mm-dd'), 'D') &gt; 6 AND ho.changetype=2       THEN 1 ELSE 0 END) addday6
+FROM KQ_HOLIDAYSET ho
+GROUP BY ho.groupid,
+EXTRACT(YEAR  FROM TO_DATE(ho.holidaydate,'yyyy-mm-dd')),
+EXTRACT(MONTH FROM TO_DATE(ho.holidaydate,'yyyy-mm-dd'))
+) ho -- 假期月汇总表, 当月有节假日
+ON    calendar.fmonth = ho.fmonth and ho.groupid is null;
+
+( SELECT EXTRACT(YEAR FROM calendar.date_value) || '-'
+|| LPAD(EXTRACT(MONTH FROM calendar.date_value), 2, '0')     fnomalmonth,
+SUM(CASE WHEN TO_CHAR(date_value, 'D') &lt; 6 THEN 1 ELSE 0 END) fmonthnomalday5,
+SUM(CASE WHEN TO_CHAR(date_value, 'D') &lt; 7 THEN 1 ELSE 0 END) fmonthnomalday6
+FROM
+(select TRUNC(TO_DATE('2023', 'YYYY'), 'YYYY') + LEVEL - 1 AS date_value
+FROM dual CONNECT BY LEVEL &lt;= 365) calendar
+GROUP BY EXTRACT(YEAR FROM date_value) , EXTRACT(MONTH FROM date_value)
+) normalworkday; -- 正常工作日表，当月无节假日
+</code></pre>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="//localhost:1313/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/" class="block">使用d2绘图</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="//localhost:1313/posts/mybatis-config/" class="block">Mybatis Config 雪花算法id，用 redis 管理 workerId</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#计算方法">计算方法</a></li>
+    <li><a href="#sql-实现">sql 实现</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2023 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
