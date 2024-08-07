@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Obs on sincebyte</title>
-    <link>//localhost:1313/tags/obs/</link>
+    <link>/tags/obs/</link>
     <description>Recent content in Obs on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2023 sincebyte
 </copyright>
     <lastBuildDate>Sun, 19 May 2024 12:59:37 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/obs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/obs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obs Usage</title>
-      <link>//localhost:1313/posts/obs-usage/</link>
+      <link>/posts/obs-usage/</link>
       <pubDate>Sun, 19 May 2024 12:59:37 +0800</pubDate>
-      <guid>//localhost:1313/posts/obs-usage/</guid>
+      <guid>/posts/obs-usage/</guid>
       <description>&lt;p&gt;一直以来都使用obs进行视频录制，用了这么长时间也算是有一点心得，在这里分享一下。&lt;/p&gt;</description>
     </item>
   </channel>
