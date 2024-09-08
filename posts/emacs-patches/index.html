@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Yolo V8 | sincebyte</title>
+<title>Emacs Patches | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="../../css/eureka.min.bf8dd3d6872fb704aafb8bcb973df1d5fc347fc34c9b7f4ed33052a953b06f8be99f29d44e29d0a4c6c01988203b5fd4.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="Ultralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。">
+  content="Some emacs features need to be implement with patches. let&rsquo;s make a patch and apply it.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,8 +89,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Yolo V8",
-      "item":"/posts/yolo-v8/"}]
+      "name":"Emacs Patches",
+      "item":"/posts/emacs-patches/"}]
 }
 </script>
 
@@ -102,11 +102,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/yolo-v8/"
+        "@id": "/posts/emacs-patches/"
     },
-    "headline": "Yolo V8 | sincebyte","datePublished": "2024-08-07T15:12:28+08:00",
-    "dateModified": "2024-08-07T15:12:28+08:00",
-    "wordCount":  178 ,
+    "headline": "Emacs Patches | sincebyte","datePublished": "2024-09-08T07:43:56+08:00",
+    "dateModified": "2024-09-08T07:43:56+08:00",
+    "wordCount":  763 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,21 +115,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003eUltralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。\u003c\/p\u003e"
+    "description": "\u003cp\u003eSome emacs features need to be implement with patches. let\u0026rsquo;s make a patch and apply it.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="Yolo V8 | sincebyte" />
+</script><meta property="og:title" content="Emacs Patches | sincebyte" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/yolo-v8/" />
+<meta property="og:url" content="/posts/emacs-patches/" />
 
 
 
 
-<meta property="og:description" content="Ultralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。" />
+<meta property="og:description" content="Some emacs features need to be implement with patches. let&rsquo;s make a patch and apply it." />
 
 
 
@@ -146,25 +146,35 @@
 
 
 
-<meta property="article:published_time" content="2024-08-07T15:12:28&#43;08:00" />
+<meta property="article:published_time" content="2024-09-08T07:43:56&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2024-08-07T15:12:28&#43;08:00" />
+<meta property="article:modified_time" content="2024-09-08T07:43:56&#43;08:00" />
 
 
 
 <meta property="article:section" content="posts" />
 
 
-<meta property="article:tag" content="ai" />
+<meta property="article:tag" content="emacs" />
 
-<meta property="article:tag" content="python" />
-
-
+<meta property="article:tag" content="doom" />
 
 
+
+
+
+<meta property="og:see_also" content="/posts/emacs-workspace/" />
+
+<meta property="og:see_also" content="/posts/emacs-tramp/" />
+
+<meta property="og:see_also" content="/posts/org-clock/" />
 
 <meta property="og:see_also" content="/posts/python-basic-useage-inneoemacs/" />
+
+<meta property="og:see_also" content="/posts/windows-autohotkey-setting/" />
+
+<meta property="og:see_also" content="/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" />
 
 
 
@@ -249,7 +259,7 @@
       class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">Yolo V8</h1>
+  <h1 class="mb-4">Emacs Patches</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -257,12 +267,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2024-08-07</span
+      >2024-09-08</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
+    <span>4 min read</span>
   </div>
 
   
@@ -274,60 +284,121 @@
   
   
 
-  <p>Ultralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。</p>
-<p><a id="orgda2e769"></a></p>
-<h2 id="relations">relations</h2>
-<p>YOLO（You Only Look Once）<br>
-YOLO 是一种实时目标检测系统，由 Joseph Redmon 等人提出。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。</p>
-<p>Darknet<br>
-开发者：Joseph Redmon。<br>
-实现：YOLO 最早由 Joseph Redmon 在 Darknet 框架上实现。Darknet 是一个用 C 和 CUDA 编写的开源神经网络框架，专门用于目标检测。<br>
-版本：Darknet 实现了 YOLO 的早期版本，如 YOLOv1、YOLOv2 和 YOLOv3。<br>
-Ultralytics YOLOv8<br>
-开发者：Glenn Jocher。<br>
-实现：Ultralytics 是一个基于 PyTorch 的开源库，最初是为了实现 YOLOv3 和 YOLOv4。后来，Ultralytics 推出了自己的版本，如 YOLOv5 和 YOLOv8。<br>
-特点：Ultralytics 的实现更加现代化，利用 PyTorch 的灵活性和易用性，提供了更高的可扩展性和更丰富的功能，如更容易的模型训练和部署、更高的速度和精度等。</p>
-<p><a id="orgef510bf"></a></p>
-<h2 id="useage">useage</h2>
-<p>现在使用 Ultralytics YOLOv8 是更好的选择，因为其在快速的迭代，并且有非常详细的文档。目前 yolo 模型分为：<br>
-Train mode: Fine-tune your model on custom or preloaded datasets. 训练调优用<br>
-Val mode: A post-training checkpoint to validate model performance.  检测模型用<br>
-Predict mode: Unleash the predictive power of your model on real-world data. 推理模型<br>
-Export mode: Make your model deployment-ready in various formats. 导出模型使其能在其他硬件平台运行，或者提升模型在 CPU 下运行的效率<br>
-Track mode: Extend your object detection model into real-time tracking applications. 物体检测的加强版本，用于在一段视频中跟踪物体<br>
-Benchmark mode: Analyze the speed and accuracy of your model in diverse deployment environments. 检测模型用</p>
-<p>想快速学习读下， <a href="https://docs.ultralytics.com/quickstart/#install-ultralytics">https://docs.ultralytics.com/quickstart/#install-ultralytics</a> 这篇文章即可。<br>
-使用pip 进行依赖安装:</p>
-<pre><code>pip install ultralytics
+  <p>Some emacs features need to be implement with patches. let&rsquo;s make a patch and apply it.</p>
+<p><a id="org0ac3d25"></a></p>
+<h2 id="why">Why?</h2>
+<p>Some emacs features need to be implement with patches,because some of the features do not accept by the git repositorys author,we could use patches to modified the source code and then compile it.<br>
+The principle of patch is apply git diff after git clone so that the source code modified is out of the main branch.</p>
+<p><a id="org8562bb6"></a></p>
+<h2 id="how">How?</h2>
+<p>Make patches of emacs you need clone <a href="https://github.com/emacs-mirror">emacs-mirror</a> and then modify your custom code and commit your code.Noties we can not push the commit to the git repository lack of the authority.<br>
+Use `git format-patch -1` make a new patches of last commit.</p>
+<p><a id="org04307df"></a></p>
+<h2 id="make-a-emacs-patch">Make a emacs patch</h2>
+<p>Cursor animation is a awesome feature.you could find the patches code in the <a href="https://github.com/sincebyte/neo-emacs/tree/master/patches">neo-emacs</a> here.It works well on emacs30 but failed on emacs31.So let’s make a new patch for emacs31.</p>
+<ol>
+<li>
+<p>Use `git clone <a href="mailto:git@github.com">git@github.com</a>:emacs-mirror/emacs.git`.</p>
+</li>
+<li>
+<p>Compare with <a href="https://github.com/sincebyte/neo-emacs/blob/master/patches/cursor-animation.patch">https://github.com/sincebyte/neo-emacs/blob/master/patches/cursor-animation.patch</a> and apply the changes.We found there have 2 file changes src/nsterm.h src/nsterm.m,Notice use one commit else it will generate 2 patches.</p>
+</li>
+<li>
+<p>After modified the source code use `git format-patch -1` to generate a new patch.<br>
+For some reason this step might repeat many times so git rebase interactive could help. Use git rebase interactive could make many different neighbor commit squash into one.Use `git rebase -i HEAD~2` for squash the last 2 commits,It will launch vim help your selection interactively.As you see commits order by commit time ascedly.</p>
+<pre><code> 1      pick 79127d8 fix:
+ 2      pick 3a183a9 fix:
+ 3  
+ 4      # Rebase 358208d..79127d8 onto 358208d (1 command)
+ 5      #
+ 6      # Commands:
+ 7      # p, pick &lt;commit&gt; = use commit
+ 8      # r, reword &lt;commit&gt; = use commit, but edit the commit message
+ 9      # e, edit &lt;commit&gt; = use commit, but stop for amending
+10      # s, squash &lt;commit&gt; = use commit, but meld into previous commit
+11      # f, fixup [-C | -c] &lt;commit&gt; = like &quot;squash&quot; but keep only the previous
+12      #                    commit's log message, unless -C is used, in which case
+13      #                    keep only this commit's message; -c is same as -C but
 </code></pre>
-<p>第一次运行会下载预训练好的模型，我尝试过检测一段 1 分钟的视频结果失败了，应该是因为内存不够。另外 Ultralytics YOLO 利用 GPU 加速是需要使用 Nvida 的显卡才可以的。苹果电脑基本可以告吹了。</p>
-<pre><code>from ultralytics import YOLO
-
-model = YOLO(&quot;yolov8n.pt&quot;)
-model.predict(
-    &quot;/Users/van/Desktop/yolo&quot;,
-    # &quot;path/to/video.mp4&quot;,
-    # stream=True
-    save=True,
-    imgsz=640,
-    conf=0.15,
-)
+<p>Just change the bottom commit’s commands to squash,below we have the example.Use :wq to confirm your rebase,then git will launch another vim for a new commit.After that you could see we have successfully squash 2 commit into one.</p>
+<pre><code>1      pick 79127d8 fix:
+2      squash 3a183a9 fix:
+3  
+4      :wq
 </code></pre>
-<p><a id="org11ec816"></a></p>
-<h2 id="effect">effect</h2>
-<p><img alt="img" src="IMG_5278.jpeg"></p>
-<p><a id="orge55df8f"></a></p>
-<h2 id="训练调优">训练调优</h2>
-<p>TODO</p>
+</li>
+<li>
+<p>Now It’s time to make a patch file. It’s simple just use `git format-patch -1` and then there will generate a patch file on the git root dir.We could have a look about it.</p>
+<pre><code> 1     From 79127d822df37df8c8ce1fa3415a649a931e3862 Mon Sep 17 00:00:00 2001
+ 2     From: &quot;liu.zijie&quot; &lt;at18708169062@gmail.com&gt;
+ 3     Date: Sat, 7 Sep 2024 18:45:28 +0800
+ 4     Subject: [PATCH] fix:
+ 5  
+ 6     fix: animation cursor
+ 7  
+ 8     feat: 1
+ 9  
+10     fix: return
+11  
+12     fix: return 2
+13     ---
+14     src/nsterm.h |  1 +
+15     src/nsterm.m | 65 +++++++++++++++++++++++++---------------------------
+16     2 files changed, 32 insertions(+), 34 deletions(-)
+17  
+18     diff --git a/src/nsterm.h b/src/nsterm.h
+19     index 6c67653..480f9fe 100644
+20     --- a/src/nsterm.h
+21     +++ b/src/nsterm.h
+22     @@ -485,6 +485,7 @@ enum ns_return_frame_mode
+23     struct frame *emacsframe;
+24     int scrollbarsNeedingUpdate;
+25     NSRect ns_userRect;
+26     +  CALayer *cursor_layer;
+27     }
+28  
+29     /* AppKit-side interface */
+30     diff --git a/src/nsterm.m b/src/nsterm.m
+31     index 8c40573..b43abec 100644
+32     --- a/src/nsterm.m
+33     +++ b/src/nsterm.m
+</code></pre>
+</li>
+</ol>
+<p><a id="org5148d6c"></a></p>
+<h2 id="config-patch-for-emacs-plus">Config patch for emacs-plus</h2>
+<p>It depends on your compile method,I recommend use <a href="https://github.com/d12frosted/homebrew-emacs-plus">emacs-plus</a> to install emacs.Emacs-plus will compile locally prevent some of platform compatibility issues.Before install will need know how to apply patch for emacs plus.Different version of emacs have different formula file.For emacs31 it’s <span class="underline">/opt/homebrew/Library/Taps/d12frosted/homebrew-emacs-plus/Formula/emacs-plus@31.rb</span>.Find the chunk of patches here define patches.Only ns-alpha-background and cursor animation was defined by me,the rest of them was defined by emacs-plus offically.<br>
+Every patch need config a sha value which you could obtain it by sha256 command.</p>
+<pre><code> 1  #
+ 2  # Patches
+ 3  #
+ 4  
+ 5  opoo &quot;The option --with-no-frame-refocus is not required anymore in emacs-plus@31.&quot; if build.with? &quot;no-frame-refocus&quot;
+ 6  local_patch &quot;fix-window-role&quot;, sha: &quot;1f8423ea7e6e66c9ac6dd8e37b119972daa1264de00172a24a79a710efcb8130&quot;
+ 7  local_patch &quot;system-appearance&quot;, sha: &quot;9eb3ce80640025bff96ebaeb5893430116368d6349f4eb0cb4ef8b3d58477db6&quot;
+ 8  local_patch &quot;poll&quot;, sha: &quot;59e876f82e6fd8e4583bc2456339eda4f989c86b1e16a02b0726702e95f60825&quot; if build.with? &quot;poll&quot;
+ 9  local_patch &quot;round-undecorated-frame&quot;, sha: &quot;7451f80f559840e54e6a052e55d1100778abc55f98f1d0c038a24e25773f2874&quot;
+10  local_patch &quot;ns-alpha-background&quot;, sha: &quot;6c174aff2602b64255ce8952f91302ede51e213be090f1b39e06913bbe0b086b&quot;
+11  local_patch &quot;cursor-animation&quot;, sha: &quot;27cfa478208d93590804e3e98a97f18c5983a3e7c5619dff5d8eeac00719a813&quot;
+</code></pre>
+<p><a id="org4b51b95"></a></p>
+<h2 id="locate-patch">Locate patch</h2>
+<p>The question is where did emacs-plus find the patch files?In fact this is predefined.The location was <span class="underline"><em>opt/homebrew/Library/Taps/d12frosted/homebrew-emacs-plus/patches</em></span>.Different version of emacs have different patch dir.For emacs 31 we need locate to a sub-dir named emacs-31.</p>
+<p><a id="org7750da4"></a></p>
+<h2 id="apply-patch">Apply patch</h2>
+<p>Now it’s time to apply the patch.</p>
+<pre><code>brew reinstall emacs-plus@31 --with-modern-papirus-icon --with-imagemagick --with-native-comp
+</code></pre>
+<p>When emacs compile and install verify them,maybe some bugs remain,else just enjoy them.</p>
 </article>
 
 
       
         <div class="my-4">
     
-    <a href="../../tags/ai/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Ai</a>
+    <a href="../../tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Emacs</a>
     
-    <a href="../../tags/python/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Python</a>
+    <a href="../../tags/doom/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Doom</a>
     
 </div>
       
@@ -344,16 +415,11 @@ model.predict(
   >
     <div>
       
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="../../posts/emacs-patches/" class="block">Emacs Patches</a>
-      
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="../../posts/h2-usage/" class="block">H2 Usage</a>
+        <a href="../../posts/yolo-v8/" class="block">Yolo V8</a>
       
     </div>
   </div>
@@ -380,10 +446,12 @@ model.predict(
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#relations">relations</a></li>
-    <li><a href="#useage">useage</a></li>
-    <li><a href="#effect">effect</a></li>
-    <li><a href="#训练调优">训练调优</a></li>
+    <li><a href="#why">Why?</a></li>
+    <li><a href="#how">How?</a></li>
+    <li><a href="#make-a-emacs-patch">Make a emacs patch</a></li>
+    <li><a href="#config-patch-for-emacs-plus">Config patch for emacs-plus</a></li>
+    <li><a href="#locate-patch">Locate patch</a></li>
+    <li><a href="#apply-patch">Apply patch</a></li>
   </ul>
 </nav>
 </div>
@@ -404,7 +472,22 @@ model.predict(
       >
         <h3>See Also</h3>
         
+          <a href="../../posts/emacs-workspace/" class="no-underline">Emacs Workspace</a>
+          <br />
+        
+          <a href="../../posts/emacs-tramp/" class="no-underline">Emacs Tramp</a>
+          <br />
+        
+          <a href="../../posts/org-clock/" class="no-underline">Org Clock</a>
+          <br />
+        
           <a href="../../posts/python-basic-useage-inneoemacs/" class="no-underline">Python Basic Useage Inneoemacs</a>
+          <br />
+        
+          <a href="../../posts/windows-autohotkey-setting/" class="no-underline">Windows Autohotkey Setting</a>
+          <br />
+        
+          <a href="../../posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" class="no-underline">在neo Emacs中制作表格和绘图</a>
           <br />
         
       </div>
