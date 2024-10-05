@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Emacs Patches | sincebyte</title>
+<title>emacs 同步微信消息数量 | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="../../css/eureka.min.bf8dd3d6872fb704aafb8bcb973df1d5fc347fc34c9b7f4ed33052a953b06f8be99f29d44e29d0a4c6c01988203b5fd4.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="Some emacs features need to be implement with patches. let&rsquo;s make a patch and apply it.">
+  content="使用 emacs 由于太专注了，往往容易漏掉微信的消息。 如果能在 emacs 中显示微信的消息数量那就太棒了。">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,8 +89,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Emacs Patches",
-      "item":"/posts/emacs-patches/"}]
+      "name":"emacs 同步微信消息数量",
+      "item":"/posts/emacs-wechat-msg-count/"}]
 }
 </script>
 
@@ -102,11 +102,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/emacs-patches/"
+        "@id": "/posts/emacs-wechat-msg-count/"
     },
-    "headline": "Emacs Patches | sincebyte","datePublished": "2024-09-08T07:43:56+08:00",
-    "dateModified": "2024-09-08T07:43:56+08:00",
-    "wordCount":  763 ,
+    "headline": "emacs 同步微信消息数量 | sincebyte","datePublished": "2024-10-05T17:23:00+08:00",
+    "dateModified": "2024-10-05T17:23:00+08:00",
+    "wordCount":  308 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,21 +115,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003eSome emacs features need to be implement with patches. let\u0026rsquo;s make a patch and apply it.\u003c\/p\u003e"
+    "description": "\u003cp\u003e使用 emacs 由于太专注了，往往容易漏掉微信的消息。 如果能在 emacs 中显示微信的消息数量那就太棒了。\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="Emacs Patches | sincebyte" />
+</script><meta property="og:title" content="emacs 同步微信消息数量 | sincebyte" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/emacs-patches/" />
+<meta property="og:url" content="/posts/emacs-wechat-msg-count/" />
 
 
 
 
-<meta property="og:description" content="Some emacs features need to be implement with patches. let&rsquo;s make a patch and apply it." />
+<meta property="og:description" content="使用 emacs 由于太专注了，往往容易漏掉微信的消息。 如果能在 emacs 中显示微信的消息数量那就太棒了。" />
 
 
 
@@ -146,10 +146,10 @@
 
 
 
-<meta property="article:published_time" content="2024-09-08T07:43:56&#43;08:00" />
+<meta property="article:published_time" content="2024-10-05T17:23:00&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2024-09-08T07:43:56&#43;08:00" />
+<meta property="article:modified_time" content="2024-10-05T17:23:00&#43;08:00" />
 
 
 
@@ -158,23 +158,25 @@
 
 <meta property="article:tag" content="emacs" />
 
-<meta property="article:tag" content="doom" />
+<meta property="article:tag" content="org" />
+
+<meta property="article:tag" content="wechat" />
 
 
 
 
 
-<meta property="og:see_also" content="/posts/emacs-workspace/" />
+<meta property="og:see_also" content="/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" />
+
+<meta property="og:see_also" content="/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/" />
+
+<meta property="og:see_also" content="/posts/orgmodecss/" />
+
+<meta property="og:see_also" content="/posts/emacs-patches/" />
 
 <meta property="og:see_also" content="/posts/emacs-tramp/" />
 
 <meta property="og:see_also" content="/posts/org-clock/" />
-
-<meta property="og:see_also" content="/posts/python-basic-useage-inneoemacs/" />
-
-<meta property="og:see_also" content="/posts/windows-autohotkey-setting/" />
-
-<meta property="og:see_also" content="/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" />
 
 
 
@@ -259,7 +261,7 @@
       class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">Emacs Patches</h1>
+  <h1 class="mb-4">emacs 同步微信消息数量</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -267,12 +269,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2024-09-08</span
+      >2024-10-05</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>4 min read</span>
+    <span>2 min read</span>
   </div>
 
   
@@ -284,112 +286,115 @@
   
   
 
-  <p>Some emacs features need to be implement with patches. let&rsquo;s make a patch and apply it.</p>
-<p><a id="org0ac3d25"></a></p>
-<h2 id="why">Why?</h2>
-<p>Some emacs features need to be implement with patches,because some of the features do not accept by the git repositorys author,we could use patches to modified the source code and then compile it.<br>
-The principle of patch is apply git diff after git clone so that the source code modified is out of the main branch.</p>
-<p><a id="org8562bb6"></a></p>
-<h2 id="how">How?</h2>
-<p>Make patches of emacs you need clone <a href="https://github.com/emacs-mirror">emacs-mirror</a> and then modify your custom code and commit your code.Noties we can not push the commit to the git repository lack of the authority.<br>
-Use `git format-patch -1` make a new patches of last commit.</p>
-<p><a id="org04307df"></a></p>
-<h2 id="make-a-emacs-patch">Make a emacs patch</h2>
-<p>Cursor animation is a awesome feature.you could find the patches code in the <a href="https://github.com/sincebyte/neo-emacs/tree/master/patches">neo-emacs</a> here.It works well on emacs30 but failed on emacs31.So let’s make a new patch for emacs31.</p>
-<ol>
-<li>
-<p>Use `git clone <a href="mailto:git@github.com">git@github.com</a>:emacs-mirror/emacs.git`.</p>
-</li>
-<li>
-<p>Compare with <a href="https://github.com/sincebyte/neo-emacs/blob/master/patches/cursor-animation.patch">https://github.com/sincebyte/neo-emacs/blob/master/patches/cursor-animation.patch</a> and apply the changes.We found there have 2 file changes src/nsterm.h src/nsterm.m,Notice use one commit else it will generate 2 patches.</p>
-</li>
-<li>
-<p>After modified the source code use `git format-patch -1` to generate a new patch.<br>
-For some reason this step might repeat many times so git rebase interactive could help. Use git rebase interactive could make many different neighbor commit squash into one.Use `git rebase -i HEAD~2` for squash the last 2 commits,It will launch vim help your selection interactively.As you see commits order by commit time ascedly.</p>
-<pre><code> 1      pick 79127d8 fix:
- 2      pick 3a183a9 fix:
- 3  
- 4      # Rebase 358208d..79127d8 onto 358208d (1 command)
- 5      #
- 6      # Commands:
- 7      # p, pick &lt;commit&gt; = use commit
- 8      # r, reword &lt;commit&gt; = use commit, but edit the commit message
- 9      # e, edit &lt;commit&gt; = use commit, but stop for amending
-10      # s, squash &lt;commit&gt; = use commit, but meld into previous commit
-11      # f, fixup [-C | -c] &lt;commit&gt; = like &quot;squash&quot; but keep only the previous
-12      #                    commit's log message, unless -C is used, in which case
-13      #                    keep only this commit's message; -c is same as -C but
+  <p>使用 emacs 由于太专注了，往往容易漏掉微信的消息。 如果能在 emacs 中显示微信的消息数量那就太棒了。</p>
+<p><a id="org5e2f10b"></a></p>
+<h2 id="获取消息数量">获取消息数量</h2>
+<p>macos 中获取微信消息数量使用 applescript 获取 dock 栏的通知数量。 需要开启通知权限</p>
+<pre><code>tell application &quot;System Events&quot;
+   try
+       -- 获取 Dock 中所有 UI 元素
+       set dockElements to (every UI element of list 1 of application process &quot;Dock&quot;)
+       -- 查找微信图标
+       repeat with element in dockElements
+           if name of element is &quot;微信&quot; then
+               -- 获取角标属性
+               set badgeNumber to value of attribute &quot;AXStatusLabel&quot; of element
+               set resultText to badgeNumber
+               exit repeat
+           else
+               set resultText to &quot;WeChat not found in Dock&quot;
+           end if
+       end repeat
+   on error errMsg
+       set resultText to &quot;0&quot;
+   end try
+end tell
+set filePath to &quot;/Users/van/.message&quot;
+if resultText is not missing value then
+   do shell script &quot;echo &quot; &amp; quoted form of resultText &amp; &quot; &gt; &quot; &amp; quoted form of filePath
+else
+   do shell script &quot;echo &gt; &quot; &amp; quoted form of filePath
+end if
 </code></pre>
-<p>Just change the bottom commit’s commands to squash,below we have the example.Use :wq to confirm your rebase,then git will launch another vim for a new commit.After that you could see we have successfully squash 2 commit into one.</p>
-<pre><code>1      pick 79127d8 fix:
-2      squash 3a183a9 fix:
-3  
-4      :wq
+<p><a id="orgbb3696d"></a></p>
+<h2 id="设置定时任务">设置定时任务</h2>
+<p>通过定时任务获取微信的消息数量。将文件放至 ~/Library/LaunchAgents 可以开启启动</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;!--put this file in ~/Library/LaunchAgents --&gt;
+&lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;com.wechat.message.script&lt;/string&gt;
+
+    &lt;!-- 设置为每隔 10 秒执行一次 --&gt;
+    &lt;key&gt;StartInterval&lt;/key&gt;
+    &lt;integer&gt;10&lt;/integer&gt;
+
+    &lt;!-- 指定要执行的 AppleScript 文件 --&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;/usr/bin/osascript&lt;/string&gt;
+        &lt;string&gt;/Users/van/.doom.d/modules/neo-emacs/modelinexp/getWechatMessageCount.scpt&lt;/string&gt;
+    &lt;/array&gt;
+
+    &lt;!-- &lt;key&gt;StandardErrorPath&lt;/key&gt; --&gt;
+    &lt;!-- &lt;string&gt;/Users/van/.doom.d/modules/neo-emacs/modelinexp/error.log&lt;/string&gt;  &lt;!-\- 错误输出日志 -\-&gt; --&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+
+    &lt;key&gt;KeepAlive&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
 </code></pre>
-</li>
-<li>
-<p>Now It’s time to make a patch file. It’s simple just use `git format-patch -1` and then there will generate a patch file on the git root dir.We could have a look about it.</p>
-<pre><code> 1     From 79127d822df37df8c8ce1fa3415a649a931e3862 Mon Sep 17 00:00:00 2001
- 2     From: &quot;liu.zijie&quot; &lt;at18708169062@gmail.com&gt;
- 3     Date: Sat, 7 Sep 2024 18:45:28 +0800
- 4     Subject: [PATCH] fix:
- 5  
- 6     fix: animation cursor
- 7  
- 8     feat: 1
- 9  
-10     fix: return
-11  
-12     fix: return 2
-13     ---
-14     src/nsterm.h |  1 +
-15     src/nsterm.m | 65 +++++++++++++++++++++++++---------------------------
-16     2 files changed, 32 insertions(+), 34 deletions(-)
-17  
-18     diff --git a/src/nsterm.h b/src/nsterm.h
-19     index 6c67653..480f9fe 100644
-20     --- a/src/nsterm.h
-21     +++ b/src/nsterm.h
-22     @@ -485,6 +485,7 @@ enum ns_return_frame_mode
-23     struct frame *emacsframe;
-24     int scrollbarsNeedingUpdate;
-25     NSRect ns_userRect;
-26     +  CALayer *cursor_layer;
-27     }
-28  
-29     /* AppKit-side interface */
-30     diff --git a/src/nsterm.m b/src/nsterm.m
-31     index 8c40573..b43abec 100644
-32     --- a/src/nsterm.m
-33     +++ b/src/nsterm.m
+<p>开启定时任务</p>
+<pre><code>launchctl load ~/.doom.d/modules/neo-emacs/modelinexp/com.wechat.message.script.plist
+launchctl start ~/.doom.d/modules/neo-emacs/modelinexp/com.wechat.message.script.plist
+launchctl list com.wechat.message.script
 </code></pre>
-</li>
-</ol>
-<p><a id="org5148d6c"></a></p>
-<h2 id="config-patch-for-emacs-plus">Config patch for emacs-plus</h2>
-<p>It depends on your compile method,I recommend use <a href="https://github.com/d12frosted/homebrew-emacs-plus">emacs-plus</a> to install emacs.Emacs-plus will compile locally prevent some of platform compatibility issues.Before install will need know how to apply patch for emacs plus.Different version of emacs have different formula file.For emacs31 it’s <span class="underline">/opt/homebrew/Library/Taps/d12frosted/homebrew-emacs-plus/Formula/emacs-plus@31.rb</span>.Find the chunk of patches here define patches.Only ns-alpha-background and cursor animation was defined by me,the rest of them was defined by emacs-plus offically.<br>
-Every patch need config a sha value which you could obtain it by sha256 command.</p>
-<pre><code> 1  #
- 2  # Patches
- 3  #
- 4  
- 5  opoo &quot;The option --with-no-frame-refocus is not required anymore in emacs-plus@31.&quot; if build.with? &quot;no-frame-refocus&quot;
- 6  local_patch &quot;fix-window-role&quot;, sha: &quot;1f8423ea7e6e66c9ac6dd8e37b119972daa1264de00172a24a79a710efcb8130&quot;
- 7  local_patch &quot;system-appearance&quot;, sha: &quot;9eb3ce80640025bff96ebaeb5893430116368d6349f4eb0cb4ef8b3d58477db6&quot;
- 8  local_patch &quot;poll&quot;, sha: &quot;59e876f82e6fd8e4583bc2456339eda4f989c86b1e16a02b0726702e95f60825&quot; if build.with? &quot;poll&quot;
- 9  local_patch &quot;round-undecorated-frame&quot;, sha: &quot;7451f80f559840e54e6a052e55d1100778abc55f98f1d0c038a24e25773f2874&quot;
-10  local_patch &quot;ns-alpha-background&quot;, sha: &quot;6c174aff2602b64255ce8952f91302ede51e213be090f1b39e06913bbe0b086b&quot;
-11  local_patch &quot;cursor-animation&quot;, sha: &quot;27cfa478208d93590804e3e98a97f18c5983a3e7c5619dff5d8eeac00719a813&quot;
+<p>查看任务的状态</p>
+<pre><code>{
+	&quot;LimitLoadToSessionType&quot; = &quot;Aqua&quot;;
+	&quot;StandardErrorPath&quot; = &quot;/Users/van/.doom.d/modules/neo-emacs/modelinexp/error.log&quot;;
+	&quot;Label&quot; = &quot;com.wechat.message.script&quot;;
+	&quot;OnDemand&quot; = true;
+	&quot;LastExitStatus&quot; = 0;
+	&quot;Program&quot; = &quot;/usr/bin/osascript&quot;;
+	&quot;ProgramArguments&quot; = (
+		&quot;/usr/bin/osascript&quot;;
+		&quot;/Users/van/.doom.d/modules/neo-emacs/modelinexp/getWechatMessageCount.scpt&quot;;
+	);
+};
 </code></pre>
-<p><a id="org4b51b95"></a></p>
-<h2 id="locate-patch">Locate patch</h2>
-<p>The question is where did emacs-plus find the patch files?In fact this is predefined.The location was <span class="underline"><em>opt/homebrew/Library/Taps/d12frosted/homebrew-emacs-plus/patches</em></span>.Different version of emacs have different patch dir.For emacs 31 we need locate to a sub-dir named emacs-31.</p>
-<p><a id="org7750da4"></a></p>
-<h2 id="apply-patch">Apply patch</h2>
-<p>Now it’s time to apply the patch.</p>
-<pre><code>brew reinstall emacs-plus@31 --with-modern-papirus-icon --with-imagemagick --with-native-comp
+<p><a id="org6c6c699"></a></p>
+<h2 id="增加-segment">增加 segment</h2>
+<ul>
+<li>从文件中获取微信消息的数量</li>
+<li>增加 modeline 的 segment</li>
+<li>将此 segment 添加至 modeline 中</li>
+</ul>
+<pre><code>    (defun get-message-count ()
+      &quot;Read the content of a specific file and return it as a string.&quot;
+      (let ((file-path &quot;~/.message&quot;))
+        (if (file-exists-p file-path)
+            (with-temp-buffer
+              (insert-file-contents file-path)
+              (string-trim (buffer-string)))
+          &quot;File not found&quot;)))
+    
+    (doom-modeline-def-segment wechat-msg-count
+      &quot;A custom segment that reads content from a local file.&quot;
+      (concat &quot;󰆄&quot; (get-message-count)))
+    
+    
+      (doom-modeline-def-modeline 'main
+        '(modals matches buffer-info buffer-position parrot selection-info)
+        '(misc-info minor-modes wechat-msg-count input-method buffer-encoding my-major-mode process vcs time my-segment))
 </code></pre>
-<p>When emacs compile and install verify them,maybe some bugs remain,else just enjoy them.</p>
+<p><a id="orgde86777"></a></p>
+<h2 id="效果">效果</h2>
+<p><img alt="img" src="image/pic202410001904.png" title="show"></p>
 </article>
 
 
@@ -398,7 +403,9 @@ Every patch need config a sha value which you could obtain it by sha256 command.
     
     <a href="../../tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Emacs</a>
     
-    <a href="../../tags/doom/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Doom</a>
+    <a href="../../tags/org/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Org</a>
+    
+    <a href="../../tags/wechat/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Wechat</a>
     
 </div>
       
@@ -415,16 +422,11 @@ Every patch need config a sha value which you could obtain it by sha256 command.
   >
     <div>
       
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="../../posts/emacs-wechat-msg-count/" class="block">emacs 同步微信消息数量</a>
-      
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="../../posts/yolo-v8/" class="block">Yolo V8</a>
+        <a href="../../posts/emacs-patches/" class="block">Emacs Patches</a>
       
     </div>
   </div>
@@ -451,12 +453,10 @@ Every patch need config a sha value which you could obtain it by sha256 command.
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#why">Why?</a></li>
-    <li><a href="#how">How?</a></li>
-    <li><a href="#make-a-emacs-patch">Make a emacs patch</a></li>
-    <li><a href="#config-patch-for-emacs-plus">Config patch for emacs-plus</a></li>
-    <li><a href="#locate-patch">Locate patch</a></li>
-    <li><a href="#apply-patch">Apply patch</a></li>
+    <li><a href="#获取消息数量">获取消息数量</a></li>
+    <li><a href="#设置定时任务">设置定时任务</a></li>
+    <li><a href="#增加-segment">增加 segment</a></li>
+    <li><a href="#效果">效果</a></li>
   </ul>
 </nav>
 </div>
@@ -477,22 +477,22 @@ Every patch need config a sha value which you could obtain it by sha256 command.
       >
         <h3>See Also</h3>
         
-          <a href="../../posts/emacs-workspace/" class="no-underline">Emacs Workspace</a>
+          <a href="../../posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" class="no-underline">在neo Emacs中制作表格和绘图</a>
+          <br />
+        
+          <a href="../../posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/" class="no-underline">使用d2绘图</a>
+          <br />
+        
+          <a href="../../posts/orgmodecss/" class="no-underline">推荐一款 org mode 导出 html 的样式</a>
+          <br />
+        
+          <a href="../../posts/emacs-patches/" class="no-underline">Emacs Patches</a>
           <br />
         
           <a href="../../posts/emacs-tramp/" class="no-underline">Emacs Tramp</a>
           <br />
         
           <a href="../../posts/org-clock/" class="no-underline">Org Clock</a>
-          <br />
-        
-          <a href="../../posts/python-basic-useage-inneoemacs/" class="no-underline">Python Basic Useage Inneoemacs</a>
-          <br />
-        
-          <a href="../../posts/windows-autohotkey-setting/" class="no-underline">Windows Autohotkey Setting</a>
-          <br />
-        
-          <a href="../../posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" class="no-underline">在neo Emacs中制作表格和绘图</a>
           <br />
         
       </div>
