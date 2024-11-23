@@ -106,7 +106,7 @@
     },
     "headline": "Hugo Usage | sincebyte","datePublished": "2023-08-21T15:01:18+08:00",
     "dateModified": "2023-08-21T15:01:18+08:00",
-    "wordCount":  383 ,
+    "wordCount":  436 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -171,11 +171,14 @@
 
 
 
+
   <body class="flex min-h-screen flex-col">
     <header
       class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
     >
-      <div class="mx-auto w-full max-w-screen-xl"><script>
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
     let storageColorScheme = localStorage.getItem("lightDarkMode")
     if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
         document.getElementsByTagName('html')[0].classList.add('dark')
@@ -210,9 +213,10 @@
             </div>
         </div>
     </div>
-
     <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
     </div>
+
+    <div id="search" style="margin-left:20px"> </div>
 
 </nav>
 <script>
@@ -235,6 +239,22 @@
     document.addEventListener('DOMContentLoaded', () => {
         getcolorscheme();
         switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
     });
 </script>
 </div>
@@ -264,7 +284,7 @@
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
+    <span>3 min read</span>
   </div>
 
   
@@ -375,17 +395,40 @@ tbody tr:nth-child(odd) {
     background-color: var(--color-primary-bg)
 }
 </code></pre>
+<h2 id="search">search</h2>
+<p>Each time when create a new post, use <code>pagefind --source public/posts</code> to generate index.
+Then config PageFind.</p>
+<pre><code>&lt;script&gt;
+    window.addEventListener('DOMContentLoaded', (event) =&gt; {
+        new PagefindUI({
+            element: &quot;#search&quot;,
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: &quot;/posts/pagefind/&quot;,
+            showEmptyFilters: false,
+            translations: {
+                zero_results: &quot;&quot;
+            },
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+<h2 id="comments">comments:</h2>
+<p>Comments post trigge use <code>enableComment: false/true</code>.</p>
 </article>
 
 
       
-        <div class="my-4">
+        <html data-pagefind-ignore>
+<div class="my-4">
     
     <a href="../../tags/hugo/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Hugo</a>
     
     <a href="../../tags/org/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Org</a>
     
 </div>
+
       
 
       
@@ -456,6 +499,8 @@ tbody tr:nth-child(odd) {
     <li><a href="#quote-images">quote images</a></li>
     <li><a href="#generate">generate</a></li>
     <li><a href="#css-customize">css customize</a></li>
+    <li><a href="#search">search</a></li>
+    <li><a href="#comments">comments:</a></li>
   </ul>
 </nav>
 </div>
@@ -499,7 +544,7 @@ tbody tr:nth-child(odd) {
     </main>
     <footer class="pl-scrollbar">
       <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">&copy; 2023 sincebyte
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
  &middot;  Powered by the Neo-Emacs</p>
 </div>
 </div>
