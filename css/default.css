@@ -40,3 +40,7 @@ pre {
     font-family: kodeMono, sans-serif;
     font-size: 14px!important;
 }
+
+.utterances {
+      max-width: 100%;
+ }
