@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>emacs 同步微信消息数量 | sincebyte</title>
+<title>Garmin 同步心率至 Emacs | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="../../css/eureka.min.bf8dd3d6872fb704aafb8bcb973df1d5fc347fc34c9b7f4ed33052a953b06f8be99f29d44e29d0a4c6c01988203b5fd4.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="使用 emacs 由于太专注了，往往容易漏掉微信的消息。 如果能在 emacs 中显示微信的消息数量那就太棒了。">
+  content="最近买了块佳明 Forerunner 255 运动手表,思考下能不能从佳明手表中获取实时心率推送至emacs中并展示,于是就有了这篇文章。">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,8 +89,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"emacs 同步微信消息数量",
-      "item":"/posts/emacs-wechat-msg-count/"}]
+      "name":"Garmin 同步心率至 Emacs",
+      "item":"/posts/garmin-to-emacs/"}]
 }
 </script>
 
@@ -102,11 +102,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/emacs-wechat-msg-count/"
+        "@id": "/posts/garmin-to-emacs/"
     },
-    "headline": "emacs 同步微信消息数量 | sincebyte","datePublished": "2024-10-05T17:23:00+08:00",
-    "dateModified": "2024-10-05T17:23:00+08:00",
-    "wordCount":  308 ,
+    "headline": "Garmin 同步心率至 Emacs | sincebyte","datePublished": "2024-11-28T20:06:57+08:00",
+    "dateModified": "2024-11-28T20:06:57+08:00",
+    "wordCount":  243 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,21 +115,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003e使用 emacs 由于太专注了，往往容易漏掉微信的消息。 如果能在 emacs 中显示微信的消息数量那就太棒了。\u003c\/p\u003e"
+    "description": "\u003cp\u003e最近买了块佳明 Forerunner 255 运动手表,思考下能不能从佳明手表中获取实时心率推送至emacs中并展示,于是就有了这篇文章。\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="emacs 同步微信消息数量 | sincebyte" />
+</script><meta property="og:title" content="Garmin 同步心率至 Emacs | sincebyte" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/emacs-wechat-msg-count/" />
+<meta property="og:url" content="/posts/garmin-to-emacs/" />
 
 
 
 
-<meta property="og:description" content="使用 emacs 由于太专注了，往往容易漏掉微信的消息。 如果能在 emacs 中显示微信的消息数量那就太棒了。" />
+<meta property="og:description" content="最近买了块佳明 Forerunner 255 运动手表,思考下能不能从佳明手表中获取实时心率推送至emacs中并展示,于是就有了这篇文章。" />
 
 
 
@@ -146,10 +146,10 @@
 
 
 
-<meta property="article:published_time" content="2024-10-05T17:23:00&#43;08:00" />
+<meta property="article:published_time" content="2024-11-28T20:06:57&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2024-10-05T17:23:00&#43;08:00" />
+<meta property="article:modified_time" content="2024-11-28T20:06:57&#43;08:00" />
 
 
 
@@ -158,25 +158,23 @@
 
 <meta property="article:tag" content="emacs" />
 
-<meta property="article:tag" content="org" />
-
-<meta property="article:tag" content="wechat" />
+<meta property="article:tag" content="garmin" />
 
 
 
 
 
-<meta property="og:see_also" content="/posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" />
-
-<meta property="og:see_also" content="/posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/" />
-
-<meta property="og:see_also" content="/posts/orgmodecss/" />
+<meta property="og:see_also" content="/posts/emacs-wechat-msg-count/" />
 
 <meta property="og:see_also" content="/posts/emacs-patches/" />
 
 <meta property="og:see_also" content="/posts/emacs-tramp/" />
 
 <meta property="og:see_also" content="/posts/org-clock/" />
+
+<meta property="og:see_also" content="/posts/python-basic-useage-inneoemacs/" />
+
+<meta property="og:see_also" content="/posts/windows-autohotkey-setting/" />
 
 
 
@@ -281,7 +279,7 @@
       class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">emacs 同步微信消息数量</h1>
+  <h1 class="mb-4">Garmin 同步心率至 Emacs</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -289,7 +287,7 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2024-10-05</span
+      >2024-11-28</span
     >
   </div>
   <div class="me-6 my-2">
@@ -306,115 +304,83 @@
   
   
 
-  <p>使用 emacs 由于太专注了，往往容易漏掉微信的消息。 如果能在 emacs 中显示微信的消息数量那就太棒了。</p>
-<p><a id="org5e2f10b"></a></p>
-<h2 id="获取消息数量">获取消息数量</h2>
-<p>macos 中获取微信消息数量使用 applescript 获取 dock 栏的通知数量。 需要开启通知权限</p>
-<pre><code>tell application &quot;System Events&quot;
-   try
-       -- 获取 Dock 中所有 UI 元素
-       set dockElements to (every UI element of list 1 of application process &quot;Dock&quot;)
-       -- 查找微信图标
-       repeat with element in dockElements
-           if name of element is &quot;微信&quot; then
-               -- 获取角标属性
-               set badgeNumber to value of attribute &quot;AXStatusLabel&quot; of element
-               set resultText to badgeNumber
-               exit repeat
-           else
-               set resultText to &quot;WeChat not found in Dock&quot;
-           end if
-       end repeat
-   on error errMsg
-       set resultText to &quot;0&quot;
-   end try
-end tell
-set filePath to &quot;/Users/van/.message&quot;
-if resultText is not missing value then
-   do shell script &quot;echo &quot; &amp; quoted form of resultText &amp; &quot; &gt; &quot; &amp; quoted form of filePath
-else
-   do shell script &quot;echo &gt; &quot; &amp; quoted form of filePath
-end if
+  <p>最近买了块佳明 Forerunner 255 运动手表,思考下能不能从佳明手表中获取实时心率推送至emacs中并展示,于是就有了这篇文章。</p>
+<p><a id="orgb559b40"></a></p>
+<h2 id="广播心率">广播心率</h2>
+<p>Forerunner 255 支持 Broadcast Heart Rate，也就是将心率通过蓝牙推送给另外一个设备。 具体怎么设置看这里： <a href="https://www8.garmin.com/manuals/webhelp/forerunner245/EN-US/GUID-D8D363C2-0690-48D4-95E2-A3557E7D53C2.html">https://www8.garmin.com/manuals/webhelp/forerunner245/EN-US/GUID-D8D363C2-0690-48D4-95E2-A3557E7D53C2.html</a> 。不是所有的设备都支持 Broadcast Heart Rate。</p>
+<p><a id="org95000ca"></a></p>
+<h2 id="lightblue">LightBlue</h2>
+<p>LightBlue 是一款用于 macOS 和 iOS 平台的蓝牙调试和分析工具，旨在帮助开发人员、工程师和技术爱好者与蓝牙设备进行交互。它支持蓝牙低能耗（Bluetooth Low Energy, BLE）设备的扫描、连接、通信和调试，提供了一种简单的方式来测试和分析蓝牙设备。<br>
+在 macos 上通过安装LightBlue，可以扫描 Forerunner 255， 并订阅 Broadcast Heart Rate，如果成功的话，你可以在 LightBlue 中看到通过订阅的方式获取到的实时心率。但是通过 LightBlue 是无法取到心率的值给 emacs 使用的。不过通过LightBlue 我们获取到了一些非常有用的数据，比如Forerunner 255 设备的蓝牙设备 UUID，以及心率字段的 UUID。这两个值是我们连接设备及获取心率数据的重要编号。</p>
+<p><a id="orgc097bb8"></a></p>
+<h2 id="bleak">bleak</h2>
+<p>bleak 是一个用于与 蓝牙低功耗（BLE）设备 进行通信的 Python 库。它提供了一个简单的接口，允许开发者轻松地与支持 BLE 协议的硬件设备进行交互，无论是进行数据读取、写入，还是管理 BLE 设备的连接和服务。<br>
+bleak 库支持多种平台，包括 Windows、macOS 和 Linux，并且与 异步编程（asyncio）兼容，可以处理并发任务和事件驱动的应用程序。 使用之前我们先安装bleak</p>
+<pre><code>pip install bleak
 </code></pre>
-<p><a id="orgbb3696d"></a></p>
-<h2 id="设置定时任务">设置定时任务</h2>
-<p>通过定时任务获取微信的消息数量。将文件放至 ~/Library/LaunchAgents 可以开启启动</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=&quot;1.0&quot;&gt;
-&lt;!--put this file in ~/Library/LaunchAgents --&gt;
-&lt;dict&gt;
-    &lt;key&gt;Label&lt;/key&gt;
-    &lt;string&gt;com.wechat.message.script&lt;/string&gt;
+<p>接下来让 GPT 帮我们写下通过bleak 获取心率的代码，简单说就是通过连接 Forerunner 255，如果设备不在线则等待 10 秒再尝试连接，代码对设备的离线也进行了简单处理，实时心率的数据放在一个固定路径下进行覆盖。代码如下：</p>
+<pre><code>import asyncio
+from bleak import BleakClient, BleakError
 
-    &lt;!-- 设置为每隔 10 秒执行一次 --&gt;
-    &lt;key&gt;StartInterval&lt;/key&gt;
-    &lt;integer&gt;10&lt;/integer&gt;
+# 设备的蓝牙地址
+DEVICE_ADDRESS = &quot;2A964ADD-92DC-C48F-80AB-6F403EC8A03A&quot;
+HEART_RATE_MEASUREMENT_UUID = &quot;2A37&quot;
 
-    &lt;!-- 指定要执行的 AppleScript 文件 --&gt;
-    &lt;key&gt;ProgramArguments&lt;/key&gt;
-    &lt;array&gt;
-        &lt;string&gt;/usr/bin/osascript&lt;/string&gt;
-        &lt;string&gt;/Users/van/.doom.d/modules/neo-emacs/modelinexp/getWechatMessageCount.scpt&lt;/string&gt;
-    &lt;/array&gt;
 
-    &lt;!-- &lt;key&gt;StandardErrorPath&lt;/key&gt; --&gt;
-    &lt;!-- &lt;string&gt;/Users/van/.doom.d/modules/neo-emacs/modelinexp/error.log&lt;/string&gt;  &lt;!-\- 错误输出日志 -\-&gt; --&gt;
-    &lt;key&gt;RunAtLoad&lt;/key&gt;
-    &lt;true/&gt;
+# 处理接收到的心率通知
+def heart_rate_notification_handler(characteristic, data):
+    # 假设数据格式是标准的心率测量格式，解析心率值
+    if len(data) &gt;= 2:
+        heart_rate = data[1]  # 数据的第二个字节是心率值
+        with open(&quot;/Users/van/.hr&quot;, &quot;w&quot;) as f:
+            f.write(f&quot;{heart_rate}&quot;)
+    else:
+        print(&quot;Invalid heart rate data&quot;)
 
-    &lt;key&gt;KeepAlive&lt;/key&gt;
-    &lt;true/&gt;
-&lt;/dict&gt;
-&lt;/plist&gt;
+
+# 连接到设备并启动通知
+async def run():
+    while True:
+        try:
+            async with BleakClient(DEVICE_ADDRESS) as client:
+                # 启动通知
+                await client.start_notify(
+                    HEART_RATE_MEASUREMENT_UUID, heart_rate_notification_handler
+                )
+                # 保持连接并接收通知
+                await asyncio.sleep(9999)
+                # 停止通知
+                # await client.stop_notify(HEART_RATE_MEASUREMENT_UUID)
+        except BleakError as e:
+            print(f&quot;Error: {e}. Retrying in 1 minute...&quot;)
+            await asyncio.sleep(10)  # 等待 10 秒后重新尝试
+
+
+# 运行异步任务
+asyncio.run(run())
 </code></pre>
-<p>开启定时任务</p>
-<pre><code>launchctl load ~/.doom.d/modules/neo-emacs/modelinexp/com.wechat.message.script.plist
-launchctl start ~/.doom.d/modules/neo-emacs/modelinexp/com.wechat.message.script.plist
-launchctl list com.wechat.message.script
+<p><a id="orgaf769e9"></a></p>
+<h2 id="elisp-部分">elisp 部分</h2>
+<p>终于来到 emacs 里面，首先编写 get-hr-count 函数，从固定文件处获取心率数据。其次定义 doom-modeline-def-segment。就大功告成了</p>
+<pre><code>(defun get-hr-count ()
+  &quot;Read the content of a specific file and return it as a string.&quot;
+  (let ((file-path &quot;~/.hr&quot;))
+    (if (file-exists-p file-path)
+        (with-temp-buffer
+          (insert-file-contents file-path)
+          (string-to-number (string-trim (buffer-string)))) 46)))
+
+  (doom-modeline-def-segment hr-count
+    &quot;A custom segment that reads content from a local file.&quot;
+    (let ((count (get-hr-count)))  ; 定义局部变量 count
+      (concat
+       (propertize &quot; 󰐰 &quot; 'face 'error)  ;; 图标的颜色
+       (propertize (number-to-string count) 'face 'org-todo)  ;; 数字的颜色
+       (propertize &quot; &quot; 'face 'org-table))))
 </code></pre>
-<p>查看任务的状态</p>
-<pre><code>{
-	&quot;LimitLoadToSessionType&quot; = &quot;Aqua&quot;;
-	&quot;StandardErrorPath&quot; = &quot;/Users/van/.doom.d/modules/neo-emacs/modelinexp/error.log&quot;;
-	&quot;Label&quot; = &quot;com.wechat.message.script&quot;;
-	&quot;OnDemand&quot; = true;
-	&quot;LastExitStatus&quot; = 0;
-	&quot;Program&quot; = &quot;/usr/bin/osascript&quot;;
-	&quot;ProgramArguments&quot; = (
-		&quot;/usr/bin/osascript&quot;;
-		&quot;/Users/van/.doom.d/modules/neo-emacs/modelinexp/getWechatMessageCount.scpt&quot;;
-	);
-};
-</code></pre>
-<p><a id="org6c6c699"></a></p>
-<h2 id="增加-segment">增加 segment</h2>
-<ul>
-<li>从文件中获取微信消息的数量</li>
-<li>增加 modeline 的 segment</li>
-<li>将此 segment 添加至 modeline 中</li>
-</ul>
-<pre><code>    (defun get-message-count ()
-      &quot;Read the content of a specific file and return it as a string.&quot;
-      (let ((file-path &quot;~/.message&quot;))
-        (if (file-exists-p file-path)
-            (with-temp-buffer
-              (insert-file-contents file-path)
-              (string-trim (buffer-string)))
-          &quot;File not found&quot;)))
-    
-    (doom-modeline-def-segment wechat-msg-count
-      &quot;A custom segment that reads content from a local file.&quot;
-      (concat &quot;󰆄&quot; (get-message-count)))
-    
-    
-      (doom-modeline-def-modeline 'main
-        '(modals matches buffer-info buffer-position parrot selection-info)
-        '(misc-info minor-modes wechat-msg-count input-method buffer-encoding my-major-mode process vcs time my-segment))
-</code></pre>
-<p><a id="orgde86777"></a></p>
+<p><a id="orgd1e2a99"></a></p>
 <h2 id="效果">效果</h2>
-<p><img alt="img" src="image/pic202410001904.png" title="show"></p>
+<p><img alt="img" src="image/pic202411002380.png" title="show"></p>
 </article>
 
 
@@ -424,9 +390,7 @@ launchctl list com.wechat.message.script
     
     <a href="../../tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Emacs</a>
     
-    <a href="../../tags/org/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Org</a>
-    
-    <a href="../../tags/wechat/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Wechat</a>
+    <a href="../../tags/garmin/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Garmin</a>
     
 </div>
 
@@ -444,16 +408,11 @@ launchctl list com.wechat.message.script
   >
     <div>
       
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="../../posts/garmin-to-emacs/" class="block">Garmin 同步心率至 Emacs</a>
-      
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="../../posts/emacs-patches/" class="block">Emacs Patches</a>
+        <a href="../../posts/emacs-wechat-msg-count/" class="block">emacs 同步微信消息数量</a>
       
     </div>
   </div>
@@ -495,9 +454,10 @@ launchctl list com.wechat.message.script
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#获取消息数量">获取消息数量</a></li>
-    <li><a href="#设置定时任务">设置定时任务</a></li>
-    <li><a href="#增加-segment">增加 segment</a></li>
+    <li><a href="#广播心率">广播心率</a></li>
+    <li><a href="#lightblue">LightBlue</a></li>
+    <li><a href="#bleak">bleak</a></li>
+    <li><a href="#elisp-部分">elisp 部分</a></li>
     <li><a href="#效果">效果</a></li>
   </ul>
 </nav>
@@ -519,13 +479,7 @@ launchctl list com.wechat.message.script
       >
         <h3>See Also</h3>
         
-          <a href="../../posts/%E5%9C%A8neo-emacs%E4%B8%AD%E5%88%B6%E4%BD%9C%E8%A1%A8%E6%A0%BC%E5%92%8C%E7%BB%98%E5%9B%BE/" class="no-underline">在neo Emacs中制作表格和绘图</a>
-          <br />
-        
-          <a href="../../posts/%E4%BD%BF%E7%94%A8d2%E7%BB%98%E5%9B%BE/" class="no-underline">使用d2绘图</a>
-          <br />
-        
-          <a href="../../posts/orgmodecss/" class="no-underline">推荐一款 org mode 导出 html 的样式</a>
+          <a href="../../posts/emacs-wechat-msg-count/" class="no-underline">emacs 同步微信消息数量</a>
           <br />
         
           <a href="../../posts/emacs-patches/" class="no-underline">Emacs Patches</a>
@@ -535,6 +489,12 @@ launchctl list com.wechat.message.script
           <br />
         
           <a href="../../posts/org-clock/" class="no-underline">Org Clock</a>
+          <br />
+        
+          <a href="../../posts/python-basic-useage-inneoemacs/" class="no-underline">Python Basic Useage Inneoemacs</a>
+          <br />
+        
+          <a href="../../posts/windows-autohotkey-setting/" class="no-underline">Windows Autohotkey Setting</a>
           <br />
         
       </div>
