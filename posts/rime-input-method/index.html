@@ -106,7 +106,7 @@
     },
     "headline": "Rime Input Method | sincebyte","datePublished": "2024-12-29T14:12:48+08:00",
     "dateModified": "2024-12-29T14:12:48+08:00",
-    "wordCount":  660 ,
+    "wordCount":  659 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -278,7 +278,7 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
   <h1 class="mb-4">Rime Input Method</h1>
@@ -307,16 +307,16 @@
   
 
   <p>Rime is a customable input method framework.Rime support various system like windos macos and linux.</p>
-<p><a id="orgd41d2ce"></a></p>
-<h1 id="introduction">Introduction</h1>
+<p><a id="org0c6b195"></a></p>
+<h2 id="introduction">Introduction</h2>
 <p>Rime is a customable input method framework.Rime support various system like windos macos and linux.Config RIME through yaml file is a special feature ,it’s familiar to programer. Fortunately there have a plugin named emacs-rime which could use rime’s config as seem as your laptop inpout method.</p>
 <p><img alt="img" src="image/pic202412002585.png">
 <img alt="img" src="image/pic202412002586.png"></p>
-<p><a id="org44c3d9d"></a></p>
-<h1 id="distribution">Distribution</h1>
+<p><a id="org5b60eaf"></a></p>
+<h2 id="distribution">Distribution</h2>
 <p>You could download your install distribution <a href="https://rime.im/download/">here</a>.It is interesting that on different platform rime’s name is not the same.On windos rime called Weasel,On macos it called Squirrel.It is worth noting that the config file maybe difference between platformes.On windos rime use `weasel.yaml` and `weasel.custom.yaml` but on macos use `squirrel.yaml` and `squirrel.custom.yaml` as replacement.</p>
-<p><a id="org82dc352"></a></p>
-<h1 id="system-config">System Config</h1>
+<p><a id="org41ae155"></a></p>
+<h2 id="system-config">System Config</h2>
 <p>I am sharing a rime input method scheme on macos which called rime_wanxiang_pro and it comes form github.<br>
 Of course first of all you need install your distribution on macos we named it Squirrel.Use `git clone <a href="mailto:git@github.com">git@github.com</a>:amzxyz/rime_wanxiang_pro.git`, and rename rime_wanxiang_pro to Rime.<br>
 And locate the config file dir `~/Library/Rime` which is the rime’s config path.</p>
@@ -343,8 +343,8 @@ pro_comment_format:
 </code></pre>
 <p>At last we just need redeploy the rime framework to make all config effect.Redeploy rime framework is a high frequency but a necessar step.<br>
 Let’s talk about wanxiang_pro a rime’s input schema, I like to type long sentence with it. It uses AI and a large corpus for filtering and frequency adjustment, combined with a language model to produce more accurate full-sentence outputs.But when you want to type a single exactly character it is not as good as ordinary <em>Xiaohe Phonetic-Shape Input Method</em>.Even through  it is still high efficient.So I am using wanxiang_pro as a upgrade to ordinary <em>Xiaohe</em> which I have used 3 years.</p>
-<p><a id="orgabe27fe"></a></p>
-<h1 id="emacs-config">Emacs Config</h1>
+<p><a id="orgcb88699"></a></p>
+<h2 id="emacs-config">Emacs Config</h2>
 <p>Use <a href="https://github.com/DogLooksGood/emacs-rime">Eamcs Rime</a> plugin to share your rime config to emacs rime. I’s awesome to use a built-in input method which have the same behavior to your laptop.All implement by <a href="https://github.com/rime/librime">librime</a>.<br>
 Download librime <a href="https://github.com/rime/librime/releases">here</a>. It’s best that squirrel and librime have the last version install to make sure their behavior are same.Config emacs rime we have a completely guide code.</p>
 <pre><code>;;; neoemacs/rime/config.el -*- lexical-binding: t; -*-
@@ -373,8 +373,8 @@ Download librime <a href="https://github.com/rime/librime/releases">here</a>. It
 (map! :map (minibuffer-local-map)
       &quot;C-,&quot; 'toggle-input-method)
 </code></pre>
-<p><a id="org1fb8cd9"></a></p>
-<h1 id="squirrel-skin">Squirrel Skin</h1>
+<p><a id="org542ca29"></a></p>
+<h2 id="squirrel-skin">Squirrel Skin</h2>
 <p>As mentioned above rime config is different between platforms, It’s mainly reflected in the skin configuration. On macos we use squirrel.custom.yaml to custom skin.<br>
 <em>patch.style/color_scheme</em> specifies which theme or skin to use,and preset_color_schemes/purity defined details.About the deatils read <a href="https://github.com/rime/squirrel/wiki/squirrel.yaml-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97">offical documentation</a> please.</p>
 <pre><code>customization:
@@ -407,8 +407,8 @@ patch:
     hilited_comment_text_color: 0xEBC6B0
     hilited_candidate_label_color: 0xfafafa
 </code></pre>
-<p><a id="org6468f20"></a></p>
-<h1 id="custom-phrase-----attach">Custom Phrase     :ATTACH:</h1>
+<p><a id="orge16b247"></a></p>
+<h2 id="custom-phrase">Custom Phrase</h2>
 <p>Custom high-frequency words need to be accumulated manually to improve typing efficiency.Squirrel implement through custom_phrase.txt.Pay attention to the final number, which controls the priority—set it higher for words you want to appear earlier.</p>
 <pre><code>对讲	dvjl	40
 音响	yx	40
@@ -474,11 +474,44 @@ patch:
 
     </div>
     
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#distribution">Distribution</a></li>
+    <li><a href="#system-config">System Config</a></li>
+    <li><a href="#emacs-config">Emacs Config</a></li>
+    <li><a href="#squirrel-skin">Squirrel Skin</a></li>
+    <li><a href="#custom-phrase">Custom Phrase</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
 
     
     
       <div
-        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
       >
         <h3>See Also</h3>
         
