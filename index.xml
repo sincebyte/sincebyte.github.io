@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Thu, 28 Nov 2024 20:06:57 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Dec 2024 14:12:48 +0800</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rime Input Method</title>
+      <link>/posts/rime-input-method/</link>
+      <pubDate>Sun, 29 Dec 2024 14:12:48 +0800</pubDate>
+      <guid>/posts/rime-input-method/</guid>
+      <description>&lt;p&gt;Rime is a customable input method framework.Rime support various system like windos macos and linux.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Garmin 同步心率至 Emacs</title>
       <link>/posts/garmin-to-emacs/</link>

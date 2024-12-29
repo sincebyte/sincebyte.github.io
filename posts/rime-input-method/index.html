@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Garmin 同步心率至 Emacs | sincebyte</title>
+<title>Rime Input Method | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="../../css/eureka.min.bf8dd3d6872fb704aafb8bcb973df1d5fc347fc34c9b7f4ed33052a953b06f8be99f29d44e29d0a4c6c01988203b5fd4.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="最近买了块佳明 Forerunner 255 运动手表,思考下能不能从佳明手表中获取实时心率推送至emacs中并展示,于是就有了这篇文章。">
+  content="Rime is a customable input method framework.Rime support various system like windos macos and linux.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,8 +89,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Garmin 同步心率至 Emacs",
-      "item":"/posts/garmin-to-emacs/"}]
+      "name":"Rime Input Method",
+      "item":"/posts/rime-input-method/"}]
 }
 </script>
 
@@ -102,11 +102,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/garmin-to-emacs/"
+        "@id": "/posts/rime-input-method/"
     },
-    "headline": "Garmin 同步心率至 Emacs | sincebyte","datePublished": "2024-11-28T20:06:57+08:00",
-    "dateModified": "2024-11-28T20:06:57+08:00",
-    "wordCount":  243 ,
+    "headline": "Rime Input Method | sincebyte","datePublished": "2024-12-29T14:12:48+08:00",
+    "dateModified": "2024-12-29T14:12:48+08:00",
+    "wordCount":  660 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -115,21 +115,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003e最近买了块佳明 Forerunner 255 运动手表,思考下能不能从佳明手表中获取实时心率推送至emacs中并展示,于是就有了这篇文章。\u003c\/p\u003e"
+    "description": "\u003cp\u003eRime is a customable input method framework.Rime support various system like windos macos and linux.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="Garmin 同步心率至 Emacs | sincebyte" />
+</script><meta property="og:title" content="Rime Input Method | sincebyte" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/garmin-to-emacs/" />
+<meta property="og:url" content="/posts/rime-input-method/" />
 
 
 
 
-<meta property="og:description" content="最近买了块佳明 Forerunner 255 运动手表,思考下能不能从佳明手表中获取实时心率推送至emacs中并展示,于是就有了这篇文章。" />
+<meta property="og:description" content="Rime is a customable input method framework.Rime support various system like windos macos and linux." />
 
 
 
@@ -146,10 +146,10 @@
 
 
 
-<meta property="article:published_time" content="2024-11-28T20:06:57&#43;08:00" />
+<meta property="article:published_time" content="2024-12-29T14:12:48&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2024-11-28T20:06:57&#43;08:00" />
+<meta property="article:modified_time" content="2024-12-29T14:12:48&#43;08:00" />
 
 
 
@@ -158,11 +158,15 @@
 
 <meta property="article:tag" content="emacs" />
 
-<meta property="article:tag" content="garmin" />
+<meta property="article:tag" content="rime" />
+
+<meta property="article:tag" content="macos" />
 
 
 
 
+
+<meta property="og:see_also" content="/posts/garmin-to-emacs/" />
 
 <meta property="og:see_also" content="/posts/emacs-wechat-msg-count/" />
 
@@ -173,8 +177,6 @@
 <meta property="og:see_also" content="/posts/org-clock/" />
 
 <meta property="og:see_also" content="/posts/python-basic-useage-inneoemacs/" />
-
-<meta property="og:see_also" content="/posts/windows-autohotkey-setting/" />
 
 
 
@@ -276,10 +278,10 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">Garmin 同步心率至 Emacs</h1>
+  <h1 class="mb-4">Rime Input Method</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -287,12 +289,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2024-11-28</span
+      >2024-12-29</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
+    <span>4 min read</span>
   </div>
 
   
@@ -304,83 +306,114 @@
   
   
 
-  <p>最近买了块佳明 Forerunner 255 运动手表,思考下能不能从佳明手表中获取实时心率推送至emacs中并展示,于是就有了这篇文章。</p>
-<p><a id="orgb559b40"></a></p>
-<h2 id="广播心率">广播心率</h2>
-<p>Forerunner 255 支持 Broadcast Heart Rate，也就是将心率通过蓝牙推送给另外一个设备。 具体怎么设置看这里： <a href="https://www8.garmin.com/manuals/webhelp/forerunner245/EN-US/GUID-D8D363C2-0690-48D4-95E2-A3557E7D53C2.html">https://www8.garmin.com/manuals/webhelp/forerunner245/EN-US/GUID-D8D363C2-0690-48D4-95E2-A3557E7D53C2.html</a> 。不是所有的设备都支持 Broadcast Heart Rate。</p>
-<p><a id="org95000ca"></a></p>
-<h2 id="lightblue">LightBlue</h2>
-<p>LightBlue 是一款用于 macOS 和 iOS 平台的蓝牙调试和分析工具，旨在帮助开发人员、工程师和技术爱好者与蓝牙设备进行交互。它支持蓝牙低能耗（Bluetooth Low Energy, BLE）设备的扫描、连接、通信和调试，提供了一种简单的方式来测试和分析蓝牙设备。<br>
-在 macos 上通过安装LightBlue，可以扫描 Forerunner 255， 并订阅 Broadcast Heart Rate，如果成功的话，你可以在 LightBlue 中看到通过订阅的方式获取到的实时心率。但是通过 LightBlue 是无法取到心率的值给 emacs 使用的。不过通过LightBlue 我们获取到了一些非常有用的数据，比如Forerunner 255 设备的蓝牙设备 UUID，以及心率字段的 UUID。这两个值是我们连接设备及获取心率数据的重要编号。</p>
-<p><a id="orgc097bb8"></a></p>
-<h2 id="bleak">bleak</h2>
-<p>bleak 是一个用于与 蓝牙低功耗（BLE）设备 进行通信的 Python 库。它提供了一个简单的接口，允许开发者轻松地与支持 BLE 协议的硬件设备进行交互，无论是进行数据读取、写入，还是管理 BLE 设备的连接和服务。<br>
-bleak 库支持多种平台，包括 Windows、macOS 和 Linux，并且与 异步编程（asyncio）兼容，可以处理并发任务和事件驱动的应用程序。 使用之前我们先安装bleak</p>
-<pre><code>pip install bleak
+  <p>Rime is a customable input method framework.Rime support various system like windos macos and linux.</p>
+<p><a id="orgd41d2ce"></a></p>
+<h1 id="introduction">Introduction</h1>
+<p>Rime is a customable input method framework.Rime support various system like windos macos and linux.Config RIME through yaml file is a special feature ,it’s familiar to programer. Fortunately there have a plugin named emacs-rime which could use rime’s config as seem as your laptop inpout method.</p>
+<p><img alt="img" src="image/pic202412002585.png">
+<img alt="img" src="image/pic202412002586.png"></p>
+<p><a id="org44c3d9d"></a></p>
+<h1 id="distribution">Distribution</h1>
+<p>You could download your install distribution <a href="https://rime.im/download/">here</a>.It is interesting that on different platform rime’s name is not the same.On windos rime called Weasel,On macos it called Squirrel.It is worth noting that the config file maybe difference between platformes.On windos rime use `weasel.yaml` and `weasel.custom.yaml` but on macos use `squirrel.yaml` and `squirrel.custom.yaml` as replacement.</p>
+<p><a id="org82dc352"></a></p>
+<h1 id="system-config">System Config</h1>
+<p>I am sharing a rime input method scheme on macos which called rime_wanxiang_pro and it comes form github.<br>
+Of course first of all you need install your distribution on macos we named it Squirrel.Use `git clone <a href="mailto:git@github.com">git@github.com</a>:amzxyz/rime_wanxiang_pro.git`, and rename rime_wanxiang_pro to Rime.<br>
+And locate the config file dir `~/Library/Rime` which is the rime’s config path.</p>
+<pre><code>cd ~/Library
+git clone git@github.com:amzxyz/rime_wanxiang_pro.git
+mv rime_wanxiang_pro Rime
+cd ~/Library/Rime
 </code></pre>
-<p>接下来让 GPT 帮我们写下通过bleak 获取心率的代码，简单说就是通过连接 Forerunner 255，如果设备不在线则等待 10 秒再尝试连接，代码对设备的离线也进行了简单处理，实时心率的数据放在一个固定路径下进行覆盖。代码如下：</p>
-<pre><code>import asyncio
-from bleak import BleakClient, BleakError
-
-# 设备的蓝牙地址
-DEVICE_ADDRESS = &quot;2A964ADD-92DC-C48F-80AB-6F403EC8A03A&quot;
-HEART_RATE_MEASUREMENT_UUID = &quot;2A37&quot;
-
-
-# 处理接收到的心率通知
-def heart_rate_notification_handler(characteristic, data):
-    # 假设数据格式是标准的心率测量格式，解析心率值
-    if len(data) &gt;= 2:
-        heart_rate = data[1]  # 数据的第二个字节是心率值
-        with open(&quot;/Users/van/.hr&quot;, &quot;w&quot;) as f:
-            f.write(f&quot;{heart_rate}&quot;)
-    else:
-        print(&quot;Invalid heart rate data&quot;)
-
-
-# 连接到设备并启动通知
-async def run():
-    while True:
-        try:
-            async with BleakClient(DEVICE_ADDRESS) as client:
-                # 启动通知
-                await client.start_notify(
-                    HEART_RATE_MEASUREMENT_UUID, heart_rate_notification_handler
-                )
-                # 保持连接并接收通知
-                await asyncio.sleep(9999)
-                # 停止通知
-                # await client.stop_notify(HEART_RATE_MEASUREMENT_UUID)
-        except BleakError as e:
-            print(f&quot;Error: {e}. Retrying in 1 minute...&quot;)
-            await asyncio.sleep(10)  # 等待 10 秒后重新尝试
-
-
-# 运行异步任务
-asyncio.run(run())
+<p>The main config is <em>default.yaml</em> you could switch different input schema and custom key binding here.<br>
+I don’t like to display too much candidate word, because I’m using <em>Xiaohe Phonetic-Shape Input Method</em> which could locate word precisely.So I change the menu.page_size to 3 infact 2 is enough.</p>
+<pre><code>schema_list:
+  - schema: wanxiang
+menu:
+  page_size: 3  # 候选词个数
 </code></pre>
-<p><a id="orgaf769e9"></a></p>
-<h2 id="elisp-部分">elisp 部分</h2>
-<p>终于来到 emacs 里面，首先编写 get-hr-count 函数，从固定文件处获取心率数据。其次定义 doom-modeline-def-segment。就大功告成了</p>
-<pre><code>(defun get-hr-count ()
-  &quot;Read the content of a specific file and return it as a string.&quot;
-  (let ((file-path &quot;~/.hr&quot;))
-    (if (file-exists-p file-path)
-        (with-temp-buffer
-          (insert-file-contents file-path)
-          (string-to-number (string-trim (buffer-string)))) 46)))
-
-  (doom-modeline-def-segment hr-count
-    &quot;A custom segment that reads content from a local file.&quot;
-    (let ((count (get-hr-count)))  ; 定义局部变量 count
-      (concat
-       (propertize &quot; 󰐰 &quot; 'face 'error)  ;; 图标的颜色
-       (propertize (number-to-string count) 'face 'org-todo)  ;; 数字的颜色
-       (propertize &quot; &quot; 'face 'org-table))))
+<p>Then we could fouce on <em>wanxiang.schema.yaml</em> which we choosed in <em>default.yaml</em>.And config which method we are really use,the available candidates are algebra_pinyin, algebra_zrm, algebra_flypy,  algebra_ziguang, algebra_sogou, algebra_mspy, algebra_abc.It including the most popular input methods till now.</p>
+<pre><code>set_shuru_schema:
+  __include: algebra_flypy
+set_algebra_fuzhu:
+  __include: fuzhu_flypy
+pro_comment_format:
+  candidate_length: 1
+  fuzhu_type: fly
 </code></pre>
-<p><a id="orgd1e2a99"></a></p>
-<h2 id="效果">效果</h2>
-<p><img alt="img" src="image/pic202411002380.png" title="show"></p>
+<p>At last we just need redeploy the rime framework to make all config effect.Redeploy rime framework is a high frequency but a necessar step.<br>
+Let’s talk about wanxiang_pro a rime’s input schema, I like to type long sentence with it. It uses AI and a large corpus for filtering and frequency adjustment, combined with a language model to produce more accurate full-sentence outputs.But when you want to type a single exactly character it is not as good as ordinary <em>Xiaohe Phonetic-Shape Input Method</em>.Even through  it is still high efficient.So I am using wanxiang_pro as a upgrade to ordinary <em>Xiaohe</em> which I have used 3 years.</p>
+<p><a id="orgabe27fe"></a></p>
+<h1 id="emacs-config">Emacs Config</h1>
+<p>Use <a href="https://github.com/DogLooksGood/emacs-rime">Eamcs Rime</a> plugin to share your rime config to emacs rime. I’s awesome to use a built-in input method which have the same behavior to your laptop.All implement by <a href="https://github.com/rime/librime">librime</a>.<br>
+Download librime <a href="https://github.com/rime/librime/releases">here</a>. It’s best that squirrel and librime have the last version install to make sure their behavior are same.Config emacs rime we have a completely guide code.</p>
+<pre><code>;;; neoemacs/rime/config.el -*- lexical-binding: t; -*-
+
+(setq rime-user-data-dir             &quot;~/Library/Rime/&quot;
+      rime-librime-root              (concat doom-user-dir &quot;neoemacs/rime-macos/dist&quot;)
+      rime-emacs-module-header-root  &quot;/Applications/Emacs.app&quot;)
+(use-package! rime
+  :defer t
+  :config
+  (setq rime-show-candidate 'minibuffer)
+  :custom
+  (rime-emacs-module-header-root emacs-module-root)
+  (default-input-method &quot;rime&quot;))
+(setq mode-line-mule-info   '((:eval (rime-lighter)))
+      rime-title &quot;CH&quot;
+      rime-inline-ascii-trigger 'shift-l
+      rime-disable-predicates '(
+                                rime-predicate-current-uppercase-letter-p
+                                rime-predicate-space-after-cc-p))
+
+(global-set-key   (kbd &quot;C-,&quot;  ) 'toggle-input-method  )
+(global-unset-key (kbd &quot;C-;&quot;  )                       )
+(global-set-key   (kbd &quot;C-;&quot;  ) nil                   )
+
+(map! :map (minibuffer-local-map)
+      &quot;C-,&quot; 'toggle-input-method)
+</code></pre>
+<p><a id="org1fb8cd9"></a></p>
+<h1 id="squirrel-skin">Squirrel Skin</h1>
+<p>As mentioned above rime config is different between platforms, It’s mainly reflected in the skin configuration. On macos we use squirrel.custom.yaml to custom skin.<br>
+<em>patch.style/color_scheme</em> specifies which theme or skin to use,and preset_color_schemes/purity defined details.About the deatils read <a href="https://github.com/rime/squirrel/wiki/squirrel.yaml-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97">offical documentation</a> please.</p>
+<pre><code>customization:
+  distribution_code_name: squirrel
+  distribution_version: 0.14.0
+  generator: &quot;squirrel::UIStyleSettings&quot;
+  modified_time: &quot;2019-06-23&quot;
+  rime_version: 1.5.3
+patch:
+  style/line_spacing: 5
+  style/color_scheme: purity
+  preset_color_schemes/purity:
+    name: purity
+    candidate_list_layout: linear
+    translucency:  true
+    candidate_format: &quot;%c. %@ &quot;
+    font_point: 16
+    label_font_point: 15
+    corner_radius: 6
+    line_spacing: 10
+    text_color: 0x666666
+    candidate_text_color: 0x000000
+    back_color: 0xFFFFFF
+    border_color: 0xE2E2E2
+    hilited_text_color: 0x000000
+    hilited_back_color: 0xFFFFFF
+    hilited_candidate_text_color: 0xffffff
+    hilited_candidate_back_color: 0xCE7539
+    comment_text_color: 0x6D6D6D
+    hilited_comment_text_color: 0xEBC6B0
+    hilited_candidate_label_color: 0xfafafa
+</code></pre>
+<p><a id="org6468f20"></a></p>
+<h1 id="custom-phrase-----attach">Custom Phrase     :ATTACH:</h1>
+<p>Custom high-frequency words need to be accumulated manually to improve typing efficiency.Squirrel implement through custom_phrase.txt.Pay attention to the final number, which controls the priority—set it higher for words you want to appear earlier.</p>
+<pre><code>对讲	dvjl	40
+音响	yx	40
+告警	gj	40
+</code></pre>
 </article>
 
 
@@ -390,7 +423,9 @@ asyncio.run(run())
     
     <a href="../../tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Emacs</a>
     
-    <a href="../../tags/garmin/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Garmin</a>
+    <a href="../../tags/rime/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Rime</a>
+    
+    <a href="../../tags/macos/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Macos</a>
     
 </div>
 
@@ -408,16 +443,11 @@ asyncio.run(run())
   >
     <div>
       
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="../../posts/rime-input-method/" class="block">Rime Input Method</a>
-      
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="../../posts/emacs-wechat-msg-count/" class="block">emacs 同步微信消息数量</a>
+        <a href="../../posts/garmin-to-emacs/" class="block">Garmin 同步心率至 Emacs</a>
       
     </div>
   </div>
@@ -444,45 +474,16 @@ asyncio.run(run())
 
     </div>
     
-      <div class="col-span-2">
-        
-        
-          <div
-  class="
-    bg-primary-bg
-   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
->
-  <h3>On This Page</h3>
-</div>
-<div
-  class="sticky-toc  hidden px-6 pb-6 lg:block"
->
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#广播心率">广播心率</a></li>
-    <li><a href="#lightblue">LightBlue</a></li>
-    <li><a href="#bleak">bleak</a></li>
-    <li><a href="#elisp-部分">elisp 部分</a></li>
-    <li><a href="#效果">效果</a></li>
-  </ul>
-</nav>
-</div>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    enableStickyToc();
-  });
-</script>
-
-        
-      </div>
-    
 
     
     
       <div
-        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
       >
         <h3>See Also</h3>
+        
+          <a href="../../posts/garmin-to-emacs/" class="no-underline">Garmin 同步心率至 Emacs</a>
+          <br />
         
           <a href="../../posts/emacs-wechat-msg-count/" class="no-underline">emacs 同步微信消息数量</a>
           <br />
@@ -497,9 +498,6 @@ asyncio.run(run())
           <br />
         
           <a href="../../posts/python-basic-useage-inneoemacs/" class="no-underline">Python Basic Useage Inneoemacs</a>
-          <br />
-        
-          <a href="../../posts/windows-autohotkey-setting/" class="no-underline">Windows Autohotkey Setting</a>
           <br />
         
       </div>

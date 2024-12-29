@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Macos on sincebyte</title>
+    <link>/tags/macos/</link>
+    <description>Recent content in Macos on sincebyte</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2024 sincebyte
+</copyright>
+    <lastBuildDate>Sun, 29 Dec 2024 14:12:48 +0800</lastBuildDate>
+    <atom:link href="/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rime Input Method</title>
+      <link>/posts/rime-input-method/</link>
+      <pubDate>Sun, 29 Dec 2024 14:12:48 +0800</pubDate>
+      <guid>/posts/rime-input-method/</guid>
+      <description>&lt;p&gt;Rime is a customable input method framework.Rime support various system like windos macos and linux.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
