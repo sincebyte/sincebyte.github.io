@@ -106,7 +106,7 @@
     },
     "headline": "Rime Input Method | sincebyte","datePublished": "2024-12-29T14:12:48+08:00",
     "dateModified": "2024-12-29T14:12:48+08:00",
-    "wordCount":  659 ,
+    "wordCount":  834 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -414,6 +414,18 @@ patch:
 音响	yx	40
 告警	gj	40
 </code></pre>
+<h2 id="key-bindings">Key Bindings</h2>
+<p>Cause we are using both emacs rime and Squirrel,a unified key bindings is matter to me.`C-p` and `C-n` is a good key binding right? But there have a bug and it’s complicate.Anyway if u want impletments a unify key bindings just do the follow.<br>
+Emacs load rime config frequently but macos load once.So use the config which worked to macos firstly and then switch it to librime.It means there have two program on your system one is librime use Up and Down to select words other one is squirrel which use left and right for word selection. Unfortunately we need repeat those step once you reload config on squirrel,but it works well and could solve your demand.</p>
+<pre><code>key_binder:
+  bindings:
+    - { when: always, accept: Control+p, send: Up }
+    - { when: always, accept: Control+n, send: Down }
+    # 实现无论在 macos 系统中还是在 emacs 内部都可以使用 C-p 与 C-n 来实现选词。
+    # macos 系统使用下面两行将 rime 加载好(系统只会加载rime配置一次)，然后再注释掉，emacs 使用上面的配置。
+    # - { when: composing, accept: Control+p, send: Left }
+    # - { when: composing, accept: Control+n, send: Right }
+</code></pre>
 </article>
 
 
@@ -495,6 +507,7 @@ patch:
     <li><a href="#emacs-config">Emacs Config</a></li>
     <li><a href="#squirrel-skin">Squirrel Skin</a></li>
     <li><a href="#custom-phrase">Custom Phrase</a></li>
+    <li><a href="#key-bindings">Key Bindings</a></li>
   </ul>
 </nav>
 </div>
