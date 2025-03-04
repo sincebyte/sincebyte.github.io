@@ -8,8 +8,22 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Sun, 29 Dec 2024 14:12:48 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Mar 2025 16:14:12 +0800</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java</title>
+      <link>/tags/java/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Maven</title>
+      <link>/tags/maven/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/maven/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Emacs</title>
       <link>/tags/emacs/</link>
@@ -74,13 +88,6 @@
       <description></description>
     </item>
     <item>
-      <title>Java</title>
-      <link>/tags/java/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/tags/java/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Lsp Java</title>
       <link>/tags/lsp-java/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -127,13 +134,6 @@
       <link>/tags/windows/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/windows/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Maven</title>
-      <link>/tags/maven/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/tags/maven/</guid>
       <description></description>
     </item>
     <item>

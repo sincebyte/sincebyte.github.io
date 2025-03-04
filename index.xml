@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Sun, 29 Dec 2024 14:12:48 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Mar 2025 16:14:12 +0800</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JeecgBoot 低代码平台</title>
+      <link>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/</link>
+      <pubDate>Tue, 04 Mar 2025 16:14:12 +0800</pubDate>
+      <guid>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/</guid>
+      <description>&lt;p&gt;国货之光产品、低代码平台 + 代码生成可二次迭代逻辑。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Rime Input Method</title>
       <link>/posts/rime-input-method/</link>
