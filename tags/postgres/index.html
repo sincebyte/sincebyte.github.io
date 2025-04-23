@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>java 栈溢出问题排查 | sincebyte</title>
+<title>sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="../../css/eureka.min.bf8dd3d6872fb704aafb8bcb973df1d5fc347fc34c9b7f4ed33052a953b06f8be99f29d44e29d0a4c6c01988203b5fd4.css">
@@ -77,7 +77,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="如何排查：java.lang.OutOfMemoryError: unable to create native thread">
+  content="Eureka is a elegant and powerful theme for Hugo.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -85,51 +85,46 @@
   "itemListElement": [{
       "@type": "ListItem",
       "position": 1 ,
-      "name":"Posts",
-      "item":"/posts/"},{
+      "name":"Tags",
+      "item":"/tags/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"java 栈溢出问题排查",
-      "item":"/posts/java-oom/"}]
+      "name":"Postgres",
+      "item":"/tags/postgres/"}]
 }
 </script>
 
 
 
+
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "/posts/java-oom/"
-    },
-    "headline": "java 栈溢出问题排查 | sincebyte","datePublished": "2023-03-31T13:11:22+08:00",
-    "dateModified": "2023-03-31T13:11:22+08:00",
-    "wordCount":  154 ,
-    "publisher": {
-        "@type": "Person",
-        "name": "WANG Chucheng",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "/images/icon.png"
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[{
+            "@type":"ListItem",
+            "position":  1 ,
+            "name": "JeecgBoot 低代码平台II",
+            "description": "最近开始使用 JEECG 搭建新项目，随着深入使用，对这款低代码平台有了更深层次的了解与体验。\npostgresql 新项目从一开始就决定使用 PostgreSQL 作为主数据库。但在实际配置过程中发现，官方对 PostgreSQL 的支持文档相对较少，甚至连完整的建表 SQL 脚本都未能直接找到，这对使用者来说无疑增加了上手成本。\n尽管如此，JEECG 依然具备良好的兼容性，只是在 PostgreSQL 环境下还需要我们开发者多一些探索和调整。\n所幸的是，我们可以使用 navicat 将 mysql 数据库转换成 postgresql 数据库。下面我们重点说下兼容性问题，使用 postgresql 的数据库配置。\ndatasource: master: # url: jdbc:mysql://10.100.10.70:3306/jeecg-boot # username: root # password: # driver-class-name: com.mysql.cj.jdbc.Driver url: jdbc:postgresql://10.100.10.154:5432/postgres?characterEncoding=utf8 username: postgres password: driver-class-name: org.postgresql.Driver 由于在转换为 PostgreSQL 时字段名被转换为了大写并加上了双引号，导致运行时 SQL 使用小写字段名查询失败，从而抛出 SQL 语法错误。\n这个问题可以通过 SQL 脚本手动重命名字段来修复，将字段名统一改为小写、去掉引号，以确保兼容 JEECG 的默认查询语句。\n目前已确认受影响的表如下：\nonl_cgform_button onl_cgform_enhance_java onl_cgform_enhance_js onl_cgform_enhance_sql 基于我当前的使用深度，不排除还有其他表存在类似问题，建议在开发初期对相关配置表字段名进行一次性检查与规范。\n生成字段转换的sql\nSELECT format( 'ALTER TABLE onl_cgform_button RENAME COLUMN \u0026quot;%s\u0026quot; TO %s;', column_name, lower(column_name) ) FROM information_schema.",
+            "url": "/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/"
         }
-        },
-    "description": "\u003cp\u003e如何排查：java.lang.OutOfMemoryError: unable to create native thread\u003c\/p\u003e"
+    ]
 }
-</script><meta property="og:title" content="java 栈溢出问题排查 | sincebyte" />
-<meta property="og:type" content="article" />
+</script><meta property="og:title" content="sincebyte" />
+<meta property="og:type" content="website" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/java-oom/" />
+<meta property="og:url" content="/tags/postgres/" />
 
 
 
 
-<meta property="og:description" content="如何排查：java.lang.OutOfMemoryError: unable to create native thread" />
+
+<meta property="og:description" content="Eureka is a elegant and powerful theme for Hugo." />
+
 
 
 
@@ -146,35 +141,14 @@
 
 
 
-<meta property="article:published_time" content="2023-03-31T13:11:22&#43;08:00" />
-
-
-<meta property="article:modified_time" content="2023-03-31T13:11:22&#43;08:00" />
+<meta property="og:updated_time" content="2025-04-23T11:16:08&#43;08:00" />
 
 
 
-<meta property="article:section" content="posts" />
+<meta property="article:section" content="tags" />
 
 
-<meta property="article:tag" content="java" />
-
-
-
-
-
-<meta property="og:see_also" content="/posts/rocketmqintroduction/" />
-
-<meta property="og:see_also" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" />
-
-<meta property="og:see_also" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" />
-
-<meta property="og:see_also" content="/posts/h2-usage/" />
-
-<meta property="og:see_also" content="/posts/ftp-resume-transfer/" />
-
-<meta property="og:see_also" content="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" />
-
-
+<link rel="alternate" type="application/rss+xml" href="../../tags/postgres/index.xml" title="sincebyte" />
 
 
 
@@ -199,8 +173,8 @@
     <div id="target"
         class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
         <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
-            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
-            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Tags</a>
         </div>
 
         <div class="flex">
@@ -270,27 +244,48 @@
     <main class="grow pt-16">
         <div class="pl-scrollbar">
           <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  <article class="prose mx-6 my-8">
+  <h1>Postgres</h1>
   
-  
-  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
-    <div
-      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
-    >
-      <article class="prose">
-  <h1 class="mb-4">java 栈溢出问题排查</h1>
+</article>
 
-  <div
+  <div class="bg-secondary-bg rounded px-6" data-pagefind-ignore>
+    <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" class="no-underline">
+    <h3 class="mt-0">JeecgBoot 低代码平台II</h3>
+  </a>
+  
+    最近开始使用 JEECG 搭建新项目，随着深入使用，对这款低代码平台有了更深层次的了解与体验。
+postgresql 新项目从一开始就决定使用 PostgreSQL 作为主数据库。但在实际配置过程中发现，官方对 PostgreSQL 的支持文档相对较少，甚至连完整的建表 SQL 脚本都未能直接找到，这对使用者来说无疑增加了上手成本。
+尽管如此，JEECG 依然具备良好的兼容性，只是在 PostgreSQL 环境下还需要我们开发者多一些探索和调整。
+所幸的是，我们可以使用 navicat 将 mysql 数据库转换成 postgresql 数据库。下面我们重点说下兼容性问题，使用 postgresql 的数据库配置。
+datasource: master: # url: jdbc:mysql://10.100.10.70:3306/jeecg-boot # username: root # password: # driver-class-name: com.mysql.cj.jdbc.Driver url: jdbc:postgresql://10.100.10.154:5432/postgres?characterEncoding=utf8 username: postgres password: driver-class-name: org.postgresql.Driver 由于在转换为 PostgreSQL 时字段名被转换为了大写并加上了双引号，导致运行时 SQL 使用小写字段名查询失败，从而抛出 SQL 语法错误。
+这个问题可以通过 SQL 脚本手动重命名字段来修复，将字段名统一改为小写、去掉引号，以确保兼容 JEECG 的默认查询语句。
+目前已确认受影响的表如下：
+onl_cgform_button onl_cgform_enhance_java onl_cgform_enhance_js onl_cgform_enhance_sql 基于我当前的使用深度，不排除还有其他表存在类似问题，建议在开发初期对相关配置表字段名进行一次性检查与规范。
+生成字段转换的sql
+SELECT format( &#39;ALTER TABLE onl_cgform_button RENAME COLUMN &#34;%s&#34; TO %s;&#39;, column_name, lower(column_name) ) FROM information_schema.
+  
+
+  
+    <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
 >
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2023-03-31</span
+      >2025-04-23</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
+    <span>3 min read</span>
   </div>
 
   
@@ -298,192 +293,20 @@
   
 </div>
 
-
   
-  
-
-  <p>如何排查：java.lang.OutOfMemoryError: unable to create native thread</p>
-<p><a id="orgea4945b"></a></p>
-<h1 id="javalangoutofmemoryerror-unable-to-create-native-thread">java.lang.OutOfMemoryError: unable to create native thread</h1>
-<p><a id="org7324b5c"></a></p>
-<h2 id="测试代码">测试代码</h2>
-<pre><code>for (int i = 0; i &lt; 3500; i++) {
-    new Thread(() -&gt; {
-        try {
-            try {Thread.sleep(5000L);}
-            catch (InterruptedException e) {e.printStackTrace();}
-            TimeUnit.HOURS.sleep(1);
-            log.info(&quot;\n==== [log]: {} {}&quot;, &quot;sleep over&quot;,Thread.currentThread().getName());
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }).start();
-}
-</code></pre>
-<p><a id="org26dca71"></a></p>
-<h2 id="相关指令">相关指令</h2>
-<ul>
-<li>
-<p>查看进程的线程数量</p>
-<pre><code>jstack -l PID | grep 'java.lang.Thread.State' | wc -l
-jstack -l PID | grep 'java.lang.Thread.State: RUNNABLE' | wc -l
-jstack -l PID | grep 'java.lang.Thread.State: TIMED_WAITING'  | wc -l
-jstack -l PID | grep 'java.lang.Thread.State: WAITING' | wc -l
-jstack -l PID | grep 'java.lang.Thread.State:BLOCKED'  | wc -l
-jstack -l PID | grep 'Java-level deadlock'  | wc -l
-</code></pre>
-</li>
-<li>
-<p>查看进程的线程状态</p>
-<pre><code>jstack -l PID | grep 'java.lang.Thread.State'
-</code></pre>
-</li>
-<li>
-<p>查看进程的线程信息</p>
-<pre><code>jstack -l PID
-</code></pre>
-<p>返回信息，可以看到阻塞的代码信息</p>
-<pre><code>&quot;Thread-4050&quot; #4136 prio=5 os_prio=31 cpu=1.00ms elapsed=546.19s tid=0x0000000130247000
-       nid=0x354103 waiting on condition  [0x00000004b9a2e000]
-  java.lang.Thread.State: TIMED_WAITING (sleeping)
-  at java.lang.Thread.sleep(java.base@11.0.13/Native Method)
-  at java.lang.Thread.sleep(java.base@11.0.13/Thread.java:334)
-  at java.util.concurrent.TimeUnit.sleep(java.base@11.0.13/TimeUnit.java:446)
-  at com....controller.CommentsController$$M$_jr_0E50A6F6C7FE22B0_1
-       .lambda$0(CommentsController.java:129)
-  at com....controller.CommentsController$$Lambda$964$$M$_jr_0E50A6F6C7FE22B0_1
-       /0x0000000800e11c40.run(Unknown Source)
-  at java.lang.Thread.run(java.base@11.0.13/Thread.java:829)
-</code></pre>
-</li>
-</ul>
-</article>
-
-
-      
-        <html data-pagefind-ignore>
-<div class="my-4">
-    
-    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
-    
 </div>
 
-      
-
-      
-
-
-
-      
-
-      
-  <div
-    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
-  >
-    <div>
-      
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="../../posts/seata-shardingsphere1/" class="block">springcloud 整合 shardingsphere 及 seata</a>
-      
-    </div>
-    <div class="mt-4 md:mt-0 md:text-right">
-      
-        <span class="text-primary-text block font-bold">Next</span>
-        <a href="../../posts/rocketmqintroduction/" class="block">RocketMQ 必须知道的理论知识</a>
-      
-    </div>
-  </div>
-
-
-      
-
-
-
-  <script id="utterances" src="https://utteranc.es/client.js"
-            issue-term=title
-            repo=sincebyte/sincebyte.github.io
-              theme=preferred-color-scheme
-        crossorigin="anonymous"
-        async>
-</script>
-<script>
-    if (storageColorScheme == "Light") {
-      document.getElementById('utterances').setAttribute('theme', 'github-light')
-    } else if (storageColorScheme == "Dark") {
-      document.getElementById('utterances').setAttribute('theme', 'github-dark')
-    }
-</script>
-
-    </div>
-    
-      <div class="col-span-2">
-        
-        
-          <div
-  class="
-    bg-primary-bg
-   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
->
-  <h3>On This Page</h3>
-</div>
-<div
-  class="sticky-toc  hidden px-6 pb-6 lg:block"
->
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#测试代码">测试代码</a></li>
-    <li><a href="#相关指令">相关指令</a></li>
-  </ul>
-</nav>
-</div>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    enableStickyToc();
-  });
-</script>
-
-        
-      </div>
-    
-
-    
-    
-      <div
-        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
-      >
-        <h3>See Also</h3>
-        
-          <a href="../../posts/rocketmqintroduction/" class="no-underline">RocketMQ 必须知道的理论知识</a>
-          <br />
-        
-          <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" class="no-underline">JeecgBoot 低代码平台II</a>
-          <br />
-        
-          <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" class="no-underline">JeecgBoot 低代码平台</a>
-          <br />
-        
-          <a href="../../posts/h2-usage/" class="no-underline">H2 Usage</a>
-          <br />
-        
-          <a href="../../posts/ftp-resume-transfer/" class="no-underline">Ftp Resume Transfer</a>
-          <br />
-        
-          <a href="../../posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">Maven 项目骨架</a>
-          <br />
-        
-      </div>
-    
   </div>
 
   
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        hljs.highlightAll();
-      });
-    </script>
+</div>
+  </div>
+  
+</div>
+
+
+  </div>
+  
 
           </div>
         </div>

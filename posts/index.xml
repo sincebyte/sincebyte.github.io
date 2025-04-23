@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Tue, 04 Mar 2025 16:14:12 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Apr 2025 11:16:08 +0800</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JeecgBoot 低代码平台II</title>
+      <link>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/</link>
+      <pubDate>Wed, 23 Apr 2025 11:16:08 +0800</pubDate>
+      <guid>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/</guid>
+      <description>最近开始使用 JEECG 搭建新项目，随着深入使用，对这款低代码平台有了更深层次的了解与体验。&#xA;postgresql 新项目从一开始就决定使用 PostgreSQL 作为主数据库。但在实际配置过程中发现，官方对 PostgreSQL 的支持文档相对较少，甚至连完整的建表 SQL 脚本都未能直接找到，这对使用者来说无疑增加了上手成本。&#xA;尽管如此，JEECG 依然具备良好的兼容性，只是在 PostgreSQL 环境下还需要我们开发者多一些探索和调整。&#xA;所幸的是，我们可以使用 navicat 将 mysql 数据库转换成 postgresql 数据库。下面我们重点说下兼容性问题，使用 postgresql 的数据库配置。&#xA;datasource: master: # url: jdbc:mysql://10.100.10.70:3306/jeecg-boot # username: root # password: # driver-class-name: com.mysql.cj.jdbc.Driver url: jdbc:postgresql://10.100.10.154:5432/postgres?characterEncoding=utf8 username: postgres password: driver-class-name: org.postgresql.Driver 由于在转换为 PostgreSQL 时字段名被转换为了大写并加上了双引号，导致运行时 SQL 使用小写字段名查询失败，从而抛出 SQL 语法错误。&#xA;这个问题可以通过 SQL 脚本手动重命名字段来修复，将字段名统一改为小写、去掉引号，以确保兼容 JEECG 的默认查询语句。&#xA;目前已确认受影响的表如下：&#xA;onl_cgform_button onl_cgform_enhance_java onl_cgform_enhance_js onl_cgform_enhance_sql 基于我当前的使用深度，不排除还有其他表存在类似问题，建议在开发初期对相关配置表字段名进行一次性检查与规范。&#xA;生成字段转换的sql&#xA;SELECT format( &#39;ALTER TABLE onl_cgform_button RENAME COLUMN &amp;quot;%s&amp;quot; TO %s;&#39;, column_name, lower(column_name) ) FROM information_schema.</description>
+    </item>
     <item>
       <title>JeecgBoot 低代码平台</title>
       <link>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/</link>

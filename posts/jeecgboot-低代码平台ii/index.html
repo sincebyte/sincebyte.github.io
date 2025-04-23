@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>JeecgBoot 低代码平台II | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.bf8dd3d6872fb704aafb8bcb973df1d5fc347fc34c9b7f4ed33052a953b06f8be99f29d44e29d0a4c6c01988203b5fd4.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.694ad3d5437136c818a485fa64de6934920b1e6e34d9282cb5c9cffda2dd475235bb59a959d91004d647e4972619f09e.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="最近开始使用 JEECG 搭建新项目，随着深入使用，对这款低代码平台有了更深层次的了解与体验。
+postgresql 新项目从一开始就决定使用 PostgreSQL 作为主数据库。但在实际配置过程中发现，官方对 PostgreSQL 的支持文档相对较少，甚至连完整的建表 SQL 脚本都未能直接找到，这对使用者来说无疑增加了上手成本。
+尽管如此，JEECG 依然具备良好的兼容性，只是在 PostgreSQL 环境下还需要我们开发者多一些探索和调整。
+所幸的是，我们可以使用 navicat 将 mysql 数据库转换成 postgresql 数据库。下面我们重点说下兼容性问题，使用 postgresql 的数据库配置。
+datasource: master: # url: jdbc:mysql://10.100.10.70:3306/jeecg-boot # username: root # password: # driver-class-name: com.mysql.cj.jdbc.Driver url: jdbc:postgresql://10.100.10.154:5432/postgres?characterEncoding=utf8 username: postgres password: driver-class-name: org.postgresql.Driver 由于在转换为 PostgreSQL 时字段名被转换为了大写并加上了双引号，导致运行时 SQL 使用小写字段名查询失败，从而抛出 SQL 语法错误。
+这个问题可以通过 SQL 脚本手动重命名字段来修复，将字段名统一改为小写、去掉引号，以确保兼容 JEECG 的默认查询语句。
+目前已确认受影响的表如下：
+onl_cgform_button onl_cgform_enhance_java onl_cgform_enhance_js onl_cgform_enhance_sql 基于我当前的使用深度，不排除还有其他表存在类似问题，建议在开发初期对相关配置表字段名进行一次性检查与规范。
+生成字段转换的sql
+SELECT format( &#39;ALTER TABLE onl_cgform_button RENAME COLUMN &quot;%s&quot; TO %s;&#39;, column_name, lower(column_name) ) FROM information_schema.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"JeecgBoot 低代码平台II",
+      "item":"/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/"
+    },
+    "headline": "JeecgBoot 低代码平台II | sincebyte","datePublished": "2025-04-23T11:16:08+08:00",
+    "dateModified": "2025-04-23T11:16:08+08:00",
+    "wordCount":  481 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "最近开始使用 JEECG 搭建新项目，随着深入使用，对这款低代码平台有了更深层次的了解与体验。\npostgresql 新项目从一开始就决定使用 PostgreSQL 作为主数据库。但在实际配置过程中发现，官方对 PostgreSQL 的支持文档相对较少，甚至连完整的建表 SQL 脚本都未能直接找到，这对使用者来说无疑增加了上手成本。\n尽管如此，JEECG 依然具备良好的兼容性，只是在 PostgreSQL 环境下还需要我们开发者多一些探索和调整。\n所幸的是，我们可以使用 navicat 将 mysql 数据库转换成 postgresql 数据库。下面我们重点说下兼容性问题，使用 postgresql 的数据库配置。\ndatasource: master: # url: jdbc:mysql:\/\/10.100.10.70:3306\/jeecg-boot # username: root # password: # driver-class-name: com.mysql.cj.jdbc.Driver url: jdbc:postgresql:\/\/10.100.10.154:5432\/postgres?characterEncoding=utf8 username: postgres password: driver-class-name: org.postgresql.Driver 由于在转换为 PostgreSQL 时字段名被转换为了大写并加上了双引号，导致运行时 SQL 使用小写字段名查询失败，从而抛出 SQL 语法错误。\n这个问题可以通过 SQL 脚本手动重命名字段来修复，将字段名统一改为小写、去掉引号，以确保兼容 JEECG 的默认查询语句。\n目前已确认受影响的表如下：\nonl_cgform_button onl_cgform_enhance_java onl_cgform_enhance_js onl_cgform_enhance_sql 基于我当前的使用深度，不排除还有其他表存在类似问题，建议在开发初期对相关配置表字段名进行一次性检查与规范。\n生成字段转换的sql\nSELECT format( \u0027ALTER TABLE onl_cgform_button RENAME COLUMN \u0026quot;%s\u0026quot; TO %s;\u0027, column_name, lower(column_name) ) FROM information_schema."
+}
+</script><meta property="og:title" content="JeecgBoot 低代码平台II | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" />
+
+
+
+
+<meta property="og:description" content="最近开始使用 JEECG 搭建新项目，随着深入使用，对这款低代码平台有了更深层次的了解与体验。
+postgresql 新项目从一开始就决定使用 PostgreSQL 作为主数据库。但在实际配置过程中发现，官方对 PostgreSQL 的支持文档相对较少，甚至连完整的建表 SQL 脚本都未能直接找到，这对使用者来说无疑增加了上手成本。
+尽管如此，JEECG 依然具备良好的兼容性，只是在 PostgreSQL 环境下还需要我们开发者多一些探索和调整。
+所幸的是，我们可以使用 navicat 将 mysql 数据库转换成 postgresql 数据库。下面我们重点说下兼容性问题，使用 postgresql 的数据库配置。
+datasource: master: # url: jdbc:mysql://10.100.10.70:3306/jeecg-boot # username: root # password: # driver-class-name: com.mysql.cj.jdbc.Driver url: jdbc:postgresql://10.100.10.154:5432/postgres?characterEncoding=utf8 username: postgres password: driver-class-name: org.postgresql.Driver 由于在转换为 PostgreSQL 时字段名被转换为了大写并加上了双引号，导致运行时 SQL 使用小写字段名查询失败，从而抛出 SQL 语法错误。
+这个问题可以通过 SQL 脚本手动重命名字段来修复，将字段名统一改为小写、去掉引号，以确保兼容 JEECG 的默认查询语句。
+目前已确认受影响的表如下：
+onl_cgform_button onl_cgform_enhance_java onl_cgform_enhance_js onl_cgform_enhance_sql 基于我当前的使用深度，不排除还有其他表存在类似问题，建议在开发初期对相关配置表字段名进行一次性检查与规范。
+生成字段转换的sql
+SELECT format( &#39;ALTER TABLE onl_cgform_button RENAME COLUMN &quot;%s&quot; TO %s;&#39;, column_name, lower(column_name) ) FROM information_schema." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2025-04-23T11:16:08&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2025-04-23T11:16:08&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+<meta property="article:tag" content="postgres" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" />
+
+<meta property="og:see_also" content="/posts/h2-usage/" />
+
+<meta property="og:see_also" content="/posts/ftp-resume-transfer/" />
+
+<meta property="og:see_also" content="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" />
+
+<meta property="og:see_also" content="/posts/clickhouse-tutorial/" />
+
+<meta property="og:see_also" content="/posts/elasticsearch-part1/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">JeecgBoot 低代码平台II</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-04-23</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>3 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>最近开始使用 JEECG 搭建新项目，随着深入使用，对这款低代码平台有了更深层次的了解与体验。</p>
+<p><a id="org9275ebd"></a></p>
+<h2 id="postgresql">postgresql</h2>
+<p>新项目从一开始就决定使用 PostgreSQL 作为主数据库。但在实际配置过程中发现，官方对 PostgreSQL 的支持文档相对较少，甚至连完整的建表 SQL 脚本都未能直接找到，这对使用者来说无疑增加了上手成本。<br>
+尽管如此，JEECG 依然具备良好的兼容性，只是在 PostgreSQL 环境下还需要我们开发者多一些探索和调整。</p>
+<p>所幸的是，我们可以使用 navicat 将 mysql 数据库转换成 postgresql 数据库。下面我们重点说下兼容性问题，使用 postgresql 的数据库配置。</p>
+<pre><code>datasource:
+  master:
+    # url: jdbc:mysql://10.100.10.70:3306/jeecg-boot
+    # username: root
+    # password: 
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:postgresql://10.100.10.154:5432/postgres?characterEncoding=utf8
+    username: postgres
+    password: 
+    driver-class-name: org.postgresql.Driver
+</code></pre>
+<p>由于在转换为 PostgreSQL 时字段名被转换为了大写并加上了双引号，导致运行时 SQL 使用小写字段名查询失败，从而抛出 SQL 语法错误。</p>
+<p>这个问题可以通过 SQL 脚本手动重命名字段来修复，将字段名统一改为小写、去掉引号，以确保兼容 JEECG 的默认查询语句。</p>
+<p>目前已确认受影响的表如下：</p>
+<ul>
+<li>onl_cgform_button</li>
+<li>onl_cgform_enhance_java</li>
+<li>onl_cgform_enhance_js</li>
+<li>onl_cgform_enhance_sql</li>
+</ul>
+<p>基于我当前的使用深度，不排除还有其他表存在类似问题，建议在开发初期对相关配置表字段名进行一次性检查与规范。</p>
+<p>生成字段转换的sql</p>
+<pre><code>SELECT
+  format(
+    'ALTER TABLE onl_cgform_button RENAME COLUMN &quot;%s&quot; TO %s;',
+    column_name,
+    lower(column_name)
+  )
+FROM information_schema.columns
+WHERE table_name = 'onl_cgform_button'
+  AND column_name &lt;&gt; lower(column_name);
+</code></pre>
+<p>这里列出所有需要执行的 sql 语句</p>
+<pre><code>ALTER TABLE onl_cgform_button RENAME COLUMN &quot;ORDER_NUM&quot; TO order_num;
+ALTER TABLE onl_cgform_button RENAME COLUMN &quot;BUTTON_ICON&quot; TO button_icon;
+ALTER TABLE onl_cgform_button RENAME COLUMN &quot;BUTTON_NAME&quot; TO button_name;
+ALTER TABLE onl_cgform_button RENAME COLUMN &quot;BUTTON_STATUS&quot; TO button_status;
+ALTER TABLE onl_cgform_button RENAME COLUMN &quot;BUTTON_STYLE&quot; TO button_style;
+ALTER TABLE onl_cgform_button RENAME COLUMN &quot;EXP&quot; TO exp;
+ALTER TABLE onl_cgform_button RENAME COLUMN &quot;CGFORM_HEAD_ID&quot; TO cgform_head_id;
+ALTER TABLE onl_cgform_button RENAME COLUMN &quot;OPT_TYPE&quot; TO opt_type;
+ALTER TABLE onl_cgform_button RENAME COLUMN &quot;BUTTON_CODE&quot; TO button_code;
+ALTER TABLE onl_cgform_button RENAME COLUMN &quot;OPT_POSITION&quot; TO opt_position;
+
+ALTER TABLE onl_cgform_enhance_java RENAME COLUMN &quot;ID&quot; TO id;
+ALTER TABLE onl_cgform_enhance_java RENAME COLUMN &quot;BUTTON_CODE&quot; TO button_code;
+ALTER TABLE onl_cgform_enhance_java RENAME COLUMN &quot;CG_JAVA_TYPE&quot; TO cg_java_type;
+ALTER TABLE onl_cgform_enhance_java RENAME COLUMN &quot;CG_JAVA_VALUE&quot; TO cg_java_value;
+ALTER TABLE onl_cgform_enhance_java RENAME COLUMN &quot;CGFORM_HEAD_ID&quot; TO cgform_head_id;
+ALTER TABLE onl_cgform_enhance_java RENAME COLUMN &quot;ACTIVE_STATUS&quot; TO active_status;
+ALTER TABLE onl_cgform_enhance_java RENAME COLUMN &quot;EVENT&quot; TO event;
+           
+ALTER TABLE onl_cgform_enhance_js RENAME COLUMN &quot;ID&quot; TO id;
+ALTER TABLE onl_cgform_enhance_js RENAME COLUMN &quot;CG_JS&quot; TO cg_js;
+ALTER TABLE onl_cgform_enhance_js RENAME COLUMN &quot;CG_JS_TYPE&quot; TO cg_js_type;
+ALTER TABLE onl_cgform_enhance_js RENAME COLUMN &quot;CONTENT&quot; TO content;
+ALTER TABLE onl_cgform_enhance_js RENAME COLUMN &quot;CGFORM_HEAD_ID&quot; TO cgform_head_id;
+           
+ALTER TABLE onl_cgform_enhance_sql RENAME COLUMN &quot;ID&quot; TO id;
+ALTER TABLE onl_cgform_enhance_sql RENAME COLUMN &quot;BUTTON_CODE&quot; TO button_code;
+ALTER TABLE onl_cgform_enhance_sql RENAME COLUMN &quot;CGB_SQL&quot; TO cgb_sql;
+ALTER TABLE onl_cgform_enhance_sql RENAME COLUMN &quot;CGB_SQL_NAME&quot; TO cgb_sql_name;
+ALTER TABLE onl_cgform_enhance_sql RENAME COLUMN &quot;CONTENT&quot; TO content;
+ALTER TABLE onl_cgform_enhance_sql RENAME COLUMN &quot;CGFORM_HEAD_ID&quot; TO cgform_head_id;
+</code></pre>
+<p>还有一段 SQL 是官方提供的 Postgres 兼容修复 sql，一并执行</p>
+<pre><code>CREATE OR REPLACE FUNCTION bool_to_int(boolean) RETURNS int2 AS '
+  SELECT CAST($1::int AS int2);
+' LANGUAGE sql STRICT;
+CREATE CAST (bool AS int2) WITH FUNCTION bool_to_int(boolean) AS IMPLICIT;
+</code></pre>
+<p><a id="orgf2c2e10"></a></p>
+<h2 id="nacos">nacos</h2>
+<p>由于我采用的是 JEECG 的微服务版本，Nacos 成为了服务注册与配置中心的核心组件。为了统一数据库架构，自然也希望将 Nacos 的存储从默认的 MySQL 切换为 PostgreSQL。<br>
+虽然 Nacos 官方提供了 PostgreSQL <a href="https://github.com/nacos-group/nacos-plugin?spm=5238cd80.370fd3fb.0.0.20081b39gaQJWu">数据库插件</a>，但这个插件并未打包在发行版本中，需自行下载源码并手动编译生成 JAR 包。<br>
+然而实际操作中发现，Nacos 的插件兼容性非常有限：</p>
+<ul>
+<li>使用 JEECG Boot 源码中集成的 Nacos 项目，插件无法正常加载（疑似版本冲突）。</li>
+<li>尝试官方最新版本 Nacos 2.5.1，同样无法成功集成插件，甚至启动时报错直接中断。</li>
+</ul>
+<p>在多次尝试无果后，最终在社区中找到一位开发者分享：Nacos 2.3.1 可成功集成 PostgreSQL 插件。经过实测，果然这个版本可以稳定运行，看来插件支持确实需要特定版本的配合。<br>
+完成插件接入后，下一步是将原 MySQL 中的 Nacos 配置数据迁移至 PostgreSQL。</p>
+<pre><code>#*************** Config Module Related Configurations ***************#
+### If use MySQL as datasource:
+### Deprecated configuration property, it is recommended to use `spring.sql.init.platform` replaced.
+spring.datasource.platform=postgresql
+# spring.sql.init.platform=postgresql
+
+### Count of DB:
+db.num=1
+
+# Connect URL of DB:
+db.url.0=jdbc:postgresql://10.100.10.154:5432/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true
+db.user=postgres
+db.password=
+### Connection pool configuration: hikariCP
+db.pool.config.connectionTimeout=30000
+db.pool.config.validationTimeout=10000
+db.pool.config.maximumPoolSize=20
+db.pool.config.minimumIdle=2
+db.pool.config.driverClassName=org.postgresql.Driver
+</code></pre>
+<p>一切就绪后，启动 nacos。</p>
+<pre><code>sh startup.sh -m standalone
+</code></pre>
+<p>部署环境好不容易搭建完成，启动一切正常，但在保存配置时却意外报错。追查日志后发现，问题通常出现在以下两个方面：</p>
+<ul>
+<li>字段类型不匹配</li>
+<li>插入数据时缺少默认值</li>
+</ul>
+<p>这些问题很可能是由于数据库高低版本之间的兼容性差异引起的。好在只需执行下面这段 SQL 脚本即可修复，环境瞬间恢复正常。</p>
+<pre><code>ALTER TABLE his_config_info ALTER COLUMN nid TYPE bigint;
+ALTER TABLE his_config_info ALTER COLUMN nid ADD GENERATED ALWAYS AS IDENTITY;
+ALTER TABLE his_config_info ALTER COLUMN gmt_create SET DEFAULT now();
+</code></pre>
+<p>✅ 推荐版本组合：Nacos 2.3.1 + JEECG Boot<br>
+实测证明，这个组合兼容性良好，无论是服务注册、服务发现，还是配置管理，都能稳定运行，终于找到一个靠谱的搭配方案！</p>
+
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+    <a href="../../tags/postgres/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Postgres</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" class="block">JeecgBoot 低代码平台</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#postgresql">postgresql</a></li>
+    <li><a href="#nacos">nacos</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" class="no-underline">JeecgBoot 低代码平台</a>
+          <br />
+        
+          <a href="../../posts/h2-usage/" class="no-underline">H2 Usage</a>
+          <br />
+        
+          <a href="../../posts/ftp-resume-transfer/" class="no-underline">Ftp Resume Transfer</a>
+          <br />
+        
+          <a href="../../posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">Maven 项目骨架</a>
+          <br />
+        
+          <a href="../../posts/clickhouse-tutorial/" class="no-underline">Clickhouse Tutorial</a>
+          <br />
+        
+          <a href="../../posts/elasticsearch-part1/" class="no-underline">ElasticSearch Part1</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
