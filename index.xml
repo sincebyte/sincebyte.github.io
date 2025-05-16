@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Wed, 23 Apr 2025 11:16:08 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 16 May 2025 11:03:03 +0800</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mqtt Usage</title>
+      <link>/posts/mqtt-usage/</link>
+      <pubDate>Fri, 16 May 2025 11:03:03 +0800</pubDate>
+      <guid>/posts/mqtt-usage/</guid>
+      <description>&lt;p&gt;MQTT is a standard messaging protocol for the Internet of Things (IoT).MQTT today is used in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>JeecgBoot 低代码平台II</title>
       <link>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/</link>

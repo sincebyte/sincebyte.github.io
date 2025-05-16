@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Mqtt Usage | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.bf8dd3d6872fb704aafb8bcb973df1d5fc347fc34c9b7f4ed33052a953b06f8be99f29d44e29d0a4c6c01988203b5fd4.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.694ad3d5437136c818a485fa64de6934920b1e6e34d9282cb5c9cffda2dd475235bb59a959d91004d647e4972619f09e.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="MQTT is a standard messaging protocol for the Internet of Things (IoT).MQTT today is used in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Mqtt Usage",
+      "item":"/posts/mqtt-usage/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/mqtt-usage/"
+    },
+    "headline": "Mqtt Usage | sincebyte","datePublished": "2025-05-16T11:03:03+08:00",
+    "dateModified": "2025-05-16T11:03:03+08:00",
+    "wordCount":  967 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eMQTT is a standard messaging protocol for the Internet of Things (IoT).MQTT today is used in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Mqtt Usage | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/mqtt-usage/" />
+
+
+
+
+<meta property="og:description" content="MQTT is a standard messaging protocol for the Internet of Things (IoT).MQTT today is used in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2025-05-16T11:03:03&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2025-05-16T11:03:03&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" />
+
+<meta property="og:see_also" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" />
+
+<meta property="og:see_also" content="/posts/h2-usage/" />
+
+<meta property="og:see_also" content="/posts/ftp-resume-transfer/" />
+
+<meta property="og:see_also" content="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" />
+
+<meta property="og:see_also" content="/posts/clickhouse-tutorial/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Mqtt Usage</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-05-16</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>MQTT is a standard messaging protocol for the Internet of Things (IoT).MQTT today is used in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.</p>
+<p><a id="orgcf5b2b7"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>MQTT is a standard messaging protocol for the Internet of Things (IoT).MQTT today is used in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.</p>
+<p>MQTT Publish / Subscribe Architecture<br>
+<img alt="img" src="https://mqtt.org/assets/img/mqtt-publish-subscribe.png"></p>
+<p><a id="orgcf5b2b8"></a></p>
+<h2 id="mqtt-brokerserver">Mqtt broker/server</h2>
+<p>MQTT brokers receive published messages and dispatch the message to the subscribing MQTT clients. An MQTT message contains a message topic that MQTT clients subscribe to and MQTT brokers use these subscription lists for determining the MQTT clients to receive the message.</p>
+<p>There have many mqtt broker implements, such as emqx hivemq.We choose emqx,cause EMQX said officially it is the world’s most scalable and reliable MQTT platform, designed for high-performance, reliable, and secure IoT data infrastructure.Using it really does work like that.You could find it <a href="https://github.com/emqx/emqx">here</a> .</p>
+<p><a id="orgbef542f"></a></p>
+<h2 id="mqtt-wildcards">MQTT Wildcards</h2>
+<p>When a client subscribes to a topic with a multi-level wildcard, it receives all messages of a topic that begins with the pattern before the wildcard character, regardless of the length or depth of the topic. If the topic is specified as “#” alone, the client receives all messages sent to the MQTT broker.</p>
+<p>MQTT Wildcard – Single Level: +<br>
+The single-level wildcard is represented by the plus symbol (+) and allows the replacement of a single topic level. By subscribing to a topic with a single-level wildcard, any topic that contains an arbitrary string in place of the wildcard will be matched.</p>
+<p><img alt="img" src="https://www.hivemq.com/sb-assets/f/243938/640x146/26700a2951/topic_wildcard_plus.webp"></p>
+<p>MQTT Wildcard – Multi Level:<br>
+The multi-level wildcard covers multiple topic levels. It is represented by the hash symbol (#) and must be placed as the last character in the topic, preceded by a forward slash.<br>
+<img alt="img" src="https://www.hivemq.com/sb-assets/f/243938/640x117/d7e1d058f8/topic_wildcard_hash.webp"></p>
+<p><a id="orgbfe3991"></a></p>
+<h2 id="mqtt-qosquality-of-service">Mqtt Qos(Quality of Service)</h2>
+<p>MQTT implements 3 quality of service levels for agreement between the sender and receiver:</p>
+<ol>
+<li>At most once (0)</li>
+<li>At least once (1)</li>
+<li>Exactly once (2)</li>
+</ol>
+<p>These QoS levels allow for more reliable IoT applications since the underlying messaging infrastructure and adapt to unreliable network conditions.You could get the details from <a href="https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/">here</a>.</p>
+<pre><code>int qos = 1;
+client.subscribe(&quot;$share/group/HA/state&quot;, qos);
+</code></pre>
+<p><a id="org3438f68"></a></p>
+<h2 id="mqtt-shared-subscriptions">Mqtt Shared Subscriptions</h2>
+<p>Shared subscriptions, a core feature of MQTT 5, enable multiple MQTT clients to share a single subscription on the broker. In essence, this feature allows messages on a topic to be distributed among multiple clients, thereby improving load balancing and fault tolerance in an MQTT system.If you are building a distribute system,this feature is indispensable.</p>
+<p><img alt="img" src="https://www.hivemq.com/sb-assets/f/243938/640x480/e2fb483f9d/shared-subscriptions.gif"><br>
+Use Mqtt shared subscriptions, you just neet add <span class="underline">$share/group/</span> in front of topic name in the subscribe function.And then your distributed applications will receive messages alternately.</p>
+<pre><code>client.subscribe(&quot;$share/group/HA/state&quot;, 1);
+</code></pre>
+<p><a id="org49ec40e"></a></p>
+<h2 id="mqtt-retain-meassage">Mqtt Retain meassage</h2>
+<p>MQTT clients that subscribe to a new topic have no insight into when to expect the first message they will receive. However, an MQTT broker can store a retained message that can be sent immediately upon a new MQTT subscription. In this case, the MQTT client will receive at least one message upon subscribing to the topic.</p>
+<p>This is important when reload backend application, when reboot the mqtt client more or less there will missing some message.This will lead to data inconsistency issues, retain message could make your application get the latest state of iots, to make the data consistency immediately.</p>
+<pre><code>@Override
+public void messageArrived(String topic, MqttMessage message) throws Exception {
+    log.info(&quot;\n\t{}[MQTT.messageArrived]{}\n\t[Retained: {}]\n\t[{}]&quot;,
+            AnsiColor.GREEN, AnsiColor.RESET,
+            message.isRetained(), topic,
+            new String(message.getPayload()));
+}
+</code></pre>
+<blockquote>
+<p>Mqtt shared subscriptions could not worked with retain message</p>
+</blockquote>
+<p><a id="orge9735f2"></a></p>
+<h2 id="mqtt-client-for-java">Mqtt Client for Java</h2>
+<p>Eclipse Paho Java Client is a good choice cause it was stable enough.Note that there have 2 big versions v3 and v5.To ensure you could ues the mqtt v5 latest features,choice the version of v5.Cause <a href="https://mvnrepository.com/search?q=Eclipse+Paho+Java+Client">https://mvnrepository.com/search?q=Eclipse+Paho+Java+Client</a> put v3 in the top of the list,it’s easily to make a mistake to get the oldder one.</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.paho&lt;/groupId&gt;
+    &lt;artifactId&gt;org.eclipse.paho.mqttv5.client&lt;/artifactId&gt;
+    &lt;version&gt;1.2.5&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p><a id="org361b7f2"></a></p>
+<h2 id="compatibility-messages">Compatibility messages</h2>
+<p>It was found that retain and share message were not compatibility through testing.It means when using share subscription application will not receive the retain message when starting up.<br>
+To solve this you could use two mqtt clients, one for share message other for retian message.When there have no retain message we could disconnect mqtt client to release system resource.</p>
+<pre><code>@Override
+public void messageArrived(String topic, MqttMessage message) throws Exception {
+    if (!message.isRetained()) return;
+    log.info(&quot;==== [HA_CLOUD_STATE_RETAINED_TOPIC.retained:{}]: {},{}&quot;, message.isRetained(), topic, new String(message.getPayload()));
+    mqttConfig.handleMesage(topic, message);
+    LAST_RETAIN_TIME = System.currentTimeMillis();
+}
+
+// Spring 定时任务：每 60 秒检查一次是否已超时
+@Scheduled(fixedRate = 60000)
+public void checkRetainTimeout() {
+    if (client == null || !client.isConnected()) {
+        return;
+    }
+    if (System.currentTimeMillis() - LAST_RETAIN_TIME &gt; RETAIN_TIMEOUT_MS) {
+        try {
+            log.info(&quot;==== [mqtt.retianed]: 超时未收到新 retained 消息，取消订阅！&quot;);
+            client.unsubscribe(MqttTopicDefine.HA_CLOUD_STATE_RETAIN_TOPIC);
+            client.disconnect();
+            client.close();
+        } catch (MqttException e) {
+            log.error(&quot;==== [error]: {}&quot;, e);
+        }
+    }
+}
+</code></pre>
+<p><a id="org3b4171f"></a></p>
+<h2 id="complete-code">Complete code</h2>
+<pre><code>package org.jeecg.config;
+
+import java.net.InetAddress;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import org.eclipse.paho.mqttv5.client.IMqttToken;
+import org.eclipse.paho.mqttv5.client.MqttCallback;
+import org.eclipse.paho.mqttv5.client.MqttClient;
+import org.eclipse.paho.mqttv5.client.MqttConnectionOptions;
+import org.eclipse.paho.mqttv5.client.MqttDisconnectResponse;
+import org.eclipse.paho.mqttv5.client.persist.MqttDefaultFilePersistence;
+import org.eclipse.paho.mqttv5.common.MqttException;
+import org.eclipse.paho.mqttv5.common.MqttMessage;
+import org.eclipse.paho.mqttv5.common.packet.MqttProperties;
+import org.jeecg.common.base.BaseMap;
+import org.jeecg.modules.iot.enhance.MqttTopicDefine;
+import org.jeecg.modules.iot.sys.AnsiColor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Configuration
+public class MqttConfig {
+
+    @Value(&quot;${mqtt.broker}&quot;)
+    private String broker;
+
+    @Value(&quot;${mqtt.username}&quot;)
+    private String username;
+
+    @Value(&quot;${mqtt.password}&quot;)
+    private String password;
+
+    @Bean
+    public MqttClient mqttClient() throws Exception {
+        String clientId = InetAddress.getLocalHost().getHostName();
+        MqttClient client = new MqttClient(broker, clientId, new MqttDefaultFilePersistence());
+        MqttConnectionOptions options = new MqttConnectionOptions();
+        options.setCleanStart(true);
+        options.setSessionExpiryInterval(0L);
+        options.setAutomaticReconnect(true);
+        options.setUserName(username);
+        options.setPassword(password.getBytes());
+        client.setCallback(new MqttCallback() {
+            @Override
+            public void disconnected(MqttDisconnectResponse disconnectResponse) {
+                log.error(&quot;MQTT连接丢失,{}&quot;, disconnectResponse.getException().getMessage());
+            }
+
+            @Override
+            public void mqttErrorOccurred(MqttException exception) {
+                log.error(&quot;==== [mqttErrorOccurred]: {}&quot;, exception);
+            }
+
+            @Override
+            public void messageArrived(String topic, MqttMessage message) throws Exception {
+                if (message.isRetained()) return;
+                log.info(&quot;\n\t{}[MQTT.messageArrived]{}\n\t[Retained: {}]\n\t[{}]&quot;,
+                        AnsiColor.GREEN, AnsiColor.RESET,
+                        message.isRetained(), topic,
+                        new String(message.getPayload()));
+            }
+
+            @Override
+            public void deliveryComplete(IMqttToken token) {
+                // log.info(&quot;==== [消息投递完成]&quot;);
+            }
+
+            @Override
+            public void connectComplete(boolean reconnect, String serverURI) {
+                log.info(&quot;==== [connectComplete]&quot;);
+                try {
+                    client.subscribe(MqttTopicDefine.HA_CLOUD_HEART_TOPIC, 1);
+                    client.subscribe(MqttTopicDefine.HA_CLOUD_STATE_TOPIC, 1);
+                } catch (MqttException e) {
+                    log.error(&quot;==== [error]: {}&quot;, e);
+                }
+            }
+
+            @Override
+            public void authPacketArrived(int reasonCode, MqttProperties properties) {
+
+            }
+        });
+        client.connect(options);
+        return client;
+    }
+
+}
+</code></pre>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" class="block">JeecgBoot 低代码平台II</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#mqtt-brokerserver">Mqtt broker/server</a></li>
+    <li><a href="#mqtt-wildcards">MQTT Wildcards</a></li>
+    <li><a href="#mqtt-qosquality-of-service">Mqtt Qos(Quality of Service)</a></li>
+    <li><a href="#mqtt-shared-subscriptions">Mqtt Shared Subscriptions</a></li>
+    <li><a href="#mqtt-retain-meassage">Mqtt Retain meassage</a></li>
+    <li><a href="#mqtt-client-for-java">Mqtt Client for Java</a></li>
+    <li><a href="#compatibility-messages">Compatibility messages</a></li>
+    <li><a href="#complete-code">Complete code</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" class="no-underline">JeecgBoot 低代码平台II</a>
+          <br />
+        
+          <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" class="no-underline">JeecgBoot 低代码平台</a>
+          <br />
+        
+          <a href="../../posts/h2-usage/" class="no-underline">H2 Usage</a>
+          <br />
+        
+          <a href="../../posts/ftp-resume-transfer/" class="no-underline">Ftp Resume Transfer</a>
+          <br />
+        
+          <a href="../../posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">Maven 项目骨架</a>
+          <br />
+        
+          <a href="../../posts/clickhouse-tutorial/" class="no-underline">Clickhouse Tutorial</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
