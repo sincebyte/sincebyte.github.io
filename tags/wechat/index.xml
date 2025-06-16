@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wechat on sincebyte</title>
-    <link>//localhost:1313/tags/wechat/</link>
+    <link>/tags/wechat/</link>
     <description>Recent content in Wechat on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
     <lastBuildDate>Sat, 05 Oct 2024 17:23:00 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/wechat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/wechat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>emacs 同步微信消息数量</title>
-      <link>//localhost:1313/posts/emacs-wechat-msg-count/</link>
+      <link>/posts/emacs-wechat-msg-count/</link>
       <pubDate>Sat, 05 Oct 2024 17:23:00 +0800</pubDate>
-      <guid>//localhost:1313/posts/emacs-wechat-msg-count/</guid>
+      <guid>/posts/emacs-wechat-msg-count/</guid>
       <description>&lt;p&gt;使用 emacs 由于太专注了，往往容易漏掉微信的消息。 如果能在 emacs 中显示微信的消息数量那就太棒了。&lt;/p&gt;</description>
     </item>
   </channel>

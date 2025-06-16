@@ -2,96 +2,96 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on sincebyte</title>
-    <link>//localhost:1313/tags/java/</link>
+    <link>/tags/java/</link>
     <description>Recent content in Java on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
     <lastBuildDate>Fri, 16 May 2025 11:03:03 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mqtt Usage</title>
-      <link>//localhost:1313/posts/mqtt-usage/</link>
+      <link>/posts/mqtt-usage/</link>
       <pubDate>Fri, 16 May 2025 11:03:03 +0800</pubDate>
-      <guid>//localhost:1313/posts/mqtt-usage/</guid>
+      <guid>/posts/mqtt-usage/</guid>
       <description>&lt;p&gt;MQTT is a standard messaging protocol for the Internet of Things (IoT).MQTT today is used in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JeecgBoot 低代码平台II</title>
-      <link>//localhost:1313/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/</link>
+      <link>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/</link>
       <pubDate>Wed, 23 Apr 2025 11:16:08 +0800</pubDate>
-      <guid>//localhost:1313/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/</guid>
+      <guid>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/</guid>
       <description>&lt;p&gt;最近开始使用 JEECG 搭建新项目，随着深入使用，对这款低代码平台有了更深层次的了解与体验。&lt;/p&gt;</description>
     </item>
     <item>
       <title>JeecgBoot 低代码平台</title>
-      <link>//localhost:1313/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/</link>
+      <link>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/</link>
       <pubDate>Tue, 04 Mar 2025 16:14:12 +0800</pubDate>
-      <guid>//localhost:1313/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/</guid>
+      <guid>/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/</guid>
       <description>&lt;p&gt;国货之光产品、低代码平台 + 代码生成可二次迭代逻辑。&lt;/p&gt;</description>
     </item>
     <item>
       <title>H2 Usage</title>
-      <link>//localhost:1313/posts/h2-usage/</link>
+      <link>/posts/h2-usage/</link>
       <pubDate>Tue, 02 Jul 2024 19:10:57 +0800</pubDate>
-      <guid>//localhost:1313/posts/h2-usage/</guid>
+      <guid>/posts/h2-usage/</guid>
       <description>&lt;p&gt;h2 features are Very fast, open source, JDBC API, Embedded and server modes; in-memory databases, Browser based Console application, Small footprint: around 2.5 MB jar file size.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Ftp Resume Transfer</title>
-      <link>//localhost:1313/posts/ftp-resume-transfer/</link>
+      <link>/posts/ftp-resume-transfer/</link>
       <pubDate>Tue, 25 Jun 2024 16:28:49 +0800</pubDate>
-      <guid>//localhost:1313/posts/ftp-resume-transfer/</guid>
+      <guid>/posts/ftp-resume-transfer/</guid>
       <description>&lt;p&gt;Resumable transfer significantly improves the efficiency of file transfers,It is very efficient and convenient.Let&amp;rsquo;s try it in java&lt;/p&gt;</description>
     </item>
     <item>
       <title>Maven 项目骨架</title>
-      <link>//localhost:1313/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</link>
+      <link>/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</link>
       <pubDate>Sun, 22 Oct 2023 19:53:33 +0800</pubDate>
-      <guid>//localhost:1313/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</guid>
+      <guid>/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</guid>
       <description>&lt;p&gt;项目初期如何快速搭建符合规范、便于定制的项目结构, 相信这是大家一直在追求的. 所幸 Maven 提供了 archetypes 插件可满足这一诉求.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Clickhouse Tutorial</title>
-      <link>//localhost:1313/posts/clickhouse-tutorial/</link>
+      <link>/posts/clickhouse-tutorial/</link>
       <pubDate>Wed, 18 Oct 2023 20:22:20 +0800</pubDate>
-      <guid>//localhost:1313/posts/clickhouse-tutorial/</guid>
+      <guid>/posts/clickhouse-tutorial/</guid>
       <description>&lt;p&gt;clickhouse 可用于联机分析OLAP的列式数据库管理系统. 定位与OLAP离线数据处理,相比于OLTP在线事务处理,clickhouse更关注于海量数据的计算分析, 关注的是数据的吞吐、查询速度、计算性能等指标.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ElasticSearch Part1</title>
-      <link>//localhost:1313/posts/elasticsearch-part1/</link>
+      <link>/posts/elasticsearch-part1/</link>
       <pubDate>Wed, 13 Sep 2023 19:50:09 +0800</pubDate>
-      <guid>//localhost:1313/posts/elasticsearch-part1/</guid>
+      <guid>/posts/elasticsearch-part1/</guid>
       <description>&lt;p&gt;最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名.&#xA;But, 我认为这证明了他们对人才市场挖掘的雄心.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mybatis Config 雪花算法id，用 redis 管理 workerId</title>
-      <link>//localhost:1313/posts/mybatis-config/</link>
+      <link>/posts/mybatis-config/</link>
       <pubDate>Tue, 06 Jun 2023 20:45:01 +0800</pubDate>
-      <guid>//localhost:1313/posts/mybatis-config/</guid>
+      <guid>/posts/mybatis-config/</guid>
       <description>&lt;p&gt;Mybatis Config 雪花算法id，用 redis 自动管理 workerId。&lt;/p&gt;</description>
     </item>
     <item>
       <title>springcloud 整合 shardingsphere 及 seata</title>
-      <link>//localhost:1313/posts/seata-shardingsphere1/</link>
+      <link>/posts/seata-shardingsphere1/</link>
       <pubDate>Tue, 06 Jun 2023 00:07:05 +0800</pubDate>
-      <guid>//localhost:1313/posts/seata-shardingsphere1/</guid>
+      <guid>/posts/seata-shardingsphere1/</guid>
       <description>&lt;p&gt;springcloud 整合 shardingsphere 及 seata, 为分布式事务的场景提供了十分优雅的解决方案&lt;/p&gt;</description>
     </item>
     <item>
       <title>java 栈溢出问题排查</title>
-      <link>//localhost:1313/posts/java-oom/</link>
+      <link>/posts/java-oom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/java-oom/</guid>
+      <guid>/posts/java-oom/</guid>
       <description>&lt;p&gt;如何排查：java.lang.OutOfMemoryError: unable to create native thread&lt;/p&gt;</description>
     </item>
     <item>
       <title>RocketMQ 必须知道的理论知识</title>
-      <link>//localhost:1313/posts/rocketmqintroduction/</link>
+      <link>/posts/rocketmqintroduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/rocketmqintroduction/</guid>
+      <guid>/posts/rocketmqintroduction/</guid>
       <description>&lt;p&gt;RocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。&lt;/p&gt;</description>
     </item>
   </channel>
