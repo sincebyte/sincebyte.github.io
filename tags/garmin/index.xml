@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Garmin on sincebyte</title>
-    <link>/tags/garmin/</link>
+    <link>//localhost:1313/tags/garmin/</link>
     <description>Recent content in Garmin on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
     <lastBuildDate>Thu, 28 Nov 2024 20:06:57 +0800</lastBuildDate>
-    <atom:link href="/tags/garmin/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/garmin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Garmin 同步心率至 Emacs</title>
-      <link>/posts/garmin-to-emacs/</link>
+      <link>//localhost:1313/posts/garmin-to-emacs/</link>
       <pubDate>Thu, 28 Nov 2024 20:06:57 +0800</pubDate>
-      <guid>/posts/garmin-to-emacs/</guid>
+      <guid>//localhost:1313/posts/garmin-to-emacs/</guid>
       <description>&lt;p&gt;最近买了块佳明 Forerunner 255 运动手表,思考下能不能从佳明手表中获取实时心率推送至emacs中并展示,于是就有了这篇文章。&lt;/p&gt;</description>
     </item>
   </channel>

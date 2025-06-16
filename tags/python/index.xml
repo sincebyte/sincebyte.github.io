@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on sincebyte</title>
-    <link>/tags/python/</link>
+    <link>//localhost:1313/tags/python/</link>
     <description>Recent content in Python on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
     <lastBuildDate>Wed, 07 Aug 2024 15:12:28 +0800</lastBuildDate>
-    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Yolo V8</title>
-      <link>/posts/yolo-v8/</link>
+      <link>//localhost:1313/posts/yolo-v8/</link>
       <pubDate>Wed, 07 Aug 2024 15:12:28 +0800</pubDate>
-      <guid>/posts/yolo-v8/</guid>
+      <guid>//localhost:1313/posts/yolo-v8/</guid>
       <description>&lt;p&gt;Ultralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python Basic Useage Inneoemacs</title>
-      <link>/posts/python-basic-useage-inneoemacs/</link>
+      <link>//localhost:1313/posts/python-basic-useage-inneoemacs/</link>
       <pubDate>Fri, 01 Dec 2023 19:26:59 +0800</pubDate>
-      <guid>/posts/python-basic-useage-inneoemacs/</guid>
+      <guid>//localhost:1313/posts/python-basic-useage-inneoemacs/</guid>
       <description>&lt;p&gt;I don’t use python much, but I still record the useful information.&lt;/p&gt;</description>
     </item>
   </channel>

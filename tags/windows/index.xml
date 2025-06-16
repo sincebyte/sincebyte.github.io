@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows on sincebyte</title>
-    <link>/tags/windows/</link>
+    <link>//localhost:1313/tags/windows/</link>
     <description>Recent content in Windows on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
     <lastBuildDate>Fri, 27 Oct 2023 10:56:16 +0800</lastBuildDate>
-    <atom:link href="/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows Autohotkey Setting</title>
-      <link>/posts/windows-autohotkey-setting/</link>
+      <link>//localhost:1313/posts/windows-autohotkey-setting/</link>
       <pubDate>Fri, 27 Oct 2023 10:56:16 +0800</pubDate>
-      <guid>/posts/windows-autohotkey-setting/</guid>
+      <guid>//localhost:1313/posts/windows-autohotkey-setting/</guid>
       <description>&lt;p&gt;autohotkey 在 windows 上改键的神器. 借此可以实现在 macos 下与 karabiner-Elements 同样的效果.&lt;/p&gt;</description>
     </item>
   </channel>
