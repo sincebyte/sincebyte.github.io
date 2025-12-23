@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Mon, 06 Oct 2025 17:48:10 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Dec 2025 13:46:56 +0800</lastBuildDate>
     <atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aider 编程伙伴</title>
+      <link>/posts/aider_usage/</link>
+      <pubDate>Tue, 23 Dec 2025 13:46:56 +0800</pubDate>
+      <guid>/posts/aider_usage/</guid>
+      <description>&lt;h1 id=&#34;aider-介绍&#34;&gt;Aider 介绍&lt;/h1&gt;&#xA;&lt;p&gt;Aider 是一个基于 AI 的代码助手工具，它允许开发者通过自然语言与 AI 模型交互，直接在代码库中进行代码生成、修改和重构。它支持多种 AI 模型（包括本地和远程 API），并深度集成到开发工作流中，能够显著提升开发效率。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Neoemacs Face</title>
       <link>/posts/neoemacs-face/</link>

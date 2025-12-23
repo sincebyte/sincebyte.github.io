@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Aider 编程伙伴 | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.57484cd811b072d77752028d35397c737aec3ecb32fbe78f427df06ab81d6de74488310ec82ccefd5af8d3e23320569a.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="Aider 介绍
+Aider 是一个基于 AI 的代码助手工具，它允许开发者通过自然语言与 AI 模型交互，直接在代码库中进行代码生成、修改和重构。它支持多种 AI 模型（包括本地和远程 API），并深度集成到开发工作流中，能够显著提升开发效率。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Aider 编程伙伴",
+      "item":"/posts/aider_usage/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/aider_usage/"
+    },
+    "headline": "Aider 编程伙伴 | sincebyte","datePublished": "2025-12-23T13:46:56+08:00",
+    "dateModified": "2025-12-23T13:46:56+08:00",
+    "wordCount":  2684 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003ch1 id=\u0022aider-介绍\u0022\u003eAider 介绍\u003c\/h1\u003e\n\u003cp\u003eAider 是一个基于 AI 的代码助手工具，它允许开发者通过自然语言与 AI 模型交互，直接在代码库中进行代码生成、修改和重构。它支持多种 AI 模型（包括本地和远程 API），并深度集成到开发工作流中，能够显著提升开发效率。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Aider 编程伙伴 | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/aider_usage/" />
+
+
+
+
+<meta property="og:description" content="Aider 介绍
+Aider 是一个基于 AI 的代码助手工具，它允许开发者通过自然语言与 AI 模型交互，直接在代码库中进行代码生成、修改和重构。它支持多种 AI 模型（包括本地和远程 API），并深度集成到开发工作流中，能够显著提升开发效率。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2025-12-23T13:46:56&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2025-12-23T13:46:56&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="emacs" />
+
+<meta property="article:tag" content="ai" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/neoemacs-face/" />
+
+<meta property="og:see_also" content="/posts/rime-input-method/" />
+
+<meta property="og:see_also" content="/posts/garmin-to-emacs/" />
+
+<meta property="og:see_also" content="/posts/emacs-wechat-msg-count/" />
+
+<meta property="og:see_also" content="/posts/emacs-patches/" />
+
+<meta property="og:see_also" content="/posts/yolo-v8/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Aider 编程伙伴</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-12-23</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>6 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h1 id="aider-介绍">Aider 介绍</h1>
+<p>Aider 是一个基于 AI 的代码助手工具，它允许开发者通过自然语言与 AI 模型交互，直接在代码库中进行代码生成、修改和重构。它支持多种 AI 模型（包括本地和远程 API），并深度集成到开发工作流中，能够显著提升开发效率。</p>
+<p><a id="org1b62c73"></a></p>
+<h2 id="核心特性">核心特性</h2>
+<ol>
+<li>自然语言驱动：用简单的英语描述需求，Aider 会自动理解并生成或修改代码。</li>
+<li>上下文感知：Aider 会读取项目中的相关文件（通过 repo map），确保生成的代码符合项目结构和规范。</li>
+<li>交互式审查：所有修改都会通过 ediff 展示，开发者可以逐块审查、接受或拒绝更改。</li>
+<li>版本控制友好：支持自动或手动提交更改，与 Git 无缝集成。</li>
+<li>可配置性强：通过 .aider.conf.yml 文件可以灵活调整各项行为，适应不同项目需求。</li>
+</ol>
+<p><a id="orgc372f0d"></a></p>
+<h2 id="适用场景">适用场景</h2>
+<ul>
+<li>快速实现新功能或修复 bug</li>
+<li>重构现有代码，提升代码质量</li>
+<li>添加测试用例和文档</li>
+<li>学习新代码库或技术栈</li>
+<li>代码审查和优化建议</li>
+</ul>
+<p><a id="org169c3db"></a></p>
+<h2 id="工作流程">工作流程</h2>
+<ol>
+<li>启动 Aider 并配置相关设置</li>
+<li>使用 /add 命令添加需要编辑的文件</li>
+<li>通过 /code 或自然语言描述需求</li>
+<li>在 ediff 中审查 AI 生成的修改</li>
+<li>接受合适的更改并提交到版本控制</li>
+</ol>
+<p><a id="orga7d3406"></a></p>
+<h1 id="aiderconfyml">.aider.conf.yml</h1>
+<p>aider 的配置文件，用于设置默认行为。常用的各配置项说明如下：</p>
+<pre><code># 是否自动提交代码更改（建议关闭，手动控制提交）
+auto-commits: false
+
+# 保留的最大对话历史轮数，避免上下文过长
+max-chat-history: 6
+
+# 每次会话自动读取的只读文件，通常用于项目规范、约定等
+read:
+  - CONVENTIONS.md
+
+# 指定忽略文件列表，语法与 .gitignore 类似
+aiderignore: .aiderignore
+
+# 是否在生成代码后自动运行 lint 检查（如 flake8、eslint 等）
+auto-lint: false
+
+# 是否在生成代码后自动运行测试
+test: false
+
+# 指定使用的 AI 模型，支持本地模型或远程 API 模型
+model: deepseek/deepseek-chat
+</code></pre>
+<p><a id="org5139b26"></a></p>
+<h1 id="aiderignore">.aiderignore</h1>
+<p>指定哪些文件应该被忽略，不会包含在 repo map 中。这有助于：</p>
+<ol>
+<li>排除临时文件、构建产物和依赖目录</li>
+<li>减少 repo map 的大小，提高 AI 处理效率</li>
+<li>避免将敏感信息（如密钥、配置文件）暴露给 AI</li>
+</ol>
+<p><a id="org4dc29ee"></a></p>
+<h1 id="ls">/ls</h1>
+<p>列出 repo map 中的文件列表，该列表应该越聚焦越好。</p>
+<p>Repo map 应只包含与当前任务直接相关的文件，例如正在编辑的源代码、相关配置文件（package.json、build.gradle）、接口定义（.proto、OpenAPI）、关键数据模型、相关测试文件以及项目结构说明（README.md、ARCHITECTURE.md）。</p>
+<p>保持 repo map 聚焦至关重要。AI 模型的上下文长度有限（通常 64K‑128K tokens），过大的 repo map 会占用大量 tokens，减少可用于对话和代码生成的额度，同时可能引入噪声、降低理解准确性、拖慢响应速度，并增加 API 成本。</p>
+<p>最佳实践是：</p>
+<ol>
+<li>使用 `/add` 仅添加必需文件，任务完成后及时用 `/drop` 移除不再需要的文件</li>
+<li>利用 `.aiderignore` 排除构建产物和依赖目录，并定期通过 `/ls` 检查以确保 repo map 保持精简。</li>
+</ol>
+<p><a id="org40892bb"></a></p>
+<h1 id="add">/add</h1>
+<p>将文件添加至 aider。aider 可以查看且可以编辑这些文件。<br>
+添加到 aider 的文件应该尽可能少，这有助于：</p>
+<ol>
+<li>让 AI 聚焦在当前任务上，避免被无关文件分散注意力</li>
+<li>减少输入 token 数量，从而节省宝贵的上下文空间</li>
+<li>提高 AI 的理解和响应准确性</li>
+<li>更有效地利用有限的上下文窗口</li>
+</ol>
+<p><a id="orgd01fdd4"></a></p>
+<h1 id="drop">/drop</h1>
+<p>将文件从 aider 中移除。处理完毕一个问题后，应该及时移除无关的文件，这有助于：</p>
+<ol>
+<li>让 AI 聚焦在当前任务上，避免被无关信息干扰</li>
+<li>减少输入 token 数量，从而节省上下文空间</li>
+<li>提高 AI 的理解和响应准确性</li>
+<li>更有效地利用有限的上下文窗口</li>
+</ol>
+<p><a id="orgc0e01bc"></a></p>
+<h1 id="context">/context</h1>
+<p>列出当前 session 的上下文，包括：</p>
+<ul>
+<li>只读文件列表</li>
+<li>可编辑文件列表</li>
+</ul>
+<p><a id="org7f8a012"></a></p>
+<h1 id="token">/token</h1>
+<p>列出 token 信息，包括：</p>
+<ul>
+<li>输入的基础 token 量（repo map token、read token、add files token）</li>
+<li>当前 session 已使用的 token 量</li>
+<li>当前 session 剩余的 token 量（上下文信息在此范围内不会被截断）</li>
+<li>当前 session 上下文的最大 token 容量（DeepSeek 模型通常支持 128K 或 64K 上下文长度）</li>
+</ul>
+<p><a id="orgd6d1bbb"></a></p>
+<h1 id="ask">/ask</h1>
+<p>向 AI 提问，但不生成或修改代码。适用于：</p>
+<ol>
+<li>询问项目相关的概念、设计思路或最佳实践</li>
+<li>获取关于代码库的解释或文档说明</li>
+<li>讨论实现方案而不立即执行</li>
+<li>寻求调试建议或问题分析</li>
+</ol>
+<p><a id="orga978de3"></a></p>
+<h1 id="code">/code</h1>
+<p>指示 AI 生成或修改代码。这是 aider 的核心功能，适用于：</p>
+<ol>
+<li>实现新功能或修复 bug</li>
+<li>重构现有代码</li>
+<li>添加测试用例</li>
+<li>编写文档字符串或注释</li>
+</ol>
+<p>使用 /code 时，应尽可能明确地描述需求，并指定要修改的文件。</p>
+<p><a id="orga578efa"></a></p>
+<h1 id="commit">/commit</h1>
+<p>提交当前所有已暂存的更改。aider 会自动生成提交信息，但你可以：</p>
+<ol>
+<li>使用 /commit “自定义提交信息” 来指定信息</li>
+<li>在提交前查看 diff，确保更改符合预期</li>
+<li>结合 auto-commits: false 配置，实现手动控制提交</li>
+</ol>
+<p><a id="org2027000"></a></p>
+<h1 id="web">/web</h1>
+<p>在浏览器中打开 aider 的 Web 界面（如果支持）。这通常用于：</p>
+<ol>
+<li>查看更丰富的交互界面</li>
+<li>使用图形化工具管理会话</li>
+<li>访问在线文档或额外功能</li>
+</ol>
+<p><a id="orgda08265"></a></p>
+<h1 id="clear">/clear</h1>
+<p>清除当前的对话历史，但保留已添加到会话中的文件。这有助于：</p>
+<ol>
+<li>重置 AI 的上下文，避免历史对话干扰新任务</li>
+<li>减少 token 使用量，释放上下文空间</li>
+<li>开始一个全新的对话分支，同时保持对相同文件的访问</li>
+</ol>
+<p><a id="org0f4e423"></a></p>
+<h1 id="reset">/reset</h1>
+<p>完全重置当前会话，包括：</p>
+<ol>
+<li>清除所有对话历史</li>
+<li>移除所有已添加的文件（回到初始状态）</li>
+<li>重置 token 计数器</li>
+</ol>
+<p>适用于需要从头开始全新任务的情况。</p>
+<p><a id="orgc99c28d"></a></p>
+<h1 id="ediff">ediff</h1>
+<p>aider 在修改文件后会自动启动 ediff 来展示改动差异。ediff 是 Emacs 内置的差异对比工具，可以让你逐块审查、接受或拒绝 AI 所做的修改。</p>
+<p><a id="orge03fffe"></a></p>
+<h2 id="基本操作">基本操作</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">按键</th>
+<th scope="col" class="org-left">功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">?</td>
+<td class="org-left">显示帮助信息，列出所有可用命令</td>
+</tr>
+<tr>
+<td class="org-left">q</td>
+<td class="org-left">退出 ediff 会话（不会保存任何更改）</td>
+</tr>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">将当前差异块从缓冲区 A（原始版本）复制到缓冲区 B（修改版本）</td>
+</tr>
+<tr>
+<td class="org-left">ra</td>
+<td class="org-left">撤销上一次对缓冲区 A 的操作</td>
+</tr>
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">将当前差异块从缓冲区 B（修改版本）复制到缓冲区 A（原始版本）</td>
+</tr>
+<tr>
+<td class="org-left">rb</td>
+<td class="org-left">撤销上一次对缓冲区 B 的操作</td>
+</tr>
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">跳转到下一个差异块</td>
+</tr>
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">跳转到上一个差异块</td>
+</tr>
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">垂直分割窗口查看差异（默认）</td>
+</tr>
+<tr>
+<td class="org-left">h</td>
+<td class="org-left">水平分割窗口查看差异</td>
+</tr>
+<tr>
+<td class="org-left">\</td>
+<td class="org-left">将当前差异块在两侧缓冲区之间交换</td>
+</tr>
+<tr>
+<td class="org-left">*</td>
+<td class="org-left">将当前差异块标记为“已解决”，后续跳过该块</td>
+</tr>
+<tr>
+<td class="org-left">D</td>
+<td class="org-left">显示当前差异块的详细差异信息</td>
+</tr>
+<tr>
+<td class="org-left">E</td>
+<td class="org-left">进入编辑模式，可以直接在缓冲区中修改内容</td>
+</tr>
+<tr>
+<td class="org-left">!</td>
+<td class="org-left">执行外部 diff 命令并刷新差异显示</td>
+</tr>
+</tbody>
+</table>
+<p><a id="orgaea15b7"></a></p>
+<h2 id="工作流程建议">工作流程建议</h2>
+<ol>
+<li>
+<p>启动时：aider 完成代码修改后会自动弹出 ediff 窗口，通常分为三个区域：</p>
+<ul>
+<li>左侧：原始文件（缓冲区 A）</li>
+<li>右侧：修改后的文件（缓冲区 B）</li>
+<li>底部：控制面板（显示操作提示）</li>
+</ul>
+</li>
+<li>
+<p>审查差异：</p>
+<ul>
+<li>使用 `n` 和 `p` 在各个差异块之间导航</li>
+<li>仔细阅读每个差异块，确保 AI 的修改符合预期</li>
+<li>注意是否有不必要或错误的更改</li>
+</ul>
+</li>
+<li>
+<p>接受或拒绝修改：</p>
+<ul>
+<li>如果接受 AI 的修改，不用做任何处理，跳过代码块</li>
+<li>如果拒绝修改，按 `a` 将左侧内容复制到右侧（保持原样）</li>
+<li>也可以直接按 `q` 退出，接受全部修改</li>
+</ul>
+</li>
+</ol>
+<p><a id="org3c669f6"></a></p>
+<h1 id="aidermacs">aidermacs</h1>
+<p>aidermacs 是一个专为 Emacs 设计的 Aider 前端，它提供了更便捷的交互界面和快捷键，让开发者能够在 Emacs 中更高效地使用 Aider 进行 AI 辅助编程。通过 aidermacs，你可以快速启动 Aider 会话、管理文件、执行代码生成任务，而无需离开 Emacs 环境。</p>
+<p><a id="orgbe94203"></a></p>
+<h2 id="主要功能">主要功能</h2>
+<ol>
+<li>快速启动：通过快捷键（如 `SPC d`）一键打开 Aider 交互菜单</li>
+<li>会话管理：轻松创建、切换和关闭 Aider 会话</li>
+<li>配置集成：支持在 Emacs 配置中直接设置 Aider 的各项参数</li>
+<li>多后端支持：可选择使用 vterm、eshell 等终端后端运行 Aider</li>
+<li>本地化支持：可设置聊天语言（如中文），提升交互体验</li>
+</ol>
+<p><a id="orgd5257da"></a></p>
+<h2 id="配置说明">配置说明</h2>
+<p>以下是一个典型的 aidermacs 配置示例，展示了如何设置快捷键、禁用自动提交、指定中文聊天语言等：</p>
+<pre><code>(map! :nv  &quot;SPC d&quot;    'aidermacs-transient-menu              )
+
+(use-package aidermacs
+  ;; :bind ((&quot;SPC d&quot; . aidermacs-transient-menu))
+  :config
+  (setq aidermacs-auto-commits nil)
+  (setq aidermacs-extra-args (list &quot;--chat-language&quot; &quot;zh-cn&quot;))
+  (setq aidermacs-exit-kills-buffer t)
+  (setq aidermacs-backend 'vterm)
+  :custom
+  ; See the Configuration section below
+  (aidermacs-default-chat-mode 'architect)
+  (aidermacs-default-model &quot;deepseek/deepseek-chat&quot;))
+</code></pre>
+
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Emacs</a>
+    
+    <a href="../../tags/ai/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Ai</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/neoemacs-face/" class="block">Neoemacs Face</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#核心特性">核心特性</a></li>
+    <li><a href="#适用场景">适用场景</a></li>
+    <li><a href="#工作流程">工作流程</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#基本操作">基本操作</a></li>
+    <li><a href="#工作流程建议">工作流程建议</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#主要功能">主要功能</a></li>
+    <li><a href="#配置说明">配置说明</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/neoemacs-face/" class="no-underline">Neoemacs Face</a>
+          <br />
+        
+          <a href="../../posts/rime-input-method/" class="no-underline">Rime Input Method</a>
+          <br />
+        
+          <a href="../../posts/garmin-to-emacs/" class="no-underline">Garmin 同步心率至 Emacs</a>
+          <br />
+        
+          <a href="../../posts/emacs-wechat-msg-count/" class="no-underline">emacs 同步微信消息数量</a>
+          <br />
+        
+          <a href="../../posts/emacs-patches/" class="no-underline">Emacs Patches</a>
+          <br />
+        
+          <a href="../../posts/yolo-v8/" class="no-underline">Yolo V8</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
