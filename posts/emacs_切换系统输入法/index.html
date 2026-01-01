@@ -111,7 +111,7 @@ hammerspoon
     },
     "headline": "Emacs_切换系统输入法 | sincebyte","datePublished": "2026-01-01T21:14:51+08:00",
     "dateModified": "2026-01-01T21:14:51+08:00",
-    "wordCount":  655 ,
+    "wordCount":  666 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -120,7 +120,7 @@ hammerspoon
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003e一直使用emacs rime插件，作为一款在emacs中内置的输入法一直表现良好，不过如果可以使用系统的输入法，则输入法的行为和UI将更加协调一致。\u003c\/p\u003e\n\u003cp\u003e\u003ca id=\u0022org812bd63\u0022\u003e\u003c\/a\u003e\u003c\/p\u003e\n\u003ch2 id=\u0022hammerspoon\u0022\u003ehammerspoon\u003c\/h2\u003e\n\u003cp\u003e借用hammerspoon切换输入法的能力，可以让我们实现。\u003cbr\u003e\n在hammerspoon使用\u003c\/p\u003e"
+    "description": "\u003cp\u003e一直使用emacs rime插件，作为一款在emacs中内置的输入法一直表现良好，不过如果可以使用系统的输入法，则输入法的行为和UI将更加协调一致。\u003c\/p\u003e\n\u003cp\u003e\u003ca id=\u0022org31d5015\u0022\u003e\u003c\/a\u003e\u003c\/p\u003e\n\u003ch2 id=\u0022hammerspoon\u0022\u003ehammerspoon\u003c\/h2\u003e\n\u003cp\u003e借用hammerspoon切换输入法的能力，可以让我们实现。\u003cbr\u003e\n在hammerspoon使用\u003c\/p\u003e"
 }
 </script><meta property="og:title" content="Emacs_切换系统输入法 | sincebyte" />
 <meta property="og:type" content="article" />
@@ -314,7 +314,7 @@ hammerspoon
   
 
   <p>一直使用emacs rime插件，作为一款在emacs中内置的输入法一直表现良好，不过如果可以使用系统的输入法，则输入法的行为和UI将更加协调一致。</p>
-<p><a id="org812bd63"></a></p>
+<p><a id="org31d5015"></a></p>
 <h2 id="hammerspoon">hammerspoon</h2>
 <p>借用hammerspoon切换输入法的能力，可以让我们实现。<br>
 在hammerspoon使用</p>
@@ -324,98 +324,84 @@ hammerspoon
 </ul>
 <p>配置hammerspoon进行快捷键转换</p>
 <ul>
-<li>
-<p>在Emacs中 C-; -&gt; shift-space</p>
-</li>
-<li>
-<p>在其他应用中 C-; -&gt; C-z</p>
-<p>hs.hotkey.bind({&ldquo;ctrl&rdquo;}, &ldquo;;&rdquo;, function()
-local win = hs.window.frontmostWindow()
-if win then
-local appName = win:application():name()
-if appName == &ldquo;Emacs&rdquo; then
-hs.eventtap.keyStroke({&ldquo;shift&rdquo;}, &ldquo;space&rdquo;)
-else
-hs.eventtap.keyStroke({&ldquo;ctrl&rdquo;}, &ldquo;z&rdquo;)
-end
-end
-end)</p>
-</li>
+<li>在Emacs中 C-; -&gt; shift-space</li>
+<li>在其他应用中 C-; -&gt; C-z</li>
 </ul>
-<p><a id="org48dea21"></a></p>
+<p>配置：</p>
+<pre><code>hs.hotkey.bind({&quot;ctrl&quot;}, &quot;;&quot;, function()
+    local win = hs.window.frontmostWindow()
+    if win then
+        local appName = win:application():name()
+        if appName == &quot;Emacs&quot; then
+            hs.eventtap.keyStroke({&quot;shift&quot;}, &quot;space&quot;)
+        else
+            hs.eventtap.keyStroke({&quot;ctrl&quot;}, &quot;z&quot;)
+        end
+    end
+end)
+</code></pre>
+<p><a id="org891f213"></a></p>
 <h2 id="rime-config">rime config</h2>
 <ul>
-<li>
-<p>配置不显示中英文弹框</p>
-</li>
-<li>
-<p>配置 ; 选择第二个词</p>
-</li>
-<li>
-<p>配置 C-p 选择下一个候选项</p>
-</li>
-<li>
-<p>配置 C-n 选择上一个候选项</p>
-</li>
-<li>
-<p>配置 C-h 删除上一个单词</p>
-</li>
-<li>
-<p>配置 Shift+space 选择切换中英输入法</p>
-</li>
-<li>
-<p>配置每次切换后都重置输入法, reset: false 则会记住历史中英模式。因为emacs中经常会切换至minibuffer ，而minibuffer以英文输入情况居多，据切换后强制设置为英文模式.</p>
-<h1 id="options-always--never--appropriate">options: always | never | appropriate</h1>
-<p>show_notifications_when: never</p>
-<h1 id="快捷键">快捷键</h1>
-<p>key_binder:
-bindings:
-# Option/Alt + ←/→ 切换光标至下/上一个拼音
-- { when: composing, accept: &ldquo;;&rdquo;, send: &ldquo;2&rdquo; }
-- { when: composing, accept: Control+p, send: Left }
-- { when: composing, accept: Control+n, send: Right }
-- { when: composing, accept: Control+h, send: BackSpace }
-- { when: always, accept: Shift+space, toggle: ascii_mode }</p>
-<p>patch:
-switches:
-- name: ascii_mode
-reset: true</p>
-</li>
+<li>配置不显示中英文弹框</li>
+<li>配置 ; 选择第二个词</li>
+<li>配置 C-p 选择下一个候选项</li>
+<li>配置 C-n 选择上一个候选项</li>
+<li>配置 C-h 删除上一个单词</li>
+<li>配置 Shift+space 选择切换中英输入法</li>
+<li>配置每次切换后都重置输入法, reset: false 则会记住历史中英模式。因为emacs中经常会切换至minibuffer ，而minibuffer以英文输入情况居多，据切换后强制设置为英文模式.</li>
 </ul>
-<p><a id="orgd9d0151"></a></p>
+<p>配置：</p>
+<pre><code># options: always | never | appropriate
+show_notifications_when: never
+
+# 快捷键
+key_binder:
+  bindings:
+    # Option/Alt + ←/→ 切换光标至下/上一个拼音
+    - { when: composing, accept: &quot;;&quot;, send: &quot;2&quot; }
+    - { when: composing, accept: Control+p, send: Left }
+    - { when: composing, accept: Control+n, send: Right }
+    - { when: composing, accept: Control+h, send: BackSpace }
+    - { when: always, accept: Shift+space, toggle: ascii_mode }
+    
+patch:
+  switches:
+    - name: ascii_mode
+      reset: true
+</code></pre>
+<p><a id="orgaaaf4a2"></a></p>
 <h2 id="emacs-config">emacs config</h2>
 <ul>
-<li>
-<p>配置切换输入法的函数</p>
-</li>
-<li>
-<p>针对rime的entry和exit切换输入法</p>
-</li>
-<li>
-<p>针对minibuffer的setup和exit切换输入法</p>
-<p>(defun my/mac-switch-to-abc ()
-(interactive)
-(start-process
-&ldquo;hs-abc&rdquo;
-nil
-&ldquo;hs&rdquo;
-&ldquo;-c&rdquo;
-&ldquo;hs.keycodes.currentSourceID(&quot;com.apple.keylayout.ABC&quot;)&rdquo;))</p>
-<p>(defun my/mac-switch-to-rime ()
-(interactive)
-(start-process
-&ldquo;hs-rime&rdquo;
-nil
-&ldquo;hs&rdquo;
-&ldquo;-c&rdquo;
-&ldquo;hs.keycodes.currentSourceID(&quot;im.rime.inputmethod.Squirrel.Hans&quot;)&rdquo;))</p>
-<p>(with-eval-after-load &rsquo;evil
-(add-hook &rsquo;evil-insert-state-entry-hook #&lsquo;my/mac-switch-to-rime)
-(add-hook &rsquo;evil-insert-state-exit-hook #&lsquo;my/mac-switch-to-abc)
-(add-hook &lsquo;minibuffer-setup-hook #&lsquo;my/mac-switch-to-rime)
-(add-hook &lsquo;minibuffer-exit-hook #&lsquo;my/mac-switch-to-abc))</p>
-</li>
+<li>配置切换输入法的函数</li>
+<li>针对rime的entry和exit切换输入法</li>
+<li>针对minibuffer的setup和exit切换输入法</li>
 </ul>
+<p>配置：</p>
+<pre><code>(defun my/mac-switch-to-abc ()
+  (interactive)
+  (start-process
+   &quot;hs-abc&quot;
+   nil
+   &quot;hs&quot;
+   &quot;-c&quot;
+   &quot;hs.keycodes.currentSourceID(\&quot;com.apple.keylayout.ABC\&quot;)&quot;))
+
+(defun my/mac-switch-to-rime ()
+  (interactive)
+  (start-process
+   &quot;hs-rime&quot;
+   nil
+   &quot;hs&quot;
+   &quot;-c&quot;
+   &quot;hs.keycodes.currentSourceID(\&quot;im.rime.inputmethod.Squirrel.Hans\&quot;)&quot;))
+
+(with-eval-after-load 'evil
+  (add-hook 'evil-insert-state-entry-hook #'my/mac-switch-to-rime)
+  (add-hook 'evil-insert-state-exit-hook #'my/mac-switch-to-abc)
+  (add-hook 'minibuffer-setup-hook #'my/mac-switch-to-rime)
+  (add-hook 'minibuffer-exit-hook #'my/mac-switch-to-abc))
+</code></pre>
 
 </article>
 
@@ -492,9 +478,6 @@ nil
   <ul>
     <li><a href="#hammerspoon">hammerspoon</a></li>
     <li><a href="#rime-config">rime config</a></li>
-  </ul>
-
-  <ul>
     <li><a href="#emacs-config">emacs config</a></li>
   </ul>
 </nav>
