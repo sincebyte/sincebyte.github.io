@@ -277,7 +277,7 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
   <h1 class="mb-4">Agent Shell Cursor Agent Cli</h1>
@@ -307,7 +307,7 @@
 
   <p>A lightweight workflow for using <a href="https://github.com/xenodium/agent-shell">agent-shell</a> in Emacs together with Cursor’s agent CLI.</p>
 <p><a id="orgedb92eb"></a></p>
-<h1 id="background-why-i-changed-my-workflow">Background: why I changed my workflow</h1>
+<h2 id="background-why-i-changed-my-workflow">Background: why I changed my workflow</h2>
 <p>For a long time, my flow was fragmented:</p>
 <ul>
 <li>Write and review code in Emacs.</li>
@@ -320,7 +320,7 @@ I wanted one loop: think, ask, edit, verify, commit, all from Emacs.<br>
 This setup is my current answer.</p>
 <p><img src="pic202604005183.png" alt="img"></p>
 <p><a id="org7e02d21"></a></p>
-<h1 id="why-this-setup">Why this setup</h1>
+<h2 id="why-this-setup">Why this setup</h2>
 <p>I want three things at the same time:</p>
 <ol>
 <li>Keep Emacs as my primary editor.</li>
@@ -330,7 +330,7 @@ This setup is my current answer.</p>
 <p>Agent Shell makes this ergonomic by letting Emacs call external agents cleanly.<br>
 Cursor provides a strong coding agent and command-line integration.</p>
 <p><a id="orgd7764a2"></a></p>
-<h1 id="before-vs-after">Before vs after</h1>
+<h2 id="before-vs-after">Before vs after</h2>
 <p>Before:</p>
 <ul>
 <li>Frequent editor switching.</li>
@@ -344,7 +344,7 @@ Cursor provides a strong coding agent and command-line integration.</p>
 <li>Better continuity between notes (Org) and implementation.</li>
 </ul>
 <p><a id="org8d14ae8"></a></p>
-<h1 id="what-is-agent-shell">What is Agent Shell</h1>
+<h2 id="what-is-agent-shell">What is Agent Shell</h2>
 <p><a href="https://github.com/xenodium/agent-shell">Agent Shell</a> is an Emacs package that integrates shell-based coding agents into your editor workflow.<br>
 Instead of switching apps, you can drive agent interactions from Emacs while still using your own buffers, keybindings, and org-based notes.</p>
 <p>At a high level, Agent Shell does two useful things:</p>
@@ -353,7 +353,7 @@ Instead of switching apps, you can drive agent interactions from Emacs while sti
 <li>Makes it easy to plug in providers (such as Cursor agent) with minimal glue code.</li>
 </ul>
 <p><a id="org9996b14"></a></p>
-<h1 id="install-cursor-cli-and-acp-bridge">Install Cursor CLI and ACP bridge</h1>
+<h2 id="install-cursor-cli-and-acp-bridge">Install Cursor CLI and ACP bridge</h2>
 <p>First, ensure both <code>cursor-agent</code> and <code>cursor-agent-acp</code> are available in your shell:</p>
 <pre><code>10  # Install Cursor CLI
 11  curl https://cursor.com/install -fsSL | bash
@@ -366,14 +366,14 @@ Instead of switching apps, you can drive agent interactions from Emacs while sti
 </code></pre>
 <p>If your shell cannot find these commands in Emacs, make sure Emacs loads the same PATH as your terminal.</p>
 <p><a id="org19f58da"></a></p>
-<h1 id="minimal-emacs-configuration">Minimal Emacs configuration</h1>
+<h2 id="minimal-emacs-configuration">Minimal Emacs configuration</h2>
 <p>For large repositories, startup/handshake can take longer than default timeouts.<br>
 This single setting usually fixes most “it hangs on big project” issues:</p>
 <pre><code>(setq agent-shell-cursor-acp-command '(&quot;cursor-agent-acp&quot; &quot;-t&quot; &quot;90000&quot;))
 </code></pre>
 <p>You can start here and keep everything else default.</p>
 <p><a id="org361fc3f"></a></p>
-<h1 id="optional-lsp-backed-mcp-language-server-serena">Optional: LSP-backed MCP language server (Serena)</h1>
+<h2 id="optional-lsp-backed-mcp-language-server-serena">Optional: LSP-backed MCP language server (Serena)</h2>
 <p>If you want stronger code intelligence via MCP + LSP, Serena is a practical option:<br>
 <a href="https://oraios.github.io/serena/02-usage/050_configuration.html#modes">Serena configuration reference</a></p>
 <p>Important notes from my setup:</p>
@@ -423,7 +423,7 @@ This single setting usually fixes most “it hangs on big project” issues:</p>
 }
 </code></pre>
 <p><a id="org15f6b82"></a></p>
-<h1 id="day-to-day-workflow">Day-to-day workflow</h1>
+<h2 id="day-to-day-workflow">Day-to-day workflow</h2>
 <p>My typical loop looks like this:</p>
 <ol>
 <li>Open project in Emacs.</li>
@@ -434,7 +434,7 @@ This single setting usually fixes most “it hangs on big project” issues:</p>
 </ol>
 <p>This gives you agent assistance without giving up your Emacs-centric workflow.</p>
 <p><a id="orgb548672"></a></p>
-<h1 id="prompt-patterns-that-work-well">Prompt patterns that work well</h1>
+<h2 id="prompt-patterns-that-work-well">Prompt patterns that work well</h2>
 <p>I get the best results when prompts are narrow and concrete.<br>
 For example:</p>
 <ul>
@@ -444,7 +444,7 @@ For example:</p>
 </ul>
 <p>Broad prompts still work, but focused prompts reduce back-and-forth.</p>
 <p><a id="orge750949"></a></p>
-<h1 id="troubleshooting">Troubleshooting</h1>
+<h2 id="troubleshooting">Troubleshooting</h2>
 <ul>
 <li><strong>Command not found in Emacs</strong>: check PATH inheritance between shell and Emacs.</li>
 <li><strong>Timeout on large repo</strong>: increase ACP timeout (for example, <code>-t 90000</code> or higher).</li>
@@ -452,7 +452,7 @@ For example:</p>
 <li><strong>Serena install fails</strong>: retry with proxy settings and confirm git can reach GitHub.</li>
 </ul>
 <p><a id="org80ebb6c"></a></p>
-<h1 id="final-thoughts">Final thoughts</h1>
+<h2 id="final-thoughts">Final thoughts</h2>
 <p>Agent Shell + Cursor is a clean combination if you prefer Emacs for writing and review, but still want a modern coding agent in your daily flow.<br>
 Start with the minimal config first, then add MCP/LSP components only when you need deeper project intelligence.</p>
 <p>If you are already comfortable in Emacs, this approach feels natural quickly.<br>
@@ -515,11 +515,49 @@ The key idea is not “replace your editor”, but “upgrade your existing loop
 
     </div>
     
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#background-why-i-changed-my-workflow">Background: why I changed my workflow</a></li>
+    <li><a href="#why-this-setup">Why this setup</a></li>
+    <li><a href="#before-vs-after">Before vs after</a></li>
+    <li><a href="#what-is-agent-shell">What is Agent Shell</a></li>
+    <li><a href="#install-cursor-cli-and-acp-bridge">Install Cursor CLI and ACP bridge</a></li>
+    <li><a href="#minimal-emacs-configuration">Minimal Emacs configuration</a></li>
+    <li><a href="#optional-lsp-backed-mcp-language-server-serena">Optional: LSP-backed MCP language server (Serena)</a></li>
+    <li><a href="#day-to-day-workflow">Day-to-day workflow</a></li>
+    <li><a href="#prompt-patterns-that-work-well">Prompt patterns that work well</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+    <li><a href="#final-thoughts">Final thoughts</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
 
     
     
       <div
-        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
       >
         <h3>See Also</h3>
         
