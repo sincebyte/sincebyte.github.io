@@ -15,7 +15,7 @@
       <link>/posts/agent-shell-cursor-agent-cli/</link>
       <pubDate>Thu, 02 Apr 2026 20:19:14 +0800</pubDate>
       <guid>/posts/agent-shell-cursor-agent-cli/</guid>
-      <description>&lt;p&gt;A lightweight workflow for using &lt;a href=&#34;https://github.com/xenodium/agent-shell&#34;&gt;agent-shell&lt;/a&gt; in Emacs together with Cursor’s agent CLI.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a id=&#34;orgedb92eb&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;background-why-i-changed-my-workflow-----attach&#34;&gt;Background: why I changed my workflow     :ATTACH:&lt;/h1&gt;&#xA;&lt;p&gt;For a long time, my flow was fragmented:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Write and review code in Emacs.&lt;/li&gt;&#xA;&lt;li&gt;Jump to another tool for AI-assisted coding.&lt;/li&gt;&#xA;&lt;li&gt;Come back to Emacs for final cleanup.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The goal is simple: keep editing in Emacs while delegating coding tasks to Cursor’s agent from the same environment.&lt;/p&gt;&#xA;&lt;p&gt;That constant context switching added friction.&lt;br&gt;&#xA;I wanted one loop: think, ask, edit, verify, commit, all from Emacs.&lt;br&gt;&#xA;This setup is my current answer.&lt;/p&gt;</description>
+      <description>&lt;p&gt;A lightweight workflow for using &lt;a href=&#34;https://github.com/xenodium/agent-shell&#34;&gt;agent-shell&lt;/a&gt; in Emacs together with Cursor’s agent CLI.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Aider 编程伙伴</title>
