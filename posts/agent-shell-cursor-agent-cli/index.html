@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Agent Shell Cursor Agent Cli | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.57484cd811b072d77752028d35397c737aec3ecb32fbe78f427df06ab81d6de74488310ec82ccefd5af8d3e23320569a.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="A lightweight workflow for using agent-shell in Emacs together with Cursor’s agent CLI.
+
+Background: why I changed my workflow     :ATTACH:
+For a long time, my flow was fragmented:
+
+Write and review code in Emacs.
+Jump to another tool for AI-assisted coding.
+Come back to Emacs for final cleanup.
+
+The goal is simple: keep editing in Emacs while delegating coding tasks to Cursor’s agent from the same environment.
+That constant context switching added friction.
+I wanted one loop: think, ask, edit, verify, commit, all from Emacs.
+This setup is my current answer.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Agent Shell Cursor Agent Cli",
+      "item":"/posts/agent-shell-cursor-agent-cli/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/agent-shell-cursor-agent-cli/"
+    },
+    "headline": "Agent Shell Cursor Agent Cli | sincebyte","datePublished": "2026-04-02T20:19:14+08:00",
+    "dateModified": "2026-04-02T20:19:14+08:00",
+    "wordCount":  756 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eA lightweight workflow for using \u003ca href=\u0022https:\/\/github.com\/xenodium\/agent-shell\u0022\u003eagent-shell\u003c\/a\u003e in Emacs together with Cursor’s agent CLI.\u003c\/p\u003e\n\u003cp\u003e\u003ca id=\u0022orgedb92eb\u0022\u003e\u003c\/a\u003e\u003c\/p\u003e\n\u003ch1 id=\u0022background-why-i-changed-my-workflow-----attach\u0022\u003eBackground: why I changed my workflow     :ATTACH:\u003c\/h1\u003e\n\u003cp\u003eFor a long time, my flow was fragmented:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003eWrite and review code in Emacs.\u003c\/li\u003e\n\u003cli\u003eJump to another tool for AI-assisted coding.\u003c\/li\u003e\n\u003cli\u003eCome back to Emacs for final cleanup.\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003eThe goal is simple: keep editing in Emacs while delegating coding tasks to Cursor’s agent from the same environment.\u003c\/p\u003e\n\u003cp\u003eThat constant context switching added friction.\u003cbr\u003e\nI wanted one loop: think, ask, edit, verify, commit, all from Emacs.\u003cbr\u003e\nThis setup is my current answer.\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Agent Shell Cursor Agent Cli | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/agent-shell-cursor-agent-cli/" />
+
+
+
+
+<meta property="og:description" content="A lightweight workflow for using agent-shell in Emacs together with Cursor’s agent CLI.
+
+Background: why I changed my workflow     :ATTACH:
+For a long time, my flow was fragmented:
+
+Write and review code in Emacs.
+Jump to another tool for AI-assisted coding.
+Come back to Emacs for final cleanup.
+
+The goal is simple: keep editing in Emacs while delegating coding tasks to Cursor’s agent from the same environment.
+That constant context switching added friction.
+I wanted one loop: think, ask, edit, verify, commit, all from Emacs.
+This setup is my current answer." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-04-02T20:19:14&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-04-02T20:19:14&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="emacs" />
+
+<meta property="article:tag" content="ai" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/aider_usage/" />
+
+<meta property="og:see_also" content="/posts/emacs_%E5%88%87%E6%8D%A2%E7%B3%BB%E7%BB%9F%E8%BE%93%E5%85%A5%E6%B3%95/" />
+
+<meta property="og:see_also" content="/posts/neoemacs-face/" />
+
+<meta property="og:see_also" content="/posts/rime-input-method/" />
+
+<meta property="og:see_also" content="/posts/garmin-to-emacs/" />
+
+<meta property="og:see_also" content="/posts/emacs-wechat-msg-count/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Agent Shell Cursor Agent Cli</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2026-04-02</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>A lightweight workflow for using <a href="https://github.com/xenodium/agent-shell">agent-shell</a> in Emacs together with Cursor’s agent CLI.</p>
+<p><a id="orgedb92eb"></a></p>
+<h1 id="background-why-i-changed-my-workflow-----attach">Background: why I changed my workflow     :ATTACH:</h1>
+<p>For a long time, my flow was fragmented:</p>
+<ul>
+<li>Write and review code in Emacs.</li>
+<li>Jump to another tool for AI-assisted coding.</li>
+<li>Come back to Emacs for final cleanup.</li>
+</ul>
+<p>The goal is simple: keep editing in Emacs while delegating coding tasks to Cursor’s agent from the same environment.</p>
+<p>That constant context switching added friction.<br>
+I wanted one loop: think, ask, edit, verify, commit, all from Emacs.<br>
+This setup is my current answer.</p>
+<p><img src="3cc3f6-6d56-45aa-a087-f0e716180abe/pic202604005183.png" alt="img"></p>
+<p><a id="org7e02d21"></a></p>
+<h1 id="why-this-setup">Why this setup</h1>
+<p>I want three things at the same time:</p>
+<ol>
+<li>Keep Emacs as my primary editor.</li>
+<li>Use an AI coding agent from inside my normal terminal/editor flow.</li>
+<li>Reuse project context and tooling (git, shell, language servers, MCP).</li>
+</ol>
+<p>Agent Shell makes this ergonomic by letting Emacs call external agents cleanly.<br>
+Cursor provides a strong coding agent and command-line integration.</p>
+<p><a id="orgd7764a2"></a></p>
+<h1 id="before-vs-after">Before vs after</h1>
+<p>Before:</p>
+<ul>
+<li>Frequent editor switching.</li>
+<li>Lost momentum on small refactors.</li>
+<li>Extra mental overhead to keep context synchronized.</li>
+</ul>
+<p>After:</p>
+<ul>
+<li>One editor-centered workflow.</li>
+<li>Faster iteration on repetitive code tasks.</li>
+<li>Better continuity between notes (Org) and implementation.</li>
+</ul>
+<p><a id="org8d14ae8"></a></p>
+<h1 id="what-is-agent-shell">What is Agent Shell</h1>
+<p><a href="https://github.com/xenodium/agent-shell">Agent Shell</a> is an Emacs package that integrates shell-based coding agents into your editor workflow.<br>
+Instead of switching apps, you can drive agent interactions from Emacs while still using your own buffers, keybindings, and org-based notes.</p>
+<p>At a high level, Agent Shell does two useful things:</p>
+<ul>
+<li>Normalizes how Emacs talks to external agents.</li>
+<li>Makes it easy to plug in providers (such as Cursor agent) with minimal glue code.</li>
+</ul>
+<p><a id="org9996b14"></a></p>
+<h1 id="install-cursor-cli-and-acp-bridge">Install Cursor CLI and ACP bridge</h1>
+<p>First, ensure both <code>cursor-agent</code> and <code>cursor-agent-acp</code> are available in your shell:</p>
+<pre><code>10  # Install Cursor CLI
+11  curl https://cursor.com/install -fsSL | bash
+12  
+13  # Authenticate with your Cursor account
+14  cursor-agent login
+15  
+16  # Install cursor-agent-acp
+17  npm install -g @blowmage/cursor-agent-acp
+</code></pre>
+<p>If your shell cannot find these commands in Emacs, make sure Emacs loads the same PATH as your terminal.</p>
+<p><a id="org19f58da"></a></p>
+<h1 id="minimal-emacs-configuration">Minimal Emacs configuration</h1>
+<p>For large repositories, startup/handshake can take longer than default timeouts.<br>
+This single setting usually fixes most “it hangs on big project” issues:</p>
+<pre><code>(setq agent-shell-cursor-acp-command '(&quot;cursor-agent-acp&quot; &quot;-t&quot; &quot;90000&quot;))
+</code></pre>
+<p>You can start here and keep everything else default.</p>
+<p><a id="org361fc3f"></a></p>
+<h1 id="optional-lsp-backed-mcp-language-server-serena-----attach">Optional: LSP-backed MCP language server (Serena)     :ATTACH:</h1>
+<p>If you want stronger code intelligence via MCP + LSP, Serena is a practical option:<br>
+<a href="https://oraios.github.io/serena/02-usage/050_configuration.html#modes">Serena configuration reference</a></p>
+<p>Important notes from my setup:</p>
+<ul>
+<li>Run <code>cursor-agent</code> once first, so MCP service commands are available.</li>
+<li>If your network needs a proxy, set <code>GIT_PROXY_COMMAND</code> before installing Serena.</li>
+<li>Add Serena in Cursor MCP config (<code>mcp.json</code>).</li>
+</ul>
+<p>Example <code>mcp.json</code>:</p>
+<pre><code>10  {
+11    &quot;mcpServers&quot;: {
+12      &quot;gitnexus&quot;: {
+13        &quot;command&quot;: &quot;npx&quot;,
+14        &quot;args&quot;: [
+15          &quot;-y&quot;,
+16          &quot;gitnexus@latest&quot;,
+17          &quot;mcp&quot;
+18        ]
+19      },
+20      &quot;mcp-language-server&quot;: {
+21        &quot;type&quot;: &quot;stdio&quot;,
+22        &quot;command&quot;: &quot;/Users/van/.pyenv/shims/uvx&quot;,
+23        &quot;args&quot;: [
+24            &quot;--from&quot;,
+25            &quot;git+https://github.com/oraios/serena&quot;,
+26            &quot;serena&quot;,
+27            &quot;start-mcp-server&quot;,
+28            &quot;--context&quot;,
+29            &quot;ide&quot;,
+30            &quot;--project&quot;,
+31            &quot;~/ZY/workspace/skytech/skytech-app/&quot;,
+32            &quot;--language-backend&quot;,
+33            &quot;LSP&quot;,
+34            &quot;--log-level&quot;,
+35            &quot;DEBUG&quot;
+36        ]
+37      }
+38    }
+39  }
+</code></pre>
+<p>If your project path changes often, consider generating this config per project to avoid stale paths.</p>
+<p>with cursor-agent cli config approvalMode auto to config completely non-interactive.</p>
+<p>Example <code>~/.cursor/cli-config.json</code>:</p>
+<p><img src="pic202604005181.png" alt="img"></p>
+<pre><code>{
+  &quot;approvalMode&quot;: &quot;auto&quot;,
+}
+</code></pre>
+<p><a id="org15f6b82"></a></p>
+<h1 id="day-to-day-workflow">Day-to-day workflow</h1>
+<p>My typical loop looks like this:</p>
+<ol>
+<li>Open project in Emacs.</li>
+<li>Launch/attach Agent Shell provider (Cursor).</li>
+<li>Ask the agent for targeted coding tasks (fix, refactor, tests, docs).</li>
+<li>Review/edit generated changes directly in Emacs.</li>
+<li>Commit with your normal git flow.</li>
+</ol>
+<p>This gives you agent assistance without giving up your Emacs-centric workflow.</p>
+<p><a id="orgb548672"></a></p>
+<h1 id="prompt-patterns-that-work-well">Prompt patterns that work well</h1>
+<p>I get the best results when prompts are narrow and concrete.<br>
+For example:</p>
+<ul>
+<li>“Refactor this function for readability without changing behavior.”</li>
+<li>“Add tests for edge cases around empty input and invalid IDs.”</li>
+<li>“Explain this module architecture in bullets, then propose a smaller interface.”</li>
+</ul>
+<p>Broad prompts still work, but focused prompts reduce back-and-forth.</p>
+<p><a id="orge750949"></a></p>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<ul>
+<li><strong>Command not found in Emacs</strong>: check PATH inheritance between shell and Emacs.</li>
+<li><strong>Timeout on large repo</strong>: increase ACP timeout (for example, <code>-t 90000</code> or higher).</li>
+<li><strong>MCP server not available</strong>: run <code>cursor-agent</code> once and verify <code>mcp.json</code>.</li>
+<li><strong>Serena install fails</strong>: retry with proxy settings and confirm git can reach GitHub.</li>
+</ul>
+<p><a id="org80ebb6c"></a></p>
+<h1 id="final-thoughts">Final thoughts</h1>
+<p>Agent Shell + Cursor is a clean combination if you prefer Emacs for writing and review, but still want a modern coding agent in your daily flow.<br>
+Start with the minimal config first, then add MCP/LSP components only when you need deeper project intelligence.</p>
+<p>If you are already comfortable in Emacs, this approach feels natural quickly.<br>
+The key idea is not “replace your editor”, but “upgrade your existing loop with an agent.”</p>
+
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Emacs</a>
+    
+    <a href="../../tags/ai/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Ai</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/emacs_%E5%88%87%E6%8D%A2%E7%B3%BB%E7%BB%9F%E8%BE%93%E5%85%A5%E6%B3%95/" class="block">Emacs_切换系统输入法</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+
+    
+    
+      <div
+        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/aider_usage/" class="no-underline">Aider 编程伙伴</a>
+          <br />
+        
+          <a href="../../posts/emacs_%E5%88%87%E6%8D%A2%E7%B3%BB%E7%BB%9F%E8%BE%93%E5%85%A5%E6%B3%95/" class="no-underline">Emacs_切换系统输入法</a>
+          <br />
+        
+          <a href="../../posts/neoemacs-face/" class="no-underline">Neoemacs Face</a>
+          <br />
+        
+          <a href="../../posts/rime-input-method/" class="no-underline">Rime Input Method</a>
+          <br />
+        
+          <a href="../../posts/garmin-to-emacs/" class="no-underline">Garmin 同步心率至 Emacs</a>
+          <br />
+        
+          <a href="../../posts/emacs-wechat-msg-count/" class="no-underline">emacs 同步微信消息数量</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
