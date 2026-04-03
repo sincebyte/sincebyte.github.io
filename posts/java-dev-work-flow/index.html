@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Java Dev Work Flow | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.57484cd811b072d77752028d35397c737aec3ecb32fbe78f427df06ab81d6de74488310ec82ccefd5af8d3e23320569a.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="在典型的 Java 后端迭代里，真正吞噬效率的不止有代码编写，还有冗长的重启和低质量发布反馈。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Java Dev Work Flow",
+      "item":"/posts/java-dev-work-flow/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/java-dev-work-flow/"
+    },
+    "headline": "Java Dev Work Flow | sincebyte","datePublished": "2026-04-03T15:30:59+08:00",
+    "dateModified": "2026-04-03T15:30:59+08:00",
+    "wordCount":  1193 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003e在典型的 Java 后端迭代里，真正吞噬效率的不止有代码编写，还有冗长的重启和低质量发布反馈。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Java Dev Work Flow | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/java-dev-work-flow/" />
+
+
+
+
+<meta property="og:description" content="在典型的 Java 后端迭代里，真正吞噬效率的不止有代码编写，还有冗长的重启和低质量发布反馈。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-04-03T15:30:59&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-04-03T15:30:59&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/mqtt-usage/" />
+
+<meta property="og:see_also" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" />
+
+<meta property="og:see_also" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" />
+
+<meta property="og:see_also" content="/posts/h2-usage/" />
+
+<meta property="og:see_also" content="/posts/ftp-resume-transfer/" />
+
+<meta property="og:see_also" content="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Java Dev Work Flow</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2026-04-03</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>3 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>在典型的 Java 后端迭代里，真正吞噬效率的不止有代码编写，还有冗长的重启和低质量发布反馈。</p>
+<p><a id="org2d01a3d"></a></p>
+<h2 id="dev-work-flow">dev work flow</h2>
+<p>这篇笔记聚焦一件事：把「本地热替换调试 + 远程可重复部署 + 实时日志观测」串成一条最短反馈链路。</p>
+<ul>
+<li>本地使用 JRebel 进行快速调试（减少反复重启）</li>
+<li>通过 SSH 配置连接远程机器</li>
+<li>本地执行一键部署脚本，远程拉代码、构建、重启</li>
+<li>登录服务器实时追日志验证结果</li>
+</ul>
+<p>核心目标是缩短「code -&gt; build -&gt; boot -&gt; observe -&gt; verify」闭环延迟，同时保证线上变更可控、可回滚、可审计。</p>
+<p>确实，今天可选的 CI/CD 工具已经非常多：Jenkins、GitLab CI、GitHub Actions、ArgoCD 都能很好地解决流水线编排问题。<br>
+但这个场景里我更倾向于手写一套可维护的最小 CI/CD（script-first）：</p>
+<ul>
+<li>步骤透明：每个阶段输入/输出清晰，失败点可定位</li>
+<li>状态可见：不依赖黑盒插件，shell 级即可复盘</li>
+<li>依赖可控：最小外部耦合，迁移成本低</li>
+<li>变更可审计：脚本即规范，review 即发布策略</li>
+</ul>
+<p>这不是“手工点点点部署”，而是把发布链路代码化，用工程化方式维护一个轻量、可演进的交付系统。</p>
+<p><a id="org87b6c0e"></a></p>
+<h2 id="architecture-flow">architecture flow</h2>
+<pre><code>+---------------------+
+|   local workspace   |
+|  code + jrebel run  |
++----------+----------+
+           |
+           | ssh skytech-prod
+           v
++---------------------+
+|   remote server     |
+|  git pull + mvn pkg |
++----------+----------+
+           |
+           | start jar
+           v
++---------------------+
+|   application up    |
+| tail log and verify |
++---------------------+
+</code></pre>
+<p><a id="org2a1be2d"></a></p>
+<h2 id="ssh-config">ssh config</h2>
+<p>在 `~/.ssh/config` 中配置目标主机别名，后续脚本和命令都可以复用这个别名。</p>
+<pre><code>Host skytech-prod
+    Hostname 10.100.10.178
+    User root
+    IdentityFile ~/.ssh/id_rsa
+</code></pre>
+<p><a id="org674aba0"></a></p>
+<h2 id="build-on-local">build on local</h2>
+<ol>
+<li>
+<p>use jrebel</p>
+<p><a href="https://www.jrebel.com/jrebel-releases">https://www.jrebel.com/jrebel-releases</a></p>
+<p>在项目中创建 `src/main/resources/rebel.xml`，让 JRebel 知道 class 目录位置。</p>
+<pre><code>&lt;application
+    generated-by       = &quot;maven&quot;
+    build-tool-version = &quot;3.6.1&quot;
+    plugin-version     = &quot;1.1.10&quot;
+    xmlns              = &quot;http://www.zeroturnaround.com&quot;
+    xmlns:xsi          = &quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation = &quot;http://www.zeroturnaround.com http://update.zeroturnaround.com/jrebel/rebel-2_2.xsd&quot;&gt;
+&lt;classpath&gt;
+    &lt;dir name=&quot;~/workspace/skytech/skytech-app/target/classes&quot;&gt;&lt;/dir&gt;
+&lt;/classpath&gt;
+&lt;/application&gt;
+</code></pre>
+<p>说明：</p>
+<ul>
+<li>`target/classes` 是 Maven 编译产物目录</li>
+<li>修改 Java 代码后，重新编译对应模块即可热更新（无需整体重启）</li>
+<li>热替换主要覆盖方法体与实现细节；涉及类结构漂移（字段签名、继承层次、Spring 上下文装配边界）时通常仍需冷启动</li>
+</ul>
+</li>
+<li>
+<p>start on local</p>
+<pre><code>&quot;$JAVA_11_HOME&quot;/bin/java -agentpath:/Users/van/ZY/workspace/jrebel/lib/libjrebel64.dylib \
+-Dspring.profiles.active=test -Dserver.port=8383 -jar api.jar
+</code></pre>
+<p>建议补充 JVM 参数（按需）：</p>
+<ul>
+<li>`-Xms512m -Xmx1024m`：避免本地调试时频繁 GC 抖动</li>
+<li>`-Dfile.encoding=UTF-8`：确保日志和接口字符集一致</li>
+<li>`-XX:+HeapDumpOnOutOfMemoryError`：本地复现疑难问题时保留故障现场</li>
+</ul>
+</li>
+</ol>
+<p><a id="org6be38c8"></a></p>
+<h2 id="build-on-server">build on server</h2>
+<p>首次部署先克隆仓库：</p>
+<pre><code>git clone https://user:password@git.example.com/group/repo.git
+</code></pre>
+<p>注意：生产环境不建议把用户名密码直接写在 clone URL 中，建议改为 SSH Key 或 token。<br>
+另外建议把部署用户降权，避免长期使用 root 直接发布。</p>
+<ol>
+<li>
+<p>script on local</p>
+<p>本地触发部署（只负责连接与调用远程脚本）：</p>
+<pre><code>#!/bin/bash
+set -e
+
+# 记录发布日志
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+echo &quot;[$TIMESTAMP] 部署 skytech-app&quot; &gt;&gt; deploy.log
+
+ssh skytech-prod 'cd /root/skytech/skytech-app/ &amp;&amp; sh run-on-server-prod.sh'
+</code></pre>
+</li>
+<li>
+<p>script on server</p>
+<p>服务器构建并重启服务：</p>
+<pre><code>#!/bin/bash
+set -e
+
+git pull
+
+export JAVA_HOME=/root/jdk-11.0.11
+/root/apache-maven-3.9.14/bin/mvn clean package -U
+
+export TZ=&quot;Asia/Shanghai&quot;
+# 仅杀掉当前应用，避免误杀机器上其它 Java 进程
+APP_NAME=skytech-app-1.0.0-SNAPSHOT.jar
+ps -ef | grep -v grep | grep &quot;${APP_NAME}&quot; | awk '{print $2}' | xargs -r kill -9
+echo '' &gt; nohup.out
+nohup /root/jdk-11.0.11/bin/java -jar ./target/skytech-app-1.0.0-SNAPSHOT.jar \
+--spring.profiles.active=prod \
+--logging.level.com.vanniuner.platform.sys.config.filter=error \
+--spring.cloud.nacos.config.enabled=false \
+--spring.cloud.nacos.discovery.enabled=false &amp;
+
+tail -f nohup.out
+</code></pre>
+<p>说明：</p>
+<ul>
+<li>`set -e`：任一步骤失败立即退出，避免半成功状态</li>
+<li>`xargs -r`：无匹配进程时不执行 kill，防止空参数报错</li>
+<li>`tail -f`：部署后第一时间观察启动日志和异常堆栈</li>
+<li>可以进一步把 `kill -9` 改成 `TERM -&gt; 等待 -&gt; KILL` 两阶段退出，降低强杀带来的副作用</li>
+</ul>
+</li>
+</ol>
+<p><a id="org3bad5a7"></a></p>
+<h2 id="log-tail-on-server">log tail on server</h2>
+<p>持续查看最新业务日志：</p>
+<pre><code>ssh skytech-prod &quot;ls -t ~/skytech/skytech-app/logs/*.log | head -1 | xargs tail -f -n 1000&quot;
+</code></pre>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/agent-shell-cursor-agent-cli/" class="block">Agent Shell Cursor Agent Cli</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dev-work-flow">dev work flow</a></li>
+    <li><a href="#architecture-flow">architecture flow</a></li>
+    <li><a href="#ssh-config">ssh config</a></li>
+    <li><a href="#build-on-local">build on local</a></li>
+    <li><a href="#build-on-server">build on server</a></li>
+    <li><a href="#log-tail-on-server">log tail on server</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/mqtt-usage/" class="no-underline">Mqtt Usage</a>
+          <br />
+        
+          <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" class="no-underline">JeecgBoot 低代码平台II</a>
+          <br />
+        
+          <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" class="no-underline">JeecgBoot 低代码平台</a>
+          <br />
+        
+          <a href="../../posts/h2-usage/" class="no-underline">H2 Usage</a>
+          <br />
+        
+          <a href="../../posts/ftp-resume-transfer/" class="no-underline">Ftp Resume Transfer</a>
+          <br />
+        
+          <a href="../../posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">Maven 项目骨架</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
