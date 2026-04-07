@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Thu, 02 Apr 2026 20:19:14 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2026 11:46:33 +0800</lastBuildDate>
     <atom:link href="/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LlamaCpp Run Gemma-4-26B</title>
+      <link>/posts/llamacpp-run-gemma-4-26b/</link>
+      <pubDate>Tue, 07 Apr 2026 11:46:33 +0800</pubDate>
+      <guid>/posts/llamacpp-run-gemma-4-26b/</guid>
+      <description>&lt;p&gt;Guide to setting up Gemma-4-26B model with LlamaCpp on Linux for use with Opencode.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Agent Shell Cursor Agent Cli</title>
       <link>/posts/agent-shell-cursor-agent-cli/</link>

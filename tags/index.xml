@@ -8,20 +8,20 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Fri, 03 Apr 2026 15:30:59 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2026 11:46:33 +0800</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>/tags/ai/</link>
+      <pubDate>Tue, 07 Apr 2026 11:46:33 +0800</pubDate>
+      <guid>/tags/ai/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Java</title>
       <link>/tags/java/</link>
       <pubDate>Fri, 03 Apr 2026 15:30:59 +0800</pubDate>
       <guid>/tags/java/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ai</title>
-      <link>/tags/ai/</link>
-      <pubDate>Thu, 02 Apr 2026 20:19:14 +0800</pubDate>
-      <guid>/tags/ai/</guid>
       <description></description>
     </item>
     <item>
