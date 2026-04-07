@@ -12,9 +12,9 @@
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LlamaCpp Run Gemma-4-26B</title>
-      <link>/posts/llamacpp-run-gemma-4-26b/</link>
+      <link>/posts/llamacpp-run-gemma-4/</link>
       <pubDate>Tue, 07 Apr 2026 11:46:33 +0800</pubDate>
-      <guid>/posts/llamacpp-run-gemma-4-26b/</guid>
+      <guid>/posts/llamacpp-run-gemma-4/</guid>
       <description>&lt;p&gt;Guide to setting up Gemma-4-26B model with LlamaCpp on Linux for use with Opencode.&lt;/p&gt;</description>
     </item>
     <item>
