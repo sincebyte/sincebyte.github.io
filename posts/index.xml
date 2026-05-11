@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Tue, 07 Apr 2026 11:46:33 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2026 14:44:52 +0800</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs 远程开发利器：TRAMP-RPC 极速体验</title>
+      <link>/posts/tramp-rpc-intro/</link>
+      <pubDate>Mon, 11 May 2026 14:44:52 +0800</pubDate>
+      <guid>/posts/tramp-rpc-intro/</guid>
+      <description>&lt;p&gt;如果你曾尝试在 Emacs 中通过 TRAMP 打开远程项目、浏览目录、编辑文件、或使用 magit 管理代码，你大概率经历过这种感受：卡。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>LlamaCpp Run Gemma-4-26B</title>
       <link>/posts/llamacpp-run-gemma-4/</link>
