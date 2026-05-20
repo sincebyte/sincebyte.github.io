@@ -307,8 +307,8 @@
 <li>Pick the right GGUF files (text weights vs. vision projector).</li>
 <li>Download with <code>huggingface-cli</code> and serve with <code>llama-server</code>.</li>
 </ol>
-<p><a id="org53c2bf0"></a></p>
-<h1 id="following-organizations-on-the-hub">Following organizations on the Hub</h1>
+<p><a id="org27d3463"></a></p>
+<h2 id="following-organizations-on-the-hub">Following organizations on the Hub</h2>
 <p>The Hub groups models by publisher (<code>organization/model-name</code>). Following an org is the fastest way to notice new base models, quantizations, and community repacks.</p>
 <p>Subscribe to these organizations first—they cover most models you will run locally:</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -388,8 +388,8 @@
 </tbody>
 </table>
 <p>On any org page, click <strong>Follow</strong> (top right). Your home feed then shows new repos, updated quantizations, and trending forks without manual search.</p>
-<p><a id="orgc404f6f"></a></p>
-<h1 id="model-tree-and-lineage">Model tree and lineage</h1>
+<p><a id="orgc05e880"></a></p>
+<h2 id="model-tree-and-lineage">Model tree and lineage</h2>
 <p>When a checkpoint is a fine-tune, LoRA merge, adapter, or quantized derivative, authors can declare a <strong>base model</strong> in the model card metadata. The Hub renders this as a <strong>model tree</strong>: upstream base at the root, derivatives as children.</p>
 <p><img src="../pic202605005526.png" alt="img"></p>
 <p>What to look for on the tree:</p>
@@ -398,8 +398,9 @@
 <li><strong>Adapters / fine-tunes</strong> — task-specific heads or instruction-tuned forks.</li>
 <li><strong>Quantizations</strong> — GGUF/GPTQ/AWQ builds; often the tag you care about for llama.cpp.</li>
 </ul>
-<p><a id="org04d00da"></a></p>
-<h2 id="quantization-nodes">Quantization nodes</h2>
+<ol>
+<li>
+<p>Quantization nodes</p>
 <p>The <code>quantizations</code> tag (and linked GGUF repos) is where local-inference users spend most of their time. A single base model may have dozens of community quantizations (<code>Q4_K_M</code>, <code>Q5_K_S</code>, <code>IQ4_XS</code>, etc.). Prefer publishers you trust (official org quant, <code>unsloth</code>, <code>bartowski</code>) and check:</p>
 <ul>
 <li>file size vs. your VRAM/RAM budget;</li>
@@ -407,8 +408,10 @@
 <li>commit date and download count (stale or empty repos are common).</li>
 </ul>
 <p>If the tree shows no quantizations, search the Hub for <code>gguf</code> plus the base model name—quantizers often publish under their personal org.</p>
-<p><a id="org9abcf3f"></a></p>
-<h1 id="reading-model-tags-on-the-model-card">Reading model tags on the model card</h1>
+</li>
+</ol>
+<p><a id="org6c8a33a"></a></p>
+<h2 id="reading-model-tags-on-the-model-card">Reading model tags on the model card</h2>
 <p>Tags are shorthand for task, modality, framework, and license. They appear as colored pills below the model name.</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <colgroup>
@@ -555,8 +558,8 @@
 <li><strong>Size</strong> — parameter count band (<code>7B</code>, <code>70B</code>); sanity-check against your hardware.</li>
 </ul>
 <p>For llama.cpp, confirm the repo actually ships <code>.gguf</code> (or follow a linked quantization repo) before you clone multi-gigabyte Safetensors by mistake.</p>
-<p><a id="org9df34e7"></a></p>
-<h1 id="gguf-format-text-weights-vs-vision-projector">GGUF format: text weights vs. vision projector</h1>
+<p><a id="org61f8584"></a></p>
+<h2 id="gguf-format-text-weights-vs-vision-projector">GGUF format: text weights vs. vision projector</h2>
 <p>GGUF is the native container for llama.cpp. Multimodal models are often split into <strong>two</strong> files:</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <colgroup>
@@ -588,8 +591,9 @@
 </tr>
 </tbody>
 </table>
-<p><a id="org03d1d6f"></a></p>
-<h2 id="why-two-quantization-strategies">Why two quantization strategies</h2>
+<ol>
+<li>
+<p>Why two quantization strategies?</p>
 <p>The language model dominates memory and compute, so aggressive quantization (e.g. <code>Q4_K_M</code>) is usually acceptable with modest quality loss.</p>
 <p>The vision projector is smaller but more sensitive: aggressive quant can collapse alignment between image patches and token embeddings. Community practice:</p>
 <ul>
@@ -597,8 +601,10 @@
 <li>mmproj: <code>F16</code> or <code>BF16</code> when available; only fall back to mild quant if RAM is tight.</li>
 </ul>
 <p>Download both files from the same publisher and revision when possible—mixed sources sometimes break template or image-size assumptions.</p>
-<p><a id="org7941d2f"></a></p>
-<h1 id="downloading-models-with-the-hugging-face-cli">Downloading models with the Hugging Face CLI</h1>
+</li>
+</ol>
+<p><a id="org5f91abb"></a></p>
+<h2 id="downloading-models-with-the-hugging-face-cli">Downloading models with the Hugging Face CLI</h2>
 <p>Install the CLI and point it at a mirror if <code>huggingface.co</code> is slow or blocked.</p>
 <pre><code>pip install -U &quot;huggingface_hub[cli]&quot;
 
@@ -625,8 +631,8 @@ hf download google/gemma-3-27b-it \
   --include &quot;*Q4_K_M.gguf&quot; &quot;*mmproj*f16*&quot;
 </code></pre>
 <p>Verify file sizes after download; incomplete transfers are common on flaky networks.</p>
-<p><a id="org14ea902"></a></p>
-<h1 id="serving-with-llamacpp">Serving with llama.cpp</h1>
+<p><a id="org05c4f21"></a></p>
+<h2 id="serving-with-llamacpp">Serving with llama.cpp</h2>
 <p>Point <code>llama-server</code> at the text GGUF and pass the projector separately. Text-only models omit <code>--mmproj</code>.</p>
 <pre><code>./llama-server \
   -m /path/to/text_model-Q4_K_M.gguf \
@@ -713,11 +719,12 @@ hf download google/gemma-3-27b-it \
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#quantization-nodes">Quantization nodes</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#why-two-quantization-strategies">Why two quantization strategies</a></li>
+    <li><a href="#following-organizations-on-the-hub">Following organizations on the Hub</a></li>
+    <li><a href="#model-tree-and-lineage">Model tree and lineage</a></li>
+    <li><a href="#reading-model-tags-on-the-model-card">Reading model tags on the model card</a></li>
+    <li><a href="#gguf-format-text-weights-vs-vision-projector">GGUF format: text weights vs. vision projector</a></li>
+    <li><a href="#downloading-models-with-the-hugging-face-cli">Downloading models with the Hugging Face CLI</a></li>
+    <li><a href="#serving-with-llamacpp">Serving with llama.cpp</a></li>
   </ul>
 </nav>
 </div>
