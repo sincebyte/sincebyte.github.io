@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Hugging Face with llamacpp Usage | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.f8f00e9cc2abca8bdac366e0c2d021fb0de312b775fab05e2e35c1159187bfc334fb24ad64ee067b99696a6db4e520e1.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="Hugging Face Hub is the default marketplace for open-weight models. For local inference with llama.cpp, you rarely need the full PyTorch checkpoint—you usually want a curated GGUF build, a clear model lineage, and a short list of organizations worth following.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Hugging Face with llamacpp Usage",
+      "item":"/posts/hugging-facellamacpp-usage/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/hugging-facellamacpp-usage/"
+    },
+    "headline": "Hugging Face with llamacpp Usage | sincebyte","datePublished": "2026-05-20T16:59:42+08:00",
+    "dateModified": "2026-05-20T16:59:42+08:00",
+    "wordCount":  995 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eHugging Face Hub is the default marketplace for open-weight models. For local inference with \u003ca href=\u002220260407111812-llamacpp_gemma4.md\u0022\u003ellama.cpp\u003c\/a\u003e, you rarely need the full PyTorch checkpoint—you usually want a curated GGUF build, a clear model lineage, and a short list of organizations worth following.\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Hugging Face with llamacpp Usage | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/hugging-facellamacpp-usage/" />
+
+
+
+
+<meta property="og:description" content="Hugging Face Hub is the default marketplace for open-weight models. For local inference with llama.cpp, you rarely need the full PyTorch checkpoint—you usually want a curated GGUF build, a clear model lineage, and a short list of organizations worth following." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-05-20T16:59:42&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-05-20T16:59:42&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="ai" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/llamacpp-run-gemma-4/" />
+
+<meta property="og:see_also" content="/posts/agent-shell-cursor-agent-cli/" />
+
+<meta property="og:see_also" content="/posts/aider_usage/" />
+
+<meta property="og:see_also" content="/posts/yolo-v8/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Hugging Face with llamacpp Usage</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2026-05-20</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>Hugging Face Hub is the default marketplace for open-weight models. For local inference with <a href="20260407111812-llamacpp_gemma4.md">llama.cpp</a>, you rarely need the full PyTorch checkpoint—you usually want a curated GGUF build, a clear model lineage, and a short list of organizations worth following.</p>
+<p>This note covers four workflows:</p>
+<ol>
+<li>Subscribe to key organizations so new releases surface in your feed.</li>
+<li>Read the model tree and tags before you download anything.</li>
+<li>Pick the right GGUF files (text weights vs. vision projector).</li>
+<li>Download with <code>huggingface-cli</code> and serve with <code>llama-server</code>.</li>
+</ol>
+<p><a id="org53c2bf0"></a></p>
+<h1 id="following-organizations-on-the-hub">Following organizations on the Hub</h1>
+<p>The Hub groups models by publisher (<code>organization/model-name</code>). Following an org is the fastest way to notice new base models, quantizations, and community repacks.</p>
+<p>Subscribe to these organizations first—they cover most models you will run locally:</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Organization</th>
+<th scope="col" class="org-left">Typical models</th>
+<th scope="col" class="org-left">Why follow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">google</td>
+<td class="org-left">Gemma, Gemma 3/4, T5, SigLIP</td>
+<td class="org-left">Google open-weight releases</td>
+</tr>
+<tr>
+<td class="org-left">meta-llama</td>
+<td class="org-left">Llama 2/3/3.x</td>
+<td class="org-left">Meta Llama family</td>
+</tr>
+<tr>
+<td class="org-left">Qwen</td>
+<td class="org-left">Qwen2, Qwen2.5, Qwen3, QwQ</td>
+<td class="org-left">Strong multilingual OSS LLMs</td>
+</tr>
+<tr>
+<td class="org-left">deepseek-ai</td>
+<td class="org-left">DeepSeek-V2/V3, R1 distillations</td>
+<td class="org-left">Reasoning and MoE checkpoints</td>
+</tr>
+<tr>
+<td class="org-left">mistralai</td>
+<td class="org-left">Mistral, Mixtral, Codestral</td>
+<td class="org-left">Efficient European OSS models</td>
+</tr>
+<tr>
+<td class="org-left">microsoft</td>
+<td class="org-left">Phi-3/4, Florence, Phi-vision</td>
+<td class="org-left">Small models and vision stacks</td>
+</tr>
+<tr>
+<td class="org-left">stabilityai</td>
+<td class="org-left">Stable Diffusion, SDXL</td>
+<td class="org-left">Image generation</td>
+</tr>
+<tr>
+<td class="org-left">openai</td>
+<td class="org-left">whisper, CLIP (legacy OSS)</td>
+<td class="org-left">ASR and embedding baselines</td>
+</tr>
+<tr>
+<td class="org-left">nvidia</td>
+<td class="org-left">Nemotron, NIM-related weights</td>
+<td class="org-left">Enterprise-oriented releases</td>
+</tr>
+<tr>
+<td class="org-left">unsloth</td>
+<td class="org-left">Fast fine-tunes and GGUF repacks</td>
+<td class="org-left">Community-optimized quantizations</td>
+</tr>
+<tr>
+<td class="org-left">bartowski</td>
+<td class="org-left">Llama/Mistral GGUF quantizations</td>
+<td class="org-left">Widely used <code>Q4_K_M</code> builds</td>
+</tr>
+<tr>
+<td class="org-left">lmstudio-community</td>
+<td class="org-left">GGUF bundles for desktop tools</td>
+<td class="org-left">Pre-quantized desktop-friendly sets</td>
+</tr>
+</tbody>
+</table>
+<p>On any org page, click <strong>Follow</strong> (top right). Your home feed then shows new repos, updated quantizations, and trending forks without manual search.</p>
+<p><a id="orgc404f6f"></a></p>
+<h1 id="model-tree-and-lineage">Model tree and lineage</h1>
+<p>When a checkpoint is a fine-tune, LoRA merge, adapter, or quantized derivative, authors can declare a <strong>base model</strong> in the model card metadata. The Hub renders this as a <strong>model tree</strong>: upstream base at the root, derivatives as children.</p>
+<p><img src="../pic202605005526.png" alt="img"></p>
+<p>What to look for on the tree:</p>
+<ul>
+<li><strong>Base model</strong> — the original full-precision checkpoint (e.g. <code>google/gemma-2-9b-it</code>).</li>
+<li><strong>Adapters / fine-tunes</strong> — task-specific heads or instruction-tuned forks.</li>
+<li><strong>Quantizations</strong> — GGUF/GPTQ/AWQ builds; often the tag you care about for llama.cpp.</li>
+</ul>
+<p><a id="org04d00da"></a></p>
+<h2 id="quantization-nodes">Quantization nodes</h2>
+<p>The <code>quantizations</code> tag (and linked GGUF repos) is where local-inference users spend most of their time. A single base model may have dozens of community quantizations (<code>Q4_K_M</code>, <code>Q5_K_S</code>, <code>IQ4_XS</code>, etc.). Prefer publishers you trust (official org quant, <code>unsloth</code>, <code>bartowski</code>) and check:</p>
+<ul>
+<li>file size vs. your VRAM/RAM budget;</li>
+<li>whether the build is <strong>text-only</strong> or includes a separate <strong>mmproj</strong> for vision;</li>
+<li>commit date and download count (stale or empty repos are common).</li>
+</ul>
+<p>If the tree shows no quantizations, search the Hub for <code>gguf</code> plus the base model name—quantizers often publish under their personal org.</p>
+<p><a id="org9abcf3f"></a></p>
+<h1 id="reading-model-tags-on-the-model-card">Reading model tags on the model card</h1>
+<p>Tags are shorthand for task, modality, framework, and license. They appear as colored pills below the model name.</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Domain</th>
+<th scope="col" class="org-left">Tag</th>
+<th scope="col" class="org-left">Meaning</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">NLP</td>
+<td class="org-left">text-generation</td>
+<td class="org-left">Causal LM, chat, completion</td>
+<td class="org-left">Llama, Gemma, Qwen</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">text-classification</td>
+<td class="org-left">Single-label or multi-label classification</td>
+<td class="org-left">BERT-style heads</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">fill-mask</td>
+<td class="org-left">Masked language modeling</td>
+<td class="org-left">BERT, RoBERTa</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">token-classification</td>
+<td class="org-left">NER, POS tagging</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">question-answering</td>
+<td class="org-left">Extractive QA</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">summarization</td>
+<td class="org-left">Abstractive / extractive summary</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">translation</td>
+<td class="org-left">Machine translation</td>
+<td class="org-left">NLLB, M2M100</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">feature-extraction</td>
+<td class="org-left">Embeddings</td>
+<td class="org-left">sentence-transformers</td>
+</tr>
+<tr>
+<td class="org-left">Computer</td>
+<td class="org-left">image-classification</td>
+<td class="org-left">Image classification</td>
+<td class="org-left">ViT, ConvNeXt</td>
+</tr>
+<tr>
+<td class="org-left">vision</td>
+<td class="org-left">object-detection</td>
+<td class="org-left">Bounding-box detection</td>
+<td class="org-left">DETR, YOLO exports</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">image-segmentation</td>
+<td class="org-left">Semantic / instance segmentation</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">image-to-image</td>
+<td class="org-left">Style transfer, enhancement</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">depth-estimation</td>
+<td class="org-left">Monocular depth</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+<tr>
+<td class="org-left">Multimodal</td>
+<td class="org-left">image-text-to-text</td>
+<td class="org-left">Image + text in, text out</td>
+<td class="org-left">Gemma 3/4, LLaVA</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">text-to-image</td>
+<td class="org-left">Text in, image out</td>
+<td class="org-left">Stable Diffusion</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">visual-question-answering</td>
+<td class="org-left">VQA</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">document-question-answering</td>
+<td class="org-left">Doc QA over PDFs / layouts</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+<tr>
+<td class="org-left">Audio</td>
+<td class="org-left">automatic-speech-recognition</td>
+<td class="org-left">Speech-to-text</td>
+<td class="org-left">Whisper</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">text-to-speech</td>
+<td class="org-left">TTS</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+<tr>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">audio-classification</td>
+<td class="org-left">Audio event / scene labels</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>Other tags worth noting:</p>
+<ul>
+<li><strong>License</strong> — <code>apache-2.0</code>, <code>mit</code>, <code>llama2</code>, <code>gemma</code>, etc.; governs commercial use.</li>
+<li><strong>Library</strong> — <code>transformers</code>, <code>gguf</code>, <code>safetensors</code>; tells you which runtime to expect.</li>
+<li><strong>Size</strong> — parameter count band (<code>7B</code>, <code>70B</code>); sanity-check against your hardware.</li>
+</ul>
+<p>For llama.cpp, confirm the repo actually ships <code>.gguf</code> (or follow a linked quantization repo) before you clone multi-gigabyte Safetensors by mistake.</p>
+<p><a id="org9df34e7"></a></p>
+<h1 id="gguf-format-text-weights-vs-vision-projector">GGUF format: text weights vs. vision projector</h1>
+<p>GGUF is the native container for llama.cpp. Multimodal models are often split into <strong>two</strong> files:</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">File role</th>
+<th scope="col" class="org-left">Typical name pattern</th>
+<th scope="col" class="org-left">Contents</th>
+<th scope="col" class="org-left">Quantization strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Main (LLM)</td>
+<td class="org-left"><code>*-Q4_K_M.gguf</code></td>
+<td class="org-left">Transformer language model</td>
+<td class="org-left">Aggressive (Q4/Q5) for VRAM</td>
+</tr>
+<tr>
+<td class="org-left">Projector (vision)</td>
+<td class="org-left"><code>mmproj-*.gguf</code>, <code>*-mmproj-*</code></td>
+<td class="org-left">Vision encoder → LLM hidden states</td>
+<td class="org-left">Prefer F16/BF16; avoid heavy quant</td>
+</tr>
+</tbody>
+</table>
+<p><a id="org03d1d6f"></a></p>
+<h2 id="why-two-quantization-strategies">Why two quantization strategies?</h2>
+<p>The language model dominates memory and compute, so aggressive quantization (e.g. <code>Q4_K_M</code>) is usually acceptable with modest quality loss.</p>
+<p>The vision projector is smaller but more sensitive: aggressive quant can collapse alignment between image patches and token embeddings. Community practice:</p>
+<ul>
+<li>Main LLM: <code>Q4_K_M</code> or <code>Q5_K_M</code> for a balance of size and quality.</li>
+<li>mmproj: <code>F16</code> or <code>BF16</code> when available; only fall back to mild quant if RAM is tight.</li>
+</ul>
+<p>Download both files from the same publisher and revision when possible—mixed sources sometimes break template or image-size assumptions.</p>
+<p><a id="org7941d2f"></a></p>
+<h1 id="downloading-models-with-the-hugging-face-cli">Downloading models with the Hugging Face CLI</h1>
+<p>Install the CLI and point it at a mirror if <code>huggingface.co</code> is slow or blocked.</p>
+<pre><code>pip install -U &quot;huggingface_hub[cli]&quot;
+
+# macOS / Linux — mirror (optional, common in CN)
+export HF_ENDPOINT=https://hf-mirror.com
+
+# Windows PowerShell
+$env:HF_ENDPOINT = &quot;https://hf-mirror.com&quot;
+
+# Download only GGUF shards into a fixed directory
+hf download google/gemma-3-27b-it \
+  --local-dir ./models/gemma-3-27b-it \
+  --include &quot;*.gguf&quot;
+</code></pre>
+<p>Useful flags:</p>
+<ul>
+<li><code>--include</code> / <code>--exclude</code> — glob filters (<code>*.gguf</code>, <code>*mmproj*</code>).</li>
+<li><code>--local-dir-use-symlinks False</code> — on older hub versions, avoid symlink issues on Windows.</li>
+<li><code>HF_TOKEN</code> — for gated models (Llama, Gemma license gates); run <code>huggingface-cli login</code> once.</li>
+</ul>
+<p>Example: fetch both LLM and projector for a vision model:</p>
+<pre><code>hf download unsloth/gemma-3-27b-it-GGUF \
+  --local-dir ./models/gemma-3-27b-it \
+  --include &quot;*Q4_K_M.gguf&quot; &quot;*mmproj*f16*&quot;
+</code></pre>
+<p>Verify file sizes after download; incomplete transfers are common on flaky networks.</p>
+<p><a id="org14ea902"></a></p>
+<h1 id="serving-with-llamacpp">Serving with llama.cpp</h1>
+<p>Point <code>llama-server</code> at the text GGUF and pass the projector separately. Text-only models omit <code>--mmproj</code>.</p>
+<pre><code>./llama-server \
+  -m /path/to/text_model-Q4_K_M.gguf \
+  --mmproj /path/to/mmproj-f16.gguf \
+  --port 8080 \
+  -c 32768 \
+  -ngl 99
+</code></pre>
+<ul>
+<li><code>-m</code> — main language-model weights.</li>
+<li><code>--mmproj</code> — vision projector (multimodal only).</li>
+<li><code>-c</code> — context length; lower if you hit OOM.</li>
+<li><code>-ngl</code> — layers offloaded to GPU (<code>99</code> ≈ all layers on CUDA/Metal).</li>
+</ul>
+<p>For a full Gemma + Opencode setup (context sizing, <code>nohup</code>, provider JSON), see <a href="20260407111812-llamacpp_gemma4.md">Running LlamaCpp with Gemma-4-26B Model</a>.</p>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/ai/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Ai</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/tramp-rpc-intro/" class="block">Emacs 远程开发利器：TRAMP-RPC 极速体验</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#quantization-nodes">Quantization nodes</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#why-two-quantization-strategies">Why two quantization strategies?</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/llamacpp-run-gemma-4/" class="no-underline">LlamaCpp Run Gemma-4-26B</a>
+          <br />
+        
+          <a href="../../posts/agent-shell-cursor-agent-cli/" class="no-underline">Agent Shell Cursor Agent Cli</a>
+          <br />
+        
+          <a href="../../posts/aider_usage/" class="no-underline">Aider 编程伙伴</a>
+          <br />
+        
+          <a href="../../posts/yolo-v8/" class="no-underline">Yolo V8</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>

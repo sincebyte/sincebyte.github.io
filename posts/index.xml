@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Mon, 11 May 2026 14:44:52 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 16:59:42 +0800</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugging Face with llamacpp Usage</title>
+      <link>/posts/hugging-facellamacpp-usage/</link>
+      <pubDate>Wed, 20 May 2026 16:59:42 +0800</pubDate>
+      <guid>/posts/hugging-facellamacpp-usage/</guid>
+      <description>&lt;p&gt;Hugging Face Hub is the default marketplace for open-weight models. For local inference with &lt;a href=&#34;20260407111812-llamacpp_gemma4.md&#34;&gt;llama.cpp&lt;/a&gt;, you rarely need the full PyTorch checkpoint—you usually want a curated GGUF build, a clear model lineage, and a short list of organizations worth following.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Emacs 远程开发利器：TRAMP-RPC 极速体验</title>
       <link>/posts/tramp-rpc-intro/</link>
