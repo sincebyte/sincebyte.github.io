@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Wed, 20 May 2026 16:59:42 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2026 10:16:10 +0800</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Org Table Shrink</title>
+      <link>/posts/org-table-shrink/</link>
+      <pubDate>Fri, 22 May 2026 10:16:10 +0800</pubDate>
+      <guid>/posts/org-table-shrink/</guid>
+      <description>&lt;p&gt;&lt;code&gt;org-table-shrink&lt;/code&gt; is a small but high-impact feature that solves the long-standing problem of wide tables in Org mode.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Hugging Face with llamacpp Usage</title>
       <link>/posts/hugging-facellamacpp-usage/</link>

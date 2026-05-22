@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2024 sincebyte
 </copyright>
-    <lastBuildDate>Sat, 06 Apr 2024 19:30:20 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2026 10:16:10 +0800</lastBuildDate>
     <atom:link href="/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Org Table Shrink</title>
+      <link>/posts/org-table-shrink/</link>
+      <pubDate>Fri, 22 May 2026 10:16:10 +0800</pubDate>
+      <guid>/posts/org-table-shrink/</guid>
+      <description>&lt;p&gt;&lt;code&gt;org-table-shrink&lt;/code&gt; is a small but high-impact feature that solves the long-standing problem of wide tables in Org mode.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Org Clock</title>
       <link>/posts/org-clock/</link>

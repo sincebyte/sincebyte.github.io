@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Org Table Shrink | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="org-table-shrink is a small but high-impact feature that solves the long-standing problem of wide tables in Org mode.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Org Table Shrink",
+      "item":"/posts/org-table-shrink/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/org-table-shrink/"
+    },
+    "headline": "Org Table Shrink | sincebyte","datePublished": "2026-05-22T10:16:10+08:00",
+    "dateModified": "2026-05-22T10:16:10+08:00",
+    "wordCount":  1022 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003e\u003ccode\u003eorg-table-shrink\u003c\/code\u003e is a small but high-impact feature that solves the long-standing problem of wide tables in Org mode.\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Org Table Shrink | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/org-table-shrink/" />
+
+
+
+
+<meta property="og:description" content="org-table-shrink is a small but high-impact feature that solves the long-standing problem of wide tables in Org mode." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-05-22T10:16:10&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-05-22T10:16:10&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="emacs" />
+
+<meta property="article:tag" content="org-mode" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/org-clock/" />
+
+<meta property="og:see_also" content="/posts/agent-shell-cursor-agent-cli/" />
+
+<meta property="og:see_also" content="/posts/emacs_%E5%88%87%E6%8D%A2%E7%B3%BB%E7%BB%9F%E8%BE%93%E5%85%A5%E6%B3%95/" />
+
+<meta property="og:see_also" content="/posts/aider_usage/" />
+
+<meta property="og:see_also" content="/posts/neoemacs-face/" />
+
+<meta property="og:see_also" content="/posts/rime-input-method/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Org Table Shrink</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2026-05-22</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p><code>org-table-shrink</code> is a small but high-impact feature that solves the long-standing problem of wide tables in Org mode.</p>
+<p><a id="org3f9ec3f"></a></p>
+<h2 id="the-problem-wide-tables-in-org-mode">The Problem: Wide Tables in Org Mode</h2>
+<p>Org mode is an excellent plain-text format for notes, documentation, and task management. However, there is one persistent annoyance: long cell content in tables. When a single cell contains a paragraph of text, the entire column expands, pushing other columns off-screen and breaking the visual alignment that makes org tables so pleasant to work with.</p>
+<p>Consider a requirements tracking table in a software project. The “Description” or “Details” column often contains multi-sentence descriptions, while columns like “ID” or “Priority” need only a few characters. Without intervention, the table becomes unreadable.</p>
+<p><a id="org7c1e582"></a></p>
+<h2 id="what-is-org-table-shrink">What is org-table-shrink</h2>
+<p><code>org-table-shrink</code> is a built-in Org mode command that dynamically truncates wide columns to a configurable width, replacing overflow text with a continuation indicator. It preserves the table’s grid alignment while keeping every column visible on screen.</p>
+<p>Key features:</p>
+<ul>
+<li>Set per-column width limits using <code>&lt;N&gt;</code> directives in column headers</li>
+<li>Overflow content is indicated by a customizable character (default: <code>&gt;</code>)</li>
+<li>Full cell content remains accessible via <code>org-table-edit-field</code> (bound to <code>C-c `</code> or <code>RET</code>)</li>
+<li>Shrinking is purely visual — the underlying plain-text content is never modified</li>
+<li>Works seamlessly with Org’s table alignment (<code>C-c C-c</code>)</li>
+</ul>
+<p>In other words: you get the best of both worlds — a compact, scannable table in the buffer, and full detail available on demand.</p>
+<p>The renderings in Emacs are as follows:<br>
+<img src="../pic202605005553.png" alt="img"></p>
+<p><a id="org1df16aa"></a></p>
+<h2 id="a-real-world-example">A Real-World Example</h2>
+<p>Below is a software requirements table. Notice how the <code>&lt;10&gt;</code> and <code>&lt;12&gt;</code> directives in the header row tell <code>org-table-shrink</code> to cap those columns at the specified character width. Without shrinking, this table would span well beyond the screen and be completely unreadable.</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-right" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">ID</td>
+<td class="org-left">Module</td>
+<td class="org-left">Sub-Module</td>
+<td class="org-left">System Requirements</td>
+<td class="org-left">Summary</td>
+<td class="org-left">Business Scenario</td>
+<td class="org-left">Workaround</td>
+<td class="org-left">Detailed Specification</td>
+</tr>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">Inventory Mgmt</td>
+<td class="org-left">Basic CRUD</td>
+<td class="org-left">Hierarchical item tree with fields: name, code, type, parent; <br/> Excel import/export; <br/> cascade-delete confirmation for parent items.</td>
+<td class="org-left">Tree-structured inventory entry and maintenance</td>
+<td class="org-left">Engineers need a standard parts library with parent-child relationships (e.g., Tower → Body → Crossarm)</td>
+<td class="org-left">None</td>
+<td class="org-left">1 Tree table with add, edit, delete for item nodes; <br/>2 Drag-and-drop reordering; <br/>3 Bulk import from spreadsheet.</td>
+</tr>
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">Inventory Mgmt</td>
+<td class="org-left">Item-Asset Binding</td>
+<td class="org-left">Select items from BOM tree and assign to an asset; <br/> set planned quantity and unit weight (kg) per item; <br/> auto-calculate total weight per material.</td>
+<td class="org-left">Bind tower assets to BOM items, generate a planned checklist</td>
+<td class="org-left">When building &ldquo;Line 20 Tower&rdquo;, operators pick required materials (crossarms, insulators) from the library</td>
+<td class="org-left">None</td>
+<td class="org-left">1 Select or create a tower asset; <br/>2 Auto-compute total weight = planned_qty × unit_weight; <br/>3 Save and export the BOM checklist.</td>
+</tr>
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">Flight Records</td>
+<td class="org-left">Pre-Flight Capture</td>
+<td class="org-left">Record total drone weight including payload; <br/> associate tower and material list; <br/> set planned round-trip count; <br/> auto-log flight time (s) and GPS trajectory.</td>
+<td class="org-left">Pre-flight weight identification and flight logging</td>
+<td class="org-left">Operator logs the drone&rsquo;s total weight before each lift mission and prepares for time/track recording</td>
+<td class="org-left">None</td>
+<td class="org-left">1 Input drone total weight (kg) before takeoff; <br/>2 Set planned round trips without landing; <br/>3 Real-time GPS logging during flight.</td>
+</tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">Flight Records</td>
+<td class="org-left">Handheld Execution</td>
+<td class="org-left">Handheld controller displays tower&rsquo;s planned material list; <br/> pilot selects material and enters lifted quantity; <br/> one-tap confirmation after flight; <br/> system auto-accumulates &ldquo;lifted qty&rdquo;.</td>
+<td class="org-left">On-site handheld task execution and quantity tracking</td>
+<td class="org-left">Pilots at the field site use a handheld controller to quickly log how many items were actually lifted</td>
+<td class="org-left">None</td>
+<td class="org-left">1 Handheld UI supports tower selection; <br/>2 Real-time progress: lifted / planned per material; <br/>3 Offline-capable sync.</td>
+</tr>
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">Flight Records</td>
+<td class="org-left">Detailed Logging</td>
+<td class="org-left">Each lift generates a record with: timestamp, tower ID, material, type, quantity, <br/> start/end coordinates, round-trip time, trajectory file, operator; <br/> filter by tower, material, date range.</td>
+<td class="org-left">Detailed lift-by-lift logging and progress monitoring</td>
+<td class="org-left">Managers need historical lift details per tower and per material for progress supervision and statistics</td>
+<td class="org-left">None</td>
+<td class="org-left">1 Generate a detailed record per lift with timestamps and positions; <br/>2 Export progress reports as PDF/Excel; <br/>3 Dashboard with completion rates.</td>
+</tr>
+</tbody>
+</table>
+<p><a id="orgdd1fe9f"></a></p>
+<h2 id="how-it-works">How It Works</h2>
+<p>Under the hood, <code>org-table-shrink</code> uses overlays — Emacs’ mechanism for display-only text properties — to hide the portion of each cell that exceeds the specified width. The original text is never altered; it remains in the buffer exactly as you typed it.</p>
+<p>When you need to see or edit the full content of a cell, you can:</p>
+<ul>
+<li>Press <code>RET</code> (or <code>C-c `</code>) to open <code>org-table-edit-field</code>, a dedicated minibuffer for editing the current cell</li>
+<li>Toggle shrinking off temporarily to see the raw table</li>
+</ul>
+<p>The <code>org-table-shrunk-column-indicator</code> variable controls what character appears at the truncation point. The default is <code>&gt;</code>, but you can set it to anything you prefer — for example, <code>…</code> or <code>↓</code>.</p>
+<p><a id="org8affa4d"></a></p>
+<h2 id="how-to-wrap-lines-in-html">How to wrap lines in html</h2>
+<p>When exporting to HTML, you can insert line breaks inside table cells using Org’s inline export syntax <code>@@html:&lt;br/&gt;@@</code>. This is processed only during HTML export — the raw <code>@@html:&lt;br/&gt;@@</code> text is invisible in other output formats (LaTeX, ODT, plain text). It is a clean way to control cell-internal line wrapping in the exported HTML without affecting the table’s structure or other export backends.</p>
+<p><a id="org88f5e5b"></a></p>
+<h2 id="org-mode-configuration">Org Mode Configuration</h2>
+<p>Here is the configuration I use with Doom Emacs and Evil bindings:</p>
+<pre><code>;; Uncomment to customize the overflow indicator:
+;; (setq org-table-shrunk-column-indicator &quot;…&quot;)
+
+;; Press RET to edit the current cell's full content in a minibuffer
+(map! :after org
+      :map evil-org-mode-map
+      :n &quot;RET&quot; #'org-table-edit-field)
+
+;; Auto-shrink tables after every realignment (C-c C-c)
+(advice-add 'org-ctrl-c-ctrl-c :after
+            (lambda (&amp;rest _)
+              (when (org-at-table-p)
+                (org-table-shrink))))
+</code></pre>
+<p>With this setup, every time you press <code>C-c C-c</code> to realign a table — which you probably do frequently — <code>org-table-shrink</code> runs automatically, keeping your tables compact and readable.</p>
+<p><a id="orgda3c483"></a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p><code>org-table-shrink</code> is a small but high-impact feature that solves the long-standing problem of wide tables in Org mode. If you maintain requirements documents, meeting notes, or any kind of structured data in org tables, it is well worth the five minutes it takes to configure. Your future self, squinting at a 300-character-wide table row, will thank you.</p>
+<p>That said, the real value of <code>org-table-shrink</code> is during editing and review, where screen real estate matters most. Combined with the auto-shrink advice shown above, it becomes entirely transparent — tables just work, and you don’t have to think about it.</p>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Emacs</a>
+    
+    <a href="../../tags/org-mode/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Org-Mode</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/hugging-facellamacpp-usage/" class="block">Hugging Face with llamacpp Usage</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-problem-wide-tables-in-org-mode">The Problem: Wide Tables in Org Mode</a></li>
+    <li><a href="#what-is-org-table-shrink">What is org-table-shrink</a></li>
+    <li><a href="#a-real-world-example">A Real-World Example</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#how-to-wrap-lines-in-html">How to wrap lines in html</a></li>
+    <li><a href="#org-mode-configuration">Org Mode Configuration</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/org-clock/" class="no-underline">Org Clock</a>
+          <br />
+        
+          <a href="../../posts/agent-shell-cursor-agent-cli/" class="no-underline">Agent Shell Cursor Agent Cli</a>
+          <br />
+        
+          <a href="../../posts/emacs_%E5%88%87%E6%8D%A2%E7%B3%BB%E7%BB%9F%E8%BE%93%E5%85%A5%E6%B3%95/" class="no-underline">Emacs_切换系统输入法</a>
+          <br />
+        
+          <a href="../../posts/aider_usage/" class="no-underline">Aider 编程伙伴</a>
+          <br />
+        
+          <a href="../../posts/neoemacs-face/" class="no-underline">Neoemacs Face</a>
+          <br />
+        
+          <a href="../../posts/rime-input-method/" class="no-underline">Rime Input Method</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
