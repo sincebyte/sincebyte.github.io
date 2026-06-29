@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Sentinel Usage | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="Sentinel 是阿里巴巴开源的面向分布式服务架构的 流量防护 组件。它以流量为切入点，从 流量控制、熔断降级、系统负载保护 等多个维度保障服务稳定性。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Sentinel Usage",
+      "item":"/posts/sentinel-usage/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/sentinel-usage/"
+    },
+    "headline": "Sentinel Usage | sincebyte","datePublished": "2024-06-29T17:16:49+08:00",
+    "dateModified": "2024-06-29T17:16:49+08:00",
+    "wordCount":  3063 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eSentinel 是阿里巴巴开源的面向分布式服务架构的 \u003cstrong\u003e流量防护\u003c\/strong\u003e 组件。它以流量为切入点，从 \u003ca href=\u0022https:\/\/github.com\/alibaba\/Sentinel\u0022\u003e流量控制\u003c\/a\u003e、\u003ca href=\u0022https:\/\/github.com\/alibaba\/Sentinel\u0022\u003e熔断降级\u003c\/a\u003e、\u003ca href=\u0022https:\/\/github.com\/alibaba\/Sentinel\u0022\u003e系统负载保护\u003c\/a\u003e 等多个维度保障服务稳定性。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Sentinel Usage | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/sentinel-usage/" />
+
+
+
+
+<meta property="og:description" content="Sentinel 是阿里巴巴开源的面向分布式服务架构的 流量防护 组件。它以流量为切入点，从 流量控制、熔断降级、系统负载保护 等多个维度保障服务稳定性。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2024-06-29T17:16:49&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2024-06-29T17:16:49&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/ftp-resume-transfer/" />
+
+<meta property="og:see_also" content="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" />
+
+<meta property="og:see_also" content="/posts/clickhouse-tutorial/" />
+
+<meta property="og:see_also" content="/posts/elasticsearch-part1/" />
+
+<meta property="og:see_also" content="/posts/mybatis-config/" />
+
+<meta property="og:see_also" content="/posts/seata-shardingsphere1/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Sentinel Usage</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2024-06-29</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>7 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>Sentinel 是阿里巴巴开源的面向分布式服务架构的 <strong>流量防护</strong> 组件。它以流量为切入点，从 <a href="https://github.com/alibaba/Sentinel">流量控制</a>、<a href="https://github.com/alibaba/Sentinel">熔断降级</a>、<a href="https://github.com/alibaba/Sentinel">系统负载保护</a> 等多个维度保障服务稳定性。</p>
+<h2 id="introduction">Introduction</h2>
+<ol>
+<li>
+<p>为什么需要 Sentinel</p>
+<p>微服务拆分后，单个接口的异常可能沿调用链扩散，引发雪崩。Sentinel 在调用链路上做三件事：</p>
+<ol>
+<li><strong>事前预防</strong> ：通过流控、热点限流限制流量规模，避免系统被突发请求压垮。</li>
+<li><strong>事中隔离</strong> ：通过熔断在下游不稳定时快速失败，切断故障传播。</li>
+<li><strong>事后兜底</strong> ：通过系统保护在 CPU、负载、RT 等整体指标恶化时，从入口层面保护应用。</li>
+</ol>
+</li>
+<li>
+<p>核心概念</p>
+<p>理解 Sentinel 只需抓住两个概念：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">概念</th>
+<th scope="col" class="org-left">含义</th>
+<th scope="col" class="org-left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>资源</b></td>
+<td class="org-left">被 Sentinel 保护的一段代码或接口</td>
+<td class="org-left">Controller 方法、Service 方法、任意代码块</td>
+</tr>
+<tr>
+<td class="org-left"><b>规则</b></td>
+<td class="org-left">围绕资源设定的防护策略</td>
+<td class="org-left">流控规则、熔断规则、热点规则、系统规则</td>
+</tr>
+</tbody>
+</table>
+<p>资源与规则的关系：先定义 <strong>资源</strong> ，再为资源配置 <strong>规则</strong> 。规则可在控制台动态下发，也可在代码中加载。</p>
+</li>
+<li>
+<p>整体架构</p>
+<p>Sentinel 由两部分组成：</p>
+<ul>
+<li><strong>核心库（客户端）</strong> ：嵌入业务应用，负责统计流量、执行规则、上报监控。不依赖框架，Java 7+ 即可运行。</li>
+<li><strong>控制台（Dashboard）</strong> ：独立部署的 Web 应用，负责规则配置、实时监控、机器列表展示。</li>
+</ul>
+</li>
+</ol>
+<p><a id="org597dd06"></a></p>
+<h2 id="安装服务端">安装（服务端）</h2>
+<ol>
+<li>
+<p>下载与启动</p>
+<p>从 <a href="https://github.com/alibaba/Sentinel">Sentinel GitHub</a> 下载 release 包 。</p>
+<p>控制台默认将规则保存在内存中，重启后配置丢失。生产环境应将规则持久化到 Nacos 等外部存储，由客户端拉取。</p>
+</li>
+<li>
+<p>Sentinel Dashboard 启动脚本</p>
+<pre><code>#!/bin/bash
+nohup /root/skytech-app/jdk-11.0.11/bin/java \
+-Dserver.port=8858 \
+-Dcsp.sentinel.dashboard.server=localhost:8858 \
+-Dproject.name=sentinel-dashboard \
+-Dsentinel.dashboard.auth.username=sentinel \
+-Dsentinel.dashboard.auth.password=sentinel \
+-jar sentinel-dashboard-1.8.10.jar &amp;
+
+tail -f nohup.out
+</code></pre>
+<p>启动后访问 <strong><a href="http://localhost:8858">http://localhost:8858</a></strong> 进入控制台。</p>
+</li>
+</ol>
+<p><a id="org55836dd"></a></p>
+<h2 id="应用接入客户端">应用接入（客户端）</h2>
+<ol>
+<li>
+<p>添加依赖</p>
+<p>与 Spring Cloud 的整合通过 <strong>spring-cloud-starter-alibaba-sentinel</strong> 实现，该 Starter 包含核心库、Spring 整合模块及与控制台通信的能力。</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+</li>
+<li>
+<p>配置 Sentinel</p>
+<p>在 <strong>application.yml</strong> 中配置控制台连接信息：</p>
+<pre><code>spring:
+  application:
+    name: skytech-app
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 10.100.10.178:8858
+        port: 8719
+      eager: true
+</code></pre>
+<p>配置项说明：</p>
+<ul>
+<li><strong>spring.cloud.sentinel.transport.dashboard</strong> ：Sentinel 控制台地址。</li>
+<li><strong>spring.cloud.sentinel.transport.port</strong> ：客户端本地端口，Sentinel 在此端口启动 HTTP Server 与控制台通信；若被占用会自动 +1 重试。</li>
+<li><strong>spring.cloud.sentinel.eager</strong> ：是否在启动时立即注册到控制台。默认为 <strong>false</strong> （首次调用时才注册）；设为 <strong>true</strong> 可在启动后立刻在控制台看到该服务。</li>
+<li>默认情况下，所有 Controller 接口会自动注册为监控资源，无需额外注解即可在控制台看到 QPS 等指标。</li>
+</ul>
+</li>
+<li>
+<p>配置持久化</p>
+<p>限流规则可存储在 Nacos 中。在 <strong>客户端</strong> 应用里配置 Nacos 数据源，应用启动后会自动拉取并监听变更：</p>
+<p>可在 <strong>application.yml</strong> 中配置（Spring Cloud Alibaba 方式）：</p>
+<pre><code>spring:
+  cloud:
+    sentinel:
+      datasource:
+        flow:
+          nacos:
+            server-addr: localhost:8848
+            data-id: ${spring.application.name}-flow-rules
+            group-id: DEFAULT_GROUP
+            rule-type: flow
+</code></pre>
+<p>Nacos 中存储的 JSON 格式与控制台导出的流控规则一致，修改后会自动推送到客户端。</p>
+</li>
+<li>
+<p>定义资源的方式</p>
+<p>Sentinel 支持三种方式定义资源，按推荐程度排列：</p>
+<ol>
+<li><strong>注解</strong> ： <strong>@SentinelResource</strong> ，适合 Controller / Service 方法，语义清晰。</li>
+<li><strong>API</strong> ： <strong>SphU.entry()</strong> / <strong>SphU.exit()</strong> ，适合非 Spring 场景或细粒度代码块。</li>
+<li><strong>自动埋点</strong> ：Spring MVC 适配器自动将 <strong>@RequestMapping</strong> 映射为资源，零代码接入。</li>
+</ol>
+</li>
+</ol>
+<p><a id="orge16fca4"></a></p>
+<h2 id="指标说明">指标说明</h2>
+<p>Sentinel 控制台提供秒级实时监控。理解指标是调参的前提：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">指标名称</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">通过 QPS</td>
+<td class="org-left">每秒通过流控 / 熔断检查、实际执行的请求数</td>
+</tr>
+<tr>
+<td class="org-left">拒绝 QPS</td>
+<td class="org-left">每秒被规则拦截的请求数</td>
+</tr>
+<tr>
+<td class="org-left">响应时间（RT）</td>
+<td class="org-left">资源调用的平均响应时间（毫秒）</td>
+</tr>
+<tr>
+<td class="org-left">线程数</td>
+<td class="org-left">当前资源正在执行的并发线程数</td>
+</tr>
+<tr>
+<td class="org-left">分钟通过</td>
+<td class="org-left">最近一分钟内通过的请求总数</td>
+</tr>
+<tr>
+<td class="org-left">分钟拒绝</td>
+<td class="org-left">最近一分钟内被拒绝的请求总数</td>
+</tr>
+</tbody>
+</table>
+<p><a id="org7c45358"></a></p>
+<h2 id="流控">流控</h2>
+<ol>
+<li>
+<p>概述</p>
+<p>流量控制（Flow Control）是 Sentinel 最核心的能力：监控资源的 QPS 或并发线程数，超过阈值时按策略拦截或排队，避免瞬时高峰冲垮服务。</p>
+</li>
+<li>
+<p>四种防护能力对比</p>
+<p>在进入各章节细节前，先明确 Sentinel 四类规则的职责边界：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">规则类型</th>
+<th scope="col" class="org-left">作用范围</th>
+<th scope="col" class="org-left">触发条件</th>
+<th scope="col" class="org-left">典型场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">流控</td>
+<td class="org-left">单个资源</td>
+<td class="org-left">QPS / 线程数超阈值</td>
+<td class="org-left">接口限流、秒杀削峰</td>
+</tr>
+<tr>
+<td class="org-left">熔断</td>
+<td class="org-left">单个资源</td>
+<td class="org-left">慢调用 / 异常比例 / 异常数超阈值</td>
+<td class="org-left">下游超时、故障隔离</td>
+</tr>
+<tr>
+<td class="org-left">热点</td>
+<td class="org-left">单个资源的某个参数值</td>
+<td class="org-left">热点参数 QPS 超阈值</td>
+<td class="org-left">热门商品、恶意刷单用户</td>
+</tr>
+<tr>
+<td class="org-left">系统保护</td>
+<td class="org-left">整个应用入口</td>
+<td class="org-left">CPU / Load / RT / QPS / 线程数超阈值</td>
+<td class="org-left">全局兜底，防止整体过载</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>流控规则要素</p>
+<p>流控规则由以下字段组成：</p>
+<ul>
+<li><strong>resource</strong> ：资源名，规则作用对象。</li>
+<li><strong>grade</strong> ：阈值类型。 <strong>FLOW_GRADE_QPS</strong> （按 QPS）或 <strong>FLOW_GRADE_THREAD</strong> （按并发线程数）。</li>
+<li><strong>count</strong> ：阈值数值。</li>
+<li>*strategy*：调用关系策略：
+<ul>
+<li><strong>STRATEGY_DIRECT</strong> ：直接对当前资源限流。</li>
+<li><strong>STRATEGY_RELATE</strong> ：关联资源达到阈值时，限流当前资源。</li>
+<li><strong>STRATEGY_CHAIN</strong> ：关联资源达到阈值时，按调用链路入口限流当前资源。</li>
+</ul>
+</li>
+<li><strong>controlBehavior</strong> ：流控效果：
+<ul>
+<li><strong>CONTROL_BEHAVIOR_DEFAULT</strong> ：快速失败，抛出 <strong>FlowException</strong> 。</li>
+<li><strong>CONTROL_BEHAVIOR_WARM_UP</strong> ：预热，冷启动时流量缓慢升至阈值。</li>
+<li><strong>CONTROL_BEHAVIOR_RATE_LIMITER</strong> ：匀速排队，对应令牌桶算法。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>令牌桶与漏桶</p>
+<p>Sentinel 的排队等待和热点参数限流基于 <strong>令牌桶算法</strong> ：</p>
+<ul>
+<li>系统以固定速率向桶中放入令牌，桶容量有上限，满了则丢弃多余令牌。</li>
+<li>请求到达时需取走一枚令牌才能通过；无令牌则拒绝或排队。</li>
+<li>生成速率决定长期平均吞吐，桶容量决定可承受的突发量。</li>
+</ul>
+<p>与 <strong>漏桶算法</strong> 对比：漏桶严格控制流出速率，无法消化突发；令牌桶允许在桶满时一次性处理突发，更贴近真实业务。</p>
+</li>
+<li>
+<p>三种流控模式</p>
+<ol>
+<li>
+<p>直接模式</p>
+<p>对当前资源直接限流。例如 QPS 阈值设为 <strong>100</strong> ，超过即拒绝。</p>
+</li>
+<li>
+<p>关联模式</p>
+<p>当 <strong>关联资源</strong> 达到阈值时，限流 <strong>当前资源</strong> 。典型场景：写库压力大时，限流读操作以保证写操作优先。</p>
+<pre><code>资源 A（读操作） ──关联──▶ 资源 B（写操作）
+当资源 B 的 QPS 超过阈值时，限制资源 A 的访问
+</code></pre>
+</li>
+<li>
+<p>链路模式</p>
+<p>按调用链路入口限流。例如资源 C 同时被入口 A 和入口 B 调用，若只想限制 A → C 这条链路的流量，使用链路模式并指定入口资源。</p>
+<div class="notice-warning" id="org036fa40">
+<p>
+无论哪种模式，Sentinel 只能针对 <b>当前应用内</b> 的资源流控，无法跨应用限流。跨服务限流需在网关层（如 Spring Cloud Gateway + Sentinel）实现。<br />
+</p>
+</div>
+</li>
+</ol>
+</li>
+<li>
+<p>三种流控效果</p>
+<ol>
+<li>
+<p>快速失败</p>
+<p>默认方式。QPS 或线程数超阈值时直接拒绝，抛出 <strong>FlowException</strong> 。适合需要精确控制、不允许排队的场景。</p>
+</li>
+<li>
+<p>Warm Up（预热）</p>
+<p>冷启动时允许通过的流量从较低值逐步升至阈值。初始阈值约为 <strong>count / coldFactor</strong> （ <strong>coldFactor</strong> 默认为 <strong>3</strong> ）。</p>
+<p>适合秒杀等场景：活动开始瞬间流量暴增，预热可避免冷系统直接被峰值打垮。</p>
+</li>
+<li>
+<p>排队等待</p>
+<p>严格控制请求通过间隔，让流量匀速通过。适合消息削峰、定时任务突发等可容忍短暂等待的场景。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><a id="org231b9a6"></a></p>
+<h2 id="熔断">熔断</h2>
+<ol>
+<li>
+<p>概述</p>
+<p>熔断降级（Circuit Breaking）用于应对微服务雪崩：当下游服务不稳定（响应慢、异常多）时，暂停调用并快速返回 fallback，避免故障沿调用链扩散。待下游恢复后，通过半开探测逐步恢复调用。</p>
+</li>
+<li>
+<p>熔断策略</p>
+<p>Sentinel 支持三种熔断策略，均基于滑动窗口统计：</p>
+<ol>
+<li>
+<p><strong>慢调用比例</strong> ：</p>
+<ul>
+<li>响应时间超过 <strong>maxAllowedRt</strong> 的请求视为慢调用。</li>
+<li>当慢调用比例超过 <strong>ratioThreshold</strong> 且请求数 ≥ <strong>minRequestAmount</strong> 时触发熔断。</li>
+<li><strong>statIntervalMs*：统计窗口时长，默认 *1000</strong> ms。</li>
+</ul>
+</li>
+<li>
+<p><strong>异常比例*（ *ERROR_RATIO</strong> ）：</p>
+<ul>
+<li>异常请求占总请求的比例超过 <strong>ratioThreshold</strong> 且请求数 ≥ <strong>minRequestAmount</strong> 时触发。</li>
+<li><strong>statIntervalMs*：统计窗口时长，默认 *1000</strong> ms。</li>
+</ul>
+</li>
+<li>
+<p><strong>异常数*（ *ERROR_COUNT</strong> ）：</p>
+<ul>
+<li>统计窗口内异常总数超过 <strong>count</strong> 时触发。</li>
+<li><strong>statIntervalMs*：统计窗口时长，默认 *1000</strong> ms。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><a id="orgb5a1fbb"></a></p>
+<h2 id="热点">热点</h2>
+<ol>
+<li>
+<p>概述</p>
+<p>热点参数限流（ParamFlow）针对 <strong>方法入参</strong> 做细粒度控制：统计参数中的热点值（如某个商品 ID、用户 ID），对高频参数单独限流。Sentinel 用 LRU 策略识别最近最常访问的参数值，并结合令牌桶算法控制通过速率。</p>
+</li>
+<li>
+<p>适用场景</p>
+<ul>
+<li><strong>商品 ID 限流</strong> ：某爆款商品被恶意刷新，只限该 ID 的请求，不影响其他商品。</li>
+<li><strong>用户 ID 限流</strong> ：限制单个用户的访问频率，防止刷单。</li>
+<li><strong>地区 / 渠道限流</strong> ：对特定地区或渠道的请求单独设阈值。</li>
+</ul>
+</li>
+</ol>
+<p><a id="org6e41851"></a></p>
+<h2 id="系统保护">系统保护</h2>
+<ol>
+<li>
+<p>概述</p>
+<p>系统自适应保护（System Rules）从 <strong>应用整体</strong> 维度控制入口流量，不针对单个资源。当 Load、CPU、平均 RT、入口 QPS 或并发线程数等指标超过阈值时，从入口层面拒绝新请求，在最大吞吐与系统稳定之间取得平衡。</p>
+</li>
+<li>
+<p>系统保护维度</p>
+<ul>
+<li><strong>Load</strong> ：系统 load1 超过阈值时触发，仅在 Linux / Unix 上有效。参考值： <strong>CPU 核数 × 2.5</strong> 。</li>
+<li><strong>CPU 使用率</strong> ：CPU 使用率超过阈值（ <strong>0.0 ~ 1.0</strong> ）时触发。</li>
+<li><strong>平均 RT</strong> ：所有入口流量的平均响应时间超过阈值（毫秒）时触发。</li>
+<li><strong>并发线程数</strong> ：所有入口流量的并发线程数超过阈值时触发。</li>
+<li><strong>入口 QPS</strong> ：所有入口流量的 QPS 超过阈值时触发。</li>
+</ul>
+<p>与流控、熔断不同，系统规则是 <strong>全局</strong> 的：任一维度达到阈值即触发，对所有入口资源生效。</p>
+<p>配置建议：</p>
+<ul>
+<li>多个维度可同时配置，任一触发即生效。</li>
+<li>系统保护适合作为 <strong>兜底策略</strong> ，在单资源流控 / 熔断无法覆盖时防止整体过载。</li>
+<li>阈值需结合压测与线上监控持续调优，不宜照搬默认值。</li>
+</ul>
+</li>
+</ol>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="../../posts/h2-usage/" class="block">H2 Usage</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/ftp-resume-transfer/" class="block">Ftp Resume Transfer</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#安装服务端">安装（服务端）</a></li>
+    <li><a href="#应用接入客户端">应用接入（客户端）</a></li>
+    <li><a href="#指标说明">指标说明</a></li>
+    <li><a href="#流控">流控</a></li>
+    <li><a href="#熔断">熔断</a></li>
+    <li><a href="#热点">热点</a></li>
+    <li><a href="#系统保护">系统保护</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/ftp-resume-transfer/" class="no-underline">Ftp Resume Transfer</a>
+          <br />
+        
+          <a href="../../posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">Maven 项目骨架</a>
+          <br />
+        
+          <a href="../../posts/clickhouse-tutorial/" class="no-underline">Clickhouse Tutorial</a>
+          <br />
+        
+          <a href="../../posts/elasticsearch-part1/" class="no-underline">ElasticSearch Part1</a>
+          <br />
+        
+          <a href="../../posts/mybatis-config/" class="no-underline">Mybatis Config 雪花算法id，用 redis 管理 workerId</a>
+          <br />
+        
+          <a href="../../posts/seata-shardingsphere1/" class="no-underline">springcloud 整合 shardingsphere 及 seata</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
