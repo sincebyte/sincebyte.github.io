@@ -147,21 +147,21 @@
         },{
             "@type":"ListItem",
             "position":  8 ,
+            "name": "DeferredResult 使用指南",
+            "description": "\u003cp\u003e\u003ccode\u003eDeferredResult\u003c/code\u003e 是 Spring MVC 提供的异步 HTTP 响应机制。Controller 方法可以先返回一个「占位结果」，在稍后的任意线程中再调用 \u003ccode\u003esetResult()\u003c/code\u003e 完成真正的 HTTP 响应。\u003c/p\u003e\n\u003cp\u003e适用于「请求发起快、结果产出慢」的场景：等待第三方回调、消息队列响应、长轮询、跨服务异步通知等。HTTP 请求线程只负责「注册等待 + 触发业务」，真正的响应在异步事件到达后再写出。\u003c/p\u003e",
+            "url": "/posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+        },{
+            "@type":"ListItem",
+            "position":  9 ,
             "name": "Maven 项目骨架",
             "description": "\u003cp\u003e项目初期如何快速搭建符合规范、便于定制的项目结构, 相信这是大家一直在追求的. 所幸 Maven 提供了 archetypes 插件可满足这一诉求.\u003c/p\u003e",
             "url": "/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "Clickhouse Tutorial",
             "description": "\u003cp\u003eclickhouse 可用于联机分析OLAP的列式数据库管理系统. 定位与OLAP离线数据处理,相比于OLTP在线事务处理,clickhouse更关注于海量数据的计算分析, 关注的是数据的吞吐、查询速度、计算性能等指标.\u003c/p\u003e",
             "url": "/posts/clickhouse-tutorial/"
-        },{
-            "@type":"ListItem",
-            "position":  10 ,
-            "name": "ElasticSearch Part1",
-            "description": "\u003cp\u003e最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名.\nBut, 我认为这证明了他们对人才市场挖掘的雄心.\u003c/p\u003e",
-            "url": "/posts/elasticsearch-part1/"
         }
     ]
 }
@@ -606,6 +606,49 @@
   
   <div class="w-full ">
     <div class="prose">
+  <a href="../../posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="no-underline">
+    <h3 class="mt-0">DeferredResult 使用指南</h3>
+  </a>
+  
+    DeferredResult 是 Spring MVC 提供的异步 HTTP 响应机制。Controller 方法可以先返回一个「占位结果」，在稍后的任意线程中再调用 setResult() 完成真正的 HTTP 响应。
+适用于「请求发起快、结果产出慢」的场景：等待第三方回调、消息队列响应、长轮询、跨服务异步通知等。HTTP 请求线程只负责「注册等待 &#43; 触发业务」，真正的响应在异步事件到达后再写出。
+
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2024-02-19</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
   <a href="../../posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">
     <h3 class="mt-0">Maven 项目骨架</h3>
   </a>
@@ -669,48 +712,6 @@
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
     <span>4 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="../../posts/elasticsearch-part1/" class="no-underline">
-    <h3 class="mt-0">ElasticSearch Part1</h3>
-  </a>
-  
-    最近几年elastic推出了elastic lisence, elastic 认证以对 elastic 的实操性考察难度而闻名. But, 我认为这证明了他们对人才市场挖掘的雄心.
-
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2023-09-13</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>5 min read</span>
   </div>
 
   

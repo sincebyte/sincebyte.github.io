@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>DeferredResult 使用指南 | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="DeferredResult 是 Spring MVC 提供的异步 HTTP 响应机制。Controller 方法可以先返回一个「占位结果」，在稍后的任意线程中再调用 setResult() 完成真正的 HTTP 响应。
+适用于「请求发起快、结果产出慢」的场景：等待第三方回调、消息队列响应、长轮询、跨服务异步通知等。HTTP 请求线程只负责「注册等待 &#43; 触发业务」，真正的响应在异步事件到达后再写出。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"DeferredResult 使用指南",
+      "item":"/posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+    },
+    "headline": "DeferredResult 使用指南 | sincebyte","datePublished": "2024-02-19T14:24:03+08:00",
+    "dateModified": "2024-02-19T14:24:03+08:00",
+    "wordCount":  1572 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003e\u003ccode\u003eDeferredResult\u003c\/code\u003e 是 Spring MVC 提供的异步 HTTP 响应机制。Controller 方法可以先返回一个「占位结果」，在稍后的任意线程中再调用 \u003ccode\u003esetResult()\u003c\/code\u003e 完成真正的 HTTP 响应。\u003c\/p\u003e\n\u003cp\u003e适用于「请求发起快、结果产出慢」的场景：等待第三方回调、消息队列响应、长轮询、跨服务异步通知等。HTTP 请求线程只负责「注册等待 \u002b 触发业务」，真正的响应在异步事件到达后再写出。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="DeferredResult 使用指南 | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
+
+
+
+
+<meta property="og:description" content="DeferredResult 是 Spring MVC 提供的异步 HTTP 响应机制。Controller 方法可以先返回一个「占位结果」，在稍后的任意线程中再调用 setResult() 完成真正的 HTTP 响应。
+适用于「请求发起快、结果产出慢」的场景：等待第三方回调、消息队列响应、长轮询、跨服务异步通知等。HTTP 请求线程只负责「注册等待 &#43; 触发业务」，真正的响应在异步事件到达后再写出。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2024-02-19T14:24:03&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2024-02-19T14:24:03&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" />
+
+<meta property="og:see_also" content="/posts/clickhouse-tutorial/" />
+
+<meta property="og:see_also" content="/posts/elasticsearch-part1/" />
+
+<meta property="og:see_also" content="/posts/mybatis-config/" />
+
+<meta property="og:see_also" content="/posts/seata-shardingsphere1/" />
+
+<meta property="og:see_also" content="/posts/rocketmqintroduction/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">DeferredResult 使用指南</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2024-02-19</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p><code>DeferredResult</code> 是 Spring MVC 提供的异步 HTTP 响应机制。Controller 方法可以先返回一个「占位结果」，在稍后的任意线程中再调用 <code>setResult()</code> 完成真正的 HTTP 响应。</p>
+<p>适用于「请求发起快、结果产出慢」的场景：等待第三方回调、消息队列响应、长轮询、跨服务异步通知等。HTTP 请求线程只负责「注册等待 + 触发业务」，真正的响应在异步事件到达后再写出。</p>
+<p><a id="orge0f6d17"></a></p>
+<h2 id="为什么需要-deferredresult">为什么需要 DeferredResult</h2>
+<ol>
+<li>
+<p>问题背景</p>
+<p>以「提交任务并等待外部系统回调结果」为例，典型时序：</p>
+<ol>
+<li>客户端调用 API 提交请求</li>
+<li>服务端向外部系统发起调用（RPC、消息、Webhook 等）</li>
+<li>外部系统异步处理</li>
+<li>外部系统通过回调或事件通知服务端「处理完成」</li>
+<li>服务端将结果返回给客户端</li>
+</ol>
+<p>第 2～4 步往往需要数秒甚至更久。如果 Controller 在 Servlet 线程里同步阻塞等待，Tomcat 工作线程会被大量占用，高并发时容易线程池耗尽。</p>
+</li>
+<li>
+<p>DeferredResult 做了什么</p>
+<p><code>DeferredResult</code> 让 Spring MVC 在 Controller 返回后立即释放 Servlet 线程，但保持 HTTP 连接不关闭。后续任意线程调用 <code>setResult(data)</code> 时，Spring 会发起一次 ASYNC dispatch，将响应写回客户端。</p>
+<div class="notice-info" id="orgcb907f6">
+<p>
+<b>不需要在 Controller 里自己创建线程池</b> 。<br />
+完成响应的线程可以来自消息监听、@Async 任务、定时任务、Netty 事件循环等已有异步来源。<br />
+</p>
+</div>
+</li>
+<li>
+<p>请求生命周期</p>
+<pre><code>同步请求：
+  request → Filter → Servlet → Controller → 响应 → 结束
+
+DeferredResult：
+  第一次 dispatch：
+    request → Filter → Controller → return DeferredResult → 释放 Servlet 线程
+    （HTTP 连接仍保持打开）
+
+  等待异步结果 ...
+
+  第二次 dispatch（ASYNC）：
+    用已 set 的结果完成响应 → 结束
+</code></pre>
+</li>
+</ol>
+<p><a id="org6d7be96"></a></p>
+<h2 id="标准用法">标准用法</h2>
+<ol>
+<li>
+<p>基本模式</p>
+<pre><code>@GetMapping(&quot;/order/{orderId}&quot;)
+public DeferredResult&lt;ResponseEntity&lt;OrderResult&gt;&gt; getOrderResult(
+        @PathVariable String orderId) {
+
+    DeferredResult&lt;ResponseEntity&lt;OrderResult&gt;&gt; result =
+        new DeferredResult&lt;&gt;(10_000L);  // 10 秒超时
+
+    result.onTimeout(() -&gt;
+        result.setResult(ResponseEntity.status(504)
+            .body(new OrderResult(orderId, &quot;TIMEOUT&quot;, null))));
+
+    result.onError(throwable -&gt;
+        result.setResult(ResponseEntity.internalServerError().build()));
+
+    orderService.submitAndWait(orderId, (code, data) -&gt; {
+        if (code == 0) {
+            result.setResult(ResponseEntity.ok(data));
+        } else {
+            result.setResult(ResponseEntity.badRequest().body(data));
+        }
+    });
+
+    return result;  // 立即返回，释放 Servlet 线程
+}
+</code></pre>
+</li>
+<li>
+<p>唤醒链路（通用）</p>
+<pre><code>HTTP 请求线程
+  → 创建 DeferredResult，注册到 Holder
+  → 触发异步业务（发消息、调外部 API 等）
+  → return result（释放 Tomcat 线程）
+
+外部事件线程（MQ 消费者 / @Async / 回调接口 / 定时任务）
+  → 业务处理完成
+  → holder.completeOne() 或 completeAll()
+  → deferredResult.setResult()
+  → HTTP 响应返回客户端
+</code></pre>
+<div class="notice-info" id="org7e26e37">
+<p>
+<b>唤醒 <code>setResult()</code> 的线程，通常不是当初处理 HTTP 请求的那个线程</b> ，而是承载异步事件的那条线程。<br />
+</p>
+</div>
+</li>
+</ol>
+<p><a id="orgcb0875c"></a></p>
+<h2 id="api-说明">API 说明</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">方法</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>new DeferredResult&lt;&gt;(timeoutMs)</code></td>
+<td class="org-left">创建实例，超时后触发 <code>onTimeout</code></td>
+</tr>
+<tr>
+<td class="org-left"><code>setResult(value)</code></td>
+<td class="org-left">设置成功结果，完成 HTTP 响应（仅可调用一次）</td>
+</tr>
+<tr>
+<td class="org-left"><code>setErrorResult(value)</code></td>
+<td class="org-left">设置错误结果</td>
+</tr>
+<tr>
+<td class="org-left"><code>onTimeout(Runnable)</code></td>
+<td class="org-left">超时回调，应在此做资源清理</td>
+</tr>
+<tr>
+<td class="org-left"><code>onCompletion(Runnable)</code></td>
+<td class="org-left">无论成功、失败或超时，最终都会执行</td>
+</tr>
+<tr>
+<td class="org-left"><code>onError(Consumer&lt;Throwable&gt;)</code></td>
+<td class="org-left">设置结果过程中抛出异常时触发</td>
+</tr>
+</tbody>
+</table>
+<p><a id="orgc490c47"></a></p>
+<h2 id="常见误区">常见误区</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">误区</th>
+<th scope="col" class="org-left">事实</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">用了 DeferredResult 就必须在 Controller 里开线程池</td>
+<td class="org-left">不需要；任何线程调用 <code>setResult()</code> 即可</td>
+</tr>
+<tr>
+<td class="org-left">返回 DeferredResult 等于业务完全异步</td>
+<td class="org-left">仅「等待结果」异步；前置校验、DB 查询等仍占用 Servlet 线程</td>
+</tr>
+<tr>
+<td class="org-left">没有新建线程池就等于没用</td>
+<td class="org-left">异步完成可来自 MQ、回调、@Async、定时任务等</td>
+</tr>
+<tr>
+<td class="org-left">超时会自动取消后台任务</td>
+<td class="org-left"><code>onTimeout</code> 只影响 HTTP 层；业务侧需自行实现取消逻辑</td>
+</tr>
+<tr>
+<td class="org-left"><code>setResult</code> 可以多次调用</td>
+<td class="org-left">只能调用一次，重复调用会抛 <code>IllegalStateException</code></td>
+</tr>
+</tbody>
+</table>
+<p><a id="orgd4a245f"></a></p>
+<h2 id="线程池规划">线程池规划</h2>
+<p>一个后端服务tomcat有一个线程池，自己的某个业务（IO密集型）又存在一个线程池，另外的多个业务（CPU密集型）又需要很多个线程池。那服务启动的线程池岂不是很多？<br>
+全局来看，应该如何合理的规划一个服务的线程池数量呢？如何平衡性能？</p>
+<p>核心原则：线程池按“阻塞类型”分组，而不是按“业务模块”分组。<br>
+IO阻塞时间越长，线程池可以（且应该）设置得越大。 这两者是严格的正相关关系。</p>
+<ul>
+<li>IO密集型业务（查DB、调RPC、读文件）→ 共用 1个大的IO线程池</li>
+<li>CPU密集型业务（加密、压缩、序列化）→ 共用 1个小的CPU线程池</li>
+<li>特殊隔离业务（如关键支付链路、批量导出）→ 最多再开 1个独立池用于隔离</li>
+</ul>
+<p><a id="org831fc3d"></a></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li>Spring MVC 异步请求官方文档：<a href="https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-async.html">https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-async.html</a></li>
+<li><code>DeferredResult</code> Javadoc：<a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/context/request/async/DeferredResult.html">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/context/request/async/DeferredResult.html</a></li>
+</ul>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="../../posts/org-clock/" class="block">Org Clock</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/python-basic-useage-inneoemacs/" class="block">Python Basic Useage Inneoemacs</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#为什么需要-deferredresult">为什么需要 DeferredResult</a></li>
+    <li><a href="#标准用法">标准用法</a></li>
+    <li><a href="#api-说明">API 说明</a></li>
+    <li><a href="#常见误区">常见误区</a></li>
+    <li><a href="#线程池规划">线程池规划</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">Maven 项目骨架</a>
+          <br />
+        
+          <a href="../../posts/clickhouse-tutorial/" class="no-underline">Clickhouse Tutorial</a>
+          <br />
+        
+          <a href="../../posts/elasticsearch-part1/" class="no-underline">ElasticSearch Part1</a>
+          <br />
+        
+          <a href="../../posts/mybatis-config/" class="no-underline">Mybatis Config 雪花算法id，用 redis 管理 workerId</a>
+          <br />
+        
+          <a href="../../posts/seata-shardingsphere1/" class="no-underline">springcloud 整合 shardingsphere 及 seata</a>
+          <br />
+        
+          <a href="../../posts/rocketmqintroduction/" class="no-underline">RocketMQ 必须知道的理论知识</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
