@@ -102,6 +102,13 @@
       <description>&lt;p&gt;springcloud 整合 shardingsphere 及 seata, 为分布式事务的场景提供了十分优雅的解决方案&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Springcloud Openfegion Usage</title>
+      <link>/posts/springcloud-openfegion-usage/</link>
+      <pubDate>Wed, 01 Feb 2023 15:49:19 +0800</pubDate>
+      <guid>/posts/springcloud-openfegion-usage/</guid>
+      <description>&lt;p&gt;本文档描述 Spring Boot 项目如何集成 Nacos 注册中心、使用 OpenFeign 实现服务间调用，以及如何编写共享 API 模块供其他服务接入。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>java 栈溢出问题排查</title>
       <link>/posts/java-oom/</link>
       <pubDate>Fri, 29 Apr 2022 13:11:22 +0800</pubDate>

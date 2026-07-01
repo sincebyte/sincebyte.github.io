@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Springcloud Openfegion Usage | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="本文档描述 Spring Boot 项目如何集成 Nacos 注册中心、使用 OpenFeign 实现服务间调用，以及如何编写共享 API 模块供其他服务接入。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Springcloud Openfegion Usage",
+      "item":"/posts/springcloud-openfegion-usage/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/springcloud-openfegion-usage/"
+    },
+    "headline": "Springcloud Openfegion Usage | sincebyte","datePublished": "2023-02-01T15:49:19+08:00",
+    "dateModified": "2023-02-01T15:49:19+08:00",
+    "wordCount":  1690 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003e本文档描述 Spring Boot 项目如何集成 Nacos 注册中心、使用 OpenFeign 实现服务间调用，以及如何编写共享 API 模块供其他服务接入。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Springcloud Openfegion Usage | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/springcloud-openfegion-usage/" />
+
+
+
+
+<meta property="og:description" content="本文档描述 Spring Boot 项目如何集成 Nacos 注册中心、使用 OpenFeign 实现服务间调用，以及如何编写共享 API 模块供其他服务接入。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2023-02-01T15:49:19&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2023-02-01T15:49:19&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/rocketmqintroduction/" />
+
+<meta property="og:see_also" content="/posts/java-oom/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Springcloud Openfegion Usage</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2023-02-01</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>本文档描述 Spring Boot 项目如何集成 Nacos 注册中心、使用 OpenFeign 实现服务间调用，以及如何编写共享 API 模块供其他服务接入。</p>
+<p><a id="org94cffbc"></a></p>
+<h2 id="角色说明">角色说明</h2>
+<p>在微服务架构中，一个服务可以同时扮演两种角色：</p>
+<ol>
+<li>
+<p>服务提供方（Provider）</p>
+<ul>
+<li>将自身注册到 Nacos</li>
+<li>暴露 HTTP 接口供其他服务调用</li>
+<li>需要依赖： <strong>spring-cloud-starter-alibaba-nacos-discovery</strong></li>
+</ul>
+</li>
+<li>
+<p>服务调用方（Consumer）</p>
+<ul>
+<li>从 Nacos 发现其他服务</li>
+<li>通过 Feign 接口调用远程服务</li>
+<li>需要依赖： <strong>spring-cloud-starter-alibaba-nacos-discovery</strong> + <strong>spring-cloud-starter-openfeign</strong> + <strong>wvp-api</strong></li>
+</ul>
+</li>
+</ol>
+<p><a id="orge21598b"></a></p>
+<h2 id="项目结构">项目结构</h2>
+<p>以 wvp 项目为例，推荐的结构如下：</p>
+<pre><code>wvp-GB28181-pro/
+├── pom.xml                   # 主项目 POM，即服务提供方
+├── src/                      # 主项目源码，含 Controller 等
+└── wvp-api/                  # 共享 API 模块（独立 jar）
+    ├── pom.xml
+    └── src/main/java/
+        └── com/genersoft/iot/vmp/
+            ├── api/feign/
+            │   └── ChannelGroupFeignClient.java   # Feign 接口
+            ├── storager/dao/dto/
+            │   └── ChannelGroup.java              # 响应 DTO
+            └── gb28181/bean/
+                └── DeviceChannel.java             # 嵌套 DTO
+</code></pre>
+<div class="notice-info" id="org1d0b9d3">
+<p>
+一个标准的pom框架是：把qo、vo、dto对象单独放到一个依赖中，后端服务与Api的模块都依赖它<br />
+</p>
+</div>
+<ol>
+<li>
+<p>共享 API 模块</p>
+<ul>
+<li>独立的 Maven jar 模块，不包含业务逻辑</li>
+<li>仅包含 Feign 接口定义和 DTO 类</li>
+<li>依赖全部为 <strong>provided</strong> scope，由调用方提供实际实现</li>
+<li>服务提供方和调用方各自维护一份 DTO 副本（或通过 API 模块共享）</li>
+</ul>
+</li>
+</ol>
+<p><a id="org0246f40"></a></p>
+<h2 id="服务提供方集成">服务提供方集成</h2>
+<ol>
+<li>
+<p>pom.xml 依赖</p>
+<p>在主项目 <strong>pom.xml</strong> 中添加：</p>
+<pre><code>&lt;!-- 依赖管理 --&gt;
+&lt;properties&gt;
+    &lt;spring-cloud.version&gt;2021.0.5&lt;/spring-cloud.version&gt;
+&lt;/properties&gt;
+
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+            &lt;version&gt;${spring-cloud.version}&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+
+&lt;!-- 服务注册发现 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;
+    &lt;version&gt;2021.0.5.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!-- OpenFeign（仅当服务提供方也需要调用其他服务时需要） --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+</li>
+<li>
+<p>启动类注解</p>
+<pre><code>@SpringBootApplication
+@EnableDiscoveryClient                // 注册到 Nacos
+@EnableFeignClients                    // 启用 Feign 客户端（调用其他服务时需要）
+public class VManageBootstrap {
+    public static void main(String[] args) {
+        SpringApplication.run(VManageBootstrap.class, args);
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>application.yml 配置</p>
+<pre><code>spring:
+  application:
+    name: wvp                    
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.100.10.104:8848   
+        namespace: public             
+        group: DEFAULT_GROUP           
+        username: username
+        password: password
+</code></pre>
+</li>
+<li>
+<p>Controller 接口</p>
+<p>服务提供方正常编写 Controller 即可，不需要额外改动：</p>
+<pre><code>@RestController
+@RequestMapping(&quot;/api/channel/groups&quot;)
+public class GroupController {
+
+    // 注意：wvp 返回有另外的封装，统一返回了 WVPResult
+    @GetMapping(&quot;/getTreeDataForAi&quot;)
+    public List&lt;ChannelGroup&gt; getTreeDataForAi(
+            @RequestParam(required = true) String groupName,
+            @RequestParam(required = false) String deviceId,
+            @RequestParam(required = false) String channelName) {
+        return groupChannelService.getTreeData(null, groupName, deviceId, channelName);
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>共享 API 模块编写</p>
+<ol>
+<li>
+<p>pom.xml</p>
+<p>API 模块依赖全部为 <strong>provided</strong> scope：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; ...&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;com.genersoft&lt;/groupId&gt;
+    &lt;artifactId&gt;wvp-api&lt;/artifactId&gt;
+    &lt;version&gt;1.9.3&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+        &lt;spring-cloud.version&gt;2021.0.5&lt;/spring-cloud.version&gt;
+        &lt;lombok.version&gt;1.18.22&lt;/lombok.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencyManagement&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+                &lt;version&gt;${spring-cloud.version}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- @FeignClient, @GetMapping 等注解 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;!-- @Data 注解 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;version&gt;${lombok.version}&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre>
+<p>关键说明：</p>
+<ul>
+<li><strong>provided</strong> scope：依赖仅用于编译期，运行时由调用方提供，不会被打包到 API jar 中</li>
+<li>版本由 <strong>spring-cloud-dependencies</strong> BOM 管理，确保 Feign 版本与调用方一致</li>
+</ul>
+</li>
+<li>
+<p>Feign 接口定义</p>
+<pre><code>package com.genersoft.iot.vmp.api.feign;
+
+import com.genersoft.iot.vmp.storager.dao.dto.ChannelGroup;
+import com.genersoft.iot.vmp.vmanager.bean.WVPResult;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+
+@FeignClient(name = &quot;wvp&quot;, path = &quot;/api/channel/groups&quot;, fallback = ChannelGroupFeignClientFallback.class)
+public interface ChannelGroupFeignClient {
+
+    @GetMapping(&quot;/getTreeDataForAi&quot;)
+    WVPResult&lt;List&lt;ChannelGroup&gt;&gt; getTreeDataForAi(
+            @RequestParam(&quot;groupName&quot;) String groupName,
+            @RequestParam(value = &quot;deviceId&quot;, required = false) String deviceId,
+            @RequestParam(value = &quot;channelName&quot;, required = false) String channelName);
+}
+</code></pre>
+<p>参数说明：</p>
+<ul>
+<li><strong>name</strong> ：被调用方注册到 Nacos 的服务名（ <strong>spring.application.name</strong> ）</li>
+<li><strong>path</strong> ：Controller 上的 <strong>@RequestMapping</strong> 前缀</li>
+<li>方法签名必须与 Controller 接口完全一致（路径、参数名、参数类型）</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>编写 Fallback 实现类</p>
+<p>在 API 模块中（或调用方项目中）创建 Fallback 类，实现 Feign 接口并返回兜底数据。以下情况会触发降级，走 Fallback 逻辑：</p>
+<ol>
+<li>
+<p>*服务不可用*：被调用方宕机或未注册到 Nacos</p>
+</li>
+<li>
+<p>*响应超时*：Feign 调用超过设定的超时时间</p>
+<p>package com.genersoft.iot.vmp.api.feign;</p>
+<p>import com.genersoft.iot.vmp.storager.dao.dto.ChannelGroup;
+import com.genersoft.iot.vmp.vmanager.bean.ErrorCode;
+import com.genersoft.iot.vmp.vmanager.bean.WVPResult;
+import org.springframework.stereotype.Component;</p>
+<p>import java.util.List;</p>
+<p>@Component
+public class ChannelGroupFeignClientFallback implements ChannelGroupFeignClient {</p>
+<pre><code>@Override
+public WVPResult&lt;List&lt;ChannelGroup&gt;&gt; getTreeDataForAi(String groupName,
+                                                      String deviceId,
+                                                      String channelName) {
+    return WVPResult.fail(ErrorCode.ERROR500.getCode(),
+                          &quot;channel group 服务暂不可用，请稍后重试&quot;);
+}
+</code></pre>
+<p>}</p>
+</li>
+</ol>
+<div class="notice-important" id="org5a3171b">
+<ul class="org-ul">
+<li>Fallback 类必须实现 Feign 接口，且需标注 <b>@Component</b><br /></li>
+<li>降级逻辑应尽量简单，避免依赖外部服务<br /></li>
+<li>返回统一错误码和提示信息，便于前端统一处理<br /></li>
+</ul>
+</div>
+</li>
+<li>
+<p>Feign 超时与重试配置</p>
+<p>每个 FeignClient 可以通过 <strong>configuration</strong> 参数指定独立的配置类，实现超时时间、重试策略等自定义。</p>
+<ol>
+<li>
+<p>配置类</p>
+<p>在 API 模块中创建 <strong>FeignClientConfig</strong> ：</p>
+<pre><code>package com.genersoft.iot.vmp.api.feign;
+
+import feign.Request;
+import feign.Retryer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.concurrent.TimeUnit;
+
+@Configuration
+public class FeignClientConfig {
+
+    @Value(&quot;${feign.client.wvp.connect-timeout:2000}&quot;)
+    private int connectTimeout;
+
+    @Value(&quot;${feign.client.wvp.read-timeout:3000}&quot;)
+    private int readTimeout;
+
+    @Value(&quot;${feign.client.wvp.retryer.period:500}&quot;)
+    private long retryPeriod;
+
+    @Value(&quot;${feign.client.wvp.retryer.max-period:2000}&quot;)
+    private long retryMaxPeriod;
+
+    @Value(&quot;${feign.client.wvp.retryer.max-attempts:3}&quot;)
+    private int retryMaxAttempts;
+
+    @Bean
+    public Request.Options requestOptions() {
+        return new Request.Options(connectTimeout, TimeUnit.MILLISECONDS,
+                                   readTimeout, TimeUnit.MILLISECONDS, true);
+    }
+
+    @Bean
+    public Retryer retryer() {
+        return new Retryer.Default(retryPeriod, retryMaxPeriod, retryMaxAttempts);
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>在 FeignClient 中引用</p>
+<pre><code>@FeignClient(name = &quot;wvp&quot;, path = &quot;/api/channel/groups&quot;,
+             configuration = FeignClientConfig.class,
+             fallback = ChannelGroupFeignClientFallback.class)
+public interface ChannelGroupFeignClient {
+    // ...
+}
+</code></pre>
+</li>
+<li>
+<p>YAML 覆盖示例</p>
+<pre><code>feign:
+  client:
+    wvp:
+      connect-timeout: 5000      # 连接超时 5s
+      read-timeout: 10000        # 读取超时 10s
+      retryer:
+        period: 1000             # 初始重试间隔 1s
+        max-period: 5000         # 最大重试间隔 5s
+        max-attempts: 5          # 最多重试 5 次
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>发布 API 模块到远程仓库</p>
+<pre><code># 在 wvp 项目根目录执行
+cd wvp-api
+mvn deploy 
+</code></pre>
+</li>
+</ol>
+<p><a id="org3b28250"></a></p>
+<h2 id="服务调用方集成">服务调用方集成</h2>
+<ol>
+<li>
+<p>步骤一：调用方 pom.xml 添加依赖</p>
+<pre><code>&lt;!-- 服务注册发现 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;
+    &lt;version&gt;2021.0.5.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!-- OpenFeign --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;!-- 共享 API 模块 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.genersoft&lt;/groupId&gt;
+    &lt;artifactId&gt;wvp-api&lt;/artifactId&gt;
+    &lt;version&gt;1.9.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</li>
+<li>
+<p>步骤二：增加登录信息传递</p>
+<p>服务之间通过 <strong>fegionclient</strong> 调用，浏览器请求的 cookie 和 header 并不会传递过去，所幸可以使用 RequestInterceptor 来实现。<br>
+RequestInterceptor 是 Feign 原生提供的一个函数式接口，用于在 HTTP 请求发出前对请求模板进行定制修改。 在 Spring Cloud 环境中，你可以通过将它声明为 Bean 来全局生效，或放在 @FeignClient 的 configuration 中局部生效。</p>
+<pre><code>package com.skytech.infrastructure.config;
+
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import java.util.Enumeration;
+
+import javax.servlet.http.HttpServletRequest;
+
+@Configuration
+public class FeignHeaderInterceptor implements RequestInterceptor {
+
+    @Override
+    public void apply(RequestTemplate template) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if (attributes != null) {
+            HttpServletRequest request = attributes.getRequest();
+            Enumeration&lt;String&gt; headerNames = request.getHeaderNames();
+            while (headerNames.hasMoreElements()) {
+                String headerName = headerNames.nextElement();
+                String headerValue = request.getHeader(headerName);
+                template.header(headerName, headerValue);
+            }
+        }
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>步骤三：调用方 Nacos 配置</p>
+<pre><code>spring:
+  application:
+    name: your-service-name
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.100.10.104:8848
+        namespace: public
+        group: DEFAULT_GROUP
+        username: username
+        password: password
+</code></pre>
+</li>
+<li>
+<p>步骤四：启动类添加注解</p>
+<pre><code>@SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients(basePackages = &quot;com.genersoft.iot.vmp.api.feign&quot;)
+public class YourApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(YourApplication.class, args);
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>步骤五：注入并使用</p>
+<pre><code>@Service
+public class YourService {
+
+    @Autowired
+    private ChannelGroupFeignClient channelGroupFeignClient;
+
+    public void queryGroupTree() {
+        WVPResult&lt;List&lt;ChannelGroup&gt;&gt; groups = channelGroupFeignClient
+                .getTreeDataForAi(&quot;分组名称&quot;, null, null);
+        // 处理返回数据
+    }
+}
+</code></pre>
+</li>
+</ol>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="../../posts/seata-shardingsphere1/" class="block">springcloud 整合 shardingsphere 及 seata</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/java-oom/" class="block">java 栈溢出问题排查</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#角色说明">角色说明</a></li>
+    <li><a href="#项目结构">项目结构</a></li>
+    <li><a href="#服务提供方集成">服务提供方集成</a></li>
+    <li><a href="#服务调用方集成">服务调用方集成</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/rocketmqintroduction/" class="no-underline">RocketMQ 必须知道的理论知识</a>
+          <br />
+        
+          <a href="../../posts/java-oom/" class="no-underline">java 栈溢出问题排查</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
