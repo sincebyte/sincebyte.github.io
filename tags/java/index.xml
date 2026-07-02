@@ -18,6 +18,13 @@
       <description>&lt;p&gt;在典型的 Java 后端迭代里，真正吞噬效率的不止有代码编写，还有冗长的重启和低质量发布反馈。&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Java Caffeine 高性能本地缓存</title>
+      <link>/posts/java-caffeine-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/</link>
+      <pubDate>Tue, 22 Jul 2025 16:19:25 +0800</pubDate>
+      <guid>/posts/java-caffeine-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/</guid>
+      <description>&lt;p&gt;Caffeine 是 Guava Cache 作者的后续作品，基于 W-TinyLFU 淘汰算法，目前 Java 本地缓存里性能最好。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Mqtt Usage</title>
       <link>/posts/mqtt-usage/</link>
       <pubDate>Fri, 16 May 2025 11:03:03 +0800</pubDate>
