@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Java Aqs原理与使用 | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="AQS（AbstractQueuedSynchronizer，抽象队列同步器）是 JUC（java.util.concurrent）包的核心基石。它提供了一套基于 FIFO 等待队列的同步框架，用于构建锁和其他同步组件。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Java Aqs原理与使用",
+      "item":"/posts/java-aqs%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/java-aqs%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/"
+    },
+    "headline": "Java Aqs原理与使用 | sincebyte","datePublished": "2022-06-02T15:04:54+08:00",
+    "dateModified": "2022-06-02T15:04:54+08:00",
+    "wordCount":  2260 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eAQS（AbstractQueuedSynchronizer，抽象队列同步器）是 JUC（java.util.concurrent）包的核心基石。它提供了一套基于 FIFO 等待队列的同步框架，用于构建锁和其他同步组件。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Java Aqs原理与使用 | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/java-aqs%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" />
+
+
+
+
+<meta property="og:description" content="AQS（AbstractQueuedSynchronizer，抽象队列同步器）是 JUC（java.util.concurrent）包的核心基石。它提供了一套基于 FIFO 等待队列的同步框架，用于构建锁和其他同步组件。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-06-02T15:04:54&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-06-02T15:04:54&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" />
+
+<meta property="og:see_also" content="/posts/rocketmqintroduction/" />
+
+<meta property="og:see_also" content="/posts/java-oom/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Java Aqs原理与使用</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-06-02</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>AQS（AbstractQueuedSynchronizer，抽象队列同步器）是 JUC（java.util.concurrent）包的核心基石。它提供了一套基于 FIFO 等待队列的同步框架，用于构建锁和其他同步组件。</p>
+<p><strong>AQS 的设计目标：</strong> 将同步器的通用逻辑（队列管理、线程阻塞/唤醒）封装在抽象类中，让子类只需实现少量状态控制方法即可构建完整的同步器。</p>
+<p><a id="org165afdc"></a></p>
+<h2 id="核心原理">核心原理</h2>
+<ol>
+<li>
+<p>状态管理</p>
+<p>AQS 通过一个 volatile int 变量 <strong>state</strong> 表示同步状态，提供三个方法操作：</p>
+<ul>
+<li><strong>getState()</strong> — 获取当前状态</li>
+<li><strong>setState(int)</strong> — 设置状态值</li>
+<li><strong>compareAndSetState(int expect, int update)</strong> — CAS 原子更新</li>
+</ul>
+</li>
+<li>
+<p>模板方法模式</p>
+<p>AQS 采用模板方法模式，对外暴露的 “lock / unlock” 类方法（如 <strong>acquire()</strong> 、 <strong>release()</strong> ）已经定义好完整流程，内部留出 5 个钩子方法供子类覆写：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">方法</th>
+<th scope="col" class="org-left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>tryAcquire(int)</b></td>
+<td class="org-left">独占模式获取</td>
+</tr>
+<tr>
+<td class="org-left"><b>tryRelease(int)</b></td>
+<td class="org-left">独占模式释放</td>
+</tr>
+<tr>
+<td class="org-left"><b>tryAcquireShared(int)</b></td>
+<td class="org-left">共享模式获取</td>
+</tr>
+<tr>
+<td class="org-left"><b>tryReleaseShared(int)</b></td>
+<td class="org-left">共享模式释放</td>
+</tr>
+<tr>
+<td class="org-left"><b>isHeldExclusively()</b></td>
+<td class="org-left">是否被当前线程独占</td>
+</tr>
+</tbody>
+</table>
+<p>子类只需实现这些方法，无需关心线程排队、阻塞、唤醒等复杂细节。</p>
+</li>
+<li>
+<p>CLH 队列</p>
+<p>AQS 内部维护一个 CLH 变体（Craig, Landin, and Hagersten）锁队列，结构如下：</p>
+<pre><code>        +------+        +------+        +------+
+head -&gt; | Node | &lt;----&gt; | Node | &lt;----&gt; | Node | &lt;- tail
+        |thread|        |thread|        |thread|
+        |waitSt|        |waitSt|        |waitSt|
+        +------+        +------+        +------+
+</code></pre>
+<ul>
+<li><strong>head</strong> 指向哨兵节点（已获取锁的线程）， <strong>tail</strong> 指向队尾</li>
+<li>每个 <strong>Node</strong> 包含等待线程引用、等待状态（ <strong>CANCELLED</strong> 、 <strong>SIGNAL</strong> 、 <strong>CONDITION</strong> 、 <strong>PROPAGATE</strong> ）、前驱/后继指针</li>
+<li>新节点以 CAS 方式入队，保证线程安全</li>
+</ul>
+</li>
+<li>
+<p>独占模式 (acquire) 流程</p>
+<ol>
+<li>调用 <strong>tryAcquire(arg)</strong> 尝试获取锁，成功则直接返回</li>
+<li>失败则调用 <strong>addWaiter()</strong> 将当前线程封装为独占模式的 Node 加入队尾</li>
+<li>加入队尾后，调用 <strong>acquireQueued()</strong> 进入自旋循环：
+<ul>
+<li>若前驱是 head 且 <strong>tryAcquire</strong> 成功，将自己设为 head 并返回</li>
+<li>否则将前驱的 waitStatus 设为 <strong>SIGNAL</strong> ，然后 <strong>LockSupport.park()</strong> 阻塞自己</li>
+</ul>
+</li>
+<li>被唤醒后回到步骤 3 继续竞争</li>
+</ol>
+<div class="notice-info" id="org4b32a12">
+<p>
+独占模式（同一时刻只能一个线程拿到资源）典型实现：ReentrantLock 、synchronized<br />
+</p>
+</div>
+</li>
+<li>
+<p>共享模式 (acquireShared) 流程</p>
+<p>与独占模式的核心区别在于：锁释放时会传播唤醒，即一个节点被唤醒后，如果还有剩余资源，会继续唤醒后继节点，实现 “连锁唤醒”。</p>
+<div class="notice-info" id="org4af7ff3">
+<p>
+共享模式（多个线程可以同时获得资源（允许共享）典型实现： Semaphore 、CountDownLatch 、 ReadLock<br />
+</p>
+</div>
+</li>
+<li>
+<p>公平与非公平</p>
+<p>公平锁：严格按队列FIFO执行，新线程必须先排队，不能插队。<br>
+非公平锁：新线程可以直接CAS抢锁，失败才进入队列与排队线程竞争。<br>
+非公平性能更好：线程来了可以直接抢锁，不必先入队再等待唤醒</p>
+</li>
+<li>
+<p>Condition 条件队列</p>
+<p>AQS 内部还维护一个 <strong>ConditionObject*，用于实现 *await/signal</strong> 机制：</p>
+<ul>
+<li>每个 <strong>Condition</strong> 维护一个单向条件队列</li>
+<li><strong>await()</strong> 将当前线程从同步队列转移到条件队列，释放锁并阻塞</li>
+<li><strong>signal()</strong> 将条件队列头节点移回同步队列，等待重新获取锁</li>
+</ul>
+<div class="notice-info" id="org6bb98a5">
+<p>
+Condition 解决的不是性能问题，而是“唤醒语义错误问题”，避免无效唤醒。<br />
+</p>
+</div>
+<pre><code>import java.util.LinkedList;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class SimpleConditionDemo {
+
+    private final LinkedList&lt;Integer&gt; queue = new LinkedList&lt;&gt;();
+    private final int MAX = 2;
+
+    private final ReentrantLock lock = new ReentrantLock();
+    private final Condition notFull = lock.newCondition();
+    private final Condition notEmpty = lock.newCondition();
+
+    // 生产
+    public void put(int v) throws InterruptedException {
+        lock.lock();
+        try {
+            while (queue.size() == MAX) {
+                notFull.await(); // 🔴 满了就等（释放锁 + 进入条件队列）
+            }
+
+            queue.add(v);
+            System.out.println(&quot;produce &quot; + v);
+
+            notEmpty.signal(); // 🔵 通知消费者
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    // 消费
+    public void take() throws InterruptedException {
+        lock.lock();
+        try {
+            while (queue.isEmpty()) {
+                notEmpty.await(); // 🔴 空了就等
+            }
+
+            int v = queue.removeFirst();
+            System.out.println(&quot;consume &quot; + v);
+
+            notFull.signal(); // 🔵 通知生产者
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public static void main(String[] args) {
+        SimpleConditionDemo d = new SimpleConditionDemo();
+
+        new Thread(() -&gt; {
+            int i = 0;
+            while (true) {
+                try { d.put(i++); Thread.sleep(200); }
+                catch (Exception ignored) {}
+            }
+        }).start();
+
+        new Thread(() -&gt; {
+            while (true) {
+                try { d.take(); Thread.sleep(500); }
+                catch (Exception ignored) {}
+            }
+        }).start();
+    }
+}
+</code></pre>
+</li>
+</ol>
+<p><a id="orgb614b17"></a></p>
+<h2 id="常见实现">常见实现</h2>
+<ol>
+<li>
+<p>ReentrantLock（可重入锁）</p>
+<ul>
+<li>
+<p><strong>模式：</strong> 独占模式</p>
+</li>
+<li>
+<p><strong>原理：</strong> <strong>state</strong> 记录持有锁的线程和重入次数。 <strong>state</strong> 0 表示未锁定；&gt;0 表示已锁定，值为重入次数。同一线程可多次 <strong>lock()</strong> ，每次 <strong>state+1</strong> ， <strong>unlock()</strong> 时 <strong>state-1</strong> ，减到 0 时完全释放。</p>
+<p>ReentrantLock lock = new ReentrantLock();
+lock.lock();
+try {
+// 临界区代码
+} finally {
+lock.unlock();
+}</p>
+</li>
+<li>
+<p><strong>公平 vs 非公平：</strong> 公平锁在 <strong>tryAcquire</strong> 时先检查队列中是否有等待者；非公平锁直接 CAS 抢占，性能更高但可能饥饿。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>ReentrantReadWriteLock（读写锁）</p>
+<ul>
+<li>
+<p><strong>模式：</strong> 共享 + 独占混合模式</p>
+</li>
+<li>
+<p><strong>原理：</strong> 将 32 位 <strong>state</strong> 拆分为高 16 位（读锁计数）和低 16 位（写锁计数）。读锁为共享模式，允许多线程并发读；写锁为独占模式，独占写。读-写互斥，写-写互斥。</p>
+<p>ReadWriteLock rwLock = new ReentrantReadWriteLock();
+rwLock.readLock().lock();   // 读锁
+rwLock.writeLock().lock();  // 写锁</p>
+</li>
+<li>
+<p><strong>锁降级：</strong> 持有写锁时可获取读锁，然后释放写锁，实现从写锁降级到读锁（保证数据可见性）。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Semaphore（信号量）</p>
+<ul>
+<li>
+<p><strong>模式：</strong> 共享模式</p>
+</li>
+<li>
+<p><strong>原理：</strong> <strong>state</strong> 表示剩余许可数。 <strong>acquire()</strong> 时 <strong>state-1</strong> ，若 <strong>state&lt;0</strong> 则阻塞； <strong>release()</strong> 时 <strong>state+1</strong> ，并唤醒等待线程。</p>
+<p>Semaphore semaphore = new Semaphore(3); // 最多 3 个并发
+semaphore.acquire();
+try {
+// 受控并发代码
+} finally {
+semaphore.release();
+}</p>
+</li>
+</ul>
+</li>
+<li>
+<p>CountDownLatch（倒计时门闩）</p>
+<ul>
+<li>
+<p><strong>模式：</strong> 共享模式</p>
+</li>
+<li>
+<p><strong>原理：</strong> <strong>state</strong> 为初始计数值。 <strong>countDown()</strong> 将 <strong>state-1</strong> ； <strong>await()</strong> 在 <strong>state</strong> 0 之前一直阻塞。当 <strong>state</strong> 变为 0 时，一次性唤醒所有等待线程。</p>
+<p>CountDownLatch latch = new CountDownLatch(3);
+// 三个线程各自调用 latch.countDown();
+latch.await(); // 阻塞直到 count*0</p>
+</li>
+</ul>
+</li>
+<li>
+<p>CyclicBarrier（循环栅栏）</p>
+<ul>
+<li>
+<p><strong>CyclicBarrier</strong> 本身不直接继承 AQS，而是借助 <strong>ReentrantLock</strong> 和 <strong>Condition</strong> 实现。</p>
+</li>
+<li>
+<p>一组线程互相等待，直到全部到达屏障点后同时继续执行，可重复使用。</p>
+<p>import java.util.concurrent.CyclicBarrier;</p>
+<p>public class CyclicBarrierCycleDemo {</p>
+<pre><code>public static void main(String[] args) {
+
+    CyclicBarrier barrier = new CyclicBarrier(3,
+            () -&gt; System.out.println(&quot;&gt;&gt;&gt; 本轮结束，进入下一轮 &lt;&lt;&lt;&quot;));
+
+    Runnable task = () -&gt; {
+        try {
+            String name = Thread.currentThread().getName();
+
+            for (int i = 1; i &lt;= 3; i++) {
+
+                System.out.println(name + &quot;：第 &quot; + i + &quot; 轮第一阶段&quot;);
+
+                Thread.sleep((long) (Math.random() * 500));
+
+                System.out.println(name + &quot;：到达屏障 &quot; + i);
+
+                barrier.await(); // 🔥 每一轮都会在这里集合
+
+                System.out.println(name + &quot;：第 &quot; + i + &quot; 轮第二阶段完成\n&quot;);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    };
+
+    new Thread(task, &quot;A&quot;).start();
+    new Thread(task, &quot;B&quot;).start();
+    new Thread(task, &quot;C&quot;).start();
+}
+</code></pre>
+<p>}</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><a id="org8634cd8"></a></p>
+<h2 id="与-synchronized-对比">与 synchronized 对比</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">维度</th>
+<th scope="col" class="org-left">AQS 系列锁 (Lock)</th>
+<th scope="col" class="org-left">synchronized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">实现层级</td>
+<td class="org-left">Java 代码层面（AQS 框架）</td>
+<td class="org-left">JVM 内置，C++ 实现</td>
+</tr>
+<tr>
+<td class="org-left">锁释放</td>
+<td class="org-left">需手动 <b>unlock()</b> ，通常 <b>finally</b> 中执行</td>
+<td class="org-left">代码块退出或异常时自动释放</td>
+</tr>
+<tr>
+<td class="org-left">可中断获取</td>
+<td class="org-left"><b>lockInterruptibly()</b> 支持</td>
+<td class="org-left">不支持（死锁时无法中断）</td>
+</tr>
+<tr>
+<td class="org-left">超时获取</td>
+<td class="org-left"><b>tryLock(timeout, unit)</b> 支持</td>
+<td class="org-left">不支持</td>
+</tr>
+<tr>
+<td class="org-left">公平性</td>
+<td class="org-left">支持公平/非公平锁切换</td>
+<td class="org-left">非公平（JVM 内部优化）</td>
+</tr>
+<tr>
+<td class="org-left">条件变量</td>
+<td class="org-left">支持多个 Condition</td>
+<td class="org-left">一个对象只有一个 wait/notify 条件</td>
+</tr>
+<tr>
+<td class="org-left">读写分离</td>
+<td class="org-left">ReentrantReadWriteLock 支持</td>
+<td class="org-left">不支持</td>
+</tr>
+<tr>
+<td class="org-left">性能 (JDK 6+)</td>
+<td class="org-left">持平（竞争激烈时 AQS 略优）</td>
+<td class="org-left">经大量优化（偏向锁、轻量锁、自旋等）</td>
+</tr>
+<tr>
+<td class="org-left">使用复杂度</td>
+<td class="org-left">较高（需手动释放）</td>
+<td class="org-left">低（语法糖，自动释放）</td>
+</tr>
+<tr>
+<td class="org-left">调试</td>
+<td class="org-left">可获取队列长度、等待线程等</td>
+<td class="org-left">信息有限，调试困难</td>
+</tr>
+</tbody>
+</table>
+<p><a id="org7cb36f4"></a></p>
+<h2 id="选择建议">选择建议</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">场景</th>
+<th scope="col" class="org-left">推荐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">简单互斥、代码块锁</td>
+<td class="org-left"><b>synchronized</b></td>
+</tr>
+<tr>
+<td class="org-left">需要超时/可中断的锁</td>
+<td class="org-left"><b>ReentrantLock</b></td>
+</tr>
+<tr>
+<td class="org-left">读多写少</td>
+<td class="org-left"><b>ReentrantReadWriteLock</b></td>
+</tr>
+<tr>
+<td class="org-left">限流、控制并发数</td>
+<td class="org-left"><b>Semaphore</b></td>
+</tr>
+<tr>
+<td class="org-left">等待多个任务完成</td>
+<td class="org-left"><b>CountDownLatch</b></td>
+</tr>
+<tr>
+<td class="org-left">多线程步调统一</td>
+<td class="org-left"><b>CyclicBarrier</b></td>
+</tr>
+<tr>
+<td class="org-left">高并发读、极低写</td>
+<td class="org-left"><b>StampedLock</b></td>
+</tr>
+</tbody>
+</table>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="../../posts/springcloud-openfegion-usage/" class="block">Springcloud Openfegion Usage</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="block">Java 线程池</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#核心原理">核心原理</a></li>
+    <li><a href="#常见实现">常见实现</a></li>
+    <li><a href="#与-synchronized-对比">与 synchronized 对比</a></li>
+    <li><a href="#选择建议">选择建议</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="no-underline">Java 线程池</a>
+          <br />
+        
+          <a href="../../posts/rocketmqintroduction/" class="no-underline">RocketMQ 必须知道的理论知识</a>
+          <br />
+        
+          <a href="../../posts/java-oom/" class="no-underline">java 栈溢出问题排查</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2024 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
