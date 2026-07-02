@@ -109,6 +109,13 @@
       <description>&lt;p&gt;本文档描述 Spring Boot 项目如何集成 Nacos 注册中心、使用 OpenFeign 实现服务间调用，以及如何编写共享 API 模块供其他服务接入。&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Java 线程池</title>
+      <link>/posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/</link>
+      <pubDate>Mon, 02 May 2022 10:55:03 +0800</pubDate>
+      <guid>/posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/</guid>
+      <description>&lt;p&gt;Java 线程池是并发编程中最核心的工具之一。本文从线程池初始化入手，逐步深入其原理，再到 Java 8 Stream 如何利用多线程，最后解决 ThreadLocal 在多线程环境下的失效问题并提供可落地的工具方案。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>java 栈溢出问题排查</title>
       <link>/posts/java-oom/</link>
       <pubDate>Fri, 29 Apr 2022 13:11:22 +0800</pubDate>
