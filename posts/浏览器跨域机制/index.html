@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>浏览器跨域机制 | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="什么是跨域请求？
+
+
+同域请求&amp;跨域请求
+页面地址与页面内资源请求地址进行对比。当且仅当两者的协议、域名、端口都相同时，说资源请求是一个同域请求。
+
+
+
+协议相同
+
+
+
+
+
+
+
+
+页面地址
+接口地址
+跨域原因
+
+
+http://local.neoemacs.com.cn
+https://local.neoemacs.com.cn
+协议不同
+
+
+
+
+
+域名相同">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"浏览器跨域机制",
+      "item":"/posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E6%9C%BA%E5%88%B6/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E6%9C%BA%E5%88%B6/"
+    },
+    "headline": "浏览器跨域机制 | sincebyte","datePublished": "2022-07-13T09:31:21+08:00",
+    "dateModified": "2022-07-13T09:31:21+08:00",
+    "wordCount":  3164 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003ch2 id=\u0022什么是跨域请求\u0022\u003e什么是跨域请求？\u003c\/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e同域请求\u0026amp;跨域请求\u003c\/p\u003e\n\u003cp\u003e页面地址与页面内资源请求地址进行对比。当且仅当两者的协议、域名、端口都相同时，说资源请求是一个同域请求。\u003cbr\u003e\n\u003cimg src=\u0022https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTTP\/CORS\/cors_principle.png\u0022 alt=\u0022img\u0022\u003e\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e协议相同\u003c\/p\u003e\n\u003ctable border=\u00222\u0022 cellspacing=\u00220\u0022 cellpadding=\u00226\u0022 rules=\u0022groups\u0022 frame=\u0022hsides\u0022\u003e\n\u003ccolgroup\u003e\n\u003ccol  class=\u0022org-left\u0022 \/\u003e\n\u003ccol  class=\u0022org-left\u0022 \/\u003e\n\u003ccol  class=\u0022org-left\u0022 \/\u003e\n\u003c\/colgroup\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd class=\u0022org-left\u0022\u003e页面地址\u003c\/td\u003e\n\u003ctd class=\u0022org-left\u0022\u003e接口地址\u003c\/td\u003e\n\u003ctd class=\u0022org-left\u0022\u003e跨域原因\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd class=\u0022org-left\u0022\u003e\u003ca href=\u0022http:\/\/local.neoemacs.com.cn\u0022\u003ehttp:\/\/local.neoemacs.com.cn\u003c\/a\u003e\u003c\/td\u003e\n\u003ctd class=\u0022org-left\u0022\u003e\u003ca href=\u0022https:\/\/local.neoemacs.com.cn\u0022\u003ehttps:\/\/local.neoemacs.com.cn\u003c\/a\u003e\u003c\/td\u003e\n\u003ctd class=\u0022org-left\u0022\u003e协议不同\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e域名相同\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="浏览器跨域机制 | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E6%9C%BA%E5%88%B6/" />
+
+
+
+
+<meta property="og:description" content="什么是跨域请求？
+
+
+同域请求&amp;跨域请求
+页面地址与页面内资源请求地址进行对比。当且仅当两者的协议、域名、端口都相同时，说资源请求是一个同域请求。
+
+
+
+协议相同
+
+
+
+
+
+
+
+
+页面地址
+接口地址
+跨域原因
+
+
+http://local.neoemacs.com.cn
+https://local.neoemacs.com.cn
+协议不同
+
+
+
+
+
+域名相同" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-07-13T09:31:21&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-07-13T09:31:21&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/java-aqs%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" />
+
+<meta property="og:see_also" content="/posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" />
+
+<meta property="og:see_also" content="/posts/rocketmqintroduction/" />
+
+<meta property="og:see_also" content="/posts/java-oom/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">浏览器跨域机制</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-07-13</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>7 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h2 id="什么是跨域请求">什么是跨域请求？</h2>
+<ol>
+<li>
+<p>同域请求&amp;跨域请求</p>
+<p>页面地址与页面内资源请求地址进行对比。当且仅当两者的协议、域名、端口都相同时，说资源请求是一个同域请求。<br>
+<img src="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/cors_principle.png" alt="img"></p>
+</li>
+<li>
+<p>协议相同</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">页面地址</td>
+<td class="org-left">接口地址</td>
+<td class="org-left">跨域原因</td>
+</tr>
+<tr>
+<td class="org-left"><a href="http://local.neoemacs.com.cn">http://local.neoemacs.com.cn</a></td>
+<td class="org-left"><a href="https://local.neoemacs.com.cn">https://local.neoemacs.com.cn</a></td>
+<td class="org-left">协议不同</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>域名相同</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">页面地址</td>
+<td class="org-left">接口地址</td>
+<td class="org-left">跨域原因</td>
+</tr>
+<tr>
+<td class="org-left"><a href="http://local.neoemacs.com.cn">http://local.neoemacs.com.cn</a></td>
+<td class="org-left"><a href="http://any.neoemacs.com.cn">http://any.neoemacs.com.cn</a></td>
+<td class="org-left">域名不同</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>端口相同</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">页面地址</td>
+<td class="org-left">接口地址</td>
+<td class="org-left">跨域原因</td>
+</tr>
+<tr>
+<td class="org-left"><a href="http://local.neoemacs.com.cn">http://local.neoemacs.com.cn</a></td>
+<td class="org-left"><a href="http://local.neoemacs.com.cn:81">http://local.neoemacs.com.cn:81</a></td>
+<td class="org-left">端口不同</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p><a id="org4c86234"></a></p>
+<h2 id="为什么浏览器有跨域机制">为什么浏览器有跨域机制</h2>
+<ul>
+<li>跨域机制是浏览器的一种安全策略，保护服务器的资源安全</li>
+</ul>
+<ol>
+<li>
+<p>XSS 攻击</p>
+</li>
+<li>
+<p>Cookie 的跨域安全策略</p>
+<ul>
+<li>cookie 跨域共享策略，限制同源的数据才能共享 cookie</li>
+<li>cookie 是网站自己的信息资源，是否允许发送给其他网站默认被浏览器强管控</li>
+<li>cookie 的基本属性
+<ul>
+<li>httpOnly 仅允许 http 请求发送，不允许 js 脚本获取，实际上是防 XSS 攻击</li>
+<li>domain（默认本网站域名）</li>
+<li>path（默认 /);</li>
+<li>max-age (默认值 -1)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><a id="orgff66d9a"></a></p>
+<h2 id="跨域机制触发的表现">跨域机制触发的表现</h2>
+<ul>
+<li>真正的请求发送不出去
+<ul>
+<li>举例：前端 HXR/Fetch 随意设置一个自定义 header name：比如 mdd</li>
+</ul>
+</li>
+<li>请求已发送，但响应 body 数据不能被浏览器获取
+<ul>
+<li>举例：针对垮域请求，后端只处理 option 请求、但不处理真实请求</li>
+</ul>
+</li>
+<li>请求已发送，但响应 Header 不能被浏览器 JS 读取
+<ul>
+<li>举例：JS 获取后端返回的 responseHeader（前提：未设置 Access-Control-Expose-Headers）</li>
+</ul>
+</li>
+</ul>
+<p><a id="orga472c44"></a></p>
+<h2 id="测试环境搭建">测试环境搭建</h2>
+<p><img src="corsenv.svg" alt="img"></p>
+<ol>
+<li>
+<p>代码例子</p>
+<ol>
+<li>
+<p>nginx 配置</p>
+<ul>
+<li>
+<p>nginx 启动</p>
+<pre><code>nginx -c /Users/van/Desktop/0310/nginx.conf
+</code></pre>
+</li>
+<li>
+<p>代码</p>
+<pre><code>events {
+    accept_mutex on;
+    multi_accept on;
+    worker_connections  24;
+}
+
+http {
+
+    server {
+        listen 443 ssl;
+        server_name local.neoemacs.com.cn;
+    ssl_certificate      /Users/van/Desktop/0310/ssl/server.crt;
+        ssl_certificate_key  /Users/van/Desktop/0310/ssl/server.key;
+
+        location /0310 {
+            alias '/Users/van/Desktop/0310';
+        }
+
+    }
+
+    server {
+    listen 8088 default_server;
+        server_name local.neoemacs.com.cn;
+
+        location /0310 {
+            alias '/Users/van/Desktop/0310';
+        }
+
+    }
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>html 代码</p>
+<p>访问地址：<a href="http://local.neoemacs.com.cn:8088/0310/demo.html">http://local.neoemacs.com.cn:8088/0310/demo.html</a></p>
+<ul>
+<li>
+<p>代码</p>
+<pre><code>&lt;html&gt;
+&lt;h1&gt;cross origin&lt;/h1&gt;
+&lt;input value='send xhr' onclick='sendxhr()' type='button'&gt;&lt;/input&gt;
+&lt;script &gt;
+function sendxhr() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://www.jianshu.com/shakespeare/v2/notes/b722f61bb09f/audio', true);
+    xhr.setRequestHeader('Content-type', 'application/json')
+    xhr.send();
+}
+
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><a id="orgd696250"></a></p>
+<h2 id="跨域请求时序图">跨域请求时序图</h2>
+<ul>
+<li>
+<p>时序图</p>
+<p><img src="corstime.svg" alt="img"></p>
+</li>
+</ul>
+<ol>
+<li>
+<p>简单请求</p>
+<ul>
+<li>简单请求，Head 头仅包含如下 4 个（并且其值需要满足特定条件），value 长度是否限制？简单请求可直接访问，与同源请求一样：
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests">https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests</a></li>
+<li>Accept：
+<ul>
+<li>主要数据格式/次要数据格式;参数，只能是固定值否则浏览器不允许发送请求，用户无法随意构造</li>
+<li>i.e. Accept:application/json</li>
+<li>CORS-safelisted request header	yes, with the additional restriction that values can’t contain a CORS-unsafe request header byte: 0x00-0x1F (except 0x09 (HT)), &ldquo;():&lt;&gt;?@[\]{}, and 0x7F (DEL).</li>
+</ul>
+</li>
+<li>Accept-Language：
+<ul>
+<li>Accept-Language 表示浏览器所支持的语言类型；</li>
+<li>i.e Accept-Language: zh-cn,zh;q=0.5, zh-cn 表示简体中文；zh 表示中文； q 是权重系数，范围 0 <code>&lt; q &lt;</code> 1，q 值越大，请求越倾向于获得其“;”之前的类型表示的内容，若没有指定 q 值，则默认为 1，若被赋值为 0，则用于提醒服务器哪些是浏览器不接受的内容类型。</li>
+<li>CORS-safelisted request header	yes, with the additional restriction that values can only be 0-9, A-Z, a-z, space or *,-.;=.</li>
+</ul>
+</li>
+<li>Content-Language：
+<ul>
+<li>指明 body 的语言类型</li>
+<li>i.e Accept-Language: zh-cn,zh;q=0.5</li>
+<li>CORS-safelisted request header	yes, with the additional restriction that values can only be 0-9, A-Z, a-z, space or *,-.;=.</li>
+</ul>
+</li>
+<li>Content-Type ：
+<ul>
+<li>主要数据格式/次要数据格式;参数，只能是固定值否则浏览器不允许发送请求，用户无法随意构造</li>
+<li>CORS-safelisted :
+<ul>
+<li>application/x-www-form-urlencoded</li>
+<li>multipart/form-data</li>
+<li>text/plain</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>简单请求，使用不同的 jsAPI 表现不一样，比如 axios 与 fetch 就不一样，似乎 axios 的表现更接近官方说法</li>
+</ul>
+</li>
+<li>
+<p>预检请求</p>
+<ul>
+<li>浏览器修改请求方法为 OPTION 请求，尝试获取服务器对资源管理的策略。</li>
+<li>OPTION 请求会屏蔽 requestBody，以及 request Header 信息。</li>
+<li>预检请求可以认为是对服务器资源的一种保护，</li>
+</ul>
+</li>
+</ol>
+<p><a id="org0495c43"></a></p>
+<h2 id="垮域响应头">垮域响应头</h2>
+<ol>
+<li>
+<p>Access-Control-Allow-Origin</p>
+<ul>
+<li>允许的域，格式：协议:域名:端口，只能设置 1 个值，或者全通配符 *</li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Allow-Credentials</p>
+<ul>
+<li>是否允许发送 cookie，如果是，Access-Control-Allow-Origin、Access-Control-Allow-Methods、Access-Control-Allow-Headers 均不允许为通配符</li>
+<li>一般不允许设置为 true，cookie 不容易控制要发送 cookie 将其转换为 header 再设置 Access-Control-Allow-Origin 控制更精准</li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Allow-Methods</p>
+<ul>
+<li>允许的方法，多个用逗号分隔，或者使用通配符 *</li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Max-Age</p>
+<ul>
+<li>垮域检测时间间隔，单位秒</li>
+<li>不同浏览器有不同的默认值</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age</a></li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Allow-Headers</p>
+<ul>
+<li>允许的请求头，多个用逗号分隔，或者使用通配符</li>
+</ul>
+</li>
+<li>
+<p>Access-Control-Expose-Headers</p>
+<ul>
+<li>前端 JS 允许读取的响应头，多个用逗号分隔，或者使用通配符</li>
+</ul>
+</li>
+</ol>
+<p><a id="org405cf3f"></a></p>
+<h2 id="代码测试">代码测试</h2>
+<ol>
+<li>
+<p>springmvc，单链路</p>
+<p><img src="gatewaycorssi.png" alt="img"></p>
+<pre><code>@RequestMapping(path = &quot;test/do&quot;, method = { RequestMethod.OPTIONS })
+public void doing() {
+    log.info(&quot;\n==== [options]&quot;);
+}
+
+// @GetRequestMapping(path = &quot;test/do&quot;, method = { RequestMethod.GET })
+@GetMapping(path = &quot;test/do&quot; )
+public User doings() {
+    log.info(&quot;\n==== [get]&quot;);
+    User user = new User();
+    user.setName(&quot;vanniuner&quot;);
+    // response.addHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;User-Agent&quot;);
+    response.addHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;http://local.neoemacs.com.cn:8088&quot;);
+    response.addHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;mmd&quot;);
+    return user;
+}
+</code></pre>
+<ul>
+<li>
+<p>跨域请求错误的一种情况：真实请求被浏览器拦截，真实请求没发出去</p>
+</li>
+<li>
+<p>SpringMVC @GetMapping 与 @RequestMapping 不需要额外声明 OPTIONS</p>
+</li>
+<li>
+<p>SpringMVC 如果同时声明 2 个 mvc 函数，一个是 OPTIONS，另外一个是 GET，手动写的 OPTIONS 方法视为无效</p>
+</li>
+<li>
+<p>跨域请求错误的一种情况：请求发送成功，但响应数据被浏览器拦截</p>
+</li>
+<li>
+<p>性能问题，跨域请求是否有必要注意，mvc 函数体内的程序被执行了 2 次？需要注意，option 请求仅返回跨域 header 即可，需要特殊处理</p>
+</li>
+<li>
+<p>后端有无必要识别一个请求是跨域请求？无必要，在网站内发起 ajax 请求做控制主要是为了防止 XSS 攻击。</p>
+</li>
+<li>
+<p>设置多个相同的跨域响应头，仅针对 Access-Control-Allow-Origin 这种只允许设置一个值的情况需要注意，设置多个会出问题，尤其是在多链路情况下</p>
+<pre><code>@Autowired
+HttpServletRequest request
+
+response.addHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;http://local.neoemacs.com.cn:8088&quot;);
+response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;http://local.neoemacs.com.cn:8088&quot;);
+</code></pre>
+</li>
+<li>
+<p>有 cookie 的情况</p>
+<ul>
+<li>跨域发送 cookie 服务器需要设置 Access-Control-Allow-Credentials：true，这实际也是对服务器的一种保护（默认情况下减少请求数据量）</li>
+<li>Access-Control-Allow-Credentials：true 情况下，其他跨域响应头（Access-Control-Allow-Origin）不允许出现通配符 ,安全系数极大降低</li>
+</ul>
+</li>
+<li>
+<p>跨域响应头是否支持半通配符？比如 Access-Control-Allow-Origin : <a href="http://*.neoemacs.com.cn:8081">http://*.neoemacs.com.cn:8081</a> 、Access-Control-Allow-Headers: mmd*,xs*</p>
+<ul>
+<li>不支持</li>
+</ul>
+</li>
+<li>
+<p>跨域请求错误的一种情况：请求发送成功，但响应头信息被浏览器拦截</p>
+</li>
+</ul>
+</li>
+<li>
+<p>不同浏览器实现的标准不同</p>
+<ol>
+<li>
+<p>IE</p>
+<ul>
+<li>内核：微软 旗下 Trident 内核，也是俗称的 IE 内核；</li>
+<li>Forbidden header name</li>
+<li>User-Agent</li>
+</ul>
+</li>
+<li>
+<p>chrome</p>
+<ul>
+<li>内核：google 旗下 Webkit 的 分支内核 Blink</li>
+<li>Forbidden header name</li>
+<li>设置了也无效</li>
+<li>User-Agent
+<ul>
+<li>设置了也无效</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>firefox</p>
+<ul>
+<li>内核：Mozilla 旗下 Gecko</li>
+<li>Forbidden header name</li>
+<li>User-Agent</li>
+</ul>
+</li>
+<li>
+<p>safari</p>
+<ul>
+<li>内核：Applpe 旗下：基于 Webkit 内核维护</li>
+<li>Forbidden header name</li>
+<li>设置有效果，需要服务器添加，Access-Control-Allow-Headers</li>
+<li>User-Agent</li>
+<li>可设置，但需要服务器添加，Access-Control-Allow-Headers</li>
+</ul>
+</li>
+<li>
+<p>chrome 与 safari 浏览器的差异</p>
+<p>设置 user-agent 请求头的差异</p>
+</li>
+<li>
+<p>fetch 与 axios 的差异</p>
+<p>content-type</p>
+</li>
+</ol>
+</li>
+<li>
+<p>springGateway，多链路</p>
+<p><img src="gatewaycors.png" alt="img"></p>
+<ul>
+<li>设置多个相同的跨域请求头，api 不一样
+<ul>
+<li>
+<p>springboot 设置了，Access-Control-Allow-Origin；springGateway 也设置了 Access-Control-Allow-Origin, 将导致接口无法访问</p>
+<pre><code>ServerHttpResponse response
+
+responseHeaders.remove(&quot;Access-Control-Allow-Credentials&quot;);
+responseHeaders.set(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;);
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><a id="org288830c"></a></p>
+<h2 id="其他问题">其他问题</h2>
+<ul>
+<li>header 头不允许超过 128 个字符长度</li>
+<li>垮域响应头不能设置多个，网关处添加的处理需要先清理，再设置</li>
+<li>垮域资源限制不止控制接口，还包括静态资源，图片、字体、js、css 等等</li>
+</ul>
+<p><a id="org5fc31f7"></a></p>
+<h2 id="正确的跨域处理逻辑">正确的跨域处理逻辑</h2>
+<ul>
+<li>判断 requestHeader Origin, 仅合法的才放行</li>
+<li>响应头设置 Access-Control-Allow-Origin = requestorigin</li>
+<li>响应头设置 Access-Control-Allow-Methods</li>
+<li>响应头设置 Access-Control-Allow-Headers 和 Access-Control-Expose-Headers 并支持可扩展，不设置为*</li>
+<li>响应头设置 Access-Control-Allow-Credentials 为 true</li>
+<li>响应头设置 Access-Control-Max-Age，使得浏览器缓存行为更加可控</li>
+<li>识别出 OPTIONS 请求后进行请求拦截，阻断业务逻辑执行</li>
+<li>识别出其他请求，则正常执行返回业务数据</li>
+</ul>
+<p><a id="orgd676d7a"></a></p>
+<h2 id="跨域请求术语">跨域请求术语</h2>
+<p>CORS(Cross-Origin Resource Sharing)</p>
+<ol>
+<li>
+<p>HXR</p>
+<ul>
+<li>XMLHttpRequest <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest</a></li>
+</ul>
+</li>
+<li>
+<p>Fetch Apis</p>
+<ul>
+<li>Fetch_API <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API</a></li>
+</ul>
+</li>
+<li>
+<p>Same-origin_policy</p>
+<ul>
+<li>同源策略<br>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy</a></li>
+<li>The same-origin policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin.
+<ul>
+<li>它有助于隔离潜在的恶意文件，减少可能的攻击向量。 例如，它可以防止 Internet 上的恶意网站在浏览器中运行 JS，以从第三方 Webmail 服务（用户已登录）或公司 Intranet（其免受攻击者的直接访问）读取数据 没有公共 IP 地址）并将该数据中继到攻击者。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CORS</p>
+<ul>
+<li>跨域资源共享机制</li>
+<li>Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.</li>
+</ul>
+</li>
+<li>
+<p>simple Request</p>
+<ul>
+<li>简单请求
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests">https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CORS preflight.</p>
+<ul>
+<li>跨域预检请求 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request">https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request</a></li>
+</ul>
+</li>
+<li>
+<p>CORS-safelisted request header</p>
+<ul>
+<li>4 个特殊 header，没设置为绝对安全、值需要控制在一个范围以内</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_request_header">https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_request_header</a></li>
+</ul>
+</li>
+<li>
+<p>Forbidden header name</p>
+<ul>
+<li>由浏览器控制、不能由程序控制，跨域也不检测</li>
+<li>错误信息：Refused to set unsafe header “Origin”，</li>
+<li>禁止的标头名称以 Proxy-or 开头 Sec-，或者是以下名称之一：
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name">https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="http://center-test.neoemacs.com.cn/api/mall-gateway/services/product/api/purchase-product-skus/state?sort=createdDate,desc&amp;page=0&amp;size=20&amp;state.equals=ONLIN">http://center-test.neoemacs.com.cn/api/mall-gateway/services/product/api/purchase-product-skus/state?sort=createdDate,desc&page=0&size=20&state.equals=ONLIN</a><br>
+<a href="http://center-test.neoemacs.com.cn/api/mall-gateway/services/admin/api/company-relations-list?sort=createdDate,desc&amp;page=0&amp;size=20&amp;type.equals=SUPPLIER">http://center-test.neoemacs.com.cn/api/mall-gateway/services/admin/api/company-relations-list?sort=createdDate,desc&page=0&size=20&type.equals=SUPPLIER</a></p>
+</li>
+<li>
+<p>User-Agent</p>
+<ul>
+<li>用户代理检测（或嗅探）是用于解析 User-Agent 字符串并推断有关设备及其浏览器的物理和应用属性的机制。但是让记录直截了当。User-Agent 嗅探是一种未来的失败策略。</li>
+<li>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15</li>
+<li>关于历史：
+<ul>
+<li>中文翻译：<a href="https://www.infoq.cn/news/2017/12/Brief-history-browser-user-agent/">https://www.infoq.cn/news/2017/12/Brief-history-browser-user-agent/</a></li>
+<li>英文原文：<a href="https://webaim.org/blog/user-agent-string-history/">https://webaim.org/blog/user-agent-string-history/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="../../posts/springcloud-openfegion-usage/" class="block">Springcloud Openfegion Usage</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/java-aqs%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="block">Java Aqs原理与使用</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是跨域请求">什么是跨域请求？</a></li>
+    <li><a href="#为什么浏览器有跨域机制">为什么浏览器有跨域机制</a></li>
+    <li><a href="#跨域机制触发的表现">跨域机制触发的表现</a></li>
+    <li><a href="#测试环境搭建">测试环境搭建</a></li>
+    <li><a href="#跨域请求时序图">跨域请求时序图</a></li>
+    <li><a href="#垮域响应头">垮域响应头</a></li>
+    <li><a href="#代码测试">代码测试</a></li>
+    <li><a href="#其他问题">其他问题</a></li>
+    <li><a href="#正确的跨域处理逻辑">正确的跨域处理逻辑</a></li>
+    <li><a href="#跨域请求术语">跨域请求术语</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/java-aqs%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="no-underline">Java Aqs原理与使用</a>
+          <br />
+        
+          <a href="../../posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="no-underline">Java 线程池</a>
+          <br />
+        
+          <a href="../../posts/rocketmqintroduction/" class="no-underline">RocketMQ 必须知道的理论知识</a>
+          <br />
+        
+          <a href="../../posts/java-oom/" class="no-underline">java 栈溢出问题排查</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2026 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
