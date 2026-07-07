@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Kafka Usage | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="Kafka 是分布式消息队列的事实标准，广泛应用于日志收集、流处理、事件驱动等场景。本文从核心概念入手，逐步深入到 Java 客户端编程和 Spring Boot 集成，覆盖开发中最常用的场景。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Kafka Usage",
+      "item":"/posts/kafka-usage/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/kafka-usage/"
+    },
+    "headline": "Kafka Usage | sincebyte","datePublished": "2022-08-17T14:12:45+08:00",
+    "dateModified": "2022-08-17T14:12:45+08:00",
+    "wordCount":  3272 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eKafka 是分布式消息队列的事实标准，广泛应用于日志收集、流处理、事件驱动等场景。本文从核心概念入手，逐步深入到 Java 客户端编程和 Spring Boot 集成，覆盖开发中最常用的场景。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Kafka Usage | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/kafka-usage/" />
+
+
+
+
+<meta property="og:description" content="Kafka 是分布式消息队列的事实标准，广泛应用于日志收集、流处理、事件驱动等场景。本文从核心概念入手，逐步深入到 Java 客户端编程和 Spring Boot 集成，覆盖开发中最常用的场景。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-08-17T14:12:45&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-08-17T14:12:45&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E6%9C%BA%E5%88%B6/" />
+
+<meta property="og:see_also" content="/posts/java-aqs%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" />
+
+<meta property="og:see_also" content="/posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" />
+
+<meta property="og:see_also" content="/posts/rocketmqintroduction/" />
+
+<meta property="og:see_also" content="/posts/java-oom/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Kafka Usage</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-08-17</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>7 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>Kafka 是分布式消息队列的事实标准，广泛应用于日志收集、流处理、事件驱动等场景。本文从核心概念入手，逐步深入到 Java 客户端编程和 Spring Boot 集成，覆盖开发中最常用的场景。</p>
+<p><a id="org38dfe19"></a></p>
+<h2 id="核心概念">核心概念</h2>
+<ol>
+<li>
+<p>整体架构</p>
+<p><img src="jimeng-2026-07-07-5649.png" alt="img"></p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">组件</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Broker</td>
+<td class="org-left">Kafka 服务节点，集群由多个 Broker 组成</td>
+</tr>
+<tr>
+<td class="org-left">Topic</td>
+<td class="org-left">消息的分类，Producer 向 Topic 写消息，Consumer 从 Topic 读消息</td>
+</tr>
+<tr>
+<td class="org-left">Partition</td>
+<td class="org-left">Topic 的物理分片，一个 Topic 可包含多个 Partition，实现分布式</td>
+</tr>
+<tr>
+<td class="org-left">Producer</td>
+<td class="org-left">消息生产者，负责将消息发送到指定 Topic</td>
+</tr>
+<tr>
+<td class="org-left">Consumer</td>
+<td class="org-left">消息消费者，从 Topic 拉取消息</td>
+</tr>
+<tr>
+<td class="org-left">ConsumerGroup</td>
+<td class="org-left">消费者组，组内多个 Consumer 共同消费 Topic，每个 Partition 只被组内一个 Consumer 消费</td>
+</tr>
+<tr>
+<td class="org-left">Offset</td>
+<td class="org-left">消息在 Partition 中的唯一偏移量，递增且唯一</td>
+</tr>
+<tr>
+<td class="org-left">Replica</td>
+<td class="org-left">分区副本，Leader 负责读写，Follower 同步备份</td>
+</tr>
+</tbody>
+</table>
+<div class="notice-info" id="org6230bb2">
+<p>
+一个 Topic 的 Partition 数决定了消费端的 <b>最大并行度</b> ——同一个 ConsumerGroup 内<br />
+Consumer 数量超过 Partition 数是多余的。<br />
+</p>
+</div>
+</li>
+<li>
+<p>消息模型</p>
+<ul>
+<li><strong>点对点</strong> ：一条消息只被一个 Consumer 消费，通过 ConsumerGroup 实现</li>
+<li><strong>发布订阅</strong> ：一条消息被多个 ConsumerGroup 消费，不同 Group 间独立消费</li>
+</ul>
+</li>
+<li>
+<p>消费语义</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">语义</th>
+<th scope="col" class="org-left">实现方式</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">至少一次</td>
+<td class="org-left">先消费消息，再提交 offset</td>
+<td class="org-left">消息不丢失，但可能重复消费</td>
+</tr>
+<tr>
+<td class="org-left">最多一次</td>
+<td class="org-left">先提交 offset，再消费消息</td>
+<td class="org-left">不重复，但可能丢失消息</td>
+</tr>
+<tr>
+<td class="org-left">精确一次</td>
+<td class="org-left">事务 + 幂等生产者</td>
+<td class="org-left">Kafka 0.11+ 支持，性能有损耗</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<p><a id="orgb29e07d"></a></p>
+<h2 id="spring-boot-集成">Spring Boot 集成</h2>
+<ol>
+<li>
+<p>依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.kafka&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-kafka&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>Spring Boot 自带版本管理，无需指定版本号。</p>
+</li>
+<li>
+<p>yaml 配置</p>
+<pre><code>spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      retries: 3
+      batch-size: 16384
+      linger-ms: 1
+      compression-type: lz4
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: my-group
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      max-poll-records: 500
+    listener:
+      ack-mode: MANUAL_IMMEDIATE   # 调用 ack.acknowledge() 后，立即提交
+      concurrency: 3               # 并发消费者数，建议 &lt;= Partition 数
+</code></pre>
+<ol>
+<li>
+<p>acks: all</p>
+<p>含义：生产者需要等待所有处于同步状态的副本（ISR） 都成功写入消息，才认为发送成功。这是 Kafka 提供的最高级别数据可靠性保证。<br>
+作用阶段：发送后的确认（Acknowledgment） 阶段。<br>
+建议：对于订单、支付等核心数据，必须设置为 all 或 -1，确保消息不丢失。</p>
+</li>
+<li>
+<p>retries: 3</p>
+<p>含义：消息发送失败时，生产者最多重试 3 次。如果 3 次后仍失败，则抛出异常。<br>
+作用阶段：发送失败后的重试（Retry） 阶段。<br>
+建议：配合 acks=all 使用，可以应对 Broker 临时 Leader 选举等瞬时故障。通常设置为一个大于 0 的值。</p>
+</li>
+<li>
+<p>batch-size: 16384</p>
+<p>含义：当多条消息发往同一个分区时，生产者会将它们攒成一个批次（Batch）再发送。这个参数指定了每个批次的最大字节数，默认 16KB。<br>
+作用阶段：发送前的攒批（Batching） 阶段。<br>
+建议：适当增大（如 32KB 或 64KB）可以提升吞吐量，但也会增加延迟。</p>
+</li>
+<li>
+<p>linger-ms: 1</p>
+<p>含义：生产者攒批时，最多等待 1 毫秒。如果在这段时间内批次大小达到了 batch-size，就立即发送；否则，时间一到，即使批次未满也会发送。<br>
+作用阶段：发送前的攒批等待（Lingering） 阶段。<br>
+建议：默认值为 0（立即发送）。设置为 1-10ms，可以在低延迟下有效提高批次利用率，从而提升吞吐量。</p>
+</li>
+<li>
+<p>compression-type: lz4</p>
+<p>含义：指定生产者在发送前，使用 LZ4 算法对消息进行压缩。<br>
+作用阶段：发送前的压缩（Compression） 阶段。<br>
+建议：LZ4 在压缩比和速度上平衡得很好。此外还有 gzip（压缩比高，但耗 CPU）和 snappy（速度快，压缩比尚可）。启用压缩可以显著节省网络带宽和磁盘存储。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Producer</p>
+<pre><code>import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.stereotype.Component;
+
+import java.util.concurrent.CompletableFuture;
+
+@Component
+public class MessageProducer {
+
+    private final KafkaTemplate&lt;String, String&gt; kafkaTemplate;
+
+    public MessageProducer(KafkaTemplate&lt;String, String&gt; kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public void send(String topic, String key, String message) {
+        CompletableFuture&lt;SendResult&lt;String, String&gt;&gt; future = kafkaTemplate.send(topic, key, message);
+        future.whenComplete((result, ex) -&gt; {
+            if (ex == null) {
+                System.out.printf(&quot;发送成功: topic=%s, offset=%d%n&quot;,
+                        result.getRecordMetadata().topic(),
+                        result.getRecordMetadata().offset());
+            } else {
+                System.err.println(&quot;发送失败: &quot; + ex.getMessage());
+            }
+        });
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>Consumer</p>
+<pre><code>import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.Acknowledgment;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MessageConsumer {
+
+    @KafkaListener(topics = &quot;test&quot;, groupId = &quot;my-group&quot;)
+    public void listen(ConsumerRecord&lt;String, String&gt; record, Acknowledgment ack) {
+        try {
+            System.out.printf(&quot;收到消息: offset=%d, key=%s, value=%s%n&quot;,
+                    record.offset(), record.key(), record.value());
+
+            // 业务处理
+
+            ack.acknowledge();  // 手动提交 offset
+        } catch (Exception e) {
+            System.err.println(&quot;消费失败: &quot; + e.getMessage());
+            // 不提交 offset，消息会被重新消费
+        }
+    }
+}
+</code></pre>
+<p>提交时机带来的影响</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">提交时机</td>
+<td class="org-left">消费语义</td>
+<td class="org-left">风险</td>
+</tr>
+<tr>
+<td class="org-left">先提交 Offset，后处理消息</td>
+<td class="org-left">至多一次（At-Most-Once）</td>
+<td class="org-left">如果提交后、处理前消费者崩溃，这条消息就永久丢失了，不会再被读到。</td>
+</tr>
+<tr>
+<td class="org-left">先处理消息，后提交 Offset</td>
+<td class="org-left">至少一次（At-Least-Once）</td>
+<td class="org-left">如果处理完、提交前消费者崩溃，重启后会从旧 Offset 开始读，导致消息重复处理。</td>
+</tr>
+</tbody>
+</table>
+<p>ack mode</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">AckMode</td>
+<td class="org-left">行为</td>
+<td class="org-left">生产环境推荐度</td>
+</tr>
+<tr>
+<td class="org-left">MANUAL</td>
+<td class="org-left">调用 ack.acknowledge() 后，批量提交（攒一批再提交）</td>
+<td class="org-left">⚠️ 不推荐，提交延迟可能导致重复消费</td>
+</tr>
+<tr>
+<td class="org-left">MANUAL_IMMEDIATE</td>
+<td class="org-left">调用 ack.acknowledge() 后，立即提交</td>
+<td class="org-left">✅ 强烈推荐，精确控制</td>
+</tr>
+<tr>
+<td class="org-left">RECORD</td>
+<td class="org-left">每处理一条消息自动提交</td>
+<td class="org-left">❌ 不推荐，性能差</td>
+</tr>
+<tr>
+<td class="org-left">BATCH</td>
+<td class="org-left">每批消息处理完自动提交</td>
+<td class="org-left">⚠️ 不推荐，粒度太粗</td>
+</tr>
+<tr>
+<td class="org-left">TIME</td>
+<td class="org-left">定时自动提交</td>
+<td class="org-left">❌ 不推荐，可能丢消息</td>
+</tr>
+<tr>
+<td class="org-left">COUNT</td>
+<td class="org-left">计数达到阈值自动提交</td>
+<td class="org-left">❌ 不推荐，可能丢消息</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>批量消费</p>
+<pre><code>@Component
+public class BatchConsumer {
+
+    @KafkaListener(topics = &quot;test&quot;, groupId = &quot;batch-group&quot;)
+    public void batchListen(List&lt;ConsumerRecord&lt;String, String&gt;&gt; records, Acknowledgment ack) {
+        for (ConsumerRecord&lt;String, String&gt; record : records) {
+            // 逐条处理
+        }
+        ack.acknowledge();
+    }
+}
+
+spring:
+  kafka:
+    listener:
+      type: batch            # 开启批量消费
+      ack-mode: manual
+    consumer:
+      max-poll-records: 100
+</code></pre>
+</li>
+</ol>
+<p><a id="org9397722"></a></p>
+<h2 id="顺序消息">顺序消息</h2>
+<p>Kafka 保证 <strong>同一个 Partition 内的消息有序</strong> 。要实现全局有序，只需把 Topic 设置为 *单 Partition*。</p>
+<p>实现局部有序（按业务 key）：</p>
+<pre><code>@Component
+public class OrderlyProducer {
+
+    private final KafkaTemplate&lt;String, String&gt; kafkaTemplate;
+
+    public OrderlyProducer(KafkaTemplate&lt;String, String&gt; kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public void sendOrderly(String topic, String businessKey, String message) {
+        // 相同 businessKey 的消息进入同一个 Partition
+        kafkaTemplate.send(topic, businessKey, message);
+    }
+}
+</code></pre>
+<p>Kafka 默认按 key 的 hash 取模选择 Partition，相同 key 必然路由到同一 Partition，天然支持 key 级别有序。</p>
+<div class="notice-info" id="orgac2d4a2">
+<p>
+全局顺序消息受单分区影响，有性能问题。可根据业务特性对消息做分区。<br />
+比如增加/扣减库存，可以根据货品编号分区，只要保证同一个货品消息是有序的，该货品库存增加/扣减就不会出现问题。<br />
+</p>
+</div>
+<p><a id="org2a4045f"></a></p>
+<h2 id="事务消息">事务消息</h2>
+<ol>
+<li>
+<p>事务消息</p>
+<p>Kafka 0.11 起支持事务，实现跨 Partition 的原子写入。</p>
+<pre><code>spring:
+  kafka:
+    producer:
+      transaction-id-prefix: tx-     # 开启事务的前提
+</code></pre>
+<p>配置 <strong>transaction-id-prefix</strong> 后，Spring Boot 会自动注册名为 <strong>kafkaTransactionManager</strong> 的 Bean。<br>
+若项目同时存在数据库事务管理器， <strong>@Transactional</strong> 必须显式指定 <strong>transactionManager</strong> ，否则会误用默认的 <strong>DataSourceTransactionManager</strong> 。</p>
+<pre><code>import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.transaction.KafkaTransactionManager;
+
+@Configuration
+public class KafkaTransactionConfig {
+
+    // 未使用 Spring Boot 自动配置时，需手动声明
+    @Bean
+    public KafkaTransactionManager&lt;String, String&gt; kafkaTransactionManager(
+            ProducerFactory&lt;String, String&gt; producerFactory) {
+        return new KafkaTransactionManager&lt;&gt;(producerFactory);
+    }
+
+    @Bean
+    public KafkaTemplate&lt;String, String&gt; kafkaTemplate(
+            ProducerFactory&lt;String, String&gt; producerFactory) {
+        return new KafkaTemplate&lt;&gt;(producerFactory);
+    }
+}
+
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+@Component
+public class TransactionalProducer {
+
+    private final KafkaTemplate&lt;String, String&gt; kafkaTemplate;
+
+    public TransactionalProducer(KafkaTemplate&lt;String, String&gt; kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    @Transactional(transactionManager = &quot;kafkaTransactionManager&quot;)
+    public void sendInTransaction() {
+        kafkaTemplate.send(&quot;topic-a&quot;, &quot;key1&quot;, &quot;message1&quot;);
+        kafkaTemplate.send(&quot;topic-b&quot;, &quot;key2&quot;, &quot;message2&quot;);
+        // 两条消息要么都成功，要么都失败
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>发件箱模式</p>
+<div class="notice-info" id="org88aad07">
+<p>
+Kafka 事务解决的是向 topic-a 和 topic-b 两个主题投递消息的事务性。<br />
+当业务要求Kafka消息发送与数据库更新必须保持完全一致时，标准的Kafka事务管理器无法胜任，因为数据库和Kafka是两种不同的资源，无法共享一个本地事务<br />
+</p>
+</div>
+<p>事务性发件箱模式（Transactional Outbox Pattern）是解决这个问题的经典方案。<br>
+其核心思想是，将“发送Kafka消息”这个动作，转换为一次数据库写入操作。<br>
+原子保存：在同一个数据库事务中，同时保存业务数据和一条待发送的“发件箱事件”记录。<br>
+异步发布：一个独立的后台任务（OutboxPublisher）异步地轮询outbox_event表，将状态为PENDING的事件发布到Kafka，发布成功后更新事件状态为SENT。</p>
+</li>
+<li>
+<p>VS RocketMQ</p>
+<p>RocketMQ 事务消息解决的是 <strong>本地事务与消息发送的一致性</strong> ——先写库再发消息，或先发半消息再写库，保证两者最终一致。这与 Kafka 事务（多条消息原子投递）解决的问题不同。</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">对比项</th>
+<th scope="col" class="org-left">Kafka 事务</th>
+<th scope="col" class="org-left">RocketMQ 事务消息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">核心目标</td>
+<td class="org-left">多条消息跨 Partition 原子写入</td>
+<td class="org-left">本地事务与消息发送的一致性</td>
+</tr>
+<tr>
+<td class="org-left">事务模型</td>
+<td class="org-left">生产者端事务（begin/commit）</td>
+<td class="org-left">半事务消息 + 本地事务回调</td>
+</tr>
+<tr>
+<td class="org-left">典型场景</td>
+<td class="org-left">同时向多个 Topic 投递且要求原子性</td>
+<td class="org-left">订单落库 + 发通知消息</td>
+</tr>
+<tr>
+<td class="org-left">DB + MQ 一致</td>
+<td class="org-left">需发件箱模式等额外方案</td>
+<td class="org-left">原生支持（半消息 + check 回查）</td>
+</tr>
+<tr>
+<td class="org-left">消费可见性</td>
+<td class="org-left"><b>read_committed</b> 隔离级别</td>
+<td class="org-left">半消息提交前对消费者不可见</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>半事务消息流程</p>
+<p>Producer 发送的是 <strong>半事务消息（Prepared Message）</strong> ，Broker 先落盘但不投递给消费者，等 Producer 确认本地事务结果后再决定提交或回滚。</p>
+<pre><code>Producer                Broker                  Consumer
+   |  半事务消息(prepare) |                          |
+   |---------------------&gt;|  存储，标记不可消费      |
+   |&lt;---------------------|  发送成功                |
+   |  执行本地事务        |                          |
+   |  commit / rollback   |                          |
+   |---------------------&gt;|  提交→可消费 / 回滚→丢弃 |
+   |                      |-------------------------&gt;|  仅 commit 后可见
+</code></pre>
+</li>
+<li>
+<p>半事务消息的超时回查</p>
+<p>当 <strong>executeLocalTransaction</strong> 返回 <strong>UNKNOWN</strong> ，或 Producer 在超时时间内未返回 commit/rollback 时，Broker 会定期回调 Producer 的 <strong>checkLocalTransaction</strong> ，根据业务侧记录的本地事务状态做最终决议。</p>
+<ul>
+<li>Broker 默认每隔 60s 发起一次回查，可通过 <strong>transactionCheckInterval</strong> 调整</li>
+<li>半消息在 Broker 端的存活时间由 <strong>transactionTimeout</strong> 控制（默认 6 小时），超时未决议的消息会被丢弃</li>
+<li>业务侧应在本地事务表中记录事务状态（如 <strong>COMMIT</strong> / <strong>ROLLBACK</strong> / <strong>PROCESSING</strong> ），供回查时查询</li>
+</ul>
+<div class="notice-info" id="org5379fa4">
+<p>
+回查接口必须幂等。Broker 会多次调用 <b>checkLocalTransaction</b> ，直到得到明确的 COMMIT 或 ROLLBACK。<br />
+</p>
+</div>
+</li>
+<li>
+<p>Spring Boot 集成示例</p>
+<pre><code>import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;
+import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;
+import org.apache.rocketmq.spring.core.RocketMQLocalTransactionState;
+import org.springframework.messaging.Message;
+import org.springframework.stereotype.Service;
+
+@Service
+@RocketMQTransactionListener(rocketMQTemplateBeanName = &quot;rocketMQTemplate&quot;)
+public class OrderTransactionListener implements RocketMQLocalTransactionListener {
+
+    private final OrderService orderService;
+
+    public OrderTransactionListener(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+    // 半消息发送成功后，执行本地事务
+    @Override
+    public RocketMQLocalTransactionState executeLocalTransaction(Message msg, Object arg) {
+        try {
+            Order order = (Order) arg;
+            orderService.createOrder(order);  // 本地事务：写库
+            return RocketMQLocalTransactionState.COMMIT;
+        } catch (Exception e) {
+            return RocketMQLocalTransactionState.ROLLBACK;
+        }
+    }
+
+    // 超时回查：Broker 未收到明确结果时调用
+    @Override
+    public RocketMQLocalTransactionState checkLocalTransaction(Message msg) {
+        String orderId = msg.getHeaders().get(&quot;orderId&quot;, String.class);
+        if (orderService.isOrderCreated(orderId)) {
+            return RocketMQLocalTransactionState.COMMIT;
+        }
+        return RocketMQLocalTransactionState.ROLLBACK;
+    }
+}
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="../../posts/springcloud-openfegion-usage/" class="block">Springcloud Openfegion Usage</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E6%9C%BA%E5%88%B6/" class="block">浏览器跨域机制</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#核心概念">核心概念</a></li>
+    <li><a href="#spring-boot-集成">Spring Boot 集成</a></li>
+    <li><a href="#顺序消息">顺序消息</a></li>
+    <li><a href="#事务消息">事务消息</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E6%9C%BA%E5%88%B6/" class="no-underline">浏览器跨域机制</a>
+          <br />
+        
+          <a href="../../posts/java-aqs%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="no-underline">Java Aqs原理与使用</a>
+          <br />
+        
+          <a href="../../posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="no-underline">Java 线程池</a>
+          <br />
+        
+          <a href="../../posts/rocketmqintroduction/" class="no-underline">RocketMQ 必须知道的理论知识</a>
+          <br />
+        
+          <a href="../../posts/java-oom/" class="no-underline">java 栈溢出问题排查</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2026 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>

@@ -108,36 +108,42 @@
         },{
             "@type":"ListItem",
             "position":  4 ,
+            "name": "Kafka Usage",
+            "description": "\u003cp\u003eKafka 是分布式消息队列的事实标准，广泛应用于日志收集、流处理、事件驱动等场景。本文从核心概念入手，逐步深入到 Java 客户端编程和 Spring Boot 集成，覆盖开发中最常用的场景。\u003c/p\u003e",
+            "url": "/posts/kafka-usage/"
+        },{
+            "@type":"ListItem",
+            "position":  5 ,
             "name": "浏览器跨域机制",
             "description": "\u003ch2 id=\"什么是跨域请求\"\u003e什么是跨域请求？\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e同域请求\u0026amp;跨域请求\u003c/p\u003e\n\u003cp\u003e页面地址与页面内资源请求地址进行对比。当且仅当两者的协议、域名、端口都相同时，说资源请求是一个同域请求。\u003cbr\u003e\n\u003cimg src=\"fetching-page-cors.svg\" alt=\"img\"\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e协议相同\u003c/p\u003e\n\u003ctable border=\"2\" cellspacing=\"0\" cellpadding=\"6\" rules=\"groups\" frame=\"hsides\"\u003e\n\u003ccolgroup\u003e\n\u003ccol  class=\"org-left\" /\u003e\n\u003ccol  class=\"org-left\" /\u003e\n\u003ccol  class=\"org-left\" /\u003e\n\u003c/colgroup\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd class=\"org-left\"\u003e页面地址\u003c/td\u003e\n\u003ctd class=\"org-left\"\u003e接口地址\u003c/td\u003e\n\u003ctd class=\"org-left\"\u003e跨域原因\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd class=\"org-left\"\u003e\u003ca href=\"http://local.neoemacs.com.cn\"\u003ehttp://local.neoemacs.com.cn\u003c/a\u003e\u003c/td\u003e\n\u003ctd class=\"org-left\"\u003e\u003ca href=\"https://local.neoemacs.com.cn\"\u003ehttps://local.neoemacs.com.cn\u003c/a\u003e\u003c/td\u003e\n\u003ctd class=\"org-left\"\u003e协议不同\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e域名相同\u003c/p\u003e",
             "url": "/posts/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E6%9C%BA%E5%88%B6/"
         },{
             "@type":"ListItem",
-            "position":  5 ,
+            "position":  6 ,
             "name": "Java Aqs原理与使用",
             "description": "\u003cp\u003eAQS（AbstractQueuedSynchronizer，抽象队列同步器）是 JUC（java.util.concurrent）包的核心基石。它提供了一套基于 FIFO 等待队列的同步框架，用于构建锁和其他同步组件。\u003c/p\u003e",
             "url": "/posts/java-aqs%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/"
         },{
             "@type":"ListItem",
-            "position":  6 ,
+            "position":  7 ,
             "name": "Java 线程池",
             "description": "\u003cp\u003eJava 线程池是并发编程中最核心的工具之一。本文从线程池初始化入手，逐步深入其原理，再到 Java 8 Stream 如何利用多线程，最后解决 ThreadLocal 在多线程环境下的失效问题并提供可落地的工具方案。\u003c/p\u003e",
             "url": "/posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0/"
         },{
             "@type":"ListItem",
-            "position":  7 ,
+            "position":  8 ,
             "name": "java 栈溢出问题排查",
             "description": "\u003cp\u003e如何排查：java.lang.OutOfMemoryError: unable to create native thread\u003c/p\u003e",
             "url": "/posts/java-oom/"
         },{
             "@type":"ListItem",
-            "position":  8 ,
+            "position":  9 ,
             "name": "RocketMQ 必须知道的理论知识",
             "description": "\u003cp\u003eRocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer 负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。\u003c/p\u003e",
             "url": "/posts/rocketmqintroduction/"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "推荐一款 org mode 导出 html 的样式",
             "description": "\u003cp\u003e使用 Emacs 导出 html 样式，类似于 doom emacs doc 的 css style\u003c/p\u003e",
             "url": "/posts/orgmodecss/"
@@ -396,6 +402,48 @@
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
     <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="../../../posts/kafka-usage/" class="no-underline">
+    <h3 class="mt-0">Kafka Usage</h3>
+  </a>
+  
+    Kafka 是分布式消息队列的事实标准，广泛应用于日志收集、流处理、事件驱动等场景。本文从核心概念入手，逐步深入到 Java 客户端编程和 Spring Boot 集成，覆盖开发中最常用的场景。
+
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-08-17</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>7 min read</span>
   </div>
 
   
