@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="Skytech 平台分层架构">
+    <mxGraphModel dx="1100" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Skytech 无人机巡检平台 — DDD 分层架构" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=18;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="250" y="8" width="600" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="layer1" value="通信协议层 (Protocol Layer) — 设备遥测、指令下发、直播图传、实时推送" style="swimlane;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;fontColor=#333333;swimlaneFillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="30" y="48" width="1040" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="mqtt" value="&lt;b&gt;MQTT&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;设备遥测与指令&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f0fe;strokeColor=#6c8ebf;fontSize=12;fontColor=#333333;" vertex="1" parent="layer1">
+          <mxGeometry x="120" y="42" width="170" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="http" value="&lt;b&gt;HTTP / HTTPS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;REST API 与 Pilot 端点&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f0fe;strokeColor=#6c8ebf;fontSize=12;fontColor=#333333;" vertex="1" parent="layer1">
+          <mxGeometry x="330" y="42" width="170" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="webrtc" value="&lt;b&gt;WebRTC&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;机场低延迟图传&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f0fe;strokeColor=#6c8ebf;fontSize=12;fontColor=#333333;" vertex="1" parent="layer1">
+          <mxGeometry x="540" y="42" width="170" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="websocket" value="&lt;b&gt;WebSocket&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;浏览器实时推送&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f0fe;strokeColor=#6c8ebf;fontSize=12;fontColor=#333333;" vertex="1" parent="layer1">
+          <mxGeometry x="750" y="42" width="170" height="48" as="geometry" />
+        </mxCell>
+
+        <mxCell id="layer2" value="Adapter 接口层 (Interface Layer) — Web 与外部系统入口，Pilot 规范适配，请求响应对象转换" style="swimlane;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;fontColor=#333333;swimlaneFillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="30" y="173" width="1040" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="rest" value="&lt;b&gt;REST Controllers&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;27 个控制器&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e8;strokeColor=#82b366;fontSize=12;fontColor=#333333;" vertex="1" parent="layer2">
+          <mxGeometry x="70" y="42" width="260" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="pilot" value="&lt;b&gt;Pilot API&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;DJI Pilot 2 规范端点&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e8;strokeColor=#82b366;fontSize=12;fontColor=#333333;" vertex="1" parent="layer2">
+          <mxGeometry x="390" y="42" width="260" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="dto" value="&lt;b&gt;DTO / Form / VO&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;请求响应对象转换&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e8;strokeColor=#82b366;fontSize=12;fontColor=#333333;" vertex="1" parent="layer2">
+          <mxGeometry x="710" y="42" width="260" height="48" as="geometry" />
+        </mxCell>
+
+        <mxCell id="layer3" value="Domain 领域层 (Domain Layer) — 核心业务逻辑，按领域划分 Service" style="swimlane;startSize=30;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;fontColor=#333333;swimlaneFillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="30" y="298" width="1040" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="grp1_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#d6b656;dashed=1;dashPattern=8 4;" vertex="1" parent="layer3">
+          <mxGeometry x="20" y="38" width="320" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="grp1_hdr" value="&lt;b&gt;航线管理&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;fontColor=#d79b00;" vertex="1" parent="layer3">
+          <mxGeometry x="20" y="40" width="320" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="svc_wf" value="&lt;b&gt;航线文件管理&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;KMZ 上传 / 解析 / 航点管理&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;fontColor=#333333;" vertex="1" parent="layer3">
+          <mxGeometry x="35" y="72" width="290" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc_wp" value="&lt;b&gt;航线计划调度&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;定时 / 单次 / 重复 / 连续&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;fontColor=#333333;" vertex="1" parent="layer3">
+          <mxGeometry x="35" y="125" width="290" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc_wj" value="&lt;b&gt;飞行任务管理&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;任务创建 / 下发 / 状态跟踪&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;fontColor=#333333;" vertex="1" parent="layer3">
+          <mxGeometry x="35" y="178" width="290" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="grp2_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#d6b656;dashed=1;dashPattern=8 4;" vertex="1" parent="layer3">
+          <mxGeometry x="360" y="38" width="320" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="grp2_hdr" value="&lt;b&gt;业务服务&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;fontColor=#d79b00;" vertex="1" parent="layer3">
+          <mxGeometry x="360" y="40" width="320" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="svc_ol" value="&lt;b&gt;巡检工单管理&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;工单全生命周期与资产追踪&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;fontColor=#333333;" vertex="1" parent="layer3">
+          <mxGeometry x="375" y="72" width="290" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc_mf" value="&lt;b&gt;媒体文件管理&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;文件回传 / 去重 / GPS 匹配&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;fontColor=#333333;" vertex="1" parent="layer3">
+          <mxGeometry x="375" y="125" width="290" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc_pl" value="&lt;b&gt;设备台账管理&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;设备注册 / 型号映射 / 租户绑定&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;fontColor=#333333;" vertex="1" parent="layer3">
+          <mxGeometry x="375" y="178" width="290" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="grp3_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#d6b656;dashed=1;dashPattern=8 4;" vertex="1" parent="layer3">
+          <mxGeometry x="700" y="38" width="320" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="grp3_hdr" value="&lt;b&gt;设备状态与通信&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;fontColor=#d79b00;" vertex="1" parent="layer3">
+          <mxGeometry x="700" y="40" width="320" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="svc_fus" value="&lt;b&gt;设备状态监控&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;OSD 遥测解析与状态缓存&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;fontColor=#333333;" vertex="1" parent="layer3">
+          <mxGeometry x="715" y="72" width="290" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc_mqtt" value="&lt;b&gt;MQTT 消息处理&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;消息路由与事件分发&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;fontColor=#333333;" vertex="1" parent="layer3">
+          <mxGeometry x="715" y="125" width="290" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="svc_sp" value="&lt;b&gt;指令下发&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;MQTT 服务调用与飞行指令&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;fontColor=#333333;" vertex="1" parent="layer3">
+          <mxGeometry x="715" y="178" width="290" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="layer4" value="Infrastructure 基础设施层 (Infrastructure Layer) — 持久化、对象存储、缓存与锁、定时任务、AI 缺陷识别" style="swimlane;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=13;fontColor=#333333;swimlaneFillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="30" y="578" width="1040" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="mysql" value="&lt;b&gt;MySQL&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;业务数据持久化&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#f0e6f5;strokeColor=#9673a6;fontSize=12;fontColor=#333333;size=12;" vertex="1" parent="layer4">
+          <mxGeometry x="50" y="42" width="160" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="minio" value="&lt;b&gt;MinIO&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;对象存储 (KMZ/媒体/轨迹)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e6f5;strokeColor=#9673a6;fontSize=12;fontColor=#333333;" vertex="1" parent="layer4">
+          <mxGeometry x="240" y="42" width="170" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" value="&lt;b&gt;Redis / Redisson&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;状态缓存与分布式锁&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e6f5;strokeColor=#9673a6;fontSize=12;fontColor=#333333;" vertex="1" parent="layer4">
+          <mxGeometry x="440" y="42" width="170" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="quartz" value="&lt;b&gt;Quartz&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;飞行计划定时调度&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e6f5;strokeColor=#9673a6;fontSize=12;fontColor=#333333;" vertex="1" parent="layer4">
+          <mxGeometry x="640" y="42" width="170" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ai" value="&lt;b&gt;AI 识别服务&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;缺陷检测与热成像分析&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e6f5;strokeColor=#9673a6;fontSize=12;fontColor=#333333;" vertex="1" parent="layer4">
+          <mxGeometry x="840" y="42" width="170" height="48" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

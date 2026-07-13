@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="draw.io" version="24.0.0">
+  <diagram name="直播推流" id="live-streaming">
+    <mxGraphModel dx="1100" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Phase 1 Background: 开启直播 -->
+        <mxCell id="phase1-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1E88E5;strokeWidth=1;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="20" y="70" width="780" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="phase1-label" value="开启直播" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontColor=#1E88E5;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="25" y="72" width="80" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- Phase 2 Background: 直播控制 -->
+        <mxCell id="phase2-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#43A047;strokeWidth=1;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="20" y="195" width="780" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="phase2-label" value="直播控制" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontColor=#43A047;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="25" y="197" width="80" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- Phase 3 Background: DRC 远程操控 -->
+        <mxCell id="phase3-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;strokeWidth=1;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="20" y="320" width="780" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="phase3-label" value="DRC 远程操控" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontColor=#F9A825;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="25" y="322" width="100" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Lifelines ===== -->
+
+        <!-- User: 操作员 (actor) -->
+        <mxCell id="ll-User" value="操作员" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=11;fontStyle=1;strokeWidth=2;fillColor=#F8CECC;strokeColor=#B85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="90" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- DC: DockController -->
+        <mxCell id="ll-DC" value="DockController" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=9;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="170" y="40" width="90" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- SP: ServicesPublish -->
+        <mxCell id="ll-SP" value="ServicesPublish" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=9;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="90" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- MQTT: MQTT Broker -->
+        <mxCell id="ll-MQTT" value="MQTT Broker" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=9;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="430" y="40" width="90" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- Dock: DJI Dock -->
+        <mxCell id="ll-Dock" value="DJI Dock" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=10;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="90" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- Drone: DJI Drone -->
+        <mxCell id="ll-Drone" value="DJI Drone" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=10;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="690" y="40" width="90" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- Stream: 流媒体服务器 -->
+        <mxCell id="ll-Stream" value="流媒体服务器" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=9;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="820" y="40" width="90" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Phase 1 Messages: 开启直播 ===== -->
+
+        <!-- User→DC: POST /uav/api/live_start_push -->
+        <mxCell id="msg-1" value="POST /uav/api/live_start_push" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="95" as="sourcePoint"/>
+            <mxPoint x="170" y="95" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DC→SP: live_start_push -->
+        <mxCell id="msg-2" value="live_start_push (protocol: WEB_RTC)" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="120" as="sourcePoint"/>
+            <mxPoint x="300" y="120" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SP→MQTT: thing/product/{sn}/services -->
+        <mxCell id="msg-3" value="thing/product/{sn}/services" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="145" as="sourcePoint"/>
+            <mxPoint x="430" y="145" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- MQTT→Dock: 推流指令 -->
+        <mxCell id="msg-4" value="推流指令" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="168" as="sourcePoint"/>
+            <mxPoint x="560" y="168" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Dock→Drone: 开始推流 -->
+        <mxCell id="msg-5" value="开始推流" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="178" as="sourcePoint"/>
+            <mxPoint x="690" y="178" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Drone→Stream: WebRTC 流 -->
+        <mxCell id="msg-6" value="WebRTC 流" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=2;fontSize=9;strokeColor=#1E88E5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="178" as="sourcePoint"/>
+            <mxPoint x="820" y="178" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== Phase 2 Messages: 直播控制 ===== -->
+
+        <!-- User→DC: live_lens_change / live_set_quality -->
+        <mxCell id="msg-7" value="live_lens_change / live_set_quality" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="220" as="sourcePoint"/>
+            <mxPoint x="170" y="220" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DC→SP: publishNotReplay -->
+        <mxCell id="msg-8" value="publishNotReplay" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="245" as="sourcePoint"/>
+            <mxPoint x="300" y="245" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SP→MQTT: thing/product/{sn}/services -->
+        <mxCell id="msg-9" value="thing/product/{sn}/services" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="270" as="sourcePoint"/>
+            <mxPoint x="430" y="270" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- MQTT→Dock: 指令 -->
+        <mxCell id="msg-10" value="指令" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="290" as="sourcePoint"/>
+            <mxPoint x="560" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Dock→Drone: 镜头/画质切换 -->
+        <mxCell id="msg-11" value="镜头/画质切换" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="300" as="sourcePoint"/>
+            <mxPoint x="690" y="300" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== Phase 3 Messages: DRC 远程操控 ===== -->
+
+        <!-- User→DC: POST /uav/api/drc_mode_enter -->
+        <mxCell id="msg-12" value="POST /uav/api/drc_mode_enter" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="345" as="sourcePoint"/>
+            <mxPoint x="170" y="345" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DC self: 构建 DRC MQTT Broker 参数 -->
+        <mxCell id="msg-13" value="构建 DRC MQTT Broker 参数" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="ll-DC" target="ll-DC">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="370"/>
+              <mxPoint x="280" y="378"/>
+            </Array>
+            <mxPoint x="260" y="370" as="sourcePoint"/>
+            <mxPoint x="260" y="378" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DC→SP: drc_mode_enter -->
+        <mxCell id="msg-14" value="drc_mode_enter" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="400" as="sourcePoint"/>
+            <mxPoint x="300" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SP→MQTT: thing/product/{sn}/services -->
+        <mxCell id="msg-15" value="thing/product/{sn}/services" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="425" as="sourcePoint"/>
+            <mxPoint x="430" y="425" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- MQTT→Dock: 进入 DRC 模式 -->
+        <mxCell id="msg-16" value="进入 DRC 模式" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="450" as="sourcePoint"/>
+            <mxPoint x="560" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DRC Note -->
+        <mxCell id="note-drc" value="DRC 低延迟远程操控&#xa;需要独立 MQTT 通道" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=12;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=9;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="580" y="475" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

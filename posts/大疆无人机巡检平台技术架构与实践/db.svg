@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="421.0546px" preserveAspectRatio="none" style="width:550px;height:421px;background:#00000000;" version="1.1" viewBox="0 0 550 421" width="550.4173px" zoomAndPan="magnify"><defs><filter height="300%" id="f1pdj7v7cl7h8t" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="0.834597875569044"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="1.669195751138088" dy="1.669195751138088" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[14dcb3ec68502b54999c8bd2e912c0ea]
+class pilot--><rect codeLine="7" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="44.5573" id="pilot" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="32.132" x="262.8983" y="11.0292"/><ellipse cx="272.9761" cy="16.4541" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M274.3553,18.3319 L271.9414,18.3319 L271.9414,14.9946 L274.3553,14.9946 L274.3553,15.6401 L272.7976,15.6401 L272.7976,16.2161 L274.2433,16.2161 L274.2433,16.8616 L272.7976,16.8616 L272.7976,17.6864 L274.3553,17.6864 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="10.0152" x="278.6931" y="18.2797">pilot</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="263.3156" x2="294.6131" y1="21.879" y2="21.879"/><ellipse cx="267.4886" cy="26.4693" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="269.9924" y="27.9861">id</text><line style="stroke:#AAAAAA;stroke-width:0.417298937784522;" x1="263.3156" x2="294.6131" y1="30.6235" y2="30.6235"/><ellipse cx="267.4886" cy="35.2138" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="12.1017" x="269.9924" y="36.7306">name</text><ellipse cx="267.4886" cy="40.6199" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="9.5979" x="269.9924" y="42.1367">type</text><ellipse cx="267.4886" cy="46.0261" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="5.4249" x="269.9924" y="47.5429">sn</text><ellipse cx="267.4886" cy="51.4322" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="22.5341" x="269.9924" y="52.949">parent_sn</text><path d="M216.3695,28.4306 L216.3695,38.1823 A0,0 0 0 0 216.3695,38.1823 L248.0842,38.1823 A0,0 0 0 0 248.0842,38.1823 L248.0842,35.942 L262.7898,33.3088 L248.0842,32.6036 L248.0842,32.6036 L243.9112,28.4306 L216.3695,28.4306 A0,0 0 0 0 216.3695,28.4306 " fill="#FF0000" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M243.9112,28.4306 L243.9112,32.6036 L248.0842,32.6036 L243.9112,28.4306 " fill="#FF0000" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="22.9514" x="218.8733" y="35.132">无人机主表</text><!--MD5=[149a4be55101efc88198a3cb6709fa12]
+class wayline_file--><rect codeLine="17" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="76.9941" id="wayline_file" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="48.824" x="367.2231" y="195.1749"/><ellipse cx="376.7375" cy="200.5998" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M378.1167,202.4776 L375.7028,202.4776 L375.7028,199.1402 L378.1167,199.1402 L378.1167,199.7858 L376.559,199.7858 L376.559,200.3618 L378.0047,200.3618 L378.0047,201.0073 L376.559,201.0073 L376.559,201.8321 L378.1167,201.8321 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="27.959" x="382.3293" y="202.4254">wayline_file</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="367.6404" x2="415.6297" y1="206.0247" y2="206.0247"/><ellipse cx="371.8134" cy="210.6149" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="22.9514" x="374.3171" y="212.1317">航线文件表</text><ellipse cx="371.8134" cy="216.0211" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="374.3171" y="217.5379">id</text><ellipse cx="371.8134" cy="221.4272" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="39.2261" x="374.3171" y="222.944">【type=1可清理】</text><line style="stroke:#AAAAAA;stroke-width:0.417298937784522;" x1="367.6404" x2="415.6297" y1="225.5815" y2="225.5815"/><ellipse cx="371.8134" cy="230.1718" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="17.5266" x="374.3171" y="231.6885">orientId</text><ellipse cx="371.8134" cy="235.5779" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="29.6282" x="374.3171" y="237.0947">wayline_type:</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="21.2822" x="374.3171" y="242.5008">0正常航线</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="21.2822" x="374.3171" y="247.907">1工单航线</text><ellipse cx="371.8134" cy="251.7963" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="10.0152" x="374.3171" y="253.3131">uuid</text><ellipse cx="371.8134" cy="257.2025" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="23.786" x="374.3171" y="258.7192">object_key</text><ellipse cx="371.8134" cy="262.6086" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="21.2822" x="374.3171" y="264.1254">file_name</text><ellipse cx="371.8134" cy="268.0147" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="28.7936" x="374.3171" y="269.5315">media_count</text><path d="M430.8612,226.0049 L430.8612,232.0015 L416.1639,233.6707 L430.8612,235.3399 L430.8612,241.3354 A0,0 0 0 0 430.8612,241.3354 L462.5759,241.3354 A0,0 0 0 0 462.5759,241.3354 L462.5759,230.1779 L458.4029,226.0049 L430.8612,226.0049 A0,0 0 0 0 430.8612,226.0049 " fill="#FF0000" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M458.4029,226.0049 L458.4029,230.1779 L462.5759,230.1779 L458.4029,226.0049 " fill="#FF0000" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="433.3649" y="232.7064">航线表</text><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="22.9514" x="433.3649" y="238.2851">任务航线表</text><!--MD5=[7816f9c726385876ff9c90b750333506]
+class wayline_device--><rect codeLine="31" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="82.4002" id="wayline_device" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="66.3505" x="478.2246" y="322.3885"/><ellipse cx="491.8703" cy="327.8134" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M493.2495,329.6912 L490.8356,329.6912 L490.8356,326.3538 L493.2495,326.3538 L493.2495,326.9993 L491.6918,326.9993 L491.6918,327.5754 L493.1374,327.5754 L493.1374,328.2209 L491.6918,328.2209 L491.6918,329.0457 L493.2495,329.0457 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="36.305" x="498.3801" y="329.6389">wayline_device</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="478.6419" x2="544.1578" y1="333.2382" y2="333.2382"/><ellipse cx="482.8149" cy="337.8285" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="485.3187" y="339.3453">id</text><ellipse cx="482.8149" cy="343.2347" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="56.7527" x="485.3187" y="344.7515">【wayline.type=1可清理】</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="2.5038" x="485.3187" y="350.1576">-</text><ellipse cx="482.8149" cy="354.0469" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="22.9514" x="485.3187" y="355.5637">wayline_id</text><ellipse cx="482.8149" cy="359.4531" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="26.2898" x="485.3187" y="360.9699">device_type</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="35.4704" x="485.3187" y="366.376">10005: 线路资产</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="31.2974" x="485.3187" y="371.7822">1002:变电资产</text><ellipse cx="482.8149" cy="375.6715" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="20.8649" x="485.3187" y="377.1883">device_id</text><ellipse cx="482.8149" cy="381.0777" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="28.7936" x="485.3187" y="382.5944">device_name</text><ellipse cx="482.8149" cy="386.4838" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="28.7936" x="485.3187" y="388.0006">device_name</text><ellipse cx="482.8149" cy="391.8899" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="14.6055" x="485.3187" y="393.4067">line_id</text><ellipse cx="482.8149" cy="397.2961" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="22.5341" x="485.3187" y="398.8129">line_name</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="478.6419" x2="544.1578" y1="401.4503" y2="401.4503"/><path d="M422.9325,355.9226 L422.9325,371.253 A0,0 0 0 0 422.9325,371.253 L463.8278,371.253 A0,0 0 0 0 463.8278,371.253 L463.8278,365.2576 L478.0535,363.5884 L463.8278,361.9192 L463.8278,360.0956 L459.6548,355.9226 L422.9325,355.9226 A0,0 0 0 0 422.9325,355.9226 " fill="#6495ED" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M459.6548,355.9226 L459.6548,360.0956 L463.8278,360.0956 L459.6548,355.9226 " fill="#6495ED" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="32.132" x="425.4363" y="362.624">航线资产信息表</text><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="32.132" x="425.4363" y="368.2028">任务资产信息表</text><!--MD5=[ea0b4ed63d0f1dc52f4864524a389ea7]
+class wayline_file_point--><rect codeLine="45" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="82.4002" id="wayline_file_point" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="66.3505" x="342.1851" y="322.3885"/><ellipse cx="353.014" cy="327.8134" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M354.3933,329.6912 L351.9793,329.6912 L351.9793,326.3538 L354.3933,326.3538 L354.3933,326.9993 L352.8355,326.9993 L352.8355,327.5754 L354.2812,327.5754 L354.2812,328.2209 L352.8355,328.2209 L352.8355,329.0457 L354.3933,329.0457 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="42.5645" x="358.898" y="329.6389">wayline_file_point</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="342.6024" x2="408.1184" y1="333.2382" y2="333.2382"/><ellipse cx="346.7754" cy="337.8285" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="349.2792" y="339.3453">id</text><ellipse cx="346.7754" cy="343.2347" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="56.7527" x="349.2792" y="344.7515">【wayline.type=1可清理】</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="2.5038" x="349.2792" y="350.1576">-</text><ellipse cx="346.7754" cy="354.0469" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="22.9514" x="349.2792" y="355.5637">wayline_id</text><ellipse cx="346.7754" cy="359.4531" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="26.7071" x="349.2792" y="360.9699">point_index</text><ellipse cx="346.7754" cy="364.8592" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="26.2898" x="349.2792" y="366.376">point_name</text><ellipse cx="346.7754" cy="370.2654" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="23.786" x="349.2792" y="371.7822">device_typ</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="32.132" x="349.2792" y="377.1883">10007:指示器..</text><ellipse cx="346.7754" cy="381.0777" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="40.8953" x="349.2792" y="382.5944">device_type_name</text><ellipse cx="346.7754" cy="386.4838" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="20.8649" x="349.2792" y="388.0006">device_id</text><ellipse cx="346.7754" cy="391.8899" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="28.7936" x="349.2792" y="393.4067">device_name</text><ellipse cx="346.7754" cy="397.2961" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="20.4476" x="349.2792" y="398.8129">executed</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="342.6024" x2="408.1184" y1="401.4503" y2="401.4503"/><path d="M286.893,355.9226 L286.893,371.253 A0,0 0 0 0 286.893,371.253 L327.7883,371.253 A0,0 0 0 0 327.7883,371.253 L327.7883,365.2576 L342.014,363.5884 L327.7883,361.9192 L327.7883,360.0956 L323.6153,355.9226 L286.893,355.9226 A0,0 0 0 0 286.893,355.9226 " fill="#6495ED" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M323.6153,355.9226 L323.6153,360.0956 L327.7883,360.0956 L323.6153,355.9226 " fill="#6495ED" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="22.9514" x="289.3968" y="362.624">航点信息表</text><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="32.132" x="289.3968" y="368.2028">任务航点信息表</text><!--MD5=[a5d022e75c0065b9d5401ddae886f23d]
+class order--><rect codeLine="60" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="60.7757" id="order" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="35.4704" x="261.2291" y="94.9939"/><ellipse cx="271.4947" cy="100.4188" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M272.8739,102.2967 L270.46,102.2967 L270.46,98.9593 L272.8739,98.9593 L272.8739,99.6048 L271.3162,99.6048 L271.3162,100.1808 L272.7619,100.1808 L272.7619,100.8263 L271.3162,100.8263 L271.3162,101.6512 L272.8739,101.6512 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="12.9363" x="277.2534" y="102.2444">order</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="261.6464" x2="296.2822" y1="105.8437" y2="105.8437"/><ellipse cx="265.8194" cy="110.434" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="268.3232" y="111.9508">id</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="2.5038" x="268.3232" y="117.3569">-</text><ellipse cx="265.8194" cy="121.2463" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="10.0152" x="268.3232" y="122.7631">uuid</text><ellipse cx="265.8194" cy="126.6524" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="268.3232" y="128.1692">status</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="25.8725" x="268.3232" y="133.5753">1、未开始；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="25.8725" x="268.3232" y="138.9815">2、进行中；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="21.2822" x="268.3232" y="144.3876">3、成功；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="16.692" x="268.3232" y="149.7938">0、失败</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="261.6464" x2="296.2822" y1="152.4312" y2="152.4312"/><path d="M223.8809,120.5034 L223.8809,130.2551 A0,0 0 0 0 223.8809,130.2551 L246.415,130.2551 A0,0 0 0 0 246.415,130.2551 L246.415,128.0148 L261.0205,125.3816 L246.415,124.6764 L246.415,124.6764 L242.242,120.5034 L223.8809,120.5034 A0,0 0 0 0 223.8809,120.5034 " fill="#6495ED" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M242.242,120.5034 L242.242,124.6764 L246.415,124.6764 L242.242,120.5034 " fill="#6495ED" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="226.3847" y="127.2049">工单表</text><!--MD5=[55bf8e82bcf765e868ec1657e13be146]
+class asset_data--><rect codeLine="68" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="93.2125" id="asset_data" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="54.2489" x="251.8399" y="187.0668"/><ellipse cx="264.7344" cy="192.4917" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M266.1137,194.3695 L263.6998,194.3695 L263.6998,191.0321 L266.1137,191.0321 L266.1137,191.6776 L264.556,191.6776 L264.556,192.2537 L266.0016,192.2537 L266.0016,192.8992 L264.556,192.8992 L264.556,193.724 L266.1137,193.724 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="25.8725" x="271.0774" y="194.3172">asset_data</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="252.2572" x2="305.6715" y1="197.9165" y2="197.9165"/><ellipse cx="256.4302" cy="202.5068" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="258.934" y="204.0236">id</text><ellipse cx="256.4302" cy="207.913" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="44.651" x="258.934" y="209.4298">【status=3 可清理】</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="2.5038" x="258.934" y="214.8359">-</text><ellipse cx="256.4302" cy="218.7252" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="19.1958" x="258.934" y="220.242">order_id</text><ellipse cx="256.4302" cy="224.1314" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="25.0379" x="258.934" y="225.6482">order_uuid</text><ellipse cx="256.4302" cy="229.5375" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="18.3612" x="258.934" y="231.0543">asset_id</text><ellipse cx="256.4302" cy="234.9437" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="26.2898" x="258.934" y="236.4605">asset_name</text><ellipse cx="256.4302" cy="240.3498" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="42.9818" x="258.934" y="241.8666">mission_wayline_id</text><ellipse cx="256.4302" cy="245.756" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="258.934" y="247.2727">status</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="25.8725" x="258.934" y="252.6789">1、未开始；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="25.8725" x="258.934" y="258.085">2、进行中；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="21.2822" x="258.934" y="263.4912">3、成功；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="16.692" x="258.934" y="268.8973">0、失败</text><ellipse cx="256.4302" cy="272.7867" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="3.7557" x="258.934" y="274.3034">...</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="252.2572" x2="305.6715" y1="276.9409" y2="276.9409"/><!--MD5=[6114b151fbf3db65e8d9e699c1b0a0af]
+class wayline_job--><rect codeLine="81" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="93.2125" id="wayline_job" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="45.0683" x="158.3649" y="187.0668"/><ellipse cx="166.0015" cy="192.4917" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M167.3808,194.3695 L164.9668,194.3695 L164.9668,191.0321 L167.3808,191.0321 L167.3808,191.6776 L165.823,191.6776 L165.823,192.2537 L167.2687,192.2537 L167.2687,192.8992 L165.823,192.8992 L165.823,193.724 L167.3808,193.724 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="28.3763" x="171.176" y="194.3172">wayline_job</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="158.7822" x2="203.0159" y1="197.9165" y2="197.9165"/><ellipse cx="162.9552" cy="202.5068" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="165.459" y="204.0236">id</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="2.5038" x="165.459" y="209.4298">-</text><ellipse cx="162.9552" cy="213.3191" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="165.459" y="214.8359">job_id</text><ellipse cx="162.9552" cy="218.7252" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="29.6282" x="165.459" y="220.242">execute_time</text><ellipse cx="162.9552" cy="224.1314" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="35.4704" x="165.459" y="225.6482">completed_time</text><ellipse cx="162.9552" cy="229.5375" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="21.2822" x="165.459" y="231.0543">task_type</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="27.1244" x="165.459" y="236.4605">0 工单创建；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="22.5341" x="165.459" y="241.8666">1 手动创建</text><ellipse cx="162.9552" cy="245.756" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="165.459" y="247.2727">status</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="25.8725" x="165.459" y="252.6789">1、未开始；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="25.8725" x="165.459" y="258.085">2、进行中；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="21.2822" x="165.459" y="263.4912">3、成功；</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="16.692" x="165.459" y="268.8973">0、失败</text><ellipse cx="162.9552" cy="272.7867" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="3.7557" x="165.459" y="274.3034">...</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="158.7822" x2="203.0159" y1="276.9409" y2="276.9409"/><path d="M112.0448,228.7967 L112.0448,238.5484 A0,0 0 0 0 112.0448,238.5484 L143.7595,238.5484 A0,0 0 0 0 143.7595,238.5484 L143.7595,236.308 L158.173,233.6707 L143.7595,232.9697 L143.7595,232.9697 L139.5865,228.7967 L112.0448,228.7967 A0,0 0 0 0 112.0448,228.7967 " fill="#6495ED" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M139.5865,228.7967 L139.5865,232.9697 L143.7595,232.9697 L139.5865,228.7967 " fill="#6495ED" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="22.9514" x="114.5486" y="235.4981">飞行记录表</text><!--MD5=[5263875eb23b65398a11ec8ed7e7e3d8]
+class media_file--><rect codeLine="94" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="104.0248" id="media_file" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="73.8619" x="52.997" y="311.5763"/><ellipse cx="76.1571" cy="317.0011" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M77.5363,318.879 L75.1224,318.879 L75.1224,315.5416 L77.5363,315.5416 L77.5363,316.1871 L75.9786,316.1871 L75.9786,316.7631 L77.4242,316.7631 L77.4242,317.4087 L75.9786,317.4087 L75.9786,318.2335 L77.5363,318.2335 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="24.6206" x="82.8338" y="318.8267">media_file</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="53.4143" x2="126.4416" y1="322.426" y2="322.426"/><ellipse cx="57.5873" cy="327.0163" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="60.091" y="328.5331">id</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="2.5038" x="60.091" y="333.9392">-</text><ellipse cx="57.5873" cy="337.8286" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="21.2822" x="60.091" y="339.3454">file_name</text><ellipse cx="57.5873" cy="343.2347" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="23.786" x="60.091" y="344.7515">object_key</text><ellipse cx="57.5873" cy="348.6409" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="5.4249" x="60.091" y="350.1577">sn</text><ellipse cx="57.5873" cy="354.047" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="60.091" y="355.5638">job_id</text><ellipse cx="57.5873" cy="359.4532" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="30.4628" x="60.091" y="360.9699">substation_id</text><ellipse cx="57.5873" cy="364.8593" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="38.3915" x="60.091" y="366.3761">substation_name</text><ellipse cx="57.5873" cy="370.2654" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="14.6055" x="60.091" y="371.7822">line_id</text><ellipse cx="57.5873" cy="375.6716" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="22.5341" x="60.091" y="377.1884">line_name</text><ellipse cx="57.5873" cy="381.0777" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="19.1958" x="60.091" y="382.5945">tower_id</text><ellipse cx="57.5873" cy="386.4839" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="27.1244" x="60.091" y="388.0006">tower_name</text><ellipse cx="57.5873" cy="391.89" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="53.8316" x="60.091" y="393.4068">wayline_point_device_id</text><ellipse cx="57.5873" cy="397.2961" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="61.7602" x="60.091" y="398.8129">wayline_point_device_name</text><ellipse cx="57.5873" cy="402.7023" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="64.264" x="60.091" y="404.2191">wayline_point_custom_name</text><ellipse cx="57.5873" cy="408.1084" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="3.7557" x="60.091" y="409.6252">...</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="53.4143" x2="126.4416" y1="412.2627" y2="412.2627"/><path d="M20.4476,358.7143 L20.4476,368.4661 A0,0 0 0 0 20.4476,368.4661 L38.3915,368.4661 A0,0 0 0 0 38.3915,368.4661 L38.3915,366.2257 L52.9761,363.5884 L38.3915,362.8873 L38.3915,362.8873 L34.2185,358.7143 L20.4476,358.7143 A0,0 0 0 0 20.4476,358.7143 " fill="#6495ED" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M34.2185,358.7143 L34.2185,362.8873 L38.3915,362.8873 L34.2185,358.7143 " fill="#6495ED" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="9.1806" x="22.9514" y="365.4158">照片</text><!--MD5=[9365ecb64ca88dac862dd42ee93a5d79]
+class media_file_defect--><rect codeLine="114" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="71.588" id="media_file_defect" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="52.997" x="44.2337" y="197.879"/><ellipse cx="49.2413" cy="203.3039" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M50.6205,205.1817 L48.2066,205.1817 L48.2066,201.8443 L50.6205,201.8443 L50.6205,202.4899 L49.0628,202.4899 L49.0628,203.0659 L50.5085,203.0659 L50.5085,203.7114 L49.0628,203.7114 L49.0628,204.5362 L50.6205,204.5362 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="42.1472" x="53.8316" y="205.1295">media_file_defect</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="44.651" x2="96.8134" y1="208.7288" y2="208.7288"/><ellipse cx="48.824" cy="213.319" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="51.3278" y="214.8358">id</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="2.5038" x="51.3278" y="220.242">-</text><ellipse cx="48.824" cy="224.1313" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="13.3536" x="51.3278" y="225.6481">file_id</text><ellipse cx="48.824" cy="229.5375" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="51.3278" y="231.0542">job_id</text><ellipse cx="48.824" cy="234.9436" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="21.2822" x="51.3278" y="236.4604">file_name</text><ellipse cx="48.824" cy="240.3497" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="23.786" x="51.3278" y="241.8665">object_key</text><ellipse cx="48.824" cy="245.7559" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="5.4249" x="51.3278" y="247.2727">sn</text><ellipse cx="48.824" cy="251.162" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="12.9363" x="51.3278" y="252.6788">result</text><ellipse cx="48.824" cy="256.5682" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="10.4325" x="51.3278" y="258.085">label</text><ellipse cx="48.824" cy="261.9743" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="22.1168" x="51.3278" y="263.4911">maxScore</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="44.651" x2="96.8134" y1="266.1286" y2="266.1286"/><path d="M2.5038,228.7967 L2.5038,238.5484 A0,0 0 0 0 2.5038,238.5484 L29.6282,238.5484 A0,0 0 0 0 29.6282,238.5484 L29.6282,236.308 L44.1461,233.6707 L29.6282,232.9697 L29.6282,232.9697 L25.4552,228.7967 L2.5038,228.7967 A0,0 0 0 0 2.5038,228.7967 " fill="#6495ED" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M25.4552,228.7967 L25.4552,232.9697 L29.6282,232.9697 L25.4552,228.7967 " fill="#6495ED" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="18.3612" x="5.0076" y="235.4981">异常照片</text><!--MD5=[950555c5e37486e317e2259a4efddaad]
+class media_file_ai_progress--><rect codeLine="128" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="82.4002" id="media_file_ai_progress" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="66.3505" x="147.7238" y="322.3885"/><ellipse cx="152.7314" cy="327.8134" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M154.1107,329.6912 L151.6967,329.6912 L151.6967,326.3538 L154.1107,326.3538 L154.1107,326.9993 L152.5529,326.9993 L152.5529,327.5754 L153.9986,327.5754 L153.9986,328.2209 L152.5529,328.2209 L152.5529,329.0457 L154.1107,329.0457 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="55.5008" x="157.3217" y="329.6389">media_file_ai_progress</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="148.1411" x2="213.6571" y1="333.2382" y2="333.2382"/><ellipse cx="152.3141" cy="337.8285" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="154.8179" y="339.3453">id</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="2.5038" x="154.8179" y="344.7515">-</text><ellipse cx="152.3141" cy="348.6408" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="154.8179" y="350.1576">job_id</text><ellipse cx="152.3141" cy="354.0469" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="24.6206" x="154.8179" y="355.5637">mediaTotal</text><ellipse cx="152.3141" cy="359.4531" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="27.5417" x="154.8179" y="360.9699">defectCount</text><ellipse cx="152.3141" cy="364.8592" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="26.2898" x="154.8179" y="366.376">alarmCount</text><ellipse cx="152.3141" cy="370.2654" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="28.3763" x="154.8179" y="371.7822">executeTime</text><ellipse cx="152.3141" cy="375.6715" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="34.2185" x="154.8179" y="377.1883">completedTime</text><ellipse cx="152.3141" cy="381.0777" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="13.7709" x="154.8179" y="382.5944">status</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="17.9439" x="154.8179" y="388.0006">0.待开始</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="17.9439" x="154.8179" y="393.4067">1.进行中</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="17.9439" x="154.8179" y="398.8129">2.已结束</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="148.1411" x2="213.6571" y1="401.4503" y2="401.4503"/><path d="M228.6798,358.7143 L228.6798,361.9192 L214.2079,363.5884 L228.6798,365.2576 L228.6798,368.4661 A0,0 0 0 0 228.6798,368.4661 L255.8042,368.4661 A0,0 0 0 0 255.8042,368.4661 L255.8042,362.8873 L251.6313,358.7143 L228.6798,358.7143 A0,0 0 0 0 228.6798,358.7143 " fill="#6495ED" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M251.6313,358.7143 L251.6313,362.8873 L255.8042,362.8873 L251.6313,358.7143 " fill="#6495ED" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="18.3612" x="231.1836" y="365.4158">算法任务</text><!--MD5=[af256168c26e6839963f1912f74c836e]
+class three_dimensional_data--><rect codeLine="141" fill="#CCCCCC" filter="url(#f1pdj7v7cl7h8t)" height="60.7757" id="three_dimensional_data" style="stroke:#AAAAAA;stroke-width:0.625948406676783;" width="68.0197" x="329.6662" y="2.9211"/><ellipse cx="334.6737" cy="8.346" fill="#338822" rx="3.3384" ry="3.3384" style="stroke:#AAAAAA;stroke-width:0.417298937784522;"/><path d="M336.053,10.2238 L333.6391,10.2238 L333.6391,6.8865 L336.053,6.8865 L336.053,7.532 L334.4953,7.532 L334.4953,8.108 L335.9409,8.108 L335.9409,8.7535 L334.4953,8.7535 L334.4953,9.5783 L336.053,9.5783 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="57.17" x="339.264" y="10.1716">three_dimensional_data</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="330.0835" x2="397.2686" y1="13.7709" y2="13.7709"/><ellipse cx="334.2564" cy="18.3612" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="4.173" x="336.7602" y="19.8779">id</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="2.5038" x="336.7602" y="25.2841">-</text><ellipse cx="334.2564" cy="29.1734" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="6.2595" x="336.7602" y="30.6902">url</text><ellipse cx="334.2564" cy="34.5796" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="9.5979" x="336.7602" y="36.0964">type</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="12.1017" x="336.7602" y="41.5025">0实景</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="12.1017" x="336.7602" y="46.9086">1点云</text><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="12.1017" x="336.7602" y="52.3148">2高斯</text><ellipse cx="334.2564" cy="56.2041" fill="#000000" rx="1.2519" ry="1.2519" style="stroke:#000000;stroke-width:0.417298937784522;"/><text fill="#333333" font-family="sans-serif" font-size="4.5903" lengthAdjust="spacing" textLength="18.7785" x="336.7602" y="57.7209">dock_sn</text><line style="stroke:#AAAAAA;stroke-width:0.625948406676783;" x1="330.0835" x2="397.2686" y1="60.3584" y2="60.3584"/><path d="M412.2914,28.4306 L412.2914,31.6396 L397.8027,33.3088 L412.2914,34.978 L412.2914,38.1823 A0,0 0 0 0 412.2914,38.1823 L439.4158,38.1823 A0,0 0 0 0 439.4158,38.1823 L439.4158,32.6036 L435.2428,28.4306 L412.2914,28.4306 A0,0 0 0 0 412.2914,28.4306 " fill="#6495ED" filter="url(#f1pdj7v7cl7h8t)" style="stroke:#338822;stroke-width:0.417298937784522;"/><path d="M435.2428,28.4306 L435.2428,32.6036 L439.4158,32.6036 L435.2428,28.4306 " fill="#6495ED" style="stroke:#338822;stroke-width:0.417298937784522;"/><text fill="#000000" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="18.3612" x="414.7951" y="35.132">三维台账</text><!--MD5=[3eba555f88a42623bb50c4924fec297b]
+link wayline_file to wayline_device--><path codeLine="150" d="M418.3088,274.9416 C419.9488,276.8027 421.6305,278.5929 423.3498,280.2788 C441.423,297.9973 452.2978,294.442 470.9219,311.5763 C473.6468,314.0842 476.3342,316.7883 478.9507,319.5967 " fill="none" id="wayline_file-wayline_device" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="481.0127" x2="478.5456" y1="319.3794" y2="321.6284"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="480.1693" x2="477.7022" y1="318.4542" y2="320.7033"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="478.6546" x2="480.9036" y1="319.2704" y2="321.7375"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="416.3302" x2="418.8678" y1="275.196" y2="273.0267"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="417.1437" x2="419.6813" y1="276.1476" y2="273.9783"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="418.6836" x2="416.5144" y1="275.3801" y2="272.8426"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="25.0379" x="452.6442" y="297.83">wayline_id</text><!--MD5=[78daae7c6d2efb56fca2c09b9fb509da]
+link wayline_file to wayline_file_point--><path codeLine="151" d="M386.3228,276.2102 C384.6203,289.7265 382.7299,304.7325 381.0023,318.4283 " fill="none" id="wayline_file-wayline_file_point" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="381.0145" x2="383.0817" y1="318.3126" y2="321.9376"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="381.0145" x2="378.1133" y1="318.3126" y2="321.3121"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="381.0145" x2="380.5975" y1="318.3126" y2="321.6248"/><ellipse cx="381.3273" cy="315.8284" rx="1.6692" ry="1.6692" style="stroke:#000000;stroke-width:0.417298937784522;fill:none;"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="384.8752" x2="388.1873" y1="274.3691" y2="274.7868"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="384.7185" x2="388.0307" y1="275.6111" y2="276.0289"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="386.3224" x2="386.7401" y1="276.234" y2="272.9219"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="25.0379" x="384.4033" y="297.83">wayline_id</text><!--MD5=[c8129654656540daab21c02ada2445a1]
+link order to wayline_file--><path codeLine="152" d="M299.6749,145.5497 C317.8733,162.9052 344.4803,188.2811 364.3938,207.2766 " fill="none" id="order-wayline_file" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="364.285" x2="368.429" y1="207.1723" y2="207.6634"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="364.285" x2="364.9739" y1="207.1723" y2="211.2881"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="364.285" x2="366.7014" y1="207.1723" y2="209.4757"/><ellipse cx="362.4726" cy="205.4448" rx="1.6692" ry="1.6692" style="stroke:#000000;stroke-width:0.417298937784522;fill:none;"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="297.3291" x2="299.6354" y1="145.6187" y2="143.2051"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="298.2342" x2="300.5405" y1="146.4836" y2="144.07"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="299.689" x2="297.2754" y1="145.5651" y2="143.2587"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="25.0379" x="328.9693" y="173.3206">wayline_id</text><!--MD5=[c86cb0909d3de32140760c913e0267fe]
+link order to asset_data--><path codeLine="153" d="M278.9643,159.7712 C278.9643,167.1366 278.9643,175.0819 278.9643,182.9272 " fill="none" id="order-asset_data" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="278.9643" x2="281.4681" y1="182.923" y2="186.2614"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="278.9643" x2="276.4605" y1="182.923" y2="186.2614"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="278.9643" x2="278.9643" y1="182.923" y2="186.2614"/><ellipse cx="278.9643" cy="180.4192" rx="1.6692" ry="1.6692" style="stroke:#000000;stroke-width:0.417298937784522;fill:none;"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="277.2951" x2="280.6335" y1="158.173" y2="158.173"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="277.2951" x2="280.6335" y1="159.4249" y2="159.4249"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="278.9643" x2="278.9643" y1="159.8422" y2="156.5038"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="20.0303" x="279.3816" y="173.3206">order_id</text><!--MD5=[40f401a8de39ef5fcfa32d42b5784c3d]
+link order to wayline_job--><path codeLine="154" d="M258.4917,150.5448 C256.9602,152.3225 255.4245,154.0793 253.9264,155.7693 C238.3904,173.275 220.3589,192.4207 206.0998,207.2974 " fill="none" id="order-wayline_job" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="206.2266" x2="205.7254" y1="207.1609" y2="211.3037"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="206.2266" x2="202.1092" y1="207.1609" y2="207.8397"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="206.2266" x2="203.9173" y1="207.1609" y2="209.5717"/><ellipse cx="207.9586" cy="205.3528" rx="1.6692" ry="1.6692" style="stroke:#000000;stroke-width:0.417298937784522;fill:none;"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="258.2999" x2="260.838" y1="148.2006" y2="150.3693"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="257.4866" x2="260.0247" y1="149.1524" y2="151.3211"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="258.4846" x2="260.6533" y1="150.554" y2="148.0159"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="25.8725" x="242.6844" y="173.3206">order_uuid</text><!--MD5=[eaeb7a7b966a6633a66222d84ab5b7f9]
+link asset_data to wayline_file--><path codeLine="155" d="M309.786,233.6707 C326.6241,233.6707 347.3137,233.6707 363.6844,233.6707 " fill="none" id="asset_data-wayline_file" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="364.8069" x2="364.8069" y1="232.0015" y2="235.3399"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="363.555" x2="363.555" y1="232.0015" y2="235.3399"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="363.1377" x2="366.4761" y1="233.6707" y2="233.6707"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="308.5383" x2="308.5383" y1="235.3399" y2="232.0015"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="309.7902" x2="309.7902" y1="235.3399" y2="232.0015"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="310.2075" x2="306.8691" y1="233.6707" y2="233.6707"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="45.9029" x="313.7045" y="231.1916">mission_wayline_id</text><!--MD5=[a0759b72b088879951d3e60c9dd18d21]
+link wayline_job to asset_data--><path codeLine="156" d="M206.9636,233.6707 C219.6495,233.6707 234.9894,233.6707 248.247,233.6707 " fill="none" id="wayline_job-asset_data" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="249.4446" x2="249.4446" y1="232.0015" y2="235.3399"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="248.1927" x2="248.1927" y1="232.0015" y2="235.3399"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="247.7754" x2="251.1138" y1="233.6707" y2="233.6707"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="205.8202" x2="205.8202" y1="235.3399" y2="232.0015"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="207.0721" x2="207.0721" y1="235.3399" y2="232.0015"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="207.4894" x2="204.151" y1="233.6707" y2="233.6707"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="32.9666" x="211.1533" y="231.1916">asset_data_id</text><!--MD5=[57374fc7068d8dfee51e838591354055]
+link wayline_job to media_file--><path codeLine="157" d="M156.003,273.3016 C154.4173,275.6719 152.8316,278.0129 151.2709,280.2788 C144.3395,290.3274 136.7489,300.9059 129.3418,311.0171 " fill="none" id="wayline_job-media_file" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="129.3975" x2="129.4407" y1="310.9422" y2="315.115"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="129.3975" x2="125.4037" y1="310.9422" y2="312.1521"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="129.3975" x2="127.4222" y1="310.9422" y2="313.6335"/><ellipse cx="130.8789" cy="308.9237" rx="1.6692" ry="1.6692" style="stroke:#000000;stroke-width:0.417298937784522;fill:none;"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="155.4998" x2="158.2794" y1="271.0419" y2="272.8909"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="154.8064" x2="157.586" y1="272.0842" y2="273.9333"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="155.9651" x2="157.8141" y1="273.3562" y2="270.5766"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="14.6055" x="141.9985" y="297.83">job_id</text><!--MD5=[b998356c8128fe7a9bb6d27f76df9011]
+link media_file_defect to media_file--><path codeLine="158" d="M76.5076,272.9135 C78.1476,283.9511 79.967,296.1904 81.7238,308 " fill="none" id="media_file_defect-media_file" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="83.5516" x2="80.2504" y1="308.9595" y2="309.4563"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="83.3653" x2="80.0641" y1="307.7215" y2="308.2184"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="81.6526" x2="82.1495" y1="307.5573" y2="310.8585"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="74.6885" x2="77.9907" y1="272.0514" y2="271.5611"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="74.8723" x2="78.1745" y1="273.2897" y2="272.7995"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="76.5847" x2="76.0945" y1="273.4574" y2="270.1552"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="14.1882" x="80.7473" y="297.83">file_id</text><!--MD5=[7554bdd1d229e6983d05873b1a339ffa]
+link pilot to order--><path codeLine="159" d="M278.9643,59.6529 C278.9643,69.3926 278.9643,80.618 278.9643,90.9837 " fill="none" id="pilot-order" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="278.9643" x2="281.4681" y1="90.9378" y2="94.2762"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="278.9643" x2="276.4605" y1="90.9378" y2="94.2762"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="278.9643" x2="278.9643" y1="90.9378" y2="94.2762"/><ellipse cx="278.9643" cy="88.434" rx="1.6692" ry="1.6692" style="stroke:#000000;stroke-width:0.417298937784522;fill:none;"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="277.2951" x2="280.6335" y1="57.9962" y2="57.9962"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="277.2951" x2="280.6335" y1="59.2481" y2="59.2481"/><line style="stroke:#000000;stroke-width:0.417298937784522;fill:none;" x1="278.9643" x2="278.9643" y1="59.6654" y2="56.327"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="5.4249" x="279.3816" y="81.2477">sn</text><!--MD5=[a67b60679a710d7275a925e5a4aec658]
+link wayline_job to media_file_ai_progress--><path codeLine="160" d="M180.8991,283.8759 C180.8991,295.3558 180.8991,307.4909 180.8991,318.7246 " fill="none" id="wayline_job-media_file_ai_progress" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="182.5683" x2="179.2299" y1="319.8805" y2="319.8805"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="182.5683" x2="179.2299" y1="318.6286" y2="318.6286"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="180.8991" x2="180.8991" y1="318.2113" y2="321.5497"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="179.2299" x2="182.5683" y1="282.6282" y2="282.6282"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="179.2299" x2="182.5683" y1="283.8801" y2="283.8801"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="180.8991" x2="180.8991" y1="284.2974" y2="280.959"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="14.6055" x="181.3164" y="297.83">job_id</text><!--MD5=[6f0c3b25a1c25fd2b959b6dc00e59def]
+link pilot to three_dimensional_data--><path codeLine="161" d="M299.0114,33.3088 C306.986,33.3088 316.442,33.3088 325.6267,33.3088 " fill="none" id="pilot-three_dimensional_data" style="stroke:#000000;stroke-width:0.417298937784522;"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="327.2375" x2="327.2375" y1="31.6396" y2="34.978"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="325.9856" x2="325.9856" y1="31.6396" y2="34.978"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="325.5683" x2="328.9067" y1="33.3088" y2="33.3088"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="299.0656" x2="295.7272" y1="33.3088" y2="35.8126"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="299.0656" x2="295.7272" y1="33.3088" y2="30.805"/><line style="stroke:#000000;stroke-width:0.417298937784522;" x1="299.0656" x2="295.7272" y1="33.3088" y2="33.3088"/><ellipse cx="301.5694" cy="33.3088" rx="1.6692" ry="1.6692" style="stroke:#000000;stroke-width:0.417298937784522;fill:none;"/><text fill="#333333" font-family="Verdana" font-size="4.5903" lengthAdjust="spacing" textLength="19.6131" x="302.5417" y="30.8297">dock_sn</text><!--MD5=[f5597f10726ee78b3aaa9d6b6e150750]
+@startuml
+!define LIGHTGREEN
+!includeurl /Users/van/org/org-roam/emacs/C4-PlantUML/juststyle.puml
+scale 550 width
+skinparam backgroundColor transparent
+
+
+entity pilot {
+  * id
+  - -
+  * name
+  * type
+  * sn
+  * parent_sn
+}
+note left #red: 无人机主表
+
+entity wayline_file {
+  * 航线文件表
+  * id
+  * 【type=1可清理】
+  - -
+  * orientId
+  * wayline_type:\n0正常航线 \n1工单航线
+  * uuid
+  * object_key
+  * file_name
+  * media_count
+}
+note right #red: 航线表\n任务航线表
+
+entity wayline_device {
+  * id
+  * 【wayline.type=1可清理】
+  -
+  * wayline_id 
+  * device_type \n10005: 线路资产\n1002:变电资产
+  * device_id
+  * device_name
+  * device_name
+  * line_id
+  * line_name
+}
+note left #6495ED: 航线资产信息表\n任务资产信息表
+
+entity wayline_file_point {
+  * id
+  * 【wayline.type=1可清理】
+  -
+  * wayline_id
+  * point_index 
+  * point_name
+  * device_typ\n10007:指示器..
+  * device_type_name
+  * device_id
+  * device_name
+  * executed
+}
+note left #6495ED: 航点信息表\n任务航点信息表
+
+entity order {
+  * id
+  -
+  * uuid
+  * status \n1、未开始；\n2、进行中；\n3、成功；\n0、失败
+}
+note left #6495ED: 工单表
+
+entity asset_data {
+  * id
+  * 【status=3 可清理】
+  -
+  * order_id
+  * order_uuid
+  * asset_id
+  * asset_name
+  * mission_wayline_id
+  * status \n1、未开始；\n2、进行中；\n3、成功；\n0、失败
+  * ...
+}
+
+entity wayline_job {
+  * id
+  -
+  * job_id
+  * execute_time
+  * completed_time
+  * task_type \n0 工单创建；\n1 手动创建
+  * status \n1、未开始；\n2、进行中；\n3、成功；\n0、失败
+  * ...
+}
+note left #6495ED: 飞行记录表
+
+
+entity media_file {
+  * id
+  -
+  * file_name
+  * object_key
+  * sn
+  * job_id
+  * substation_id
+  * substation_name
+  * line_id
+  * line_name
+  * tower_id
+  * tower_name
+  * wayline_point_device_id
+  * wayline_point_device_name
+  * wayline_point_custom_name
+  * ...
+}
+note left #6495ED: 照片
+
+entity media_file_defect {
+  * id
+  -
+  * file_id
+  * job_id
+  * file_name
+  * object_key
+  * sn
+  * result
+  * label
+  * maxScore
+}
+note left #6495ED: 异常照片
+
+entity media_file_ai_progress {
+  * id
+  -
+  * job_id
+  * mediaTotal
+  * defectCount
+  * alarmCount
+  * executeTime
+  * completedTime
+  * status\n0.待开始\n1.进行中\n2.已结束
+}
+note right #6495ED: 算法任务
+
+entity three_dimensional_data {
+  * id
+  - 
+  * url
+  * type\n0实景\n1点云\n2高斯
+  * dock_sn
+}
+note right #6495ED: 三维台账
+
+wayline_file ||- -|| wayline_device     :wayline_id
+wayline_file ||- -o{ wayline_file_point :wayline_id
+order        ||- -o{ wayline_file       :wayline_id
+order        ||- -o{ asset_data         :order_id
+order        ||- -o{ wayline_job        :order_uuid
+asset_data   ||-right-|| wayline_file   :mission_wayline_id
+asset_data   ||-left-|| wayline_job   :asset_data_id
+wayline_job  ||- -o{ media_file   :job_id
+media_file_defect  ||- -|| media_file   :file_id
+pilot        ||- -o{ order          :sn
+wayline_job  ||- -|| media_file_ai_progress   :job_id
+three_dimensional_data ||-left-o{ pilot          :dock_sn
+
+@enduml
+
+@startuml
+
+
+
+
+
+
+
+
+skinparam stereotypeCBackgroundColor 338822
+
+
+
+skinparam backgroundColor fff
+
+
+
+
+
+
+
+
+skinparam circledCharacter {
+  radius 8
+  fontSize 11
+  fontName Verdana
+}
+
+skinparam class {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+    arrowColor 000
+  arrowFontName Verdana
+  arrowFontColor 333
+  arrowFontSize 11
+
+  attributeFontColor 333
+  attributeFontSize 11
+  attributeIconSize 11
+}
+
+
+skinparam actor {
+    backgroundColor 55BB33
+  borderColor 338822
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam participant {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam collections {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam SequenceBox{
+    backgroundColor e0e0e0
+  borderColor cccccc
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+
+skinparam interface {
+    backgroundColor 55BB33
+  borderColor 338822
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam component {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam node {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam database {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam queue {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+
+skinparam usecase {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+    arrowColor 000
+  arrowFontName Verdana
+  arrowFontColor 333
+  arrowFontSize 11
+}
+
+skinparam activity {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+    arrowColor 000
+  arrowFontName Verdana
+  arrowFontColor 333
+  arrowFontSize 11
+}
+
+skinparam sequence {
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+    arrowColor 000
+  arrowFontName Verdana
+  arrowFontColor 333
+  arrowFontSize 11
+
+  lifeLineBorderColor 55BB33
+  lifeLineBackgroundColor e0e0e0
+}
+
+skinparam boundary {
+    backgroundColor 55BB33
+  borderColor 338822
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam control {
+    backgroundColor 55BB33
+  borderColor 338822
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam entity {
+    backgroundColor 55BB33
+  borderColor 338822
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+
+skinparam state {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+    arrowColor 000
+  arrowFontName Verdana
+  arrowFontColor 333
+  arrowFontSize 11
+  startColor 55BB33
+  endColor 338822
+}
+
+
+skinparam object {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+    arrowColor 000
+  arrowFontName Verdana
+  arrowFontColor 333
+  arrowFontSize 11
+}
+
+
+skinparam note {
+    backgroundColor 55BB33
+  borderColor 338822
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam cloud {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+    arrowColor 000
+  arrowFontName Verdana
+  arrowFontColor 333
+  arrowFontSize 11
+}
+
+skinparam rectangle {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+skinparam storage {
+    backgroundColor ccc
+  borderColor aaa
+    fontColor 000
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor 333
+  stereotypeFontSize 11
+}
+
+scale 550 width
+skinparam backgroundColor transparent
+
+
+entity pilot {
+  * id
+  - -
+  * name
+  * type
+  * sn
+  * parent_sn
+}
+note left #red: 无人机主表
+
+entity wayline_file {
+  * 航线文件表
+  * id
+  * 【type=1可清理】
+  - -
+  * orientId
+  * wayline_type:\n0正常航线 \n1工单航线
+  * uuid
+  * object_key
+  * file_name
+  * media_count
+}
+note right #red: 航线表\n任务航线表
+
+entity wayline_device {
+  * id
+  * 【wayline.type=1可清理】
+  -
+  * wayline_id 
+  * device_type \n10005: 线路资产\n1002:变电资产
+  * device_id
+  * device_name
+  * device_name
+  * line_id
+  * line_name
+}
+note left #6495ED: 航线资产信息表\n任务资产信息表
+
+entity wayline_file_point {
+  * id
+  * 【wayline.type=1可清理】
+  -
+  * wayline_id
+  * point_index 
+  * point_name
+  * device_typ\n10007:指示器..
+  * device_type_name
+  * device_id
+  * device_name
+  * executed
+}
+note left #6495ED: 航点信息表\n任务航点信息表
+
+entity order {
+  * id
+  -
+  * uuid
+  * status \n1、未开始；\n2、进行中；\n3、成功；\n0、失败
+}
+note left #6495ED: 工单表
+
+entity asset_data {
+  * id
+  * 【status=3 可清理】
+  -
+  * order_id
+  * order_uuid
+  * asset_id
+  * asset_name
+  * mission_wayline_id
+  * status \n1、未开始；\n2、进行中；\n3、成功；\n0、失败
+  * ...
+}
+
+entity wayline_job {
+  * id
+  -
+  * job_id
+  * execute_time
+  * completed_time
+  * task_type \n0 工单创建；\n1 手动创建
+  * status \n1、未开始；\n2、进行中；\n3、成功；\n0、失败
+  * ...
+}
+note left #6495ED: 飞行记录表
+
+
+entity media_file {
+  * id
+  -
+  * file_name
+  * object_key
+  * sn
+  * job_id
+  * substation_id
+  * substation_name
+  * line_id
+  * line_name
+  * tower_id
+  * tower_name
+  * wayline_point_device_id
+  * wayline_point_device_name
+  * wayline_point_custom_name
+  * ...
+}
+note left #6495ED: 照片
+
+entity media_file_defect {
+  * id
+  -
+  * file_id
+  * job_id
+  * file_name
+  * object_key
+  * sn
+  * result
+  * label
+  * maxScore
+}
+note left #6495ED: 异常照片
+
+entity media_file_ai_progress {
+  * id
+  -
+  * job_id
+  * mediaTotal
+  * defectCount
+  * alarmCount
+  * executeTime
+  * completedTime
+  * status\n0.待开始\n1.进行中\n2.已结束
+}
+note right #6495ED: 算法任务
+
+entity three_dimensional_data {
+  * id
+  - 
+  * url
+  * type\n0实景\n1点云\n2高斯
+  * dock_sn
+}
+note right #6495ED: 三维台账
+
+wayline_file ||- -|| wayline_device     :wayline_id
+wayline_file ||- -o{ wayline_file_point :wayline_id
+order        ||- -o{ wayline_file       :wayline_id
+order        ||- -o{ asset_data         :order_id
+order        ||- -o{ wayline_job        :order_uuid
+asset_data   ||-right-|| wayline_file   :mission_wayline_id
+asset_data   ||-left-|| wayline_job   :asset_data_id
+wayline_job  ||- -o{ media_file   :job_id
+media_file_defect  ||- -|| media_file   :file_id
+pilot        ||- -o{ order          :sn
+wayline_job  ||- -|| media_file_ai_progress   :job_id
+three_dimensional_data ||-left-o{ pilot          :dock_sn
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 20:40:07 CST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg>

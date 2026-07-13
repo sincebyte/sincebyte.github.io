@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2026 sincebyte
 </copyright>
-    <lastBuildDate>Fri, 22 May 2026 10:16:10 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2026 16:16:57 +0800</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>大疆无人机巡检平台技术架构与实践</title>
+      <link>/posts/%E5%A4%A7%E7%96%86%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%B7%A1%E6%A3%80%E5%B9%B3%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Mon, 13 Jul 2026 16:16:57 +0800</pubDate>
+      <guid>/posts/%E5%A4%A7%E7%96%86%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%B7%A1%E6%A3%80%E5%B9%B3%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E8%B7%B5/</guid>
+      <description>&lt;p&gt;大疆上云 API（DJI Cloud API）是大疆为行业无人机用户提供的一套云端接入方案，允许第三方平台通过 MQTT + HTTPS 双通道与 DJI 机场（Dock）、无人机及遥控器建立双向通信，实现设备管理、航线调度、实时图传和媒体回传等全套能力。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Org Table Shrink</title>
       <link>/posts/org-table-shrink/</link>

@@ -1,0 +1,261 @@
+<mxfile host="app.diagrams.net" modified="2025-01-01T00:00:00.000Z" agent="drawio" version="24.0.0">
+  <diagram name="航线创建流程" id="wayline-creation">
+    <mxGraphModel dx="1100" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Lifeline: 巡检管理员 -->
+        <mxCell id="admin" value="巡检管理员" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;fillColor=#D9EAD3;strokeColor=#82B366;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="20" y="40" width="120" height="630" as="geometry" />
+        </mxCell>
+
+        <!-- Lifeline: Skytech Web -->
+        <mxCell id="web" value="Skytech Web" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="160" y="40" width="120" height="630" as="geometry" />
+        </mxCell>
+
+        <!-- Lifeline: WaylineFileService -->
+        <mxCell id="wf" value="WaylineFileService" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;fillColor=#F8CECC;strokeColor=#B85450;fontStyle=1;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="300" y="40" width="130" height="630" as="geometry" />
+        </mxCell>
+
+        <!-- Lifeline: MinIO -->
+        <mxCell id="minio" value="MinIO" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;fillColor=#E1D5E7;strokeColor=#9673A6;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="460" y="40" width="100" height="630" as="geometry" />
+        </mxCell>
+
+        <!-- Lifeline: MySQL -->
+        <mxCell id="db" value="MySQL" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;fillColor=#FFF2CC;strokeColor=#D6B656;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="590" y="40" width="100" height="630" as="geometry" />
+        </mxCell>
+
+        <!-- Lifeline: WaylineFilePointService -->
+        <mxCell id="wfp" value="WaylineFilePointService" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;fillColor=#CDF0EA;strokeColor=#4DB6AC;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="720" y="40" width="150" height="630" as="geometry" />
+        </mxCell>
+
+        <!-- Admin -> Web: 上传 .kmz -->
+        <mxCell id="msg1" value="上传 .kmz 航线文件" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="90" as="sourcePoint" />
+            <mxPoint x="159" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Web -> WF: insertWayline -->
+        <mxCell id="msg2" value="insertWayline(file, metadata)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="114" as="sourcePoint" />
+            <mxPoint x="299" y="114" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== Phase 1: 文件存储与解析 (rect rgb(227, 242, 253)) ===== -->
+        <mxCell id="phase1-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#90CAF9;strokeWidth=1;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="290" y="130" width="580" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="phase1-note" value="文件存储与解析" style="text;html=1;strokeColor=#64B5F6;fillColor=#BBDEFB;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="290" y="130" width="100" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- WF -> MinIO: upload kmz -->
+        <mxCell id="msg3" value="upload(kmz, waylinepath)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="150" as="sourcePoint" />
+            <mxPoint x="459" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF self-loop: parseWaylineFile -->
+        <mxCell id="msg4" value="parseWaylineFile()" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="172" />
+              <mxPoint x="420" y="190" />
+            </Array>
+            <mxPoint x="365" y="190" as="sourcePoint" />
+            <mxPoint x="365" y="172" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF self-loop: unzip -->
+        <mxCell id="msg5" value="unzip → template.kml + waylines.wpml" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="198" />
+              <mxPoint x="420" y="216" />
+            </Array>
+            <mxPoint x="365" y="216" as="sourcePoint" />
+            <mxPoint x="365" y="198" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF self-loop: XStream -->
+        <mxCell id="msg6" value="XStream 反序列化 KML XML" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="224" />
+              <mxPoint x="420" y="242" />
+            </Array>
+            <mxPoint x="365" y="242" as="sourcePoint" />
+            <mxPoint x="365" y="224" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF self-loop: 提取 KmlPlacemark -->
+        <mxCell id="msg7" value="提取 KmlPlacemark 航点列表" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="250" />
+              <mxPoint x="420" y="268" />
+            </Array>
+            <mxPoint x="365" y="268" as="sourcePoint" />
+            <mxPoint x="365" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF self-loop: parsePoint -->
+        <mxCell id="msg8" value="parsePoint() 解析动作组" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="276" />
+              <mxPoint x="420" y="294" />
+            </Array>
+            <mxPoint x="365" y="294" as="sourcePoint" />
+            <mxPoint x="365" y="276" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== Phase 2: 数据持久化 (rect rgb(200, 230, 201)) ===== -->
+        <mxCell id="phase2-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#A5D6A7;strokeWidth=1;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="355" y="330" width="530" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="phase2-note" value="数据持久化" style="text;html=1;strokeColor=#81C784;fillColor=#C8E6C9;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="355" y="330" width="80" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- WF -> DB: INSERT wayline_file -->
+        <mxCell id="msg9" value="INSERT wayline_file" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="354" as="sourcePoint" />
+            <mxPoint x="589" y="354" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF -> WFP: 批量创建航点 -->
+        <mxCell id="msg10" value="批量创建航点" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="378" as="sourcePoint" />
+            <mxPoint x="719" y="378" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== Phase 3: 航点关联资产 (rect rgb(255, 249, 196)) ===== -->
+        <mxCell id="phase3-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#FFF176;strokeWidth=1;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="10" y="410" width="870" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="phase3-note" value="航点关联资产" style="text;html=1;strokeColor=#FDD835;fillColor=#FFF9C4;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="10" y="410" width="80" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Admin -> Web: 绑定航点关联设备 -->
+        <mxCell id="msg11" value="绑定航点关联设备" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="434" as="sourcePoint" />
+            <mxPoint x="159" y="434" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Web -> WFP: batchUpdateTower -->
+        <mxCell id="msg12" value="batchUpdateTower()" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="458" as="sourcePoint" />
+            <mxPoint x="719" y="458" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WFP -> DB: UPDATE wayline_file_point -->
+        <mxCell id="msg13" value="UPDATE wayline_file_point" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="478" as="sourcePoint" />
+            <mxPoint x="641" y="478" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== Phase 4: 工单航线生成 (rect rgb(255, 224, 178)) ===== -->
+        <mxCell id="phase4-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFB74D;strokeWidth=1;opacity=60;" parent="1" vertex="1">
+          <mxGeometry x="10" y="500" width="870" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="phase4-note" value="工单航线生成" style="text;html=1;strokeColor=#FFB74D;fillColor=#FFE0B2;align=center;verticalAlign=middle;whiteSpace=wrap;fontStyle=1;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="10" y="500" width="80" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Admin -> Web: 创建巡检工单 -->
+        <mxCell id="msg14" value="创建巡检工单" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="524" as="sourcePoint" />
+            <mxPoint x="159" y="524" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Web -> WF: appendOrderInfo -->
+        <mxCell id="msg15" value="appendOrderInfo(waylineId, orderUuid, orderName)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="544" as="sourcePoint" />
+            <mxPoint x="299" y="544" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF -> MinIO: 下载原始 KMZ -->
+        <mxCell id="msg16" value="下载原始 KMZ" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="564" as="sourcePoint" />
+            <mxPoint x="459" y="564" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF self-loop: 追加工单标识 -->
+        <mxCell id="msg17" value="追加工单标识 SKY-{orderId}-{waylineId}-{pointIndex}" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=9;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="586" />
+              <mxPoint x="420" y="604" />
+            </Array>
+            <mxPoint x="365" y="604" as="sourcePoint" />
+            <mxPoint x="365" y="586" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF self-loop: buildKmz -->
+        <mxCell id="msg18" value="buildKmz() 重新打包" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="612" />
+              <mxPoint x="420" y="630" />
+            </Array>
+            <mxPoint x="365" y="630" as="sourcePoint" />
+            <mxPoint x="365" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF -> MinIO: upload 新 KMZ -->
+        <mxCell id="msg19" value="upload 新 KMZ (orderWaylinepath)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="638" as="sourcePoint" />
+            <mxPoint x="459" y="638" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WF -> DB: INSERT wayline_file (ORDER) -->
+        <mxCell id="msg20" value="INSERT wayline_file (wayline_type=ORDER)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=0;fontSize=10;labelBackgroundColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="658" as="sourcePoint" />
+            <mxPoint x="589" y="658" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

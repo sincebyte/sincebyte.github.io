@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="draw.io" version="24.0.0">
+  <diagram name="飞行任务下发" id="flight-task-dispatch">
+    <mxGraphModel dx="1300" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="750" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Phase 1 Background: 定时触发 Q→DB -->
+        <mxCell id="phase1-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;strokeWidth=1;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="30" y="70" width="370" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="phase1-label" value="定时触发" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontColor=#F9A825;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="72" width="80" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- Phase 2 Background: MQTT 下发飞行指令 WPS→Dock -->
+        <mxCell id="phase2-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1E88E5;strokeWidth=1;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="160" y="195" width="620" height="155" as="geometry"/>
+        </mxCell>
+        <mxCell id="phase2-label" value="MQTT 下发飞行指令" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontColor=#1E88E5;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="165" y="197" width="140" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- Phase 3 Background: 航线下载 Dock→ML -->
+        <mxCell id="phase3-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#43A047;strokeWidth=1;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="680" y="360" width="370" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="phase3-label" value="航线下载" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontColor=#43A047;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="685" y="362" width="80" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- Phase 4 Background: 飞行遥测 Drone→Redis -->
+        <mxCell id="phase4-bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FB8C00;strokeWidth=1;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="810" y="485" width="490" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="phase4-label" value="飞行遥测（循环）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontColor=#FB8C00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="815" y="487" width="120" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- Loop box for Phase 4 -->
+        <mxCell id="loop4-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FB8C00;strokeWidth=2;dashed=1;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="815" y="495" width="480" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="loop4-label" value="loop [飞行过程中]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=9;fontColor=#FB8C00;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="820" y="497" width="130" height="14" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Lifelines ===== -->
+
+        <!-- Q: Quartz -->
+        <mxCell id="ll-Q" value="Quartz" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=11;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- WPS: WaylinePlanService -->
+        <mxCell id="ll-WPS" value="WaylinePlanService" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=9;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="170" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- DB: MySQL -->
+        <mxCell id="ll-DB" value="MySQL" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=11;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- SP: ServicesPublish -->
+        <mxCell id="ll-SP" value="ServicesPublish" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=9;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="430" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- MQTT: MQTT Broker -->
+        <mxCell id="ll-MQTT" value="MQTT Broker" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=9;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- Dock: DJI Dock -->
+        <mxCell id="ll-Dock" value="DJI Dock" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=10;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="690" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- Drone: DJI Drone -->
+        <mxCell id="ll-Drone" value="DJI Drone" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=10;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="820" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- ML: MessageListener -->
+        <mxCell id="ll-ML" value="MessageListener" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=9;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="950" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- FUS: FaUavStateService -->
+        <mxCell id="ll-FUS" value="FaUavStateService" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=8;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- Redis -->
+        <mxCell id="ll-Redis" value="Redis" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;align=center;fontSize=11;fontStyle=1;strokeWidth=2;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="40" width="90" height="670" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Phase 1 Messages: 定时触发 ===== -->
+
+        <!-- Q→WPS: execteFlightTask() -->
+        <mxCell id="msg-1" value="execteFlightTask(waylinePlan)" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="95" as="sourcePoint"/>
+            <mxPoint x="170" y="95" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WPS self: 查询机场设备 + 关联工单 -->
+        <mxCell id="msg-2" value="查询机场设备 + 关联工单" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="ll-WPS" target="ll-WPS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="120"/>
+              <mxPoint x="280" y="128"/>
+            </Array>
+            <mxPoint x="260" y="120" as="sourcePoint"/>
+            <mxPoint x="260" y="128" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WPS→DB: INSERT wayline_job -->
+        <mxCell id="msg-3" value="INSERT wayline_job (status=IN_PROGRESS)" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="150" as="sourcePoint"/>
+            <mxPoint x="300" y="150" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WPS self: prepareTask() -->
+        <mxCell id="msg-4" value="prepareTask() 构建 FlightTaskPrepare" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="ll-WPS" target="ll-WPS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="173"/>
+              <mxPoint x="280" y="181"/>
+            </Array>
+            <mxPoint x="260" y="173" as="sourcePoint"/>
+            <mxPoint x="260" y="181" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== Phase 2 Messages: MQTT 下发飞行指令 ===== -->
+
+        <!-- WPS→SP: flighttask_prepare -->
+        <mxCell id="msg-5" value="flighttask_prepare" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="220" as="sourcePoint"/>
+            <mxPoint x="430" y="220" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SP→MQTT: thing/product/{dockSn}/services -->
+        <mxCell id="msg-6" value="thing/product/{dockSn}/services" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="245" as="sourcePoint"/>
+            <mxPoint x="560" y="245" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- MQTT→Dock: 飞行参数 + 航线下载 URL -->
+        <mxCell id="msg-7" value="飞行参数 + 航线下载 URL" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="270" as="sourcePoint"/>
+            <mxPoint x="690" y="270" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WPS→Redis: 缓存 jobId -->
+        <mxCell id="msg-8" value="缓存 jobId" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="295" as="sourcePoint"/>
+            <mxPoint x="1210" y="295" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="260" y="295"/>
+              <mxPoint x="1210" y="295"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- WPS→SP: flighttask_execute -->
+        <mxCell id="msg-9" value="flighttask_execute" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="320" as="sourcePoint"/>
+            <mxPoint x="430" y="320" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== Phase 3 Messages: 航线下载 ===== -->
+
+        <!-- Dock→MQTT: requests -->
+        <mxCell id="msg-10" value="requests (flighttask_resource_get)" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="385" as="sourcePoint"/>
+            <mxPoint x="560" y="385" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ML→DB: 查询 wayline_job → wayline_file -->
+        <mxCell id="msg-11" value="查询 wayline_job → wayline_file" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1040" y="410" as="sourcePoint"/>
+            <mxPoint x="300" y="410" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="1040" y="410"/>
+              <mxPoint x="300" y="410"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ML→MQTT: requests_reply -->
+        <mxCell id="msg-12" value="requests_reply (fingerprint, MinIO URL)" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="435" as="sourcePoint"/>
+            <mxPoint x="650" y="435" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Dock→Drone: 下发航线 -->
+        <mxCell id="msg-13" value="下发航线" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="460" as="sourcePoint"/>
+            <mxPoint x="820" y="460" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== Phase 4 Messages: 飞行遥测（循环） ===== -->
+
+        <!-- Drone→Dock: 飞行数据 -->
+        <mxCell id="msg-14" value="飞行数据" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="520" as="sourcePoint"/>
+            <mxPoint x="690" y="520" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Dock→MQTT: thing/product/{sn}/osd -->
+        <mxCell id="msg-15" value="thing/product/{sn}/osd" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="545" as="sourcePoint"/>
+            <mxPoint x="560" y="545" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- MQTT→ML: OsdMessageEvent -->
+        <mxCell id="msg-16" value="OsdMessageEvent" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="570" as="sourcePoint"/>
+            <mxPoint x="950" y="570" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ML→FUS: insertState() -->
+        <mxCell id="msg-17" value="insertState(topic, message)" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1040" y="595" as="sourcePoint"/>
+            <mxPoint x="1080" y="595" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- FUS→DB: UPDATE fa_uavstate -->
+        <mxCell id="msg-18" value="UPDATE fa_uavstate" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1170" y="620" as="sourcePoint"/>
+            <mxPoint x="300" y="620" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="1170" y="620"/>
+              <mxPoint x="300" y="620"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- FUS self: accumulateDistance() -->
+        <mxCell id="msg-19" value="accumulateDistance()" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=8;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="ll-FUS" target="ll-FUS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1190" y="643"/>
+              <mxPoint x="1190" y="651"/>
+            </Array>
+            <mxPoint x="1170" y="643" as="sourcePoint"/>
+            <mxPoint x="1170" y="651" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- FUS→Redis: 缓存最新状态 -->
+        <mxCell id="msg-20" value="缓存最新状态" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;strokeWidth=1;fontSize=9;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1170" y="670" as="sourcePoint"/>
+            <mxPoint x="1210" y="670" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>大疆无人机巡检平台技术架构与实践 | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="大疆上云 API（DJI Cloud API）是大疆为行业无人机用户提供的一套云端接入方案，允许第三方平台通过 MQTT &#43; HTTPS 双通道与 DJI 机场（Dock）、无人机及遥控器建立双向通信，实现设备管理、航线调度、实时图传和媒体回传等全套能力。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"大疆无人机巡检平台技术架构与实践",
+      "item":"/posts/%E5%A4%A7%E7%96%86%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%B7%A1%E6%A3%80%E5%B9%B3%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E8%B7%B5/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/%E5%A4%A7%E7%96%86%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%B7%A1%E6%A3%80%E5%B9%B3%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E8%B7%B5/"
+    },
+    "headline": "大疆无人机巡检平台技术架构与实践 | sincebyte","datePublished": "2026-07-13T16:16:57+08:00",
+    "dateModified": "2026-07-13T16:16:57+08:00",
+    "wordCount":  3142 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003e大疆上云 API（DJI Cloud API）是大疆为行业无人机用户提供的一套云端接入方案，允许第三方平台通过 MQTT \u002b HTTPS 双通道与 DJI 机场（Dock）、无人机及遥控器建立双向通信，实现设备管理、航线调度、实时图传和媒体回传等全套能力。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="大疆无人机巡检平台技术架构与实践 | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/%E5%A4%A7%E7%96%86%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%B7%A1%E6%A3%80%E5%B9%B3%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E8%B7%B5/" />
+
+
+
+
+<meta property="og:description" content="大疆上云 API（DJI Cloud API）是大疆为行业无人机用户提供的一套云端接入方案，允许第三方平台通过 MQTT &#43; HTTPS 双通道与 DJI 机场（Dock）、无人机及遥控器建立双向通信，实现设备管理、航线调度、实时图传和媒体回传等全套能力。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-07-13T16:16:57&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-07-13T16:16:57&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    <link rel="stylesheet" href="../../css/default.css">
+
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">大疆无人机巡检平台技术架构与实践</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2026-07-13</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>7 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>大疆上云 API（DJI Cloud API）是大疆为行业无人机用户提供的一套云端接入方案，允许第三方平台通过 MQTT + HTTPS 双通道与 DJI 机场（Dock）、无人机及遥控器建立双向通信，实现设备管理、航线调度、实时图传和媒体回传等全套能力。</p>
+<div class="notice-info" id="org1a08bc4">
+<p>
+<b>核心优势</b> <br />
+设备可通过上云 API 直接与自建业务平台对接，无需经过大疆官方云平台（如 FlightHub 2）中转，<br />
+真正实现数据自主可控与业务深度定制。<br />
+</p>
+</div>
+<ol>
+<li>
+<p>大疆上云 API 架构概览</p>
+<p>DJI 上云 API 定义了清晰的通信模型：<br>
+<img src="046ccbe.png" alt="img"></p>
+<p>核心要点：</p>
+<ol>
+<li><strong>MQTT 双向通道</strong> ：机场/遥控器作为 MQTT Client 连接大疆 MQTT Broker，第三方平台同样以 MQTT Client 身份接入，双方通过不同 Topic 完成消息路由。</li>
+<li><strong>HTTPS 辅助通道</strong> ：用于大疆 Pilot 2 移动端 App 与第三方平台交互，例如获取航线列表、上传航线文件等。</li>
+<li><strong>设备模型</strong> ：
+<ul>
+<li>机场（Dock）是网关设备，无人机作为其子设备挂载；</li>
+<li>手柄（pilot）是网关设备，无人机作为其子设备挂载；</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Skytech 平台分层架构</p>
+<p>平台整体采用 DDD 分层架构，清晰划分职责边界：</p>
+<p><img src="02-skytech-platform-layers.svg" alt="img"></p>
+<p>平台自上而下分为四层：通信协议层负责与 DJI 设备建立 MQTT/HTTP/WebRTC/WebSocket 多通道连接；Adapter 接口层对外暴露 REST API 并适配 DJI Pilot 规范；Domain 领域层承载航线管理、巡检工单、设备监控等核心业务逻辑；Infrastructure 基础设施层提供 MySQL、MinIO、Redis、Quartz 及 AI 识别等底层支撑。</p>
+<p>（源文件：<a href="02-skytech-platform-layers.drawio">drawio</a> / <a href="02-skytech-platform-layers.png">PNG</a> / <a href="02-skytech-platform-layers.svg">SVG</a>）</p>
+</li>
+</ol>
+<p><a id="orgdece784"></a></p>
+<h2 id="设备上云">设备上云</h2>
+<p><img src="pilot_cloud_up.png" alt="img"></p>
+<p>首先搭建一个H5页面，集成大疆的 <a href="https://developer.dji.com/doc/cloud-api-tutorial/cn/api-reference/pilot-to-cloud/jsbridge.html">JSBridge</a>。JSBridge可以让前端js获取到无人机的信息，通过JSBridge，Web端可以调用Native端的Java接口，同样Native端也可以通过JSBridge调用Web端的JavaScript接口，实现彼此的双向调用。</p>
+<div class="notice-info" id="org3213157">
+<p>
+通过JSBridge, 平台可以设置无人机要连接到哪个MQTT服务，控制无人机开启直播、设置航线和照片的上传地址等<br />
+</p>
+</div>
+<p><a id="org6c82a70"></a></p>
+<h2 id="设备上线流程">设备上线流程</h2>
+<p>设备开机并且连上MQTT后,会发送<a href="https://developer.dji.com/doc/cloud-api-tutorial/cn/api-reference/pilot-to-cloud/mqtt/rc-pro/device.html#%E8%AE%BE%E5%A4%87%E6%8B%93%E6%89%91%E6%9B%B4%E6%96%B0">设备拓扑更新</a>的消息，可以给首次接入平台的无人机实现注册功能。</p>
+<p><img src="pilot_cloud_regist.png" alt="img"></p>
+<p>关键设计点：</p>
+<ol>
+<li><strong>设备自动发现</strong> ：设备上线后主动上报拓扑信息（ <em>update_topo</em> ），平台自动注册设备台账，无需手动录入。</li>
+<li><strong>型号映射</strong> ：设备上报的 <em>device_model_key</em> 格式为 <em>domain-type-subtype</em> （如 <em>0-67-0</em> ），平台通过字典表映射为可读设备型号名。</li>
+</ol>
+<p><a id="org09d6a58"></a></p>
+<h2 id="航线管理">航线管理</h2>
+<p>DJI 使用 KMZ 格式（ZIP 压缩包）存储航线数据，内部结构：</p>
+<pre><code>航线名.kmz
+└── wpmz/
+    ├── template.kml    # 模板层：飞行参数、安全配置
+    └── waylines.wpml   # 航点层：坐标、动作、高度等
+</code></pre>
+<ul>
+<li><strong>template.kml</strong> ：定义无人机型号、负载型号、飞行速度、失控动作、返航高度等全局参数</li>
+<li><strong>waylines.wpml</strong> ：定义航点列表，每个航点包含经纬度、飞行高度、飞行速度、云台姿态以及动作组（如到达航点后拍照、开始录像等）</li>
+</ul>
+<p><img src="pic202606005671.png" alt="img"></p>
+<ol>
+<li><strong>航线来源</strong> ：支持飞手在 DJI Pilot 2 上手动录制航线后通过手柄上传至平台，也支持平台端通过 KML 解析创建航线。</li>
+<li><strong>资产绑定</strong> ：支持将航线与巡检资产（如杆塔、设备）绑定；创建工单时会将航线与资产信息嵌入每个拍照动作的 action name，DJI 飞控命名照片时自动带上此后缀，实现飞行照片到资产的精确追溯。</li>
+<li><strong>资产绑定</strong> ：同塔双回线路，需要支持航点与不同线路的不同杆塔进行绑定</li>
+</ol>
+<div class="notice-warning" id="org13d0970">
+<p>
+注意：一个航点可能存在多个拍照动作<br />
+</p>
+</div>
+<p><a id="orgdbea4ef"></a></p>
+<h2 id="航线计划与定时调度">航线计划与定时调度</h2>
+<p>航线计划定义了 <strong>何时</strong> （cron 表达式或具体时间）、 <strong>用哪条航线</strong> （waylineId）、 <strong>在哪个机场</strong> （dockSn）执行自动飞行。</p>
+<p>调度策略支持三种模式：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">类型</th>
+<th scope="col" class="org-left">场景</th>
+<th scope="col" class="org-left">实现方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">立即执行</td>
+<td class="org-left">手动一键起飞</td>
+<td class="org-left">跳过 Quartz，直接创建 Job 并下发 MQTT</td>
+</tr>
+<tr>
+<td class="org-left">单次定时</td>
+<td class="org-left">指定日期时间执行一次</td>
+<td class="org-left">cron 表达式 <i>&ldquo;0 mm HH dd MM ? yyyy&rdquo;</i></td>
+</tr>
+<tr>
+<td class="org-left">重复定时</td>
+<td class="org-left">每周一/三/五 09:00 执行</td>
+<td class="org-left">根据 frequency + frequencyUnit 批量生成多条 sys_job</td>
+</tr>
+</tbody>
+</table>
+<p><a id="orgd704fbc"></a></p>
+<h2 id="机场工单">机场工单</h2>
+<p>业务场景：机场飞行任务下发，巡检人员通过工单的方式下达定时巡检任务，需要选择巡检的航线，到达时间后机场自动起飞完成航线飞行。</p>
+<ol>
+<li>查看<a href="https://developer.dji.com/doc/cloud-api-tutorial/cn/feature-set/dock-feature-set/dock-wayline-management.html">航线管理</a>文档,平台的实现是根据定时任务触发：1. 发送 <strong>flighttask_prepare</strong> , 2. 立即发送 <strong>flighttask_execute</strong></li>
+<li><strong>两段式下发</strong>   ：先发送 <strong>flighttask_prepare</strong> （航线下载 URL 和飞行参数），再发送 <strong>flighttask_execute</strong> （仅含 <em>flight_id</em> ），符合 DJI 协议规范。</li>
+<li><strong>航线下载</strong> ：设备通过 <strong>flighttask_resource_get</strong> 平台生成 MinIO 内部地址，机场主动拉取航线 URL。</li>
+<li><strong>OSD 实时处理</strong> ：FaUavStateService 解析 OSD JSON，分别处理机场和无人机遥测，支持 GPS 里程累积、起飞/降落状态识别。</li>
+</ol>
+<p><a id="orgbbae5e0"></a></p>
+<h2 id="手飞工单">手飞工单</h2>
+<p>业务场景：手飞工单，是指单兵带上手柄无人机去指定地点进行手动飞行。</p>
+<ol>
+<li>开单：在系统中创建工单后，工单记录会同步到用户登录的手柄上。</li>
+<li>到场机制：工单到场后，系统将以到场时间点为界，将该现场后续产生的飞行记录自动划归至本工单名下。</li>
+</ol>
+<p><img src="%E6%97%A0%E4%BA%BA%E6%9C%BA%E6%89%8B%E6%9F%84%E7%AB%AF.png" alt="img"></p>
+<p><a id="org7dcba41"></a></p>
+<h2 id="航线工单">航线工单</h2>
+<p>业务场景：航线工单，是指单兵带上手柄无人机去指定地点进行航线飞行。一个工单可对应多个航线。</p>
+<ol>
+<li>工单创建机制：系统在生成航线工单时，将自动复制原始航线，并在航线的每一个拍照点名称后追工单的编号，这一设计构建了全链路数据锚点：</li>
+<li>原始照片的名称        ：DJI_20260617085553_0027_V.JPG, 0027 是拍照点的编号，一个航点有多次拍照，该编号也累加。</li>
+<li>追加工单id+航线id后照片的名称：DJI_20260617085553_0027_V_SKY-2064625018897170434-2064625018926530562.JPG</li>
+<li>照片回传：凭借拍照点名称中的工单编号，系统可自动识别并绑定所属工单；</li>
+<li>飞行记录关联：通过照片的拍摄时间戳，与飞行日志进行时间轴匹配，完成飞行记录与工单关联；</li>
+<li>资产挂载：每个工单对应航线的对应拍照点编号均预先绑定了对应的资产实体（如杆塔、绝缘子），因此照片在上传后即自动归属于具体资产。</li>
+<li>最终效果：以此实现“工单 → 航线 → 飞行记录 → 照片 → 资产”的五维数据闭环，确保每一张巡检照片皆有源可溯、有物可依。</li>
+</ol>
+<p><a id="orgd85afad"></a></p>
+<h2 id="媒体上传与回调">媒体上传与回调</h2>
+<p><img src="media_upload_flow.svg" alt="img"></p>
+<ol>
+<li><strong>MinIO 直传</strong> ：设备从 MinIO 获取 STS 临时凭证后直传照片，不经过应用服务器，降低带宽压力。</li>
+<li><strong>文件去重</strong> ：支持 <strong>fast_upload</strong> （完整指纹）和  <strong>tiny_fingerprint</strong> （微型指纹预检）两种去重机制。</li>
+<li><strong>AI 异步流水线</strong> ：照片入库后异步提交 AI 检测，结果写入支持人工确认和误报标记。</li>
+</ol>
+<div class="notice-info" id="orgb3a2217">
+<p>
+小技巧：<br />
+图片与飞行记录的关联在大疆上云api中没有明确的字段进行关联<br />
+可通过飞行器的起飞降落时间与照片的拍摄时间来进行匹配<br />
+</p>
+</div>
+<p><a id="org53fab40"></a></p>
+<h2 id="实时监控数据流">实时监控数据流</h2>
+<p><img src="pic202606005673.png" alt="img"></p>
+<ul>
+<li><strong>持久化通道</strong> ：OSD 数据入库，Redis 缓存最新状态，支持历史回放。</li>
+<li><strong>实时通道</strong> ：通过 WebSocket 直推浏览器，前端用在三维地图上实时渲染无人机位置和飞行轨迹。</li>
+</ul>
+<p><a id="org99e8700"></a></p>
+<h2 id="正射影像">正射影像</h2>
+<p>正射影像，就是将消除了变形的精确影像，它在普通图片文件里，通过专门的“GeoKeys”标签，嵌入了坐标系、地图投影、椭球体、基准面等全部地理参考信息。<br>
+大疆无人机可以拍摄正射影像通过框选区域生成拍摄航线后，通过 <a href="https://github.com/opendronemap/ODM">odm</a> 软件将多张照片合并成一张正射影像照片。</p>
+<pre><code>docker pull opendronemap/odm
+# 照片存储至 ~/Desktop/datasets/myproject/images 
+docker run -ti --rm -v ~/Desktop/datasets:/datasets opendronemap/odm --project-path /datasets myproject
+</code></pre>
+<p><a id="orgd0e735f"></a></p>
+<h2 id="点云模型">点云模型</h2>
+<p>无人机点云模型，可以理解为无人机对现实世界进行的一次高精度“三维扫描”，其结果是一个由数百万甚至数十亿个带有三维坐标和颜色信息的数据点构成的、极其精细的三维立体模型。<br>
+通过大疆的激光雷达可以扫描出精确的点云模型。 点云瓦片的行业标准：3D Tiles 与 .pnts，点云模型瓦块化以后可以快速的在地图中加载渲染。</p>
+<p><a id="org2ad12b4"></a></p>
+<h2 id="直播推流">直播推流</h2>
+<p><img src="pic202604005416.png" alt="img"><br>
+平台主要使用两种直播协议：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">协议</th>
+<th scope="col" class="org-left">适用设备</th>
+<th scope="col" class="org-left">特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">WebRTC</td>
+<td class="org-left">机场（Dock）</td>
+<td class="org-left">低延迟，适合远程操控场景</td>
+</tr>
+<tr>
+<td class="org-left">GB28181</td>
+<td class="org-left">手持遥控器</td>
+<td class="org-left">国标视频监控协议，对接视联网平台</td>
+</tr>
+</tbody>
+</table>
+<div class="notice-info" id="orgf82b210">
+<p>
+流媒体一般使用ZLMediaKit：支持多种协议(RTSP/RTMP/HLS/HTTP-FLV/WebSocket-FLV/GB28181/HTTP-TS/WebSocket-TS/HTTP-fMP4/WebSocket-fMP4/MP4/WebRTC), 支持协议互转。<br />
+<b>ZLMediaKit</b> 中 <i>webrtc</i> 推流地址为: <a href="https://ip:8000/index/api/whip?app=rtps&amp;stream=%s&amp;sign">https://ip:8000/index/api/whip?app=rtps&amp;stream=%s&amp;sign</a>="<br />
+播放地址可根据需要进行选择<br />
+</p>
+</div>
+<p><a id="org4c33eba"></a></p>
+<h2 id="核心表结构">核心表结构</h2>
+<p><img src="db.svg" alt="img"></p>
+<p><a id="org67420d1"></a></p>
+<h2 id="其他问题">其他问题</h2>
+<ol>
+<li>离线飞行记录：无人机整个飞行过程中断网，未形成有效的飞行记录。比如缺少结束时间，或者整个飞行记录缺失等情况如何处理？思路：可利用照片的数据，比如使用照片的位置做未轨迹，并计算时间+距离。</li>
+<li>离线照片上传：飞手期望回到驻地后利用wifi来上传照片，可以在 JSBridge 中关闭照片的自动上传行为，但要求用户手动上传照片。</li>
+</ol>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/org-table-shrink/" class="block">Org Table Shrink</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#设备上云">设备上云</a></li>
+    <li><a href="#设备上线流程">设备上线流程</a></li>
+    <li><a href="#航线管理">航线管理</a></li>
+    <li><a href="#航线计划与定时调度">航线计划与定时调度</a></li>
+    <li><a href="#机场工单">机场工单</a></li>
+    <li><a href="#手飞工单">手飞工单</a></li>
+    <li><a href="#航线工单">航线工单</a></li>
+    <li><a href="#媒体上传与回调">媒体上传与回调</a></li>
+    <li><a href="#实时监控数据流">实时监控数据流</a></li>
+    <li><a href="#正射影像">正射影像</a></li>
+    <li><a href="#点云模型">点云模型</a></li>
+    <li><a href="#直播推流">直播推流</a></li>
+    <li><a href="#核心表结构">核心表结构</a></li>
+    <li><a href="#其他问题">其他问题</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2026 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
