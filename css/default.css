@@ -5,14 +5,23 @@ tbody tr:nth-child(odd) {
     background-color: var(--color-primary-bg)
 }
 @font-face {
-font-family: angelinaFont;
-src: url("./css/angelina.ttf") format("TrueType");
+  font-family: AngelinaFont;
+  src: url("./angelina.ttf") format("TrueType");
+  font-display: swap; /* 关键：立即用备用字体显示，加载完成后替换 */
 }
-.me-4 ,.text-xl{
-font-family: 'Angelina', Arial, sans-serif!important;
-font-size: 30px;
-color: #888!important;
+/* 方式一：分开定义 */
+.me-4 {
+  font-family: 'AngelinaFont', Arial, sans-serif !important;
+  font-size: 30px;
+  color: #888 !important;
 }
+
+.text-xl {
+  font-family: 'AngelinaFont', Arial, sans-serif !important;
+  font-size: 30px;
+  color: #888 !important;
+}
+
 .text-xl{
 font-size: 35px!important;
 font-weight: bold;
