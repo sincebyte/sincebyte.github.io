@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ai on sincebyte</title>
-    <link>//localhost:1313/tags/ai/</link>
+    <link>/tags/ai/</link>
     <description>Recent content in Ai on sincebyte</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; 2026 sincebyte
 </copyright>
     <lastBuildDate>Wed, 20 May 2026 16:59:42 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugging Face with llamacpp Usage</title>
-      <link>//localhost:1313/posts/hugging-facellamacpp-usage/</link>
+      <link>/posts/hugging-facellamacpp-usage/</link>
       <pubDate>Wed, 20 May 2026 16:59:42 +0800</pubDate>
-      <guid>//localhost:1313/posts/hugging-facellamacpp-usage/</guid>
+      <guid>/posts/hugging-facellamacpp-usage/</guid>
       <description>&lt;p&gt;Hugging Face Hub is the default marketplace for open-weight models. For local inference with &lt;a href=&#34;20260407111812-llamacpp_gemma4.md&#34;&gt;llama.cpp&lt;/a&gt;, you rarely need the full PyTorch checkpoint—you usually want a curated GGUF build, a clear model lineage, and a short list of organizations worth following.&lt;/p&gt;</description>
     </item>
     <item>
       <title>LlamaCpp Run Gemma-4-26B</title>
-      <link>//localhost:1313/posts/llamacpp-run-gemma-4/</link>
+      <link>/posts/llamacpp-run-gemma-4/</link>
       <pubDate>Tue, 07 Apr 2026 11:46:33 +0800</pubDate>
-      <guid>//localhost:1313/posts/llamacpp-run-gemma-4/</guid>
+      <guid>/posts/llamacpp-run-gemma-4/</guid>
       <description>&lt;p&gt;Guide to setting up Gemma-4-26B model with LlamaCpp on Linux for use with Opencode.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Agent Shell Cursor Agent Cli</title>
-      <link>//localhost:1313/posts/agent-shell-cursor-agent-cli/</link>
+      <link>/posts/agent-shell-cursor-agent-cli/</link>
       <pubDate>Thu, 02 Apr 2026 20:19:14 +0800</pubDate>
-      <guid>//localhost:1313/posts/agent-shell-cursor-agent-cli/</guid>
+      <guid>/posts/agent-shell-cursor-agent-cli/</guid>
       <description>&lt;p&gt;A lightweight workflow for using &lt;a href=&#34;https://github.com/xenodium/agent-shell&#34;&gt;agent-shell&lt;/a&gt; in Emacs together with Cursor’s agent CLI.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Aider 编程伙伴</title>
-      <link>//localhost:1313/posts/aider_usage/</link>
+      <link>/posts/aider_usage/</link>
       <pubDate>Tue, 23 Dec 2025 13:46:56 +0800</pubDate>
-      <guid>//localhost:1313/posts/aider_usage/</guid>
+      <guid>/posts/aider_usage/</guid>
       <description>&lt;p&gt;Aider 是一个基于 AI 的代码助手工具，它允许开发者通过自然语言与 AI 模型交互，直接在代码库中进行代码生成、修改和重构。它支持多种 AI 模型（包括本地和远程 API），并深度集成到开发工作流中，能够显著提升开发效率。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Yolo V8</title>
-      <link>//localhost:1313/posts/yolo-v8/</link>
+      <link>/posts/yolo-v8/</link>
       <pubDate>Wed, 07 Aug 2024 15:12:28 +0800</pubDate>
-      <guid>//localhost:1313/posts/yolo-v8/</guid>
+      <guid>/posts/yolo-v8/</guid>
       <description>&lt;p&gt;Ultralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。&lt;/p&gt;</description>
     </item>
   </channel>

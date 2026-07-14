@@ -3,15 +3,15 @@
   lang="en"
   dir="ltr"
   
-><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 <title>sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
-<link rel="stylesheet" href="//localhost:1313/css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
-<script defer src="//localhost:1313/js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
 
 
 
@@ -40,10 +40,10 @@
    crossorigin></script>
   <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
      crossorigin></script>
-<link rel="stylesheet" href="//localhost:1313/css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
 
 
-<script defer type="text/javascript" src="//localhost:1313/js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -73,9 +73,38 @@
 
 
 
+<link rel="stylesheet" href="../../css/default.css">
+<link rel="preload" href="../../css/jinkai.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/KodeMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/angelina.ttf" as="font" type="font/ttf" crossorigin>
 
-<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/images/icon_hu_4f4e55a10d73f6ba.png">
-<link rel="apple-touch-icon" sizes="180x180" href="//localhost:1313/images/icon_hu_8190559dabbef89f.png">
+<style>
+  html:not(.fonts-loaded) body {
+    visibility: hidden;
+  }
+</style>
+<script>
+  (function () {
+    var revealed = false;
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      document.documentElement.classList.add("fonts-loaded");
+    }
+
+    setTimeout(reveal, 4000);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(reveal).catch(reveal);
+    } else {
+      reveal();
+    }
+  })();
+</script>
+<noscript><style>html body { visibility: visible !important; }</style></noscript>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
 
 <meta name="description"
   content="Eureka is a elegant and powerful theme for Hugo.">
@@ -87,11 +116,11 @@
       "@type": "ListItem",
       "position": 1 ,
       "name":"Tags",
-      "item":"//localhost:1313/tags/"},{
+      "item":"/tags/"},{
       "@type": "ListItem",
       "position": 2 ,
       "name":"Java",
-      "item":"//localhost:1313/tags/java/"}]
+      "item":"/tags/java/"}]
 }
 </script>
 
@@ -107,61 +136,61 @@
             "position":  1 ,
             "name": "Java Dev Work Flow",
             "description": "\u003cp\u003e在典型的 Java 后端迭代里，真正吞噬效率的不止有代码编写，还有冗长的重启和低质量发布反馈。\u003c/p\u003e",
-            "url": "//localhost:1313/posts/java-dev-work-flow/"
+            "url": "/posts/java-dev-work-flow/"
         },{
             "@type":"ListItem",
             "position":  2 ,
             "name": "Java Caffeine 高性能本地缓存",
             "description": "\u003cp\u003eCaffeine 是 Guava Cache 作者的后续作品，基于 W-TinyLFU 淘汰算法，目前 Java 本地缓存里性能最好。\u003c/p\u003e",
-            "url": "//localhost:1313/posts/java-caffeine-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/"
+            "url": "/posts/java-caffeine-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/"
         },{
             "@type":"ListItem",
             "position":  3 ,
             "name": "Mqtt Usage",
             "description": "\u003cp\u003eMQTT is a standard messaging protocol for the Internet of Things (IoT).MQTT today is used in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.\u003c/p\u003e",
-            "url": "//localhost:1313/posts/mqtt-usage/"
+            "url": "/posts/mqtt-usage/"
         },{
             "@type":"ListItem",
             "position":  4 ,
             "name": "JeecgBoot 低代码平台II",
             "description": "\u003cp\u003e最近开始使用 JEECG 搭建新项目，随着深入使用，对这款低代码平台有了更深层次的了解与体验。\u003c/p\u003e",
-            "url": "//localhost:1313/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/"
+            "url": "/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/"
         },{
             "@type":"ListItem",
             "position":  5 ,
             "name": "JeecgBoot 低代码平台",
             "description": "\u003cp\u003e国货之光产品、低代码平台 + 代码生成可二次迭代逻辑。\u003c/p\u003e",
-            "url": "//localhost:1313/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/"
+            "url": "/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/"
         },{
             "@type":"ListItem",
             "position":  6 ,
             "name": "H2 Usage",
             "description": "\u003cp\u003eh2 features are Very fast, open source, JDBC API, Embedded and server modes; in-memory databases, Browser based Console application, Small footprint: around 2.5 MB jar file size.\u003c/p\u003e",
-            "url": "//localhost:1313/posts/h2-usage/"
+            "url": "/posts/h2-usage/"
         },{
             "@type":"ListItem",
             "position":  7 ,
             "name": "Sentinel Usage",
             "description": "\u003cp\u003eSentinel 是阿里巴巴开源的面向分布式服务架构的 \u003cstrong\u003e流量防护\u003c/strong\u003e 组件。它以流量为切入点，从 \u003ca href=\"https://github.com/alibaba/Sentinel\"\u003e流量控制\u003c/a\u003e、\u003ca href=\"https://github.com/alibaba/Sentinel\"\u003e熔断降级\u003c/a\u003e、\u003ca href=\"https://github.com/alibaba/Sentinel\"\u003e系统负载保护\u003c/a\u003e 等多个维度保障服务稳定性。\u003c/p\u003e",
-            "url": "//localhost:1313/posts/sentinel-usage/"
+            "url": "/posts/sentinel-usage/"
         },{
             "@type":"ListItem",
             "position":  8 ,
             "name": "Ftp Resume Transfer",
             "description": "\u003cp\u003eResumable transfer significantly improves the efficiency of file transfers,It is very efficient and convenient.Let\u0026rsquo;s try it in java\u003c/p\u003e",
-            "url": "//localhost:1313/posts/ftp-resume-transfer/"
+            "url": "/posts/ftp-resume-transfer/"
         },{
             "@type":"ListItem",
             "position":  9 ,
             "name": "DeferredResult 使用指南",
             "description": "\u003cp\u003e\u003ccode\u003eDeferredResult\u003c/code\u003e 是 Spring MVC 提供的异步 HTTP 响应机制。Controller 方法可以先返回一个「占位结果」，在稍后的任意线程中再调用 \u003ccode\u003esetResult()\u003c/code\u003e 完成真正的 HTTP 响应。\u003c/p\u003e\n\u003cp\u003e适用于「请求发起快、结果产出慢」的场景：等待第三方回调、消息队列响应、长轮询、跨服务异步通知等。HTTP 请求线程只负责「注册等待 + 触发业务」，真正的响应在异步事件到达后再写出。\u003c/p\u003e",
-            "url": "//localhost:1313/posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
+            "url": "/posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
         },{
             "@type":"ListItem",
             "position":  10 ,
             "name": "Maven 项目骨架",
             "description": "\u003cp\u003e项目初期如何快速搭建符合规范、便于定制的项目结构, 相信这是大家一直在追求的. 所幸 Maven 提供了 archetypes 插件可满足这一诉求.\u003c/p\u003e",
-            "url": "//localhost:1313/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/"
+            "url": "/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/"
         }
     ]
 }
@@ -169,10 +198,10 @@
 <meta property="og:type" content="website" />
 
 
-<meta property="og:image" content="//localhost:1313/images/icon.png">
+<meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="//localhost:1313/tags/java/" />
+<meta property="og:url" content="/tags/java/" />
 
 
 
@@ -203,7 +232,7 @@
 <meta property="article:section" content="tags" />
 
 
-<link rel="alternate" type="application/rss+xml" href="//localhost:1313/tags/java/index.xml" title="sincebyte" />
+<link rel="alternate" type="application/rss+xml" href="../../tags/java/index.xml" title="sincebyte" />
 
 
 
@@ -293,8 +322,6 @@
     });
 </script>
 </div>
-    <link rel="stylesheet" href="../../css/default.css">
-
     </header>
     <main class="grow pt-16">
         <div class="pl-scrollbar">
@@ -312,7 +339,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/java-dev-work-flow/" class="no-underline">
+  <a href="../../posts/java-dev-work-flow/" class="no-underline">
     <h3 class="mt-0">Java Dev Work Flow</h3>
   </a>
   
@@ -354,7 +381,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/java-caffeine-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/" class="no-underline">
+  <a href="../../posts/java-caffeine-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/" class="no-underline">
     <h3 class="mt-0">Java Caffeine 高性能本地缓存</h3>
   </a>
   
@@ -396,7 +423,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/mqtt-usage/" class="no-underline">
+  <a href="../../posts/mqtt-usage/" class="no-underline">
     <h3 class="mt-0">Mqtt Usage</h3>
   </a>
   
@@ -438,7 +465,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" class="no-underline">
+  <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" class="no-underline">
     <h3 class="mt-0">JeecgBoot 低代码平台II</h3>
   </a>
   
@@ -480,7 +507,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" class="no-underline">
+  <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" class="no-underline">
     <h3 class="mt-0">JeecgBoot 低代码平台</h3>
   </a>
   
@@ -522,7 +549,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/h2-usage/" class="no-underline">
+  <a href="../../posts/h2-usage/" class="no-underline">
     <h3 class="mt-0">H2 Usage</h3>
   </a>
   
@@ -564,7 +591,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/sentinel-usage/" class="no-underline">
+  <a href="../../posts/sentinel-usage/" class="no-underline">
     <h3 class="mt-0">Sentinel Usage</h3>
   </a>
   
@@ -606,7 +633,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/ftp-resume-transfer/" class="no-underline">
+  <a href="../../posts/ftp-resume-transfer/" class="no-underline">
     <h3 class="mt-0">Ftp Resume Transfer</h3>
   </a>
   
@@ -648,7 +675,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="no-underline">
+  <a href="../../posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="no-underline">
     <h3 class="mt-0">DeferredResult 使用指南</h3>
   </a>
   
@@ -691,7 +718,7 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="//localhost:1313/posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">
+  <a href="../../posts/maven-%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/" class="no-underline">
     <h3 class="mt-0">Maven 项目骨架</h3>
   </a>
   

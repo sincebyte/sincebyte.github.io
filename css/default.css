@@ -7,7 +7,7 @@ tbody tr:nth-child(odd) {
 @font-face {
   font-family: AngelinaFont;
   src: url("./angelina.ttf") format("TrueType");
-  font-display: swap; /* 关键：立即用备用字体显示，加载完成后替换 */
+  font-display: block;
 }
 /* 方式一：分开定义 */
 .me-4 {
@@ -30,10 +30,12 @@ font-weight: bold;
 @font-face {
     font-family: jinkaiFont;
     src: url("./jinkai.ttf") format("TrueType");
+    font-display: block;
 }
 @font-face {
     font-family: kodeMono;
     src: url("./KodeMono-Regular.ttf") format("TrueType");
+    font-display: block;
 }
 
 body ,.prose {

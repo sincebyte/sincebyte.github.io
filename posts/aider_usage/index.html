@@ -3,15 +3,15 @@
   lang="en"
   dir="ltr"
   
-><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 <title>Aider 编程伙伴 | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
-<link rel="stylesheet" href="//localhost:1313/css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
-<script defer src="//localhost:1313/js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
 
 
 
@@ -40,10 +40,10 @@
    crossorigin></script>
   <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
      crossorigin></script>
-<link rel="stylesheet" href="//localhost:1313/css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
 
 
-<script defer type="text/javascript" src="//localhost:1313/js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
@@ -73,9 +73,38 @@
 
 
 
+<link rel="stylesheet" href="../../css/default.css">
+<link rel="preload" href="../../css/jinkai.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/KodeMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/angelina.ttf" as="font" type="font/ttf" crossorigin>
 
-<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/images/icon_hu_4f4e55a10d73f6ba.png">
-<link rel="apple-touch-icon" sizes="180x180" href="//localhost:1313/images/icon_hu_8190559dabbef89f.png">
+<style>
+  html:not(.fonts-loaded) body {
+    visibility: hidden;
+  }
+</style>
+<script>
+  (function () {
+    var revealed = false;
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      document.documentElement.classList.add("fonts-loaded");
+    }
+
+    setTimeout(reveal, 4000);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(reveal).catch(reveal);
+    } else {
+      reveal();
+    }
+  })();
+</script>
+<noscript><style>html body { visibility: visible !important; }</style></noscript>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
 
 <meta name="description"
   content="Aider 是一个基于 AI 的代码助手工具，它允许开发者通过自然语言与 AI 模型交互，直接在代码库中进行代码生成、修改和重构。它支持多种 AI 模型（包括本地和远程 API），并深度集成到开发工作流中，能够显著提升开发效率。">
@@ -87,11 +116,11 @@
       "@type": "ListItem",
       "position": 1 ,
       "name":"Posts",
-      "item":"//localhost:1313/posts/"},{
+      "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
       "name":"Aider 编程伙伴",
-      "item":"//localhost:1313/posts/aider_usage/"}]
+      "item":"/posts/aider_usage/"}]
 }
 </script>
 
@@ -103,7 +132,7 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "//localhost:1313/posts/aider_usage/"
+        "@id": "/posts/aider_usage/"
     },
     "headline": "Aider 编程伙伴 | sincebyte","datePublished": "2025-12-23T13:46:56+08:00",
     "dateModified": "2025-12-23T13:46:56+08:00",
@@ -113,7 +142,7 @@
         "name": "WANG Chucheng",
         "logo": {
             "@type": "ImageObject",
-            "url": "//localhost:1313/images/icon.png"
+            "url": "/images/icon.png"
         }
         },
     "description": "\u003cp\u003eAider 是一个基于 AI 的代码助手工具，它允许开发者通过自然语言与 AI 模型交互，直接在代码库中进行代码生成、修改和重构。它支持多种 AI 模型（包括本地和远程 API），并深度集成到开发工作流中，能够显著提升开发效率。\u003c\/p\u003e"
@@ -122,10 +151,10 @@
 <meta property="og:type" content="article" />
 
 
-<meta property="og:image" content="//localhost:1313/images/icon.png">
+<meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="//localhost:1313/posts/aider_usage/" />
+<meta property="og:url" content="/posts/aider_usage/" />
 
 
 
@@ -165,17 +194,17 @@
 
 
 
-<meta property="og:see_also" content="//localhost:1313/posts/neoemacs-face/" />
+<meta property="og:see_also" content="/posts/neoemacs-face/" />
 
-<meta property="og:see_also" content="//localhost:1313/posts/rime-input-method/" />
+<meta property="og:see_also" content="/posts/rime-input-method/" />
 
-<meta property="og:see_also" content="//localhost:1313/posts/garmin-to-emacs/" />
+<meta property="og:see_also" content="/posts/garmin-to-emacs/" />
 
-<meta property="og:see_also" content="//localhost:1313/posts/emacs-wechat-msg-count/" />
+<meta property="og:see_also" content="/posts/emacs-wechat-msg-count/" />
 
-<meta property="og:see_also" content="//localhost:1313/posts/emacs-patches/" />
+<meta property="og:see_also" content="/posts/emacs-patches/" />
 
-<meta property="og:see_also" content="//localhost:1313/posts/yolo-v8/" />
+<meta property="og:see_also" content="/posts/yolo-v8/" />
 
 
 
@@ -267,8 +296,6 @@
     });
 </script>
 </div>
-    <link rel="stylesheet" href="../../css/default.css">
-
     </header>
     <main class="grow pt-16">
         <div class="pl-scrollbar">
@@ -608,9 +635,9 @@ model: deepseek/deepseek-chat
         <html data-pagefind-ignore>
 <div class="my-4">
     
-    <a href="//localhost:1313/tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Emacs</a>
+    <a href="../../tags/emacs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Emacs</a>
     
-    <a href="//localhost:1313/tags/ai/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Ai</a>
+    <a href="../../tags/ai/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Ai</a>
     
 </div>
 
@@ -631,13 +658,13 @@ model: deepseek/deepseek-chat
         <span class="text-primary-text block font-bold"
           >Previous</span
         >
-        <a href="//localhost:1313/posts/emacs_%E5%88%87%E6%8D%A2%E7%B3%BB%E7%BB%9F%E8%BE%93%E5%85%A5%E6%B3%95/" class="block">Emacs_切换系统输入法</a>
+        <a href="../../posts/emacs_%E5%88%87%E6%8D%A2%E7%B3%BB%E7%BB%9F%E8%BE%93%E5%85%A5%E6%B3%95/" class="block">Emacs_切换系统输入法</a>
       
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="//localhost:1313/posts/neoemacs-face/" class="block">Neoemacs Face</a>
+        <a href="../../posts/neoemacs-face/" class="block">Neoemacs Face</a>
       
     </div>
   </div>
@@ -712,22 +739,22 @@ model: deepseek/deepseek-chat
       >
         <h3>See Also</h3>
         
-          <a href="//localhost:1313/posts/neoemacs-face/" class="no-underline">Neoemacs Face</a>
+          <a href="../../posts/neoemacs-face/" class="no-underline">Neoemacs Face</a>
           <br />
         
-          <a href="//localhost:1313/posts/rime-input-method/" class="no-underline">Rime Input Method</a>
+          <a href="../../posts/rime-input-method/" class="no-underline">Rime Input Method</a>
           <br />
         
-          <a href="//localhost:1313/posts/garmin-to-emacs/" class="no-underline">Garmin 同步心率至 Emacs</a>
+          <a href="../../posts/garmin-to-emacs/" class="no-underline">Garmin 同步心率至 Emacs</a>
           <br />
         
-          <a href="//localhost:1313/posts/emacs-wechat-msg-count/" class="no-underline">emacs 同步微信消息数量</a>
+          <a href="../../posts/emacs-wechat-msg-count/" class="no-underline">emacs 同步微信消息数量</a>
           <br />
         
-          <a href="//localhost:1313/posts/emacs-patches/" class="no-underline">Emacs Patches</a>
+          <a href="../../posts/emacs-patches/" class="no-underline">Emacs Patches</a>
           <br />
         
-          <a href="//localhost:1313/posts/yolo-v8/" class="no-underline">Yolo V8</a>
+          <a href="../../posts/yolo-v8/" class="no-underline">Yolo V8</a>
           <br />
         
       </div>
