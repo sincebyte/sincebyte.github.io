@@ -8,13 +8,20 @@
     <language>en</language>
     <copyright>&amp;copy; 2026 sincebyte
 </copyright>
-    <lastBuildDate>Fri, 22 May 2026 10:16:10 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2026 16:08:04 +0800</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs</title>
       <link>/tags/emacs/</link>
-      <pubDate>Fri, 22 May 2026 10:16:10 +0800</pubDate>
+      <pubDate>Sat, 18 Jul 2026 16:08:04 +0800</pubDate>
       <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>/tags/java/</link>
+      <pubDate>Sat, 18 Jul 2026 16:08:04 +0800</pubDate>
+      <guid>/tags/java/</guid>
       <description></description>
     </item>
     <item>
@@ -29,13 +36,6 @@
       <link>/tags/ai/</link>
       <pubDate>Wed, 20 May 2026 16:59:42 +0800</pubDate>
       <guid>/tags/ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Java</title>
-      <link>/tags/java/</link>
-      <pubDate>Fri, 03 Apr 2026 15:30:59 +0800</pubDate>
-      <guid>/tags/java/</guid>
       <description></description>
     </item>
     <item>

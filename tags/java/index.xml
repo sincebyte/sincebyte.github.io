@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2026 sincebyte
 </copyright>
-    <lastBuildDate>Fri, 03 Apr 2026 15:30:59 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2026 16:08:04 +0800</lastBuildDate>
     <atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eglot for Java</title>
+      <link>/posts/eglot-for-java/</link>
+      <pubDate>Sat, 18 Jul 2026 16:08:04 +0800</pubDate>
+      <guid>/posts/eglot-for-java/</guid>
+      <description>&lt;p&gt;This note covers how neo-emacs runs Java under Eglot: picking jdtls, installing it, and making go-to-definition work for JDK / Maven classes that only exist as &lt;code&gt;.class&lt;/code&gt; files.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Java Dev Work Flow</title>
       <link>/posts/java-dev-work-flow/</link>
