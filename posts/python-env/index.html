@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Yolo V8 | sincebyte</title>
+<title>Python Version Management &amp; Virtual Environments | sincebyte</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
@@ -107,7 +107,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
 
 <meta name="description"
-  content="Ultralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。">
+  content="Installing multiple Python versions on the same machine, isolating project dependencies, and understanding how import works.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -119,8 +119,8 @@
       "item":"/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Yolo V8",
-      "item":"/posts/yolo-v8/"}]
+      "name":"Python Version Management \u0026 Virtual Environments",
+      "item":"/posts/python-env/"}]
 }
 </script>
 
@@ -132,11 +132,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/yolo-v8/"
+        "@id": "/posts/python-env/"
     },
-    "headline": "Yolo V8 | sincebyte","datePublished": "2024-08-07T15:12:28+08:00",
-    "dateModified": "2024-08-07T15:12:28+08:00",
-    "wordCount":  744 ,
+    "headline": "Python Version Management \u0026 Virtual Environments | sincebyte","datePublished": "2024-01-20T15:14:34+08:00",
+    "dateModified": "2024-01-20T15:14:34+08:00",
+    "wordCount":  806 ,
     "publisher": {
         "@type": "Person",
         "name": "WANG Chucheng",
@@ -145,21 +145,21 @@
             "url": "/images/icon.png"
         }
         },
-    "description": "\u003cp\u003eUltralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。\u003c\/p\u003e"
+    "description": "\u003cp\u003eInstalling multiple Python versions on the same machine, isolating project dependencies, and understanding how import works.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="Yolo V8 | sincebyte" />
+</script><meta property="og:title" content="Python Version Management &amp; Virtual Environments | sincebyte" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="/images/icon.png">
 
 
-<meta property="og:url" content="/posts/yolo-v8/" />
+<meta property="og:url" content="/posts/python-env/" />
 
 
 
 
-<meta property="og:description" content="Ultralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。" />
+<meta property="og:description" content="Installing multiple Python versions on the same machine, isolating project dependencies, and understanding how import works." />
 
 
 
@@ -176,25 +176,21 @@
 
 
 
-<meta property="article:published_time" content="2024-08-07T15:12:28&#43;08:00" />
+<meta property="article:published_time" content="2024-01-20T15:14:34&#43;08:00" />
 
 
-<meta property="article:modified_time" content="2024-08-07T15:12:28&#43;08:00" />
+<meta property="article:modified_time" content="2024-01-20T15:14:34&#43;08:00" />
 
 
 
 <meta property="article:section" content="posts" />
 
 
-<meta property="article:tag" content="ai" />
-
 <meta property="article:tag" content="python" />
 
 
 
 
-
-<meta property="og:see_also" content="/posts/python-env/" />
 
 <meta property="og:see_also" content="/posts/python-basic-useage-inneoemacs/" />
 
@@ -299,7 +295,7 @@
       class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">Yolo V8</h1>
+  <h1 class="mb-4">Python Version Management &amp; Virtual Environments</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -307,12 +303,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2024-08-07</span
+      >2024-01-20</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
+    <span>4 min read</span>
   </div>
 
   
@@ -324,59 +320,368 @@
   
   
 
-  <p>Ultralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。</p>
-<p><a id="orgda2e769"></a></p>
-<h2 id="relations">relations</h2>
-<p>YOLO（You Only Look Once）<br>
-YOLO 是一种实时目标检测系统，由 Joseph Redmon 等人提出。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。</p>
-<p>Darknet<br>
-开发者：Joseph Redmon。<br>
-实现：YOLO 最早由 Joseph Redmon 在 Darknet 框架上实现。Darknet 是一个用 C 和 CUDA 编写的开源神经网络框架，专门用于目标检测。<br>
-版本：Darknet 实现了 YOLO 的早期版本，如 YOLOv1、YOLOv2 和 YOLOv3。<br>
-Ultralytics YOLOv8<br>
-开发者：Glenn Jocher。<br>
-实现：Ultralytics 是一个基于 PyTorch 的开源库，最初是为了实现 YOLOv3 和 YOLOv4。后来，Ultralytics 推出了自己的版本，如 YOLOv5 和 YOLOv8。<br>
-特点：Ultralytics 的实现更加现代化，利用 PyTorch 的灵活性和易用性，提供了更高的可扩展性和更丰富的功能，如更容易的模型训练和部署、更高的速度和精度等。</p>
-<p><a id="orgef510bf"></a></p>
-<h2 id="useage">useage</h2>
-<p>现在使用 Ultralytics YOLOv8 是更好的选择，因为其在快速的迭代，并且有非常详细的文档。目前 yolo 模型分为：<br>
-Train mode: Fine-tune your model on custom or preloaded datasets. 训练调优用<br>
-Val mode: A post-training checkpoint to validate model performance.  检测模型用<br>
-Predict mode: Unleash the predictive power of your model on real-world data. 推理模型<br>
-Export mode: Make your model deployment-ready in various formats. 导出模型使其能在其他硬件平台运行，或者提升模型在 CPU 下运行的效率<br>
-Track mode: Extend your object detection model into real-time tracking applications. 物体检测的加强版本，用于在一段视频中跟踪物体<br>
-Benchmark mode: Analyze the speed and accuracy of your model in diverse deployment environments. 检测模型用</p>
-<p>想快速学习读下， <a href="https://docs.ultralytics.com/quickstart/#install-ultralytics">https://docs.ultralytics.com/quickstart/#install-ultralytics</a> 这篇文章即可。<br>
-使用pip 进行依赖安装:</p>
-<pre><code>pip install ultralytics
+  <p>Installing multiple Python versions on the same machine, isolating project dependencies, and understanding how import works.</p>
+<p><a id="orgccb67ba"></a></p>
+<h2 id="python-version-management-pyenv">Python version management: pyenv</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Platform</th>
+<th scope="col" class="org-left">Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">macOS</td>
+<td class="org-left">pyenv (Homebrew)</td>
+</tr>
+<tr>
+<td class="org-left">Linux</td>
+<td class="org-left">pyenv (curl script)</td>
+</tr>
+<tr>
+<td class="org-left">Windows</td>
+<td class="org-left">official installer + py launcher, or pyenv-win</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>Install pyenv (macOS / Linux)</p>
+<ol>
+<li>
+<p>macOS</p>
+<pre><code>brew install pyenv
 </code></pre>
-<p>第一次运行会下载预训练好的模型，我尝试过检测一段 1 分钟的视频结果失败了，应该是因为内存不够。另外 Ultralytics YOLO 利用 GPU 加速是需要使用 Nvida 的显卡才可以的。苹果电脑基本可以告吹了。</p>
-<pre><code>from ultralytics import YOLO
+<p>Add to ~/.zshrc or ~/.bashrc:</p>
+<pre><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+eval &quot;$(pyenv init -)&quot;
+</code></pre>
+</li>
+<li>
+<p>Linux</p>
+<pre><code>curl https://pyenv.run | bash
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Windows</p>
+<ol>
+<li>
+<p>Option 1: official installer + py launcher (recommended)</p>
+<p>Download installers from <a href="https://www.python.org/downloads/windows/">python.org</a>. Check “Add Python to PATH” and “Install for all users” during install. The built-in py launcher picks the right version:</p>
+<pre><code>py -0          # list installed versions
+py -3.11 foo.py
+py -3.10 foo.py
 
-model = YOLO(&quot;yolov8n.pt&quot;)
-model.predict(
-    &quot;/Users/van/Desktop/yolo&quot;,
-    # &quot;path/to/video.mp4&quot;,
-    # stream=True
-    save=True,
-    imgsz=640,
-    conf=0.15,
-)
+set PY_PYTHON=3.11
+rem permanent: System Properties → Environment Variables → add PY_PYTHON=3.11
 </code></pre>
-<p><a id="org11ec816"></a></p>
-<h2 id="effect">effect</h2>
-<p><img src="IMG_5278.jpeg" alt="img"></p>
-<p><a id="orge55df8f"></a></p>
-<h2 id="训练调优">训练调优</h2>
-<p>TODO</p>
+</li>
+<li>
+<p>Option 2: pyenv-win</p>
+<pre><code>Invoke-WebRequest -UseBasicParsing -Uri &quot;https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1&quot; -OutFile &quot;./install-pyenv-win.ps1&quot;; &amp;&quot;./install-pyenv-win.ps1&quot;
+</code></pre>
+<p>Restart terminal, then same commands as Unix pyenv:</p>
+<pre><code>pyenv install 3.11.7
+pyenv global 3.11.7
+pyenv versions
+pyenv local 3.10.13
+</code></pre>
+</li>
+<li>
+<p>Option 3: winget</p>
+<pre><code>winget install Python.Python.3.11
+winget install Python.Python.3.10
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Common commands</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">pyenv versions</td>
+<td class="org-left">list installed Python versions</td>
+</tr>
+<tr>
+<td class="org-left">pyenv install &ndash;list</td>
+<td class="org-left">list available versions to install</td>
+</tr>
+<tr>
+<td class="org-left">pyenv install 3.11.7</td>
+<td class="org-left">install a specific version</td>
+</tr>
+<tr>
+<td class="org-left">pyenv global 3.11.7</td>
+<td class="org-left">set global default version</td>
+</tr>
+<tr>
+<td class="org-left">pyenv local 3.10.13</td>
+<td class="org-left">set version for current dir (writes .python-version)</td>
+</tr>
+<tr>
+<td class="org-left">pyenv shell 3.9.18</td>
+<td class="org-left">set version for current shell session</td>
+</tr>
+<tr>
+<td class="org-left">pyenv uninstall 3.9.18</td>
+<td class="org-left">remove a version</td>
+</tr>
+<tr>
+<td class="org-left">pyenv which python</td>
+<td class="org-left">show which python binary is active</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Priority</p>
+<p>pyenv picks the version in this order:</p>
+<ol>
+<li><strong>shell</strong> — set by pyenv shell, current terminal only</li>
+<li><strong>local</strong> — .python-version file in current directory</li>
+<li><strong>global</strong> — ~/.pyenv/version</li>
+</ol>
+</li>
+<li>
+<p>Example</p>
+<pre><code>pyenv install 3.10.13
+pyenv install 3.11.7
+
+pyenv global 3.11.7
+
+cd ~/projects/old-project
+pyenv local 3.10.13    # writes .python-version
+# .python-version content:
+# 3.10.13
+
+python --version       # Python 3.10.13
+cd ~
+python --version       # Python 3.11.7
+</code></pre>
+</li>
+</ol>
+<p><a id="orgb026e17"></a></p>
+<h2 id="virtual-environments">Virtual environments</h2>
+<ol>
+<li>
+<p>Why isolate?</p>
+<p>By default pip installs packages globally into site-packages. If two projects need different versions of the same package, they’ll step on each other.</p>
+<pre><code>mkdir project-a &amp;&amp; cd project-a
+pip install django==3.2
+
+cd ../project-b
+pip install django==4.2    # overwrites global Django 3.2, project-a breaks
+</code></pre>
+<p>A virtual environment gives each project its own isolated Python, with packages installed under the project directory instead of the global system. With venv, all packages live in <strong>.venv/lib/pythonX.X/site-packages/</strong>. Delete the project directory and everything is gone.</p>
+</li>
+<li>
+<p>venv (built-in)</p>
+<p>venv ships with Python 3.3+, no extra install needed.</p>
+<ol>
+<li>
+<p>Create and activate</p>
+<pre><code># create
+python -m venv .venv
+
+# activate
+
+# macOS / Linux
+source .venv/bin/activate
+
+# Windows (CMD)
+.venv\Scripts\activate.bat
+
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
+
+# prompt shows (.venv) prefix
+# (.venv) $ pip install requests
+
+# exit
+deactivate
+
+# If PowerShell throws &quot;running scripts is disabled&quot;:
+# run as admin: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+</code></pre>
+</li>
+<li>
+<p>Manage dependencies</p>
+<pre><code># dump all installed packages
+pip freeze &gt; requirements.txt
+
+# install from requirements.txt
+pip install -r requirements.txt
+
+# lock with pip-tools
+pip install pip-tools
+pip-compile requirements.in    # generates requirements.txt with pinned versions
+pip-sync requirements.txt      # install and remove extras
+</code></pre>
+</li>
+<li>
+<p>Project layout</p>
+<pre><code>my-project/
+├── .venv/              # virtual env, add to .gitignore
+├── src/
+│   └── main.py
+├── requirements.txt    # or requirements.in
+└── .python-version     # pyenv version marker
+
+# .gitignore
+.venv/
+__pycache__/
+*.pyc
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>poetry</p>
+<p>For stricter dependency management, use poetry. It locks versions via pyproject.toml and poetry.lock so everyone on the team gets the same dependency tree.</p>
+<pre><code># macOS / Linux / WSL
+curl -sSL https://install.python-poetry.org | python3 -
+# Windows (PowerShell)
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+</code></pre>
+</li>
+</ol>
+<p><a id="org2dd756b"></a></p>
+<h2 id="python-import-and-classes">Python import and classes</h2>
+<ol>
+<li>
+<p>import syntax</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Syntax</th>
+<th scope="col" class="org-left">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">import os</td>
+<td class="org-left">import whole module, use os.getcwd()</td>
+</tr>
+<tr>
+<td class="org-left">from datetime import datetime</td>
+<td class="org-left">import specific names from a module</td>
+</tr>
+<tr>
+<td class="org-left">import numpy as np</td>
+<td class="org-left">import with alias</td>
+</tr>
+<tr>
+<td class="org-left">from . import helper</td>
+<td class="org-left">relative import within a package</td>
+</tr>
+</tbody>
+</table>
+<pre><code>import os
+from datetime import datetime
+import numpy as np
+
+print(os.getcwd())
+print(datetime.now())
+print(np.array([1, 2, 3]))
+</code></pre>
+<p>PEP 8 says group imports in three blocks, separated by blank lines:</p>
+<pre><code># standard library
+import os
+from datetime import datetime
+
+# third-party
+import numpy as np
+
+# local
+from my_project.utils import helper
+</code></pre>
+</li>
+<li>
+<p>Name conflicts</p>
+<p>When two modules export the same class name, use <strong>as</strong>:</p>
+<pre><code>from django.db.models import QuerySet as DjangoQuerySet
+from sqlalchemy.orm import Query as SQLAlchemyQuery
+
+django_qs = DjangoQuerySet()
+sa_q = SQLAlchemyQuery()
+</code></pre>
+<p>Or import the whole module and prefix:</p>
+<pre><code>import django.db.models
+import sqlalchemy.orm
+
+django.db.models.QuerySet()
+sqlalchemy.orm.Query()
+</code></pre>
+</li>
+<li>
+<p>Importing a class from another file in the same project</p>
+<pre><code>my-project/
+├── main.py
+└── utils/
+    ├── __init__.py
+    └── string_utils.py
+
+# utils/string_utils.py
+class StringUtils:
+
+    @staticmethod
+    def to_upper(s):
+        return s.upper()
+
+    @staticmethod
+    def truncate(s, max_len):
+        return s[:max_len] + &quot;...&quot; if len(s) &gt; max_len else s
+
+# utils/__init__.py
+from .string_utils import StringUtils
+
+# main.py
+from utils import StringUtils
+
+# or: from utils.string_utils import StringUtils
+
+text = StringUtils.to_upper(&quot;hello&quot;)
+print(text)  # HELLO
+
+short = StringUtils.truncate(&quot;a very long piece of text&quot;, 10)
+print(short)  # a very long...
+</code></pre>
+<div class="notice-info" id="orgb017983">
+<p>
+<span class="underline"><span class="underline">init</span></span>.py can be empty — it just tells Python the directory is a package. Putting imports in <span class="underline"><span class="underline">init</span></span>.py means callers just do <i>from utils import StringUtils</i> without knowing which file it lives in.<br />
+</p>
+</div>
+</li>
+</ol>
 </article>
 
 
       
         <html data-pagefind-ignore>
 <div class="my-4">
-    
-    <a href="../../tags/ai/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Ai</a>
     
     <a href="../../tags/python/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Python</a>
     
@@ -399,13 +704,13 @@ model.predict(
         <span class="text-primary-text block font-bold"
           >Previous</span
         >
-        <a href="../../posts/emacs-patches/" class="block">Emacs Patches</a>
+        <a href="../../posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="block">DeferredResult 使用指南</a>
       
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="../../posts/h2-usage/" class="block">H2 Usage</a>
+        <a href="../../posts/python-basic-useage-inneoemacs/" class="block">Python Basic Useage Inneoemacs</a>
       
     </div>
   </div>
@@ -447,10 +752,9 @@ model.predict(
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#relations">relations</a></li>
-    <li><a href="#useage">useage</a></li>
-    <li><a href="#effect">effect</a></li>
-    <li><a href="#训练调优">训练调优</a></li>
+    <li><a href="#python-version-management-pyenv">Python version management: pyenv</a></li>
+    <li><a href="#virtual-environments">Virtual environments</a></li>
+    <li><a href="#python-import-and-classes">Python import and classes</a></li>
   </ul>
 </nav>
 </div>
@@ -470,9 +774,6 @@ model.predict(
         class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
       >
         <h3>See Also</h3>
-        
-          <a href="../../posts/python-env/" class="no-underline">Python Version Management &amp; Virtual Environments</a>
-          <br />
         
           <a href="../../posts/python-basic-useage-inneoemacs/" class="no-underline">Python Basic Useage Inneoemacs</a>
           <br />

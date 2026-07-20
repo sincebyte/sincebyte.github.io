@@ -214,6 +214,13 @@
       <description>&lt;p&gt;&lt;code&gt;DeferredResult&lt;/code&gt; 是 Spring MVC 提供的异步 HTTP 响应机制。Controller 方法可以先返回一个「占位结果」，在稍后的任意线程中再调用 &lt;code&gt;setResult()&lt;/code&gt; 完成真正的 HTTP 响应。&lt;/p&gt;&#xA;&lt;p&gt;适用于「请求发起快、结果产出慢」的场景：等待第三方回调、消息队列响应、长轮询、跨服务异步通知等。HTTP 请求线程只负责「注册等待 + 触发业务」，真正的响应在异步事件到达后再写出。&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Python Version Management &amp; Virtual Environments</title>
+      <link>/posts/python-env/</link>
+      <pubDate>Sat, 20 Jan 2024 15:14:34 +0800</pubDate>
+      <guid>/posts/python-env/</guid>
+      <description>&lt;p&gt;Installing multiple Python versions on the same machine, isolating project dependencies, and understanding how import works.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Python Basic Useage Inneoemacs</title>
       <link>/posts/python-basic-useage-inneoemacs/</link>
       <pubDate>Fri, 01 Dec 2023 19:26:59 +0800</pubDate>
