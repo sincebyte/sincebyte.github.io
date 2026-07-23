@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Java Nio | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="../../css/default.css">
+<link rel="preload" href="../../css/jinkai.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/KodeMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/angelina.ttf" as="font" type="font/ttf" crossorigin>
+
+<style>
+  html:not(.fonts-loaded) body {
+    visibility: hidden;
+  }
+</style>
+<script>
+  (function () {
+    var revealed = false;
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      document.documentElement.classList.add("fonts-loaded");
+    }
+
+    setTimeout(reveal, 4000);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(reveal).catch(reveal);
+    } else {
+      reveal();
+    }
+  })();
+</script>
+<noscript><style>html body { visibility: visible !important; }</style></noscript>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="Java NIO 的核心优势是用一个线程通过 Selector 管理成千上万个连接（非阻塞多路复用），同时借助零拷贝（transferTo）和直接缓冲区大幅提升 I/O 吞吐量，适合高并发场景。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Java Nio",
+      "item":"/posts/java-nio/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/java-nio/"
+    },
+    "headline": "Java Nio | sincebyte","datePublished": "2026-07-23T17:05:32+08:00",
+    "dateModified": "2026-07-23T17:05:32+08:00",
+    "wordCount":  3555 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eJava NIO 的核心优势是用一个线程通过 Selector 管理成千上万个连接（非阻塞多路复用），同时借助零拷贝（transferTo）和直接缓冲区大幅提升 I\/O 吞吐量，适合高并发场景。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Java Nio | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/java-nio/" />
+
+
+
+
+<meta property="og:description" content="Java NIO 的核心优势是用一个线程通过 Selector 管理成千上万个连接（非阻塞多路复用），同时借助零拷贝（transferTo）和直接缓冲区大幅提升 I/O 吞吐量，适合高并发场景。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-07-23T17:05:32&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-07-23T17:05:32&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="java" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/eglot-for-java/" />
+
+<meta property="og:see_also" content="/posts/java-dev-work-flow/" />
+
+<meta property="og:see_also" content="/posts/java-caffeine-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/" />
+
+<meta property="og:see_also" content="/posts/mqtt-usage/" />
+
+<meta property="og:see_also" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" />
+
+<meta property="og:see_also" content="/posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Java Nio</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2026-07-23</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>8 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>Java NIO 的核心优势是用一个线程通过 Selector 管理成千上万个连接（非阻塞多路复用），同时借助零拷贝（transferTo）和直接缓冲区大幅提升 I/O 吞吐量，适合高并发场景。</p>
+<p><a id="orga15cece"></a></p>
+<h2 id="bio-的痛点">BIO 的痛点</h2>
+<p>在 BIO 模型里，一个连接对应一个线程。线程阻塞在 read() 上干等数据，什么都做不了：</p>
+<pre><code>客户端A ──→ Thread-1 ──→ read() 阻塞等待数据
+客户端B ──→ Thread-2 ──→ read() 阻塞等待数据
+客户端C ──→ Thread-3 ──→ read() 阻塞等待数据
+</code></pre>
+<p>每个线程占 ~1MB 栈内存，一万个连接出去 10GB 内存，而且大部分时间都在空转。NIO 的思路很简单：不要让线程等数据，让一个线程去管多个连接，哪个连接有数据了就去处理哪个。</p>
+<p><a id="org6110419"></a></p>
+<h2 id="线程和文件描述符">线程和文件描述符</h2>
+<p>线程是 CPU 调度的最小单位，IO 密集场景下它大部分时间都在等数据，真正干活的时间很少。</p>
+<p>文件描述符（fd）是操作系统给每个打开的文件、Socket 分配的一个整数编号。比如 fd=4 是某个 Socket 连接，fd=5 是另一个。进程能打开的 fd 数量有限，默认 1024，可以 ulimit 调大。</p>
+<p>BIO 里每个 fd 都要配一个线程去 read() 阻塞等待。NIO 里一个线程可以同时盯着成千上万个 fd。</p>
+<p><a id="org129f35b"></a></p>
+<h2 id="epoll">epoll</h2>
+<p>epoll 是 Linux 2.6 引入的 IO 多路复用机制，Java NIO 的 Selector 在 Linux 上底层就是 epoll。</p>
+<p>epoll 本质上是个“就绪事件收集器”——你把一堆 fd 注册进去，有数据到达时它告诉你哪些 fd 就绪了，不用你自己遍历所有 fd 去查。它不关心这些 fd 是 HTTP、Redis 还是 MySQL，只知道哪个能读、哪个能写。</p>
+<p>有个容易搞错的地方：epoll 唤醒的是等待 epoll_wait() 的线程，不是 fd。fd 只是个整数，根本不具备“被唤醒”的概念。实际流程是：fd 就绪 → 内核把 fd 放进 Ready List → 唤醒等待 epoll_wait() 的线程 → epoll_wait 返回 Ready List 里的 fd → JVM 根据注册时的映射关系找到对应的 SelectionKey 和 Channel。</p>
+<p>epoll 在内核里维护两个集合：Interest List（你要监听的）和 Ready List（现在有事件的）。两个不是一回事。epoll_wait 直接从 Ready List 取，不需要遍历 Interest List，所以是 O(1)。</p>
+<p>epoll_wait 一次可能返回多个就绪的 fd，Java 这边一次 select() 可能拿到好几个 SelectionKey，一次处理完，不是一个个来。</p>
+<p>register() 干了两件事：把 fd 加入 epoll 的 Interest List，同时建立 fd → SocketChannel → SelectionKey 的映射。为什么要映射？epoll_wait 只返回整数 11、12，JVM 不知道 11 对应哪个 Java 对象，得靠注册时建立的映射关系把 11 翻译成对应的 Channel。</p>
+<p>select / poll / epoll 对比：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">机制</th>
+<th scope="col" class="org-left">原理</th>
+<th scope="col" class="org-left">复杂度</th>
+<th scope="col" class="org-left">fd 数量限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">select</td>
+<td class="org-left">每次都把整个 fd 集合传给内核，内核遍历</td>
+<td class="org-left">O(n)</td>
+<td class="org-left">最多 1024</td>
+</tr>
+<tr>
+<td class="org-left">poll</td>
+<td class="org-left">同 select，用链表存 fd，无数量限制</td>
+<td class="org-left">O(n)</td>
+<td class="org-left">无上限，但越慢</td>
+</tr>
+<tr>
+<td class="org-left">epoll</td>
+<td class="org-left">内核维护 Interest/Ready List，只返回就绪</td>
+<td class="org-left">O(1)</td>
+<td class="org-left">十万级无压力</td>
+</tr>
+</tbody>
+</table>
+<p>select/poll 是应用主动问内核“谁有数据？”，epoll 是内核主动告诉应用“这几个有数据”，而且不用把全部 fd 在用户态和内核态之间来回拷贝。</p>
+<p>LT 和 ET 的区别：LT（水平触发）是只要 fd 缓冲区还有数据没读完，每次 epoll_wait 都会返回这个 fd，默认模式。ET（边缘触发）只在 fd 状态从“没数据”变成“有数据”时通知一次，必须循环 read 直到 EAGAIN 把数据读完。ET 效率更高，Nginx 默认用 ET。</p>
+<p><a id="org7d27235"></a></p>
+<h2 id="nio-三大组件">NIO 三大组件</h2>
+<p>Channel 是双向数据传输通道，对应操作系统里的 fd。FileChannel 读写文件，SocketChannel 做 TCP 客户端，ServerSocketChannel 做 TCP 服务端，DatagramChannel 走 UDP。</p>
+<p>Buffer 是数据容器，所有读写都经过 Buffer。ByteBuffer 最常用，position、limit、capacity 三个指针控制读写边界。</p>
+<p>Selector 就是前面的 epoll 在 Java 侧的封装，一个 Selector 可以管成千上万个 Channel。</p>
+<p><a id="org410cfaa"></a></p>
+<h2 id="nio-代码示例">NIO 代码示例</h2>
+<p>先看个最简单的 Channel + Buffer 文件读写：</p>
+<pre><code>import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+
+public class NioFileRead {
+    public static void main(String[] args) throws Exception {
+        RandomAccessFile file = new RandomAccessFile(&quot;test.txt&quot;, &quot;rw&quot;);
+        FileChannel channel = file.getChannel();
+        ByteBuffer buf = ByteBuffer.allocate(48);
+
+        int bytesRead = channel.read(buf);
+        while (bytesRead != -1) {
+            buf.flip();          // 切换为读模式
+            while (buf.hasRemaining()) {
+                System.out.print((char) buf.get());
+            }
+            buf.clear();         // 切换为写模式
+            bytesRead = channel.read(buf);
+        }
+        file.close();
+    }
+}
+</code></pre>
+<p>Buffer 的状态是靠 flip/clear 来回切的：写完后 flip 一下变成读模式，读完 clear 一下切回写模式。</p>
+<p>再看 Selector 多路复用的服务端，这是 NIO 的核心用法：</p>
+<pre><code>import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.*;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class NioServer {
+    private Selector selector;
+    private ExecutorService workerPool = Executors.newFixedThreadPool(8);
+
+    public NioServer(int port) throws IOException {
+        selector = Selector.open();                       // 底层 epoll_create
+        ServerSocketChannel serverChannel = ServerSocketChannel.open();
+        serverChannel.bind(new InetSocketAddress(port));
+        serverChannel.configureBlocking(false);            // 必须非阻塞
+        serverChannel.register(selector, SelectionKey.OP_ACCEPT);
+    }
+
+    public void start() throws IOException {
+        while (true) {
+            selector.select();                             // 底层 epoll_wait
+            Set&lt;SelectionKey&gt; keys = selector.selectedKeys();
+            Iterator&lt;SelectionKey&gt; it = keys.iterator();
+
+            while (it.hasNext()) {
+                SelectionKey key = it.next();
+                it.remove();                               // 必须 remove
+
+                if (key.isAcceptable()) {
+                    handleAccept(key);
+                } else if (key.isReadable()) {
+                    // 先取消读事件，防止重复触发
+                    key.interestOps(key.interestOps() &amp; ~SelectionKey.OP_READ);
+                    workerPool.execute(() -&gt; handleRead(key));
+                }
+            }
+        }
+    }
+
+    private void handleAccept(SelectionKey key) throws IOException {
+        ServerSocketChannel ssc = (ServerSocketChannel) key.channel();
+        SocketChannel sc = ssc.accept();
+        sc.configureBlocking(false);
+        sc.register(selector, SelectionKey.OP_READ);
+        System.out.println(&quot;新连接: &quot; + sc.getRemoteAddress());
+    }
+
+    private void handleRead(SelectionKey key) {
+        try {
+            SocketChannel sc = (SocketChannel) key.channel();
+            ByteBuffer buf = ByteBuffer.allocate(1024);
+            int len = sc.read(buf);
+            if (len == -1) { sc.close(); return; }
+            buf.flip();
+            byte[] data = new byte[buf.remaining()];
+            buf.get(data);
+            System.out.println(&quot;收到: &quot; + new String(data));
+
+            String response = &quot;ECHO: &quot; + new String(data);
+            ByteBuffer respBuf = ByteBuffer.wrap(response.getBytes());
+            while (respBuf.hasRemaining()) sc.write(respBuf);
+
+            key.interestOps(key.interestOps() | SelectionKey.OP_READ);
+            selector.wakeup();
+        } catch (IOException e) {
+            try { key.channel().close(); } catch (IOException ignored) {}
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        new NioServer(8080).start();
+    }
+}
+</code></pre>
+<p>几个要点：Channel 必须 configureBlocking(false)，不然 Selector 管不了；每次迭代必须 remove SelectionKey；读事件处理前先取消 OP_READ，防止一个事件被反复触发；业务逻辑丢给 Worker 线程池，Selector 线程不阻塞。</p>
+<p>客户端很简单：</p>
+<pre><code>import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SocketChannel;
+
+public class NioClient {
+    public static void main(String[] args) throws Exception {
+        SocketChannel client = SocketChannel.open();
+        client.connect(new InetSocketAddress(&quot;localhost&quot;, 8080));
+        client.write(ByteBuffer.wrap(&quot;Hello NIO&quot;.getBytes()));
+
+        ByteBuffer respBuf = ByteBuffer.allocate(1024);
+        client.read(respBuf);
+        respBuf.flip();
+        byte[] data = new byte[respBuf.remaining()];
+        respBuf.get(data);
+        System.out.println(&quot;响应: &quot; + new String(data));
+        client.close();
+    }
+}
+</code></pre>
+<p><a id="orgcfc530f"></a></p>
+<h2 id="线程与连接是两回事">线程与连接，是两回事</h2>
+<p>BIO 里线程和连接是 1:1 绑定的，有多少连接就得开多少线程。NIO 打破了这种绑定——一个 Selector 线程管理一堆连接，只有少量 Worker 线程处理业务：</p>
+<pre><code>            ┌──────────────┐
+            │   Selector   │  ← 1 个线程，底层 epoll
+            └──────┬───────┘
+    ┌──────────────┼──────────────┐
+    │ fd=4 可读    │ fd=7 可读    │ fd=12 可写
+    ▼              ▼              ▼
+┌────────┐    ┌────────┐    ┌────────┐
+│Worker-1│    │Worker-2│    │Worker-3│  ← 少量线程，只处理业务
+└────────┘    └────────┘    └────────┘
+</code></pre>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&nbsp;</th>
+<th scope="col" class="org-left">BIO</th>
+<th scope="col" class="org-left">NIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">线程</td>
+<td class="org-left">1 连接 = 1 线程</td>
+<td class="org-left">N 线程管理 M 连接</td>
+</tr>
+<tr>
+<td class="org-left">fd</td>
+<td class="org-left">每个线程阻塞一个 fd</td>
+<td class="org-left">Selector 监控所有</td>
+</tr>
+<tr>
+<td class="org-left">内存</td>
+<td class="org-left">N × 1MB</td>
+<td class="org-left">固定少量线程</td>
+</tr>
+<tr>
+<td class="org-left">切换</td>
+<td class="org-left">频繁上下文切换</td>
+<td class="org-left">只切就绪事件</td>
+</tr>
+</tbody>
+</table>
+<p><a id="org78c5290"></a></p>
+<h2 id="什么是零拷贝">什么是零拷贝</h2>
+<p>传统 IO 里，哪怕只是把文件发给客户端，数据也要经过 JVM 堆内存兜一圈：</p>
+<pre><code>磁盘 → 内核缓冲区 → 用户缓冲区(Java堆) → Socket缓冲区 → 网卡
+       DMA          CPU拷贝              CPU拷贝          DMA
+</code></pre>
+<p>4 次拷贝、4 次上下文切换。文件越大，堆内存占用越多，GC 压力越大。</p>
+<p>零拷贝的思路是让数据直接在内核态完成传输，别进用户态。Java NIO 提供了两种方式：FileChannel.transferTo（底层调 sendfile，直接从磁盘到 Socket）和 MappedByteBuffer（底层调 mmap，文件映射到虚拟内存，按需加载，不占堆）。</p>
+<p>零拷贝的好处很实在：CPU 拷贝从 2 次降到 0 次，上下文切换从 4 次降到 2 次，JVM 堆内存不碰，大文件不会 GC 或 OOM。实测大文件传输吞吐量能提 30%~50%。</p>
+<p>但 sendfile 有个硬伤：它只能走 文件 → Socket 这个方向，也就是下载。Socket → 文件（上传）这个方向它不支持。</p>
+<p><a id="orgadde93b"></a></p>
+<h2 id="上传spring-boot-为什么不行">上传：Spring Boot 为什么不行</h2>
+<p>上传要的是 Socket → 文件，sendfile 方向反了。Linux 其实有 splice 这个系统调用能干 Socket → 文件的零拷贝，但 Java 没暴露这个 API，Servlet 规范也没支持。</p>
+<p>更麻烦的是 Servlet 容器本身。HTTP 的 Header 和 Body 在同一个 TCP 流里，Tomcat 必须先读到 Header 才知道 Content-Length 是多少、是不是 chunked 编码。这个解析过程数据已经进了 JVM 内存，回不去了。</p>
+<p>所以结论很直接：只要是走 Servlet API 的 Spring Boot 应用，上传的数据必然经过 JVM 堆，零拷贝免谈。</p>
+<p><a id="orgfd54e90"></a></p>
+<h2 id="nginx-为什么可以">Nginx 为什么可以</h2>
+<p>Nginx 的工作方式不一样。它直接处理 TCP 流，可以读到 Header 后先暂停，发个子请求到 Spring 做鉴权，鉴权过了自己再开始收 Body：</p>
+<pre><code>浏览器                      Nginx                       Spring
+  │                           │                           │
+  │  POST /upload/movie.mp4   │                           │
+  │  Authorization: Bearer xx │                           │
+  │ ─────────────────────────→│                           │
+  │                           │  GET /auth (只发Header)   │
+  │                           │ ─────────────────────────→│
+  │                           │                           │ 检查 JWT/权限/配额
+  │                           │  200 OK                   │
+  │                           │ ←─────────────────────────│
+  │                           │                           │
+  │  开始接收 Body            │                           │
+  │ ←─────────────────────────→ 边收边写磁盘              │
+</code></pre>
+<p>Nginx 配置就几行：</p>
+<pre><code>location /upload {
+    auth_request /auth;
+    client_body_temp_path /data/upload/tmp;
+    proxy_pass http://file-storage;
+}
+</code></pre>
+<p>关键是 Nginx 不需要把整个文件加载到内存，边收边写磁盘，用适中的缓冲区就行。虽然严格来说不是内核级零拷贝，但效果等于“Nginx 直连磁盘”，Java 全程只收到一个鉴权请求（几 KB 的 Header）。</p>
+<p>其他方案还包括预签名 URL（Spring 生成签名 URL，客户端直传 OSS/S3）、Nginx upload_pass（Nginx 写临时文件后通知 Spring 路径）。</p>
+<p><a id="org89b2aea"></a></p>
+<h2 id="下载spring-boot-怎么做零拷贝">下载：Spring Boot 怎么做零拷贝</h2>
+<p>下载是文件 → Socket，sendfile 天然支持。Spring Boot 里直接返回 FileSystemResource 就行，底层 ResourceHttpMessageConverter 在 Tomcat NIO / Undertow 下会自动调 transferTo → sendfile：</p>
+<pre><code>import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.io.File;
+
+@RestController
+@RequestMapping(&quot;/api/files&quot;)
+public class FileDownloadController {
+
+    @GetMapping(&quot;/download/{filename}&quot;)
+    public ResponseEntity&lt;FileSystemResource&gt; download(@PathVariable String filename) {
+        File file = new File(&quot;/data/files/&quot; + filename);
+        if (!file.exists()) {
+            return ResponseEntity.notFound().build();
+        }
+        FileSystemResource resource = new FileSystemResource(file);
+        return ResponseEntity.ok()
+                .header(&quot;Content-Disposition&quot;,
+                        &quot;attachment; filename=\&quot;&quot; + filename + &quot;\&quot;&quot;)
+                .contentLength(file.length())
+                .body(resource);
+    }
+}
+</code></pre>
+<p>就这么简单。背后是 sendfile：磁盘 → Socket，2 次 DMA 拷贝、0 次 CPU 拷贝，JVM 堆内存完全不碰。</p>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Java</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/eglot-for-java/" class="block">Eglot for Java</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#bio-的痛点">BIO 的痛点</a></li>
+    <li><a href="#线程和文件描述符">线程和文件描述符</a></li>
+    <li><a href="#epoll">epoll</a></li>
+    <li><a href="#nio-三大组件">NIO 三大组件</a></li>
+    <li><a href="#nio-代码示例">NIO 代码示例</a></li>
+    <li><a href="#线程与连接是两回事">线程与连接，是两回事</a></li>
+    <li><a href="#什么是零拷贝">什么是零拷贝</a></li>
+    <li><a href="#上传spring-boot-为什么不行">上传：Spring Boot 为什么不行</a></li>
+    <li><a href="#nginx-为什么可以">Nginx 为什么可以</a></li>
+    <li><a href="#下载spring-boot-怎么做零拷贝">下载：Spring Boot 怎么做零拷贝</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="../../posts/eglot-for-java/" class="no-underline">Eglot for Java</a>
+          <br />
+        
+          <a href="../../posts/java-dev-work-flow/" class="no-underline">Java Dev Work Flow</a>
+          <br />
+        
+          <a href="../../posts/java-caffeine-%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/" class="no-underline">Java Caffeine 高性能本地缓存</a>
+          <br />
+        
+          <a href="../../posts/mqtt-usage/" class="no-underline">Mqtt Usage</a>
+          <br />
+        
+          <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0ii/" class="no-underline">JeecgBoot 低代码平台II</a>
+          <br />
+        
+          <a href="../../posts/jeecgboot-%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0/" class="no-underline">JeecgBoot 低代码平台</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2026 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>

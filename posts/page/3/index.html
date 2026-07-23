@@ -119,63 +119,63 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "Emacs Patches",
+            "description": "\u003cp\u003eSome emacs features need to be implement with patches. let\u0026rsquo;s make a patch and apply it.\u003c/p\u003e",
+            "url": "/posts/emacs-patches/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "Yolo V8",
             "description": "\u003cp\u003eUltralytics YOLOv8 和 Darknet 是与 YOLO（You Only Look Once）目标检测模型相关的两个不同实现。它的主要特点是将目标检测问题视为回归问题，直接在图像上预测边界框和类别。\u003c/p\u003e",
             "url": "/posts/yolo-v8/"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "H2 Usage",
             "description": "\u003cp\u003eh2 features are Very fast, open source, JDBC API, Embedded and server modes; in-memory databases, Browser based Console application, Small footprint: around 2.5 MB jar file size.\u003c/p\u003e",
             "url": "/posts/h2-usage/"
         },{
             "@type":"ListItem",
-            "position":  3 ,
+            "position":  4 ,
             "name": "Sentinel Usage",
             "description": "\u003cp\u003eSentinel 是阿里巴巴开源的面向分布式服务架构的 \u003cstrong\u003e流量防护\u003c/strong\u003e 组件。它以流量为切入点，从 \u003ca href=\"https://github.com/alibaba/Sentinel\"\u003e流量控制\u003c/a\u003e、\u003ca href=\"https://github.com/alibaba/Sentinel\"\u003e熔断降级\u003c/a\u003e、\u003ca href=\"https://github.com/alibaba/Sentinel\"\u003e系统负载保护\u003c/a\u003e 等多个维度保障服务稳定性。\u003c/p\u003e",
             "url": "/posts/sentinel-usage/"
         },{
             "@type":"ListItem",
-            "position":  4 ,
+            "position":  5 ,
             "name": "Ftp Resume Transfer",
             "description": "\u003cp\u003eResumable transfer significantly improves the efficiency of file transfers,It is very efficient and convenient.Let\u0026rsquo;s try it in java\u003c/p\u003e",
             "url": "/posts/ftp-resume-transfer/"
         },{
             "@type":"ListItem",
-            "position":  5 ,
+            "position":  6 ,
             "name": "Emacs Tramp",
             "description": "\u003cp\u003e这是使用 emacs 替代 shell 客户端的绝佳方案。在Emacs中，“tramp” 是一个系统级的文件访问工具，用于通过网络或各种连接方式导入和导出 Emacs 项目。\u003c/p\u003e",
             "url": "/posts/emacs-tramp/"
         },{
             "@type":"ListItem",
-            "position":  6 ,
+            "position":  7 ,
             "name": "Obs Usage",
             "description": "\u003cp\u003e一直以来都使用obs进行视频录制，用了这么长时间也算是有一点心得，在这里分享一下。\u003c/p\u003e",
             "url": "/posts/obs-usage/"
         },{
             "@type":"ListItem",
-            "position":  7 ,
+            "position":  8 ,
             "name": "Docker Compose Usage",
             "description": "\u003cp\u003eDocker Compose 是一个用于定义和运行多个 Docker 容器应用程序的工具。它通过一个简单的 YAML 文件来配置应用程序的服务、网络、卷等方面，然后使用单个命令启动、停止和管理整个应用程序的容器。\u003c/p\u003e",
             "url": "/posts/docker-compose-usage/"
         },{
             "@type":"ListItem",
-            "position":  8 ,
+            "position":  9 ,
             "name": "Org Clock",
             "description": "\u003cp\u003eorg mode 可以记录您在特定任务中花费了多长时间，最终通过统计结果来进行分析回顾，对于时间管理有需求的专业人士这是很棒的功能。\u003c/p\u003e",
             "url": "/posts/org-clock/"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "DeferredResult 使用指南",
             "description": "\u003cp\u003e\u003ccode\u003eDeferredResult\u003c/code\u003e 是 Spring MVC 提供的异步 HTTP 响应机制。Controller 方法可以先返回一个「占位结果」，在稍后的任意线程中再调用 \u003ccode\u003esetResult()\u003c/code\u003e 完成真正的 HTTP 响应。\u003c/p\u003e\n\u003cp\u003e适用于「请求发起快、结果产出慢」的场景：等待第三方回调、消息队列响应、长轮询、跨服务异步通知等。HTTP 请求线程只负责「注册等待 + 触发业务」，真正的响应在异步事件到达后再写出。\u003c/p\u003e",
             "url": "/posts/deferredresult-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"
-        },{
-            "@type":"ListItem",
-            "position":  10 ,
-            "name": "Python Version Management \u0026 Virtual Environments",
-            "description": "\u003cp\u003eInstalling multiple Python versions on the same machine, isolating project dependencies, and understanding how import works.\u003c/p\u003e",
-            "url": "/posts/python-env/"
         }
     ]
 }
@@ -210,7 +210,7 @@
 
 
 
-<meta property="og:updated_time" content="2026-07-18T16:08:04&#43;08:00" />
+<meta property="og:updated_time" content="2026-07-23T17:05:32&#43;08:00" />
 
 
 
@@ -318,6 +318,48 @@
 
   <div class="bg-secondary-bg rounded px-6" data-pagefind-ignore>
     <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="../../../posts/emacs-patches/" class="no-underline">
+    <h3 class="mt-0">Emacs Patches</h3>
+  </a>
+  
+    Some emacs features need to be implement with patches. let’s make a patch and apply it.
+
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2024-09-08</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
   
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
@@ -677,48 +719,6 @@
     <i class="fas fa-calendar me-1"></i>
     <span
       >2024-02-19</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>4 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="../../../posts/python-env/" class="no-underline">
-    <h3 class="mt-0">Python Version Management &amp; Virtual Environments</h3>
-  </a>
-  
-    Installing multiple Python versions on the same machine, isolating project dependencies, and understanding how import works.
-
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2024-01-20</span
     >
   </div>
   <div class="me-6 my-2">

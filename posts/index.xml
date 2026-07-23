@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2026 sincebyte
 </copyright>
-    <lastBuildDate>Sat, 18 Jul 2026 16:08:04 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 17:05:32 +0800</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java Nio</title>
+      <link>/posts/java-nio/</link>
+      <pubDate>Thu, 23 Jul 2026 17:05:32 +0800</pubDate>
+      <guid>/posts/java-nio/</guid>
+      <description>&lt;p&gt;Java NIO 的核心优势是用一个线程通过 Selector 管理成千上万个连接（非阻塞多路复用），同时借助零拷贝（transferTo）和直接缓冲区大幅提升 I/O 吞吐量，适合高并发场景。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Eglot for Java</title>
       <link>/posts/eglot-for-java/</link>
