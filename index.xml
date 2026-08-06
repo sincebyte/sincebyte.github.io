@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2026 sincebyte
 </copyright>
-    <lastBuildDate>Thu, 23 Jul 2026 17:05:32 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 17:09:18 +0800</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Practical Cypress E2e</title>
+      <link>/posts/practical-cypress-e2e/</link>
+      <pubDate>Thu, 06 Aug 2026 17:09:18 +0800</pubDate>
+      <guid>/posts/practical-cypress-e2e/</guid>
+      <description>&lt;p&gt;I’ve been using Cypress for end-to-end testing on a few projects now, and I keep coming back to the same patterns. This isn’t a comprehensive guide — it’s the subset I actually use, day to day.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Java Nio</title>
       <link>/posts/java-nio/</link>

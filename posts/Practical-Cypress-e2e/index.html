@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Practical Cypress E2e | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="../../css/default.css">
+<link rel="preload" href="../../css/jinkai.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/KodeMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/angelina.ttf" as="font" type="font/ttf" crossorigin>
+
+<style>
+  html:not(.fonts-loaded) body {
+    visibility: hidden;
+  }
+</style>
+<script>
+  (function () {
+    var revealed = false;
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      document.documentElement.classList.add("fonts-loaded");
+    }
+
+    setTimeout(reveal, 4000);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(reveal).catch(reveal);
+    } else {
+      reveal();
+    }
+  })();
+</script>
+<noscript><style>html body { visibility: visible !important; }</style></noscript>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="I’ve been using Cypress for end-to-end testing on a few projects now, and I keep coming back to the same patterns. This isn’t a comprehensive guide — it’s the subset I actually use, day to day.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Practical Cypress E2e",
+      "item":"/posts/practical-cypress-e2e/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/practical-cypress-e2e/"
+    },
+    "headline": "Practical Cypress E2e | sincebyte","datePublished": "2026-08-06T17:09:18+08:00",
+    "dateModified": "2026-08-06T17:09:18+08:00",
+    "wordCount":  963 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eI’ve been using Cypress for end-to-end testing on a few projects now, and I keep coming back to the same patterns. This isn’t a comprehensive guide — it’s the subset I actually use, day to day.\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Practical Cypress E2e | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/practical-cypress-e2e/" />
+
+
+
+
+<meta property="og:description" content="I’ve been using Cypress for end-to-end testing on a few projects now, and I keep coming back to the same patterns. This isn’t a comprehensive guide — it’s the subset I actually use, day to day." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-08-06T17:09:18&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-08-06T17:09:18&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="test" />
+
+
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Practical Cypress E2e</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2026-08-06</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>2 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>I’ve been using Cypress for end-to-end testing on a few projects now, and I keep coming back to the same patterns. This isn’t a comprehensive guide — it’s the subset I actually use, day to day.</p>
+<p><a id="org2ad1bc2"></a></p>
+<h1 id="getting-the-thing-installed">Getting the thing installed</h1>
+<p>My project lives at <code>~/cypress</code>. Two dependencies, that’s it:</p>
+<pre><code>npm install cypress --save-dev
+npm install --save-dev typescript@5.6
+</code></pre>
+<p>TypeScript is there for editor support, not because I write tests in TS. The Cypress type definitions are genuinely useful when you’re writing <code>.js</code> specs in VS Code.</p>
+<p><a id="orgc583486"></a></p>
+<h1 id="launching-tests">Launching tests</h1>
+<p>GUI mode is the default way in. Cypress ships with a browser-based test runner that shows you exactly what’s happening at each step — I still find it more useful than any headless log output.</p>
+<pre><code>npx cypress open
+</code></pre>
+<p><img src="pic202608005859.png" alt="img"><br>
+For CI or when I just want a quick check, headless mode:</p>
+<pre><code># Run everything
+npx cypress run
+
+# Single file
+npx cypress run --spec &quot;e2e/uap-test/spec-copy-1.cy.js&quot;
+
+# Everything under a directory
+npx cypress run --spec &quot;e2e/uap-test/**/*&quot;
+</code></pre>
+<p>That <code>--spec</code> flag is easy to forget about. I spent way too long running the entire suite before bothering to look it up.<br>
+<img src="%E5%9B%BE%E7%89%87%E9%99%84%E4%BB%B6/pic202608005858.png" alt="img"></p>
+<p><a id="org961b95a"></a></p>
+<h1 id="the-patterns-i-actually-use">The patterns I actually use</h1>
+<p>Cypress has a ton of features, but here’s what shows up in nearly every spec file I write.</p>
+<p><a id="orgb8ed09e"></a></p>
+<h2 id="test-skeleton">Test skeleton</h2>
+<p>Three hooks. <code>before</code> runs once before all tests (login, setup). <code>beforeEach</code> resets state between tests. <code>it</code> is the actual test.</p>
+<pre><code>describe('Test suite', () =&gt; {
+    before(() =&gt; {
+        // login, set up stubs
+    })
+
+    beforeEach(() =&gt; {
+        // restore cookies, register intercepts
+    })
+
+    it('does something', () =&gt; { /* ... */ })
+    it('does something else', () =&gt; { /* ... */ })
+})
+</code></pre>
+<p><a id="org21e48f6"></a></p>
+<h2 id="intercepting-api-calls">Intercepting API calls</h2>
+<p><code>cy.intercept</code> does double duty: you can mock responses or just spy on real traffic. I mostly use it for spying.</p>
+<pre><code>// Mock a response entirely
+cy.intercept('GET', '**/login/wechat/configInfo', {
+    statusCode: 200,
+    body: { appId: 'mock', timestamp: 0, nonceStr: '', signature: '' },
+}).as('wechatConfig')
+
+// Spy on real requests — no mocking
+cy.intercept('POST', '**/login/login.action').as('login')
+cy.intercept('**/api/dailyPapers/page').as('dailyPapers')
+</code></pre>
+<p>The <code>.as()</code> alias is how you reference the intercept later. I’d argue it’s the single most important thing to get right.</p>
+<p><a id="orgd668513"></a></p>
+<h2 id="waiting-and-asserting">Waiting and asserting</h2>
+<p>Once you’ve aliased a request, <code>cy.wait</code> blocks until it completes. Then you get the full request/response object to poke at.</p>
+<pre><code>cy.wait('@login').then((interception) =&gt; {
+    expect(interception.response.statusCode).to.be.oneOf([200, 303])
+})
+
+cy.wait('@dailyPapers', { timeout: 20000 }).then((interception) =&gt; {
+    expect(interception.response.statusCode).to.eq(200)
+    expect(interception.response.body.code).to.eq(200)
+    expect(interception.response.body.data).to.exist
+})
+</code></pre>
+<p>The timeout is optional. I set it to 20 seconds for slow APIs, but the default of 5 seconds works for most things.</p>
+<p><a id="org473d8a1"></a></p>
+<h2 id="cookie-juggling">Cookie juggling</h2>
+<p>A common scenario: you log in on one domain, then need to carry those cookies to another. I stash them in an array and replay them in <code>beforeEach</code>.</p>
+<pre><code>const preservedCookies = []
+
+// After login, grab everything
+cy.getCookies().then((cookies) =&gt; {
+    cookies.forEach((c) =&gt; preservedCookies.push({
+        name: c.name, value: c.value
+    }))
+})
+
+// In beforeEach, restore them
+preservedCookies.forEach((c) =&gt; {
+    cy.setCookie(c.name, c.value, {
+        domain: '.example.com',
+        path: '/'
+    })
+})
+</code></pre>
+<p>This is clunky, but it works. There are probably cleaner ways to handle cross-domain sessions, but I haven’t needed them yet.</p>
+<p><a id="org4cd3f45"></a></p>
+<h2 id="the-whole-thing-put-together">The whole thing put together</h2>
+<p>Here’s what a real spec ends up looking like:</p>
+<pre><code>const preservedCookies = []
+
+describe('Test suite', () =&gt; {
+    before(() =&gt; {
+        cy.intercept('GET', '**/login/wechat/configInfo', {
+            statusCode: 200,
+            body: { appId: 'mock', timestamp: 0, nonceStr: '', signature: '' },
+        }).as('wechatConfig')
+        cy.intercept('POST', '**/login/login.action').as('login')
+
+        cy.visit('https://login.example.com')
+        cy.on('uncaught:exception', () =&gt; false)
+        cy.get('input[name=&quot;userName&quot;]').type('&lt;username&gt;')
+        cy.get('input[name=&quot;password&quot;]').type('&lt;password&gt;')
+        cy.get('.login_btn').click({ force: true })
+
+        cy.wait('@login').then((interception) =&gt; {
+            expect(interception.response.statusCode).to.be.oneOf([200, 303])
+        })
+        cy.getCookies().then((cookies) =&gt; {
+            cookies.forEach((c) =&gt; preservedCookies.push({
+                name: c.name, value: c.value
+            }))
+        })
+    })
+
+    beforeEach(() =&gt; {
+        cy.intercept('**/api/xxx/page').as('apiPage')
+        preservedCookies.forEach((c) =&gt; {
+            cy.setCookie(c.name, c.value, {
+                domain: '.example.com',
+                path: '/'
+            })
+        })
+    })
+
+    it('loads page data', () =&gt; {
+        cy.visit('https://app.example.com')
+        cy.wait('@apiPage', { timeout: 20000 }).then((interception) =&gt; {
+            expect(interception.response.statusCode).to.eq(200)
+            expect(interception.response.body.code).to.eq(200)
+            expect(interception.response.body.data).to.exist
+        })
+    })
+})
+</code></pre>
+<p>That <code>cy.on('uncaught:exception', () =&gt; false)</code> line is a hack. The app throws errors that aren’t relevant to the test, and I’d rather suppress them than have the spec fail for the wrong reason. Not proud of it, but it’s pragmatic.</p>
+<p><a id="orgd311e47"></a></p>
+<h1 id="config">Config</h1>
+<p>My <code>cypress.config.js</code> is minimal. No screenshots, no video — I’m not debugging CI failures from videos, I’m re-running locally.</p>
+<pre><code>const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
+    numTestsKeptInMemory: 0,
+    screenshotOnRunFailure: false,
+    video: false,
+    e2e: {
+        viewportWidth: 1280,
+        viewportHeight: 720,
+        supportFile: 'support/e2e.js',
+        specPattern: 'e2e/**/*.cy.js',
+    },
+})
+</code></pre>
+<p><a id="orgf5eb1d8"></a></p>
+<h1 id="viewport-size">Viewport size</h1>
+<p>The default viewport is 1000×660. Fine for most things, but if your app is responsive you’ll want to test at different sizes.</p>
+<p>Set it globally in the config:</p>
+<pre><code>e2e: {
+    viewportWidth: 1280,
+    viewportHeight: 720,
+}
+</code></pre>
+<p>Or dynamically inside a test:</p>
+<pre><code>cy.viewport(1280, 720)
+cy.viewport('macbook-15')    // 1440×900
+cy.viewport('ipad-2')        // 768×1024
+cy.viewport('iphone-6')      // 375×667
+</code></pre>
+<p>There’s a long list of presets: <code>macbook-16</code>, <code>macbook-13</code>, <code>macbook-11</code>, <code>ipad-mini</code>, <code>iphone-xr</code>, <code>iphone-x</code>, <code>iphone-6+</code>, <code>iphone-se2</code>, <code>iphone-8</code>, <code>iphone-7</code>, <code>iphone-5</code>, <code>iphone-4</code>, <code>iphone-3</code>, <code>samsung-s10</code>, <code>samsung-note9</code>. You can also pass an orientation: <code>cy.viewport('ipad-2', 'portrait')</code> or <code>cy.viewport('iphone-4', 'landscape')</code>.</p>
+<p><a id="orgdf96f66"></a></p>
+<h1 id="project-structure">Project structure</h1>
+<pre><code>.
+├── cypress.config.js
+├── support/
+│   ├── e2e.js          # auto-loaded config
+│   └── commands.js     # custom commands
+├── fixtures/           # mock data
+└── e2e/
+    └── uap-test/       # actual test specs
+        └── spec-copy-1.cy.js
+</code></pre>
+<p>That’s it. Nothing fancy, just the patterns I reach for every time I sit down to write a test.</p>
+</article>
+
+
+      
+        <html data-pagefind-ignore>
+<div class="my-4">
+    
+    <a href="../../tags/test/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Test</a>
+    
+</div>
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/java-nio/" class="block">Java Nio</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#test-skeleton">Test skeleton</a></li>
+    <li><a href="#intercepting-api-calls">Intercepting API calls</a></li>
+    <li><a href="#waiting-and-asserting">Waiting and asserting</a></li>
+    <li><a href="#cookie-juggling">Cookie juggling</a></li>
+    <li><a href="#the-whole-thing-put-together">The whole thing put together</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2026 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>
