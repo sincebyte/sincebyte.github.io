@@ -11,7 +11,7 @@
     <lastBuildDate>Thu, 06 Aug 2026 17:09:18 +0800</lastBuildDate>
     <atom:link href="/tags/test/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Practical Cypress E2e</title>
+      <title>My Cypress E2E Test Setup That Actually Works</title>
       <link>/posts/practical-cypress-e2e/</link>
       <pubDate>Thu, 06 Aug 2026 17:09:18 +0800</pubDate>
       <guid>/posts/practical-cypress-e2e/</guid>
