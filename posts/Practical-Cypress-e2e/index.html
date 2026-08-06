@@ -317,19 +317,19 @@
   
 
   <p>I’ve been using Cypress for end-to-end testing on a few projects now, and I keep coming back to the same patterns. This isn’t a comprehensive guide — it’s the subset I actually use, day to day.</p>
-<p><a id="org2ad1bc2"></a></p>
-<h1 id="getting-the-thing-installed">Getting the thing installed</h1>
+<p><a id="org325b0c6"></a></p>
+<h2 id="getting-the-thing-installed">Getting the thing installed</h2>
 <p>My project lives at <code>~/cypress</code>. Two dependencies, that’s it:</p>
 <pre><code>npm install cypress --save-dev
 npm install --save-dev typescript@5.6
 </code></pre>
 <p>TypeScript is there for editor support, not because I write tests in TS. The Cypress type definitions are genuinely useful when you’re writing <code>.js</code> specs in VS Code.</p>
-<p><a id="orgc583486"></a></p>
-<h1 id="launching-tests">Launching tests</h1>
+<p><a id="orgb544994"></a></p>
+<h2 id="launching-tests">Launching tests</h2>
 <p>GUI mode is the default way in. Cypress ships with a browser-based test runner that shows you exactly what’s happening at each step — I still find it more useful than any headless log output.</p>
 <pre><code>npx cypress open
 </code></pre>
-<p><img src="pic202608005859.png" alt="img"><br>
+<p><img src="../../Users/van/org/org-roam/%E5%9B%BE%E7%89%87%E9%99%84%E4%BB%B6/pic202608005859.png" alt="img"><br>
 For CI or when I just want a quick check, headless mode:</p>
 <pre><code># Run everything
 npx cypress run
@@ -341,12 +341,13 @@ npx cypress run --spec &quot;e2e/uap-test/spec-copy-1.cy.js&quot;
 npx cypress run --spec &quot;e2e/uap-test/**/*&quot;
 </code></pre>
 <p>That <code>--spec</code> flag is easy to forget about. I spent way too long running the entire suite before bothering to look it up.<br>
-<img src="%E5%9B%BE%E7%89%87%E9%99%84%E4%BB%B6/pic202608005858.png" alt="img"></p>
-<p><a id="org961b95a"></a></p>
-<h1 id="the-patterns-i-actually-use">The patterns I actually use</h1>
+<img src="../../Users/van/org/org-roam/%E5%9B%BE%E7%89%87%E9%99%84%E4%BB%B6/pic202608005858.png" alt="img"></p>
+<p><a id="orgeea94bc"></a></p>
+<h2 id="the-patterns-i-actually-use">The patterns I actually use</h2>
 <p>Cypress has a ton of features, but here’s what shows up in nearly every spec file I write.</p>
-<p><a id="orgb8ed09e"></a></p>
-<h2 id="test-skeleton">Test skeleton</h2>
+<ol>
+<li>
+<p>Test skeleton</p>
 <p>Three hooks. <code>before</code> runs once before all tests (login, setup). <code>beforeEach</code> resets state between tests. <code>it</code> is the actual test.</p>
 <pre><code>describe('Test suite', () =&gt; {
     before(() =&gt; {
@@ -361,8 +362,9 @@ npx cypress run --spec &quot;e2e/uap-test/**/*&quot;
     it('does something else', () =&gt; { /* ... */ })
 })
 </code></pre>
-<p><a id="org21e48f6"></a></p>
-<h2 id="intercepting-api-calls">Intercepting API calls</h2>
+</li>
+<li>
+<p>Intercepting API calls</p>
 <p><code>cy.intercept</code> does double duty: you can mock responses or just spy on real traffic. I mostly use it for spying.</p>
 <pre><code>// Mock a response entirely
 cy.intercept('GET', '**/login/wechat/configInfo', {
@@ -375,8 +377,9 @@ cy.intercept('POST', '**/login/login.action').as('login')
 cy.intercept('**/api/dailyPapers/page').as('dailyPapers')
 </code></pre>
 <p>The <code>.as()</code> alias is how you reference the intercept later. I’d argue it’s the single most important thing to get right.</p>
-<p><a id="orgd668513"></a></p>
-<h2 id="waiting-and-asserting">Waiting and asserting</h2>
+</li>
+<li>
+<p>Waiting and asserting</p>
 <p>Once you’ve aliased a request, <code>cy.wait</code> blocks until it completes. Then you get the full request/response object to poke at.</p>
 <pre><code>cy.wait('@login').then((interception) =&gt; {
     expect(interception.response.statusCode).to.be.oneOf([200, 303])
@@ -389,8 +392,9 @@ cy.wait('@dailyPapers', { timeout: 20000 }).then((interception) =&gt; {
 })
 </code></pre>
 <p>The timeout is optional. I set it to 20 seconds for slow APIs, but the default of 5 seconds works for most things.</p>
-<p><a id="org473d8a1"></a></p>
-<h2 id="cookie-juggling">Cookie juggling</h2>
+</li>
+<li>
+<p>Cookie juggling</p>
 <p>A common scenario: you log in on one domain, then need to carry those cookies to another. I stash them in an array and replay them in <code>beforeEach</code>.</p>
 <pre><code>const preservedCookies = []
 
@@ -410,8 +414,9 @@ preservedCookies.forEach((c) =&gt; {
 })
 </code></pre>
 <p>This is clunky, but it works. There are probably cleaner ways to handle cross-domain sessions, but I haven’t needed them yet.</p>
-<p><a id="org4cd3f45"></a></p>
-<h2 id="the-whole-thing-put-together">The whole thing put together</h2>
+</li>
+<li>
+<p>The whole thing put together</p>
 <p>Here’s what a real spec ends up looking like:</p>
 <pre><code>const preservedCookies = []
 
@@ -460,8 +465,10 @@ describe('Test suite', () =&gt; {
 })
 </code></pre>
 <p>That <code>cy.on('uncaught:exception', () =&gt; false)</code> line is a hack. The app throws errors that aren’t relevant to the test, and I’d rather suppress them than have the spec fail for the wrong reason. Not proud of it, but it’s pragmatic.</p>
-<p><a id="orgd311e47"></a></p>
-<h1 id="config">Config</h1>
+</li>
+</ol>
+<p><a id="orgf7aa18b"></a></p>
+<h2 id="config">Config</h2>
 <p>My <code>cypress.config.js</code> is minimal. No screenshots, no video — I’m not debugging CI failures from videos, I’m re-running locally.</p>
 <pre><code>const { defineConfig } = require('cypress')
 
@@ -477,8 +484,8 @@ module.exports = defineConfig({
     },
 })
 </code></pre>
-<p><a id="orgf5eb1d8"></a></p>
-<h1 id="viewport-size">Viewport size</h1>
+<p><a id="org0d01195"></a></p>
+<h2 id="viewport-size">Viewport size</h2>
 <p>The default viewport is 1000×660. Fine for most things, but if your app is responsive you’ll want to test at different sizes.</p>
 <p>Set it globally in the config:</p>
 <pre><code>e2e: {
@@ -493,8 +500,8 @@ cy.viewport('ipad-2')        // 768×1024
 cy.viewport('iphone-6')      // 375×667
 </code></pre>
 <p>There’s a long list of presets: <code>macbook-16</code>, <code>macbook-13</code>, <code>macbook-11</code>, <code>ipad-mini</code>, <code>iphone-xr</code>, <code>iphone-x</code>, <code>iphone-6+</code>, <code>iphone-se2</code>, <code>iphone-8</code>, <code>iphone-7</code>, <code>iphone-5</code>, <code>iphone-4</code>, <code>iphone-3</code>, <code>samsung-s10</code>, <code>samsung-note9</code>. You can also pass an orientation: <code>cy.viewport('ipad-2', 'portrait')</code> or <code>cy.viewport('iphone-4', 'landscape')</code>.</p>
-<p><a id="orgdf96f66"></a></p>
-<h1 id="project-structure">Project structure</h1>
+<p><a id="org5206f21"></a></p>
+<h2 id="project-structure">Project structure</h2>
 <pre><code>.
 ├── cypress.config.js
 ├── support/
@@ -577,11 +584,12 @@ cy.viewport('iphone-6')      // 375×667
 >
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#test-skeleton">Test skeleton</a></li>
-    <li><a href="#intercepting-api-calls">Intercepting API calls</a></li>
-    <li><a href="#waiting-and-asserting">Waiting and asserting</a></li>
-    <li><a href="#cookie-juggling">Cookie juggling</a></li>
-    <li><a href="#the-whole-thing-put-together">The whole thing put together</a></li>
+    <li><a href="#getting-the-thing-installed">Getting the thing installed</a></li>
+    <li><a href="#launching-tests">Launching tests</a></li>
+    <li><a href="#the-patterns-i-actually-use">The patterns I actually use</a></li>
+    <li><a href="#config">Config</a></li>
+    <li><a href="#viewport-size">Viewport size</a></li>
+    <li><a href="#project-structure">Project structure</a></li>
   </ul>
 </nav>
 </div>
