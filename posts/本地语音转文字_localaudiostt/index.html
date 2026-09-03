@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>本地语音转文字_LocalAudioSTT | sincebyte</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="../../css/eureka.min.a600ae5c5222567c3e4c9da648e18055528899bea2e88bb7de0ada4df8c00186d9081393c932f33a041c643c7a895db7.css">
+<script defer src="../../js/eureka.min.e8043b71b627e3cfd9b2a5de56adf007f5af83dee672ca0c186aa2e29a10d6f648632064d0c00b2fa4d1b11e0f196af3.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/atom-one-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+<link rel="stylesheet" href="../../css/highlightjs.min.a02d1b7bfa7653e4d7684d8787a2acd5fe733bb02bc51100ed283b052fb81ac1bd98abbcd0af6ad005b66b8f284a3ab2.css" media="print" onload="this.media='all';this.onload=null">
+
+
+<script defer type="text/javascript" src="../../js/fontawesome.min.e8b78e74360719970ff567fa3f7689b0944ee936e5c227067577b0720e367c90aa1fb858e486a4f411be5463f342ee6d.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="../../css/default.css">
+<link rel="preload" href="../../css/jinkai.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/KodeMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../../css/angelina.ttf" as="font" type="font/ttf" crossorigin>
+
+<style>
+  html:not(.fonts-loaded) body {
+    visibility: hidden;
+  }
+</style>
+<script>
+  (function () {
+    var revealed = false;
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      document.documentElement.classList.add("fonts-loaded");
+    }
+
+    setTimeout(reveal, 4000);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(reveal).catch(reveal);
+    } else {
+      reveal();
+    }
+  })();
+</script>
+<noscript><style>html body { visibility: visible !important; }</style></noscript>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JG65ZRWWHN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JG65ZRWWHN');
+</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../images/icon_hu_4f4e55a10d73f6ba.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../images/icon_hu_8190559dabbef89f.png">
+
+<meta name="description"
+  content="https://github.com/sincebyte/LocalAudioSTT 是一个本地的语音转文字（ASR）服务。它把 FunASR(https://github.com/modelscope/FunASR) 的 GGUF 模型跑在 llama.cpp 上，暴露一个 OpenAI 兼容的接口 `POST /v1/audio/transcriptions`。 也就是把本地录音文件转成文字。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"本地语音转文字_LocalAudioSTT",
+      "item":"/posts/%E6%9C%AC%E5%9C%B0%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97_localaudiostt/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/%E6%9C%AC%E5%9C%B0%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97_localaudiostt/"
+    },
+    "headline": "本地语音转文字_LocalAudioSTT | sincebyte","datePublished": "2026-09-03T11:30:51+08:00",
+    "dateModified": "2026-09-03T11:30:51+08:00",
+    "wordCount":  1806 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "WANG Chucheng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003e\u003ca href=\u0022https:\/\/github.com\/sincebyte\/LocalAudioSTT\u0022\u003ehttps:\/\/github.com\/sincebyte\/LocalAudioSTT\u003c\/a\u003e 是一个本地的语音转文字（ASR）服务。它把 FunASR(\u003ca href=\u0022https:\/\/github.com\/modelscope\/FunASR\u0022\u003ehttps:\/\/github.com\/modelscope\/FunASR\u003c\/a\u003e) 的 GGUF 模型跑在 llama.cpp 上，暴露一个 OpenAI 兼容的接口 \u0060POST \/v1\/audio\/transcriptions\u0060。 也就是把本地录音文件转成文字。\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="本地语音转文字_LocalAudioSTT | sincebyte" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/%E6%9C%AC%E5%9C%B0%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97_localaudiostt/" />
+
+
+
+
+<meta property="og:description" content="https://github.com/sincebyte/LocalAudioSTT 是一个本地的语音转文字（ASR）服务。它把 FunASR(https://github.com/modelscope/FunASR) 的 GGUF 模型跑在 llama.cpp 上，暴露一个 OpenAI 兼容的接口 `POST /v1/audio/transcriptions`。 也就是把本地录音文件转成文字。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="sincebyte" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2026-09-03T11:30:51&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2026-09-03T11:30:51&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><link rel="stylesheet" href="../../posts/pagefind/pagefind-ui.css">
+<script src="../../posts/pagefind/pagefind-ui.js" type="module"></script>
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../../" class="me-6 text-primary-text text-xl font-bold">sincebyte</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="../../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+    <div id="search" style="margin-left:20px"> </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({
+            element: "#search",
+            showSubResults: false ,
+            pageSize: 3,
+            showImages: false,
+            bundlePath: "/posts/pagefind/",
+            showEmptyFilters: false,
+            translations: {
+                zero_results: ""
+            },
+        });
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">本地语音转文字_LocalAudioSTT</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2026-09-03</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p><a href="https://github.com/sincebyte/LocalAudioSTT">https://github.com/sincebyte/LocalAudioSTT</a> 是一个本地的语音转文字（ASR）服务。它把 FunASR(<a href="https://github.com/modelscope/FunASR">https://github.com/modelscope/FunASR</a>) 的 GGUF 模型跑在 llama.cpp 上，暴露一个 OpenAI 兼容的接口 `POST /v1/audio/transcriptions`。 也就是把本地录音文件转成文字。</p>
+<h2 id="why">WHY</h2>
+<p>结合FunASR的特点：</p>
+<ul>
+<li><strong><strong>不需要 GPU</strong></strong> ：纯 CPU 推理，Mac 笔记本、Linux 小盒子都能跑</li>
+<li><strong><strong>不需要 Python 运行时</strong></strong> ：推理全部在 C++ 二进制里完成，只有一个很薄的 HTTP 包装层</li>
+<li><strong><strong>数据不出本机</strong></strong> ：录音文件全部在本地处理，不上传任何服务器</li>
+<li><strong><strong>OpenAI 兼容接口</strong></strong> ：OpenChamber、以及任何支持 OpenAI 语音接口的工具， 填个 URL 就能直接用</li>
+<li><strong><strong>常驻模式</strong></strong> 本项目优化补丁，模型只加载一次，处理音频更快</li>
+</ul>
+<p><a id="org652bc59"></a></p>
+<h2 id="下载模型">下载模型</h2>
+<p>本仓库默认跑的是  <strong><strong>Fun-ASR-Nano</strong></strong> （编码器 + Qwen3-0.6B 大语言模型 + FSMN-VAD 前端），模型都已经转换成 GGUF 格式，直接从 HuggingFace 下载 即可，不需要 Python 的深度学习环境。</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">文件</th>
+<th scope="col" class="org-left">说明</th>
+<th scope="col" class="org-left">下载地址（HuggingFace）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>funasr-encoder-f16.gguf</code></td>
+<td class="org-left">SAN-M 音频编码器</td>
+<td class="org-left"><a href="https://huggingface.co/FunAudioLLM/Fun-ASR-Nano-GGUF">https://huggingface.co/FunAudioLLM/Fun-ASR-Nano-GGUF</a></td>
+</tr>
+<tr>
+<td class="org-left"><code>qwen3-0.6b-q5km.gguf</code></td>
+<td class="org-left">Qwen3-0.6B 语言模型（5-bit 量化）</td>
+<td class="org-left">同上，同一仓库</td>
+</tr>
+<tr>
+<td class="org-left"><code>fsmn-vad.gguf</code></td>
+<td class="org-left">语音活动检测（VAD，用于长音频切分）</td>
+<td class="org-left"><a href="https://huggingface.co/FunAudioLLM/fsmn-vad-GGUF">https://huggingface.co/FunAudioLLM/fsmn-vad-GGUF</a></td>
+</tr>
+</tbody>
+</table>
+<p>直接访问上面的 HuggingFace 仓库地址，把对应文件下载到 <code>gguf/</code> 目录即可。</p>
+<p><a id="org9cf23be"></a></p>
+<h2 id="编译">编译</h2>
+<p><code>llama-funasr-cli</code> 需要 <strong><strong>–server 常驻模式</strong></strong> 才能让服务只加载一次模型、常驻 内存处理请求。 <strong><strong>官方预编译的二进制不带这个参数</strong></strong> ，所以本方案不下载官方<br>
+二进制，而是 <strong><strong>直接从源码编译</strong></strong> （编译脚本会自动打好下面的加速补丁）。 编译产物不随本仓库 git 分发（已在 .gitignore 排除），换机器后重新编译一次即可。</p>
+<p><strong>需要安装的前置软件</strong></p>
+<p>编译前先确认下面几个软件已经装好：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">前置软件</th>
+<th scope="col" class="org-left">作用</th>
+<th scope="col" class="org-left">macOS 安装方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">git</td>
+<td class="org-left">拉取 FunASR 源码</td>
+<td class="org-left">随 Xcode 命令行工具自带；或 <code>brew install git</code></td>
+</tr>
+<tr>
+<td class="org-left">cmake</td>
+<td class="org-left">配置并编译（会自动拉取 llama.cpp 并构建）</td>
+<td class="org-left"><code>brew install cmake</code></td>
+</tr>
+<tr>
+<td class="org-left">C/C++ 工具链（clang/make）</td>
+<td class="org-left">编译 C++ 源码</td>
+<td class="org-left"><code>xcode-select --install</code></td>
+</tr>
+</tbody>
+</table>
+<p>装完后验证都能用：</p>
+<pre><code>git --version
+cmake --version
+clang --version
+</code></pre>
+<p><strong>补丁是做什么的</strong></p>
+<p>官方 CLI 是“一次性”版本：转完一个音频就退出，每个请求都要重新加载约 1GB 的模型。<br>
+本仓库默认的 <strong><strong>常驻模式</strong></strong> （`start-funasr-server.sh` 拉起一个 `llama-funasr-cli –server` worker，模型只加载一次，处理音频更快）需要 <code>--server</code> 参数，官方二进制不带它，所以仓库放了补丁：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">文件</th>
+<th scope="col" class="org-left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>patches/llama-funasr-cli.server-mode.patch</code></td>
+<td class="org-left">给官方 CLI 源码新增 <code>--server</code> 常驻模式参数（可重复打，幂等）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>怎么编译并打好补丁</strong></p>
+<p>用仓库自带的一键脚本（自动完成：拉源码 → 打补丁 → 编译 →  得到 <code>llama-funasr-cli</code> ）：</p>
+<pre><code>./build-funasr-cli-server.sh --install
+</code></pre>
+<p>验证补丁是否打上（编译成功的二进制在 –help 里应能看到 –server）：</p>
+<pre><code>./llama-funasr-cli --help 2&gt;&amp;1 | grep -- --server
+</code></pre>
+<p><a id="org376b8f9"></a></p>
+<h2 id="启动">启动</h2>
+<p>确保以下文件存在：</p>
+<ul>
+<li><code>llama-funasr-cli</code> ← 由上一步编译生成（不随 git 分发）</li>
+<li><code>gguf/qwen3-0.6b-q5km.gguf</code></li>
+<li><code>gguf/funasr-encoder-f16.gguf</code></li>
+<li><code>gguf/fsmn-vad.gguf</code></li>
+</ul>
+<p>缺执行文件的话，先按上节「编译 llama-funasr-cli」编译；缺模型的话，直接按 上文地址从 HuggingFace 下载到 <code>gguf/</code> 目录。</p>
+<p>一键启动（默认端口 8001，会先杀掉占用 8001 的旧进程再启动）。脚本把服务 放到 <strong><strong>后台</strong></strong> 运行，打印一段日志后立即退出，并报告 <strong><strong>启动成功/失败</strong></strong> ：</p>
+<pre><code>./start-funasr-server.sh
+</code></pre>
+<ul>
+<li>启动成功 → 输出 <code>启动成功 ✓  http://127.0.0.1:8001 (PID xxx)</code> ，脚本退出码 0</li>
+<li>启动失败 → 输出 <code>启动失败 ✗</code> 并附日志尾部，脚本退出码 1</li>
+<li>服务日志写在 <code>funasr-server/server.log</code></li>
+</ul>
+<p>验证是否启动成功：</p>
+<pre><code>curl http://127.0.0.1:8001/health          # 期望: {&quot;status&quot;: &quot;ok&quot;}
+</code></pre>
+<p>也可以直接命令行测试转写：</p>
+<pre><code>curl http://127.0.0.1:8001/v1/audio/transcriptions \
+  -F file=@/tmp/xxx.wav -F model=funasr-gguf
+</code></pre>
+<p>如需改端口/模型，用环境变量，例如 <code>FUNASR_PORT=9000 ./start-funasr-server.sh</code></p>
+<p>停止服务：</p>
+<pre><code>kill &lt;脚本输出的 PID&gt;
+</code></pre>
+<p><a id="orgc3c4564"></a></p>
+<h2 id="在-openchamber-里使用">在 OpenChamber 里使用</h2>
+<ol>
+<li>先按上面步骤启动服务。</li>
+<li>打开 OpenChamber → 设置（Settings）→ 语音（Voice）→ 语音输入。</li>
+<li>提供者（Provider）选择 <strong><strong>服务器 / Server</strong></strong> （即 OpenAI 兼容）。</li>
+<li>填写以下三项：</li>
+</ol>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">字段</th>
+<th scope="col" class="org-left">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">服务器 URL</td>
+<td class="org-left"><code>http://127.0.0.1:8001/v1</code></td>
+</tr>
+<tr>
+<td class="org-left">模型（Model）</td>
+<td class="org-left">#ERROR</td>
+</tr>
+<tr>
+<td class="org-left">API Key</td>
+<td class="org-left">留空或随便填，如 <code>not-required</code></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>语言（Language）留空即可（自动检测），或填 <code>zh</code> / <code>en</code></li>
+<li>保存后，对着输入框说话，文字就会插入到对话里。</li>
+</ol>
+<p>说明：OpenChamber 会把录音转成 WAV 并 POST 到<br>
+<code>服务器 URL + /audio/transcriptions</code> ，所以填 <code>http://127.0.0.1:8001/v1</code> （ <code>127.0.0.1</code> 是允许的本地地址）。</p>
+<p><a id="org62e966b"></a></p>
+<h2 id="在-debuff-里使用">在 debuff 里使用</h2>
+<p>debuff 要求填 <strong><strong>完整的转写接口地址</strong></strong> （不能只填到 <code>/v1</code> ）。此时把下面 这个地址直接填成 URL：</p>
+<ul>
+<li>URL / 接口地址： <code>http://127.0.0.1:8001/v1/audio/transcriptions</code></li>
+<li>模型（Model）： <code>funasr-gguf</code> （任意字符串，服务端不校验）</li>
+<li>API Key：留空或随便填，如 <code>not-required</code></li>
+</ul>
+<p><a id="org2444dd0"></a></p>
+<h2 id="性能测试">性能测试</h2>
+<p>测试机器：MacBook Pro 14 英寸，Apple M1 Pro（8 性能核 + 2 能效核）， 16GB 内存，macOS 26.6.2。</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">项目</th>
+<th scope="col" class="org-left">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">服务常驻内存（Python 包装进程，空闲）</td>
+<td class="org-left">约 13~23 MB</td>
+</tr>
+<tr>
+<td class="org-left">单次转写时推理进程峰值内存</td>
+<td class="org-left">约 1.56 GB</td>
+</tr>
+<tr>
+<td class="org-left">模型磁盘占用</td>
+<td class="org-left">编码器 469 MB + Qwen3 551 MB + VAD 1.7 MB ≈ 1.0 GB</td>
+</tr>
+<tr>
+<td class="org-left">是否需要 GPU</td>
+<td class="org-left">不需要</td>
+</tr>
+<tr>
+<td class="org-left">转写速度（10 秒音频，常驻模式，模型已加载）</td>
+<td class="org-left">约 0.5 秒</td>
+</tr>
+<tr>
+<td class="org-left">转写速度（20 秒音频，常驻模式，模型已加载）</td>
+<td class="org-left">约 1.0 秒</td>
+</tr>
+<tr>
+<td class="org-left">转写速度（50 秒音频，常驻模式，模型已加载）</td>
+<td class="org-left">约 3.5 秒</td>
+</tr>
+</tbody>
+</table>
+<p>服务默认以 <strong><strong>常驻模式</strong></strong> 运行：启动时加载一次模型（约 1~1.5 秒），之后每个请求 直接复用内存里的模型，不再重新加载。实测耗时：</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col  class="org-left" />
+<col  class="org-left" />
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">音频时长</th>
+<th scope="col" class="org-left">常驻模式</th>
+<th scope="col" class="org-left">每请求拉起子进程（旧模式）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">10 秒</td>
+<td class="org-left">~0.5 秒</td>
+<td class="org-left">~1.4~2.5 秒</td>
+</tr>
+<tr>
+<td class="org-left">20 秒</td>
+<td class="org-left">~1.0 秒</td>
+<td class="org-left">~1.8~2.5 秒</td>
+</tr>
+<tr>
+<td class="org-left">30 秒</td>
+<td class="org-left">~1.5 秒</td>
+<td class="org-left">~2.5~2.9 秒</td>
+</tr>
+<tr>
+<td class="org-left">40 秒</td>
+<td class="org-left">~3.1 秒</td>
+<td class="org-left">~4.0~4.4 秒</td>
+</tr>
+<tr>
+<td class="org-left">50 秒</td>
+<td class="org-left">~3.5 秒</td>
+<td class="org-left">~4.5~5.0 秒</td>
+</tr>
+</tbody>
+</table>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="../../posts/practical-cypress-e2e-test/" class="block">My Cypress E2E Test Setup That Actually Works</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+  <script id="utterances" src="https://utteranc.es/client.js"
+            issue-term=title
+            repo=sincebyte/sincebyte.github.io
+              theme=preferred-color-scheme
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    if (storageColorScheme == "Light") {
+      document.getElementById('utterances').setAttribute('theme', 'github-light')
+    } else if (storageColorScheme == "Dark") {
+      document.getElementById('utterances').setAttribute('theme', 'github-dark')
+    }
+</script>
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">WHY</a></li>
+    <li><a href="#下载模型">下载模型</a></li>
+    <li><a href="#编译">编译</a></li>
+    <li><a href="#启动">启动</a></li>
+    <li><a href="#在-openchamber-里使用">在 OpenChamber 里使用</a></li>
+    <li><a href="#在-debuff-里使用">在 debuff 里使用</a></li>
+    <li><a href="#性能测试">性能测试</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2026 sincebyte
+ &middot;  Powered by the Neo-Emacs</p>
+</div>
+</div>
+    </footer>
+  </body>
+</html>

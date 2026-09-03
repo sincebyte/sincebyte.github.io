@@ -8,8 +8,15 @@
     <language>en</language>
     <copyright>&amp;copy; 2026 sincebyte
 </copyright>
-    <lastBuildDate>Thu, 06 Aug 2026 17:09:18 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 11:30:51 +0800</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>本地语音转文字_LocalAudioSTT</title>
+      <link>/posts/%E6%9C%AC%E5%9C%B0%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97_localaudiostt/</link>
+      <pubDate>Thu, 03 Sep 2026 11:30:51 +0800</pubDate>
+      <guid>/posts/%E6%9C%AC%E5%9C%B0%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97_localaudiostt/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/sincebyte/LocalAudioSTT&#34;&gt;https://github.com/sincebyte/LocalAudioSTT&lt;/a&gt; 是一个本地的语音转文字（ASR）服务。它把 FunASR(&lt;a href=&#34;https://github.com/modelscope/FunASR&#34;&gt;https://github.com/modelscope/FunASR&lt;/a&gt;) 的 GGUF 模型跑在 llama.cpp 上，暴露一个 OpenAI 兼容的接口 `POST /v1/audio/transcriptions`。 也就是把本地录音文件转成文字。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>My Cypress E2E Test Setup That Actually Works</title>
       <link>/posts/practical-cypress-e2e-test/</link>
